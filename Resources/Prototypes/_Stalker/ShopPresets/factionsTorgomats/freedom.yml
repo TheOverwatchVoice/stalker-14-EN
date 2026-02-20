@@ -66,6 +66,24 @@
     MutantPartPseudogiantHeart: 9360
     MutantPartZombieHand: 760
 
+    # New
+    
+    ZoneArtifactAccumulator: 1260
+    ZoneArtifactDiamond: 4320
+    ZoneArtifactCharger: 4320
+    ZoneArtifactToxic: 1260
+    ZoneArtifactCytoplasm: 1080
+    ZoneArtifactCompass: 4320
+    ZoneArtifactCrucifix: 8640
+    ZoneArtifactThorn: 1710
+    ZoneArtifactArf: 1260
+    ZoneArtifactDarkCube: 8640
+    ZoneArtifactBunch: 1710
+    ZoneArtifactRock: 1710
+    ZoneArtifactSun: 4320
+    ZoneArtifactRoot: 4320
+    ZoneArtifactConflagration: 1710
+
         # Mutant parts EN
 
     MutantPartCatGland: 115
@@ -147,7 +165,7 @@
       ClothingHeadHelmetLight: 200
       ClothingHeadHelmetInfantry: 600 # T2 - PVP
       ClothingHeadHelmetVityaz1C: 2000 # T2 - PVE
-      ClothingHeadAssaultHelmet: 3000
+      ClothingHeadAssaultHelmetFreedom: 3000
       # OuterClothing #
       ClothingOuterJacketFreedom: 70 # T1 - PVE
       STClothingOuterArmorLightPlateVestBaseFreedom: 900 # T2 - PvP
@@ -197,6 +215,10 @@
   - name: shop-category-utilities
     priority: 8
     items:
+      STElasticRubberRed: 15
+      STElasticRubberGreen: 15
+      STElasticRubberBlue: 15
+      STRadioHeadset: 150
       STSkinsKitFreedom: 500
       STCombatKnife: 25
       BoxZiptie: 50

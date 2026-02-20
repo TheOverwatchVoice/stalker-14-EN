@@ -80,3 +80,9 @@
       - id: ZoneArtifactSpring
         tier: 5
         ratio: 1
+      - id: ZoneArtifactCompass
+        tier: 4
+        ratio: 1
+      - id: ZoneArtifactCrucifix
+        tier: 5
+        ratio: 3

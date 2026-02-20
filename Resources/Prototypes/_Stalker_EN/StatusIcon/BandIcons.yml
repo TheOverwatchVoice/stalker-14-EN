@@ -1,0 +1,8 @@
+﻿- type: jobIcon
+  id: rookie
+  locationPreference: Right
+  isShaded: true
+  icon:
+    sprite: /Textures/_Stalker_EN/Icons/Patches/band.rsi
+    hideOnStealth: true
+    state: rookie

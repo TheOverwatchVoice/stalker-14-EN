@@ -37,7 +37,7 @@
   categories:
     - name: Персональная категория
       items:
-        STWeaponSniperSVDSGrass: 15000
+        STWeaponSniperSVDSGrass: 12000
 
 - type: personalShop
   id: PersonalKLeymiShop
@@ -49,6 +49,7 @@
         13x108Mag10: 390
         13x108FMJBox: 2500
         13x108HPBox: 1200
+        13x108PCBox: 5000
 
 - type: personalShop
   id: PersonalQEWAEWA2Shop
@@ -205,3 +206,11 @@
   - name: Персональная категория
     items:
       STWeaponRifleSCARL: 3500
+
+- type: personalShop
+  id: PersonalHLoRka_202Shop
+  username: HLoRka_202
+  categories:
+  - name: Персональная категория
+    items:
+      STWeaponSniperSVUTop: 12000

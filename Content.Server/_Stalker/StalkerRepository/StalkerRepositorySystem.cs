@@ -19,6 +19,7 @@ using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
@@ -39,6 +40,8 @@ using RepositoryEjectMessage = Content.Shared._Stalker.StalkerRepository.Reposit
 using Content.Server._Stalker.Sponsors.SponsorManager;
 using Content.Shared.Actions.Components;
 using Content.Shared.StatusEffectNew.Components;
+using Content.Server._Stalker_EN.Loadout;
+using Content.Shared._Stalker_EN.Loadout;
 using Content.Shared.Verbs;
 
 namespace Content.Server._Stalker.StalkerRepository;
@@ -59,6 +62,7 @@ public sealed class StalkerRepositorySystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!; // for searching by ckey
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // for checks for whitelist
     [Dependency] private readonly ISharedPlayerManager _player = default!; // for getting session by mindComp
+    [Dependency] private readonly LoadoutSystem _loadoutSystem = default!; // for loadout state updates
     private ISawmill _sawmill = default!;
 
     // caching new records in database to get them later inside sponsors stuff
@@ -86,9 +90,21 @@ public sealed class StalkerRepositorySystem : EntitySystem
         SubscribeLocalEvent<StorageAfterRemoveItemEvent>(OnAfterRemove);
         SubscribeLocalEvent<StorageAfterInsertItemIntoLocationEvent>(OnAfterInsert);
 
+        // loadout operations - refresh UI after save/load
+        SubscribeLocalEvent<StalkerRepositoryComponent, LoadoutOperationCompletedEvent>(OnLoadoutOperationCompleted);
 
         _sawmill = Logger.GetSawmill("repository");
     }
+
+    private void OnLoadoutOperationCompleted(EntityUid uid, StalkerRepositoryComponent component, ref LoadoutOperationCompletedEvent args)
+    {
+        // First update repository UI (stash contents changed)
+        UpdateUiState(args.Actor, args.Repository, component);
+
+        // Then update loadout UI - must be LAST to not be overwritten by repository state
+        _loadoutSystem.SendLoadoutStateUpdate(args.Repository, component, args.Actor);
+    }
+
 
     #endregion
 
@@ -202,6 +218,8 @@ public sealed class StalkerRepositorySystem : EntitySystem
     private void OnBeforeActivate(EntityUid uid, StalkerRepositoryComponent component, BeforeActivatableUIOpenEvent args)
     {
         UpdateUiState(args.User, uid, component);
+        // Note: Loadout state is sent on demand when user opens the loadout menu,
+        // not here, to avoid race conditions with the async database call.
     }
 
     private void UpdateUiState(EntityUid? user, EntityUid repository, StalkerRepositoryComponent? component = null)
@@ -239,6 +257,13 @@ public sealed class StalkerRepositorySystem : EntitySystem
         if (msg.Actor == null || _currentlyProcessingEjects.Contains(msg.Actor))
             return;
 
+        // Block operations during loadout processing to prevent race conditions
+        if (component.LoadoutOperationInProgress)
+        {
+            _sawmill.Debug($"Blocked eject during loadout operation for {Name(msg.Actor)}");
+            return;
+        }
+
         _currentlyProcessingEjects.Add(msg.Actor);
 
         try
@@ -273,6 +298,7 @@ public sealed class StalkerRepositorySystem : EntitySystem
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"Player {Name(msg.Actor):user} ejected {msg.Count} {msg.Item.Name} from repository");
                 _stalkerStorageSystem.SaveStorage(component);
                 UpdateUiState(msg.Actor, GetEntity(msg.Entity), component);
+                _loadoutSystem.SendLoadoutStateUpdate(GetEntity(msg.Entity), component, msg.Actor);
             }
         }
         finally
@@ -288,6 +314,14 @@ public sealed class StalkerRepositorySystem : EntitySystem
     {
         if (msg.Actor == null)
             return;
+
+        // Block operations during loadout processing to prevent race conditions
+        if (component.LoadoutOperationInProgress)
+        {
+            _sawmill.Debug($"Blocked inject during loadout operation for {Name(msg.Actor)}");
+            return;
+        }
+
         // Check for weight is valid
         var sum = component.CurrentWeight + msg.Item.Weight;
         if (Math.Round(sum, 2) > component.MaxWeight)
@@ -313,6 +347,7 @@ public sealed class StalkerRepositorySystem : EntitySystem
         _stalkerStorageSystem.SaveStorage(component);
         RaiseLocalEvent(msg.Actor, new RepositoryItemInjectedEvent(uid, msg.Item));
         UpdateUiState(msg.Actor, GetEntity(msg.Entity), component);
+        _loadoutSystem.SendLoadoutStateUpdate(uid, component, msg.Actor);
     }
 
     private void OnInteractUsing(EntityUid uid, StalkerRepositoryComponent component, InteractUsingEvent args)
@@ -337,6 +372,10 @@ public sealed class StalkerRepositorySystem : EntitySystem
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"Player {Name(args.User):user} inserted 1 {Name(args.Used)} into repository");
         _stalkerStorageSystem.SaveStorage(component);
         RaiseLocalEvent(args.User, new RepositoryItemInjectedEvent(args.Target, itemInfo));
+        _loadoutSystem.SendLoadoutStateUpdate(uid, component, args.User);
+
+        // Mark as handled BEFORE deletion - prevents interaction system from continuing with deleted entity
+        args.Handled = true;
 
         // removing by hashset we got from above
         // i had to move it here because of references
@@ -655,7 +694,9 @@ public sealed class StalkerRepositorySystem : EntitySystem
                     HasComp<CartridgeComponent>(element) ||
                     HasComp<VirtualItemComponent>(element) ||
                     HasComp<MindContainerComponent>(element) || // Do not insert alive objects(mice, etc.)
-                    HasComp<StatusEffectComponent>(element)) // Don't look at status effect entities
+                    HasComp<StatusEffectComponent>(element) || // Don't look at status effect entities
+                    HasComp<UnremoveableComponent>(element) ||
+                    HasComp<SelfUnremovableClothingComponent>(element))
                     continue;
                 // recursively call the same method and add its result to our
                 if (TryComp<ContainerManagerComponent>(element, out var manager))
@@ -723,7 +764,9 @@ public sealed class StalkerRepositorySystem : EntitySystem
                 if (HasComp<SolutionComponent>(item) || // Do not insert solutions
                     HasComp<InstantActionComponent>(item) || // Do not insert actions
                     HasComp<CartridgeComponent>(item) && !_tags.HasTag(item, "Dogtag") ||
-                    HasComp<BallisticAmmoProviderComponent>(playerItem) && _tags.HasTag(item, "Cartridge"))  // Do not insert program cartridges
+                    HasComp<BallisticAmmoProviderComponent>(playerItem) && _tags.HasTag(item, "Cartridge") || // Do not insert program cartridges
+                    HasComp<UnremoveableComponent>(item) ||
+                    HasComp<SelfUnremovableClothingComponent>(item))
                     continue;
 
                 items.Add(item);
@@ -837,6 +880,24 @@ public sealed class StalkerRepositorySystem : EntitySystem
         return allowInsert;
     }
 
+    /// <summary>
+    /// Checks if an item can be stored in the repository.
+    /// Validates unremovable components and whitelist. Does NOT check weight.
+    /// </summary>
+    public bool CanStoreItem(Entity<StalkerRepositoryComponent> repository, EntityUid item)
+    {
+        // Check unremovable components (same check as nested items in InsertToRepositoryRecursively)
+        if (HasComp<UnremoveableComponent>(item) ||
+            HasComp<SelfUnremovableClothingComponent>(item))
+            return false;
+
+        // Check whitelist if repository has one
+        if (repository.Comp.Whitelist != null &&
+            !_whitelistSystem.IsWhitelistPass(repository.Comp.Whitelist, item))
+            return false;
+
+        return true;
+    }
 
     /// <summary>
     /// Method to insert ONE item into repository
@@ -1027,4 +1088,36 @@ public sealed class StalkerRepositorySystem : EntitySystem
         }
     }
 #endregion
+
+    #region PublicHelpers
+
+    /// <summary>
+    /// Inserts a single equipped item into the repository using the proven insertion logic.
+    /// Used by LoadoutSystem's quick store feature.
+    /// </summary>
+    public bool InsertEquippedItem(EntityUid user, Entity<StalkerRepositoryComponent> repository, EntityUid item)
+    {
+        // Pre-validate: check unremovable and whitelist
+        if (!CanStoreItem(repository, item))
+            return false;
+
+        var itemInfo = GenerateItemInfo(item, true);
+
+        // Check weight limit
+        var newWeight = repository.Comp.CurrentWeight + itemInfo.SumWeight;
+        if (Math.Round(newWeight, 2) > repository.Comp.MaxWeight)
+            return false;
+
+        // Use proven recursive insertion logic
+        var toDelete = InsertToRepositoryRecursively(user, repository, itemInfo);
+        if (toDelete == null)
+            return false;
+
+        // Delete the original item
+        RemoveItems(user, toDelete.Value.Item1, toDelete.Value.Item2);
+        return true;
+    }
+
+    #endregion
+
 }

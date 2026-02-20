@@ -42,7 +42,24 @@
     # Acidic group - 2
     ZoneArtifactPellicle: 660
     ZoneArtifactBaloon: 4320
-
+    
+    # New
+    
+    ZoneArtifactAccumulator: 840
+    ZoneArtifactDiamond: 2880
+    ZoneArtifactCharger: 2880
+    ZoneArtifactToxic: 840
+    ZoneArtifactCytoplasm: 720
+    ZoneArtifactCompass: 2880
+    ZoneArtifactCrucifix: 5760
+    ZoneArtifactThorn: 1140
+    ZoneArtifactArf: 840
+    ZoneArtifactDarkCube: 5760
+    ZoneArtifactBunch: 1140
+    ZoneArtifactRock: 1140
+    ZoneArtifactSun: 2880
+    ZoneArtifactRoot: 2880
+    ZoneArtifactConflagration: 1140
     # Mutant parts
 
     #Boars -------- Health * T * 0.45
@@ -93,8 +110,8 @@
       # Smg
       STWeaponSMGMP5: 2500
       STWeaponSMGPP91: 2000
-      STWeaponSMGStalkerCP2Veresk: 4000
       # Other
+      STMetroWeaponRifleVSV: 2500
       STWeaponRifleGalatz: 3500
       STWeaponRevolverSWPC325TR: 140
       STWeaponRevolverChiappaRhino60DS: 1100
@@ -188,6 +205,10 @@
   - name: shop-category-utilities
     priority: 8
     items:
+      STElasticRubberRed: 15
+      STElasticRubberGreen: 15
+      STElasticRubberBlue: 15      
+      STRadioHeadset: 150
       ToolkitTearOne: 35000
       CraftSaw: 20000
       STCombatKnife: 25

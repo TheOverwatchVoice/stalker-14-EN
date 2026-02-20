@@ -4,7 +4,12 @@
   id: STBaseWeaponRifleM4
   components:
   - type: STWeight
-    self: 2.8
+    self: 3.5
+  - type: PullDoAfter
+    pullTime: 3.5
+  - type: GunWieldBonus
+    minAngle: -45
+    maxAngle: -40
   - type: Item
     sprite: _Stalker/Objects/Weapons/Guns/Rifles/m4.rsi
   - type: Sprite
@@ -13,17 +18,18 @@
     sprite: _Stalker/Objects/Weapons/Guns/Rifles/m4.rsi
     equipDelay: 2
   - type: Gun
-    fireRate: 6.5
     soundGunshot:
       path: /Audio/_Stalker/Effects/Guns/m4.ogg
       params:
         volume: -2
-    minAngle: 52
-    maxAngle: 95
-    angleIncrease: 1.33
+    minAngle: 50
+    maxAngle: 85
+    fireRate: 6
+    angleIncrease: 1.5
+    angleDecay: 5.5
+    projectileSpeed: 60
     selectedMode: FullAuto
     availableModes:
-    - Burst
     - SemiAuto
     - FullAuto
   - type: ContainerContainer
@@ -72,7 +78,7 @@
   - type: STWeaponDamageFalloff
     falloffMultiplier: 0.8
   - type: STWeaponAccuracy
-    accuracyMultiplier: 1.45
+    accuracyMultiplier: 1.46
 
 - type: entity
   parent: STBaseWeaponRifleM4
@@ -88,7 +94,12 @@
   description: German M4 upgrade with G36's gas system. Considered a weapon of true professionals in the Zone - silent and lethal. Rumored to use special armor-piercing rounds.
   components:
   - type: STWeight
-    self: 3.8
+    self: 3
+  - type: PullDoAfter
+    pullTime: 3
+  - type: GunWieldBonus
+    minAngle: -48
+    maxAngle: -50
   - type: Item
     sprite: _Stalker/Objects/Weapons/Guns/Rifles/hk416.rsi
   - type: Sprite
@@ -96,18 +107,20 @@
   - type: Clothing
     sprite: _Stalker/Objects/Weapons/Guns/Rifles/hk416.rsi
   - type: Gun
-    fireRate: 7.5
     soundGunshot:
       path: /Audio/_Stalker/Effects/Guns/m4.ogg
       params:
         volume: -2
     minAngle: 50
-    maxAngle: 90
-    angleIncrease: 1.5
+    maxAngle: 95
+    fireRate: 8
+    angleIncrease: 1.2
+    angleDecay: 6
+    projectileSpeed: 60
   - type: STWeaponDamageFalloff
-    falloffMultiplier: 0.8
+    falloffMultiplier: 0.7
   - type: STWeaponAccuracy
-    accuracyMultiplier: 1.5
+    accuracyMultiplier: 1.46
 
 - type: entity
   parent: STBaseWeaponRifleM4
@@ -115,6 +128,13 @@
   name: LR-300
   description: Лёгкая винтовка с дальностью эффективного огня до 300 метров. Благодаря исключительно ровному спуску, высокой эргономике и небольшому весу данное оружие отличается высокой точностью боя, хотя высокая чувствительность к загрязнению делает её не всегда пригодной для использования в сложных полевых условиях.
   components:
+  - type: STWeight
+    self: 3.3
+  - type: PullDoAfter
+    pullTime: 2
+  - type: GunWieldBonus
+    minAngle: -45
+    maxAngle: -50
   - type: Item
     sprite: _Stalker/Objects/Weapons/Guns/Rifles/lr-300.rsi
   - type: Sprite
@@ -124,9 +144,23 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Stalker/Effects/Guns/t_lr300_shot.ogg
+    minAngle: 45
+    maxAngle: 85
+    fireRate: 7
+    angleIncrease: 1.3
+    angleDecay: 7
+    projectileSpeed: 60
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: STWeaponDamageFalloff
+    falloffMultiplier: 0.8
+  - type: STWeaponAccuracy
+    accuracyMultiplier: 1.45
 
 - type: entity
-  parent: STBaseWeaponRifleM4
+  parent: STWeaponRifleLR300v1
   id: STWeaponRifleLR300v2
   name: LR-300
   description: Новая ступень в развитии семейства знаменитой М-16. Благодаря исключительно ровному спуску, высокой эргономике и небольшому весу данное оружие отличается высокой точностью боя, хотя высокая чувствительность к загрязнению делает его малопригодным для использования в сложных условиях.
@@ -149,7 +183,12 @@
   description: Belgian battle rifle chambered in 5.56 NATO. Rare in the Zone, mostly used by western mercenaries. Powerful but maintenance-heavy weapon.
   components:
   - type: STWeight
-    self: 3.8
+    self: 3.2
+  - type: PullDoAfter
+    pullTime: 4
+  - type: GunWieldBonus
+    minAngle: -45
+    maxAngle: -40
   - type: Item
     sprite: _Stalker/Objects/Weapons/Guns/Rifles/_Skins/scar_l.rsi
   - type: Sprite
@@ -157,15 +196,21 @@
   - type: Clothing
     sprite: _Stalker/Objects/Weapons/Guns/Rifles/_Skins/scar_l.rsi
   - type: Gun
-    fireRate: 7
     soundGunshot:
       path: /Audio/_Stalker/Effects/Guns/scar.ogg
       params:
         volume: -2
-    minAngle: 40
-    maxAngle: 80
-    angleIncrease: 1.2
+    minAngle: 45
+    maxAngle: 100
+    fireRate: 6.5
+    angleIncrease: 1.65
+    angleDecay: 5.5
+    projectileSpeed: 60
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
   - type: STWeaponDamageFalloff
-    falloffMultiplier: 0.8
+    falloffMultiplier: 0.7
   - type: STWeaponAccuracy
-    accuracyMultiplier: 1.5
+    accuracyMultiplier: 1.45

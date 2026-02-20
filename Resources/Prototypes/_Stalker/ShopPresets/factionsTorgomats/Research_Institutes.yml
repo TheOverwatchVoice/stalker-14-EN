@@ -62,6 +62,22 @@
     MutantPartPseudogiantHeart: 14040
     MutantPartZombieHand: 660
 
+    ZoneArtifactAccumulator: 1176
+    ZoneArtifactDiamond: 4032
+    ZoneArtifactCharger: 4032
+    ZoneArtifactToxic: 1176
+    ZoneArtifactCytoplasm: 1008
+    ZoneArtifactCompass: 4032
+    ZoneArtifactCrucifix: 8064
+    ZoneArtifactThorn: 1596
+    ZoneArtifactArf: 1176
+    ZoneArtifactDarkCube: 8064
+    ZoneArtifactBunch: 1596
+    ZoneArtifactRock: 1596
+    ZoneArtifactSun: 4032
+    ZoneArtifactRoot: 4032
+    ZoneArtifactConflagration: 1596
+
     # Mutant parts EN
 
     MutantPartCatGland: 100
@@ -77,10 +93,11 @@
     items:
       # Melee
       STCombatKnife: 10
+      HuntingKnife: 150
       # Guns
       WeaponPistolStalkerGlock: 200
       STWeaponShotgunTOZ34: 150
-      STWeaponRevolverRugerRedhawk: 750
+      STWeaponRevolverRugerRedhawk: 2750
       STWeaponShotgunSPAS: 1350
       STWeaponRevolverSWModel625: 1650
       STWeaponRifleAKS74U: 1300
@@ -109,11 +126,17 @@
       919PSOGJBox: 75
       919PSTBox: 180
       919RIPBox: 100
+      918SP7Box: 100
+      918PGJBox: 75
+      918PSTBox: 180
       45ACPRIPBox: 150
       45ACPLFMJBox: 100
       45ACPMFMJBox: 250
       6mmBuckshotBox: 115
       7mmBuckshotBox: 45
+      8mmBuckshotBox: 420
+      MagazineBoxRemingtonMagnum: 320
+      MagazineBoxRemingtonMagnumAP: 520
       545HPBox: 200
       545FMJBox: 170
       545PCBox: 2000
@@ -137,9 +160,10 @@
       ClothingOuterArmorSSP24Sapfire: 4225
       ClothingOuterArmorSevaSciWhite: 4000
       ClothingOuterArmorSSP99: 4100
+      ClothingOuterArmorSSP24Ruby: 4100
       ClothingOuterArmorUzk5: 5500
       STClothingNeckExoskeletonSci: 8000
-
+      STClothingOuterArmorVeryHeavySci: 8000
   - name: shop-category-storage-and-containers
     priority: 5
     items:
@@ -174,7 +198,9 @@
       ZoneArtifactDetectorHunter: 100 # T2
       ZoneArtifactDetectorResponse: 700 # T2
       ZoneArtifactDetectorSpruce: 3200 # T2
+      Veles: 6200 # T3
       ZoneArtifactDetectorBarracuda: 5500 # T3
+      DetectorSvarogBlueprint: 5500
       #RP Shit
       BaseMachineAnomalyDestructorFolded: 500
       BaseMachineAnomalyDestructorFolded1: 500
@@ -184,6 +210,10 @@
   - name: shop-category-utilities
     priority: 8
     items:
+      STElasticRubberRed: 15
+      STElasticRubberGreen: 15
+      STElasticRubberBlue: 15
+      STRadioHeadset: 150
       ToolkitTearTwo: 5000
       STCombatKnife: 25
       BoxZiptie: 50

@@ -1,5 +1,3 @@
-
-
 - type: entity
   abstract: true
   parent: STBaseWeaponShotgun
@@ -7,6 +5,11 @@
   components:
   - type: STWeight
     self: 3.2
+  - type: PullDoAfter
+    pullTime: 2
+  - type: GunWieldBonus
+    minAngle: -50
+    maxAngle: -50
   - type: Sprite
     sprite: _Stalker/Objects/Weapons/Guns/Shotguns/toz/toz-34.rsi
   - type: Clothing
@@ -20,16 +23,21 @@
   - type: Gun
     minAngle: 60
     maxAngle: 70
+    fireRate: 7
     angleIncrease: 10
     angleDecay: 50
-    fireRate: 7
+    projectileSpeed: 50
+  - type: STWeaponDamageFalloff
+    falloffMultiplier: 0.8
+  - type: STWeaponAccuracy
+    accuracyMultiplier: 1.15
 
 - type: entity
   parent: STBaseWeaponShotgunTOZ34
   id: STWeaponShotgunTOZ34
   name: TOZ-34
   description: Soviet double-barreled shotgun with vertical barrel arrangement. Prized in the Zone for its reliability and powerful stopping effect against mutants.
- 
+
 - type: entity
   parent: STBaseWeaponShotgunTOZ34
   id: STWeaponShotgunTOZ54

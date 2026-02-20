@@ -180,3 +180,14 @@
     sprite: _Stalker/Objects/Clothing/Head/Zavet.rsi
   - type: Clothing
     sprite: _Stalker/Objects/Clothing/Head/Zavet.rsi
+
+- type: entity
+  parent: STClothingHeadHelmetCombatT3Base
+  id: ClothingHeadAssaultHelmetFreedom
+  name: шлем «Зенит» Свободы
+  description: боевой шлем марки «Зенит» третьего класса защиты.
+  components:
+  - type: Sprite
+    sprite: _Stalker/Objects/Clothing/hats/freedom_zenit.rsi
+  - type: Clothing
+    sprite: _Stalker/Objects/Clothing/hats/freedom_zenit.rsi

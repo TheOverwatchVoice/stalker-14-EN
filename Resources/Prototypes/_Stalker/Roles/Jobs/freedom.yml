@@ -53,7 +53,7 @@
       species:
       - Human
       - Dwarf
-  startingGear: FreedomGear
+  startingGear: FreedomGearHead
   supervisors: job-head-freedom-supervisor
   canBeAntag: false
   special:
@@ -79,6 +79,14 @@
   id: FreedomGear
   equipment:
     id: FreedomPDA
+    neck: ClothingNeckDogtagFreedom # EN
+
+- type: startingGear
+  id: FreedomGearHead
+  equipment:
+    id: FreedomPDA
+    neck: ClothingNeckDogtagFreedomAtaman # EN
+
 - type: stBand
   id: STFreedomBand
   name: Freedom
@@ -101,6 +109,22 @@
   - !type:DepartmentTimeRequirement
     department: Stalker
     time: 15h
+  - !type:DepartmentTimeRequirement
+    department: StalkerAdvanced
+    time: 1h
+    inverted: true
+  - !type:DepartmentTimeRequirement
+    department: StalkerBrigands
+    time: 1h
+    inverted: true
+  - !type:DepartmentTimeRequirement
+    department: StalkerOfficials
+    time: 1h
+    inverted: true
+  - !type:DepartmentTimeRequirement
+    department: department-StalkerReligius
+    time: 1h
+    inverted: true
   - !type:SpeciesRequirement
     species:
     - Human

@@ -10,6 +10,17 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: alive
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      types:
+        Burn: -100
+        Toxin: -100
+        Airloss: -100
+        Psy: -100
+        Radiation: -100  
   - type: DamageStateVisuals
     states:
       Alive:
@@ -19,7 +30,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      2300: Dead
+      3300: Dead
   - type: Damageable
     damageModifierSet: STMutantT4DamageModifierSet
   - type: SlowOnDamage
@@ -29,16 +40,16 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2300
+        damage: 3300
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Animals/space_dragon_roar.ogg # TO DO
-  # - type: Butcherable
-    # spawned:
-    # - id: ClothingMaskChimera # Stalker-TODO: Prototype "ClothingMaskChimera" does not exist!
-      # maxAmount: 1
-      # prob: 0.3
+  - type: Butcherable
+    spawned:
+    - id: MutantPartChimeraTooth
+      maxAmount: 1
+      prob: 0.3
   - type: TeethPull
     teethProto: MutantPartChimeraTooth
     pullingItemTag: PliersStalker
@@ -47,8 +58,8 @@
   - type: STWeight
     self: 50
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5.5
-    baseSprintSpeed: 9.0
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 6.0
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepWood # TO DO

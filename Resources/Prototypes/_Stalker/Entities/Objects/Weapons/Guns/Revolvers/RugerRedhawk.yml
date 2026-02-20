@@ -12,12 +12,12 @@
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
     - type: Gun
-      projectileSpeed: 35
-      minAngle:  0
-      maxAngle: 35
-      angleIncrease: 5
-      angleDecay: 10
-      fireRate: 1
+      minAngle: 0
+      maxAngle: 40
+      fireRate: 3
+      angleIncrease: 10
+      angleDecay: 20
+      projectileSpeed: 55
       selectedMode: SemiAuto
       soundGunshot:
         path: /Audio/_Stalker/Effects/Guns/revolver3.ogg
@@ -26,8 +26,10 @@
     - type: RevolverAmmoProvider
       whitelist:
         tags:
-          - Cartridge45ACP
-          - STSpeedLoader45ACP
+         - CartridgeMagnum
+         - CartridgeRemingtonMagnum
+         - SpeedLoaderMagnum
+         - SpeedLoaderRemingtonMagnum
       proto: null
       capacity: 6
       chambers: [ null, null, null, null, null, null ]
@@ -38,9 +40,15 @@
         path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
     - type: STWeight
       self: 1.58
+    - type: PullDoAfter
+      pullTime: 1.5
     - type: StaticPrice
       price: 30
     - type: UseDelay
       delay: 1
     - type: RepositoryItem
       categoryName: Оружие
+    - type: STWeaponDamageFalloff
+      falloffMultiplier: 0.8
+    - type: STWeaponAccuracy
+      accuracyMultiplier: 1.45

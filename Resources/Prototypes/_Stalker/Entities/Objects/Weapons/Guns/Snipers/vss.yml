@@ -3,6 +3,13 @@
   parent: STBaseWeaponSniper
   id: STBaseWeaponSniperVSS
   components:
+  - type: STWeight
+    self: 2
+  - type: PullDoAfter
+    pullTime: 2
+  - type: GunWieldBonus
+    minAngle: -50
+    maxAngle: -55
   - type: FarGunshot
     sound: /Audio/_DZ/Effects/FarGunshots/supressed1.ogg
     silencerDecrease: 0.1
@@ -22,9 +29,10 @@
         volume: -10
     minAngle: 50
     maxAngle: 85
-    angleIncrease: 2
-    angleDecay: 20
     fireRate: 6
+    angleIncrease: 2.5
+    angleDecay: 20
+    projectileSpeed: 75
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/_Stalker/Weapons/Guns/RifleGen/Cock/rifle_cock.ogg
@@ -51,13 +59,13 @@
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
       gun_module_scope: !type:ContainerSlot
-  - type: PullDoAfter
-    pullTime: 1.5
+  - type: STWeaponDamageFalloff
+    falloffMultiplier: 0.8
+  - type: STWeaponAccuracy
+    accuracyMultiplier: 5
   - type: Scope
     zoom: 1.4
     offset: 14
-  - type: STWeaponAccuracy
-    accuracyMultiplier: 5
 
 - type: entity
   parent: STBaseWeaponSniperVSS

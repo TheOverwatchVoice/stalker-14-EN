@@ -66,6 +66,24 @@
     MutantPartPseudogiantHeart: 11484
     MutantPartZombieHand: 990
 
+    # New
+    
+    ZoneArtifactAccumulator: 816
+    ZoneArtifactDiamond: 2448
+    ZoneArtifactCharger: 2448
+    ZoneArtifactToxic: 816
+    ZoneArtifactCytoplasm: 612
+    ZoneArtifactCompass: 2448
+    ZoneArtifactCrucifix: 4896
+    ZoneArtifactThorn: 1224
+    ZoneArtifactArf: 816
+    ZoneArtifactDarkCube: 4896
+    ZoneArtifactBunch: 1224
+    ZoneArtifactRock: 1224
+    ZoneArtifactSun: 2448
+    ZoneArtifactRoot: 2448
+    ZoneArtifactConflagration: 1224
+
     # Mutant parts EN
 
     MutantPartCatGland: 150
@@ -182,6 +200,7 @@
       ClothingBackpackMercStalker: 799 # T3 |pve backpack
       ClothingBackpackStalkerZaryaBlack: 300 # T3 |pvp backpack
       # Belts
+      ClothingBeltTarzanBlack: 20
       ClothingBeltBandolierStalker: 20 # T1 - PVE
       ClothingBeltWebbingHolsterDolgPS5M: 700 # t3 belt
       ClothingBackpackDuffelOliveTacticStalker: 1200
@@ -205,6 +224,10 @@
   - name: shop-category-utilities
     priority: 8
     items:
+      STElasticRubberRed: 15
+      STElasticRubberGreen: 15
+      STElasticRubberBlue: 15
+      STRadioHeadset: 150
       STSkinsKitDolg: 500
       STCombatKnife: 25
       LgbtKnife: 30

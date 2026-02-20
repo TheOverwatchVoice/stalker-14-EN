@@ -12,12 +12,12 @@
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
     - type: Gun
-      projectileSpeed: 30
-      minAngle:  0
-      maxAngle: 50
-      angleIncrease: 12
-      angleDecay: 25
+      minAngle: 0
+      maxAngle: 75
       fireRate: 4
+      angleIncrease: 12
+      angleDecay: 12
+      projectileSpeed: 50
       selectedMode: SemiAuto
       soundGunshot:
         path: /Audio/_Stalker/Effects/Guns/revolver4.ogg
@@ -36,9 +36,15 @@
         path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
     - type: STWeight
       self: 1.58
+    - type: PullDoAfter
+      pullTime: 1
     - type: StaticPrice
       price: 30
     - type: UseDelay
       delay: 1
     - type: RepositoryItem
       categoryName: Оружие
+    - type: STWeaponDamageFalloff
+      falloffMultiplier: 0.8
+    - type: STWeaponAccuracy
+      accuracyMultiplier: 1.43

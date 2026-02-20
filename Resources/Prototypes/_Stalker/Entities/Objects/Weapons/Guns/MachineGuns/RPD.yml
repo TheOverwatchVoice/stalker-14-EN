@@ -3,6 +3,13 @@
   parent: STBaseWeaponMachineGun
   id: STBaseWeaponMachineGunRPD
   components:
+  - type: STWeight
+    self: 7
+  - type: PullDoAfter
+    pullTime: 5
+  - type: GunWieldBonus
+    minAngle: -50
+    maxAngle: -50
   - type: Item
     sprite: _Stalker/Objects/Weapons/Guns/MachineGuns/rpd.rsi
   - type: Sprite
@@ -11,11 +18,12 @@
     sprite: _Stalker/Objects/Weapons/Guns/MachineGuns/rpd.rsi
     equipDelay: 4
   - type: Gun
-    fireRate: 9
-    minAngle: 48
-    maxAngle: 95
-    angleIncrease: 0.8
-    angleDecay: 5
+    minAngle: 60
+    maxAngle: 120
+    fireRate: 6.5
+    angleIncrease: 2
+    angleDecay: 10
+    projectileSpeed: 60
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -34,11 +42,8 @@
         whitelist:
           tags:
           - STCartridge739
-  - type: GunWieldBonus
-    minAngle: -28
-    maxAngle: -77
-  - type: PullDoAfter
-    pullTime: 5
+  - type: STWeaponDamageFalloff
+    falloffMultiplier: 0.8
   - type: STWeaponAccuracy
     accuracyMultiplier: 1.55
 

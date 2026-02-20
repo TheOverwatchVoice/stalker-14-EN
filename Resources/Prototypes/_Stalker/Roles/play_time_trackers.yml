@@ -2,6 +2,9 @@
   id: JobStalker
 
 - type: playTimeTracker
+  id: JobStalkerRookie
+
+- type: playTimeTracker
   id: JobStalkerVeteran
 
 - type: playTimeTracker

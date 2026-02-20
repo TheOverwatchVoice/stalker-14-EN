@@ -48,14 +48,20 @@
       - id: null
         ratio: 1350
       - id: ZoneArtifactBlood
-        tier: 1
-        ratio: 20
-      - id: ZoneArtifactMeat
         tier: 2
+        ratio: 10
+      - id: ZoneArtifactMeat
+        tier: 3
         ratio: 10
       - id: ZoneArtifactPellicle
         tier: 1
-        ratio: 5
+        ratio: 15
+      - id: ZoneArtifactCytoplasm
+        tier: 2
+        ratio: 10
+      - id: ZoneArtifactToxic
+        tier: 1
+        ratio: 15
 
 - type: entity
   parent: ZoneAnomalyBaseChemical
@@ -92,6 +98,12 @@
         - id: ZoneArtifactPellicle
           tier: 1
           ratio: 15
+        - id: ZoneArtifactToxic
+          tier: 1
+          ratio: 5
+        - id: ZoneArtifactCytoplasm
+          tier: 2
+          ratio: 10
         - id: ZoneArtifactBaloon
           tier: 4
           ratio: 10
@@ -125,6 +137,12 @@
         - id: ZoneArtifactPellicle
           tier: 1
           ratio: 15
+        - id: ZoneArtifactToxic 
+          tier: 1
+          ratio: 10
+        - id: ZoneArtifactCytoplasm
+          tier: 2
+          ratio: 10
         - id: ZoneArtifactBaloon
           tier: 4
           ratio: 10

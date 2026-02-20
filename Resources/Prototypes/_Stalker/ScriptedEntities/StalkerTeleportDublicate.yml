@@ -80,8 +80,6 @@
   - type: DuplicateTeleport
     prefix: PB
     maxWeight: 350
-  - type: AccessReader
-    access: [["Stalker"]]
 
 - type: entity
   parent: StalkerDuplicateTeleportBase
@@ -100,6 +98,7 @@
       - MilitaryBarraks
   #- type: AccessReader
   #  access: [["Stalker"]]
+  - type: NoobDenyer # stalker-changes
 
 - type: entity
   id: StalkerDublicateMilitary
@@ -357,7 +356,8 @@
   - type: DuplicateTeleport
     prefix: Bar
     maxWeight: 150
-
+  - type: NoobDenyer # stalker-changes
+  
 - type: entity
   id: StalkerDublicateBoloto
   parent: StalkerDuplicateTeleportBase

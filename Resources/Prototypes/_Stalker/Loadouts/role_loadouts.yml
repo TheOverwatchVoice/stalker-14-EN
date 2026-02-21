@@ -18,7 +18,7 @@
   - STGlasses
 
 - type: roleLoadout
-  id: StalkerRookie
+  id: JobStalkerRookie
   groups:
   - STTrinketsGroupOne
   - STTrinketsGroupTwo

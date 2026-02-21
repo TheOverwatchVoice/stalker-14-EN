@@ -83,7 +83,7 @@
           - MonolithFree
       - type: Bands
         band: Stalker
-        bandIcon: monolith
+        bandIcon: monolithfree
         bandProto: STMonolithBand
         bandRankId: 2
       - type: NpcFactionMember
@@ -113,7 +113,7 @@
     gloves: ClothingHandsGlovesFingerless
 
 - type: startingGear
-  id: MonolithGearFree
+  id: MonolithGearFre
   equipment:
     id: MonolithPDA
     ears: STClothingChip

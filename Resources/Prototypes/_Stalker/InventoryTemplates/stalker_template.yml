@@ -4,7 +4,6 @@
   slots:
     - name: pocket1
       slotTexture: pocket
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
       slotFlags: POCKET
       slotGroup: MainHotbar
       stripTime: 3
@@ -15,7 +14,6 @@
       stripHidden: true
     - name: pocket2
       slotTexture: pocket
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
       slotFlags: POCKET
       slotGroup: MainHotbar
       stripTime: 3
@@ -34,7 +32,6 @@
       displayName: Suit Storage
     - name: id
       slotTexture: id
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
       slotFlags: IDCARD
       slotGroup: SecondHotbar
       stripTime: 6
@@ -53,7 +50,6 @@
       displayName: Belt
     - name: back
       slotTexture: back
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
       slotFlags: BACK
       slotGroup: SecondHotbar
       stripTime: 6
@@ -63,7 +59,6 @@
     # Artifacts (Colum 1)
     - name: artifact1
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,1
@@ -72,7 +67,6 @@
       stripHidden: true
     - name: artifact2
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,2
@@ -81,7 +75,6 @@
       stripHidden: true
     - name: artifact3
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,3
@@ -90,11 +83,18 @@
       stripHidden: true
     - name: artifact4
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,4
       strippingWindowPos: 3,0
+      displayName: Test
+      stripHidden: true
+    - name: artifact5
+      slotTexture: artifact
+      slotFlags: ARTIFACT
+      stripTime: 6
+      uiWindowPos: 0,5
+      strippingWindowPos: 3,-1
       displayName: Test
       stripHidden: true
     # Main body (Colum 2)
@@ -165,6 +165,7 @@
       uiWindowPos: 2,4
       strippingWindowPos: 2,0
       displayName: Ears
+      stripHidden: true
     - name: cloak
       slotTexture: cloak
       slotFlags: CLOAK
@@ -172,6 +173,16 @@
       uiWindowPos: 3,0
       strippingWindowPos: 3,4
       displayName: Cloak
+    - name: dogtag
+      slotTexture: neck
+      slotFlags: DOGTAG
+      stripTime: 3
+      uiWindowPos: 3,1
+      strippingWindowPos: 2,1
+      displayName: Dogtag
+      whitelist:
+        tags:
+          - Dogtag
     - name: back2
       slotTexture: suit_storage
       slotFlags: BACK2

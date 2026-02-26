@@ -396,6 +396,11 @@ namespace Content.Server.Database
         Task<StalkerZoneOwnership?> GetStalkerWarOwnershipAsync(ProtoId<STWarZonePrototype> warZone);
         Task ClearStalkerZoneOwnershipAsync(ProtoId<STWarZonePrototype> warZone);
         Task<List<Player>> GetPlayersWithRoleWhitelistAsync(IEnumerable<string> roleIds, CancellationToken cancel = default); // Added for BandsSystem
+        // stalker-en-changes: Faction relations PDA program
+        Task<List<StalkerFactionRelation>> GetAllStalkerFactionRelationsAsync();
+        Task SetStalkerFactionRelationAsync(string factionA, string factionB, int relationType);
+        Task ClearAllStalkerFactionRelationsAsync();
+
         #endregion
     }
     /// <summary>
@@ -1129,6 +1134,26 @@ namespace Content.Server.Database
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetStalkerStatAsync(login, characteristic));
         }
+
+        // stalker-en-changes: Faction relations PDA program
+        public Task<List<StalkerFactionRelation>> GetAllStalkerFactionRelationsAsync()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllStalkerFactionRelationsAsync());
+        }
+
+        public Task SetStalkerFactionRelationAsync(string factionA, string factionB, int relationType)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetStalkerFactionRelationAsync(factionA, factionB, relationType));
+        }
+
+        public Task ClearAllStalkerFactionRelationsAsync()
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ClearAllStalkerFactionRelationsAsync());
+        }
+
 
         public Task SetStalkerBandAsync(ProtoId<STBandPrototype> band, float rewardPoints)
         {

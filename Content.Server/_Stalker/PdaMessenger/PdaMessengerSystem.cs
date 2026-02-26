@@ -27,7 +27,7 @@ public sealed class PdaMessengerSystem : EntitySystem
     [Dependency] private readonly RingerSystem _ringer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private readonly List<PdaChat> _chats = new() { new PdaChat("Общий") };
+    private readonly List<PdaChat> _chats = new() { new PdaChat("Общий"), new PdaChat("Новички"), new PdaChat("Торговля"), new PdaChat("Работа") };
     private WebhookIdentifier? _webhookIdentifier;
 
     public override void Initialize()
@@ -88,6 +88,31 @@ public sealed class PdaMessengerSystem : EntitySystem
         if (message.Message.Receiver == "Общий")
         {
             _chats[0].Messages.Add(message.Message);
+            SendMessageDiscordMessage(message.Message, senderPda.OwnerName);
+            UpdateUiState(messenger, GetEntity(args.LoaderUid), messenger.Comp);
+            TryNotify();
+            return;
+        }
+
+        else if (message.Message.Receiver == "Новички")
+        {
+            _chats[1].Messages.Add(message.Message);
+            SendMessageDiscordMessage(message.Message, senderPda.OwnerName);
+            UpdateUiState(messenger, GetEntity(args.LoaderUid), messenger.Comp);
+            TryNotify();
+            return;
+        }
+        else if (message.Message.Receiver == "Торговля")
+        {
+            _chats[2].Messages.Add(message.Message);
+            SendMessageDiscordMessage(message.Message, senderPda.OwnerName);
+            UpdateUiState(messenger, GetEntity(args.LoaderUid), messenger.Comp);
+            TryNotify();
+            return;
+        }
+        else if (message.Message.Receiver == "Работа")
+        {
+            _chats[3].Messages.Add(message.Message);
             SendMessageDiscordMessage(message.Message, senderPda.OwnerName);
             UpdateUiState(messenger, GetEntity(args.LoaderUid), messenger.Comp);
             TryNotify();

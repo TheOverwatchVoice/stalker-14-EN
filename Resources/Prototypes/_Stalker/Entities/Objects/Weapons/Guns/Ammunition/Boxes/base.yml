@@ -6,6 +6,8 @@
   categories: [ HideSpawnMenu ]
   suffix: Stalker
   components:
+  - type: STBulkBuyable # stalker-14-en
+    maxQuantity: 10
   - type: RepositoryItem
     categoryName: Боеприпасы
   - type: STWeight
@@ -42,6 +44,8 @@
   categories: [ HideSpawnMenu ]
   suffix: Stalker
   components:
+  - type: STBulkBuyable # stalker-14-en
+    maxQuantity: 10
   - type: Trash
     time: 900
   - type: RepositoryItem

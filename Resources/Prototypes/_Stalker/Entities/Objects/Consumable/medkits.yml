@@ -3,6 +3,8 @@
   abstract: true
   id: STBaseHealingItem
   components:
+  - type: STBulkBuyable # stalker-14-en
+    maxQuantity: 10
   - type: Healing
     selfHealPenaltyMultiplier: 2.5
   - type: Item
@@ -510,6 +512,8 @@
   id: MedkitElite
   suffix: ST, T4
   components:
+  - type: STBulkBuyable # stalker-14-en
+    maxQuantity: 10
   - type: STWeight
     self: 1
   - type: RepositoryItem
@@ -558,6 +562,8 @@
   id: MedkitLAR
   suffix: ST, T4
   components:
+  - type: STBulkBuyable # stalker-14-en
+    maxQuantity: 10
   - type: STWeight
     self: 3
   - type: Tag
@@ -609,6 +615,8 @@
   parent: BaseStorageItem
   abstract: true
   components:
+  - type: STBulkBuyable # stalker-14-en
+    maxQuantity: 10
   - type: Item
     size: Tiny
   - type: Storage

@@ -159,7 +159,7 @@
   id: SciGear
   equipment:
     id: ScientistPDA
-    neck: ClothingNeckDogtagEco # EN
+    dogtag: ClothingNeckDogtagEco # EN
 
 - type: stBand
   id: STSciBand
@@ -196,7 +196,7 @@
   id: SciGear3
   equipment:
     id: ScientistPDA
-    neck: ClothingNeckDogtagEcoLeader # EN
+    dogtag: ClothingNeckDogtagEcoLeader # EN
     outerClothing: ClothingOuterCoatRD
     head: ClothingHeadBeretUN
     gloves: ClothingHandsGlovesNitrile

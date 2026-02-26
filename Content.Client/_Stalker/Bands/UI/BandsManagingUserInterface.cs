@@ -25,6 +25,7 @@ namespace Content.Client._Stalker.Bands.UI
                 _window.OnAddMemberButtonPressed += AddMember;
                 _window.OnRemoveMemberButtonPressed += RemoveMember;
                 _window.OnBuyItemButtonPressed += BuyItem;
+                _window.OnSetRelationButtonPressed += SetRelation; // stalker-en-changes
             }
         }
 
@@ -44,6 +45,14 @@ namespace Content.Client._Stalker.Bands.UI
             SendMessage(new BandsManagingBuyItemMessage(itemId));
         }
 
+        // stalker-en-changes start
+        private void SetRelation(string targetFaction, int relation)
+        {
+            SendMessage(new BandsManagingSetRelationMessage(targetFaction, relation));
+        }
+        // stalker-en-changes end
+
+
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
@@ -59,6 +68,7 @@ namespace Content.Client._Stalker.Bands.UI
                 _window.OnAddMemberButtonPressed -= AddMember;
                 _window.OnRemoveMemberButtonPressed -= RemoveMember;
                 _window.OnBuyItemButtonPressed -= BuyItem;
+                _window.OnSetRelationButtonPressed -= SetRelation; // stalker-en-changes
                 _window.Dispose();
             }
         }

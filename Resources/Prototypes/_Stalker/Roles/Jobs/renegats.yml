@@ -36,7 +36,7 @@
   id: ReneGear
   equipment:
     id: BandPDA
-    neck: ClothingNeckDogtagRenegade # EN   
+    dogtag: ClothingNeckDogtagRenegade # EN
 
 - type: stBand
   id: STRenegatsBand

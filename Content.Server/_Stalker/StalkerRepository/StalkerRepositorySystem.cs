@@ -217,7 +217,8 @@ public sealed class StalkerRepositorySystem : EntitySystem
 
     private void OnBeforeActivate(EntityUid uid, StalkerRepositoryComponent component, BeforeActivatableUIOpenEvent args)
     {
-        UpdateUiState(args.User, uid, component);
+        if (_ui.IsUiOpen(uid, StalkerRepositoryUiKey.Key, args.User))
+            UpdateUiState(args.User, uid, component);
         // Note: Loadout state is sent on demand when user opens the loadout menu,
         // not here, to avoid race conditions with the async database call.
     }

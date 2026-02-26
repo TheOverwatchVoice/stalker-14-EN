@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: STFactionRelationsCartridge
+  name: картридж с информационным приложением "Отношения гргуппировок"
+  description: Программа, показывающая отношения между группировками Зоны.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: UIFragment
+    ui: !type:FactionRelationsUi
+  - type: Cartridge
+    programName: st-faction-relations-program-name
+    icon:
+      sprite: Objects/Misc/books.rsi
+      state: book_icon
+  - type: STFactionRelationsCartridge

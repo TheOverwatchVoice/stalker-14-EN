@@ -13,7 +13,7 @@ public sealed class HandButton : SlotControl
         Name = "hand_" + handName;
         SlotName = handName;
         SetBackground(handLocation);
-        FullButtonTexturePath = "/Textures/_Stalker/Interface/STDefault/HandSlotBackground.png";
+        FullButtonTexturePath = "HandSlotBackground";
 
         // TODO: slot_highlight_l.png and slot_highlight_r.png are placeholders (copies of slot_highlight.png) — replace with proper per-hand sprites
         HighlightTexturePath = handLocation switch

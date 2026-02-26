@@ -175,7 +175,6 @@ namespace Content.Client.Entry
             _euiManager.Initialize();
             _voteManager.Initialize();
             _userInterfaceManager.SetDefaultTheme("STDefaultTheme"); // stalker-changes-UI
-            _userInterfaceManager.SetActiveTheme("STDefaultTheme"); // stalker-changes-UI
             _documentParsingManager.Initialize();
             _discordAuthManager.Initialize(); // Stalker-Changes-Auth
             _joinQueueManager.Initialize(); // Stalker-Changes - Corvax Queue Adaptation

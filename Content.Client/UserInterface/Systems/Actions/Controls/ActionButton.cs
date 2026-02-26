@@ -167,7 +167,7 @@ public sealed class ActionButton : Control, IEntityControl
     protected override void OnThemeUpdated()
     {
         base.OnThemeUpdated();
-        _buttonBackgroundTexture = Theme.ResolveTexture("/Textures/_Stalker/Interface/STDefault/ActionsSlotBackground.png");
+        _buttonBackgroundTexture = Theme.ResolveTexture("ActionsSlotBackground");
         Label.FontColorOverride = Theme.ResolveColorOrSpecified("whiteText");
     }
 
@@ -304,7 +304,7 @@ public sealed class ActionButton : Control, IEntityControl
         }
         else
         {
-            _buttonBackgroundTexture = Theme.ResolveTexture("/Textures/_Stalker/Interface/STDefault/ActionsSlotBackground.png");
+            _buttonBackgroundTexture = Theme.ResolveTexture("ActionsSlotBackground");
         }
 
         SetActionIcon(icon != null ? _spriteSys.Frame0(icon) : null);

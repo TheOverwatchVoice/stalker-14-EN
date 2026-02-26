@@ -4,7 +4,7 @@
   slots:
     - name: pocket1
       slotTexture: pocket
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
+      fullTextureName: FlatSlotBackground
       slotFlags: POCKET
       slotGroup: MainHotbar
       stripTime: 3
@@ -15,7 +15,7 @@
       stripHidden: true
     - name: pocket2
       slotTexture: pocket
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
+      fullTextureName: FlatSlotBackground
       slotFlags: POCKET
       slotGroup: MainHotbar
       stripTime: 3
@@ -26,7 +26,7 @@
       stripHidden: true
     - name: suitstorage
       slotTexture: suit_storage
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
+      fullTextureName: FlatSlotBackground
       slotFlags: SUITSTORAGE
       slotGroup: MainHotbar
       stripTime: 3
@@ -35,7 +35,7 @@
       displayName: Suit Storage
     - name: id
       slotTexture: id
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
+      fullTextureName: FlatSlotBackground
       slotFlags: IDCARD
       slotGroup: SecondHotbar
       stripTime: 6
@@ -46,7 +46,7 @@
       stripHidden: true
     - name: belt
       slotTexture: belt
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
+      fullTextureName: FlatSlotBackground
       slotFlags: BELT
       slotGroup: SecondHotbar
       stripTime: 6
@@ -55,7 +55,7 @@
       displayName: Belt
     - name: back
       slotTexture: back
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/FlatSlotBackground.png
+      fullTextureName: FlatSlotBackground
       slotFlags: BACK
       slotGroup: SecondHotbar
       stripTime: 6
@@ -65,7 +65,7 @@
     # Artifacts (Colum 1)
     - name: artifact1
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
+      fullTextureName: ArtifactSlotBackground
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,1
@@ -74,7 +74,7 @@
       stripHidden: true
     - name: artifact2
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
+      fullTextureName: ArtifactSlotBackground
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,2
@@ -83,7 +83,7 @@
       stripHidden: true
     - name: artifact3
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
+      fullTextureName: ArtifactSlotBackground
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,3
@@ -92,7 +92,7 @@
       stripHidden: true
     - name: artifact4
       slotTexture: artifact
-      fullTextureName: /Textures/_Stalker/Interface/STDefault/ArtifactSlotBackground.png
+      fullTextureName: ArtifactSlotBackground
       slotFlags: ARTIFACT
       stripTime: 6
       uiWindowPos: 0,4

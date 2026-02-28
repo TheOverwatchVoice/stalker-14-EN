@@ -31,3 +31,23 @@
         DrinkChampagneBottleFull: 1000
         DrinkCognacBottleFull: 1000
         FoodTartGapple: 400
+    - name: Musical Instruments
+      priority: 3
+      items:
+        ElectricGuitarInstrument: 5000
+        BassGuitarInstrument: 5000
+        RockGuitarInstrument: 5000
+        KalimbaInstrument: 1000
+        FluteInstrument: 3000
+        SaxophoneInstrument: 6000
+        TromboneInstrument: 4000
+        ClarinetInstrument: 3000
+        ViolaInstrument: 4000
+        ViolinInstrument: 4000
+        SynthesizerInstrument: 7000
+        XylophoneInstrument: 3000
+        GlockenspielInstrument: 3000
+        BanjoInstrument: 3000
+        CelloInstrument: 4000
+        MicrophoneInstrument: 5000 
+

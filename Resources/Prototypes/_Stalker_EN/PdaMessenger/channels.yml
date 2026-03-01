@@ -9,9 +9,3 @@
   name: st-messenger-channel-rookie
   color: "#88CC88"
   sortOrder: 1
-
-- type: stMessengerChannel
-  id: STTrading
-  name: st-messenger-channel-trading
-  color: "#CCAA44"
-  sortOrder: 2

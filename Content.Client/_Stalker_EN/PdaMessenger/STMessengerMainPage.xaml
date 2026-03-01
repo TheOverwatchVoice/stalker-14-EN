@@ -8,16 +8,17 @@
               Margin="4">
 
     <!-- Header -->
-    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4">
-        <Label Name="HeaderLabel" StyleClasses="LabelHeading" Text="{Loc 'st-messenger-header-title'}" HorizontalExpand="True"/>
-        <Label Name="MessengerIdLabel" StyleClasses="LabelSubText"/>
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4" MinSize="0 28">
+        <AnimatedTextureRect Name="HeaderIcon" Access="Public" SetSize="20 20" VerticalAlignment="Center" Margin="0 0 16 0"/>
+        <Label Name="HeaderLabel" StyleClasses="LabelHeading" Text="{Loc 'st-messenger-header-title'}" HorizontalExpand="True" VerticalAlignment="Center"/>
+        <Label Name="MessengerIdLabel" StyleClasses="LabelSubText" VerticalAlignment="Center"/>
     </BoxContainer>
 
     <customControls:HSeparator Margin="0 2 0 2"/>
 
     <!-- Channels Section -->
     <Label Text="{Loc 'st-messenger-channels-header'}" StyleClasses="LabelKeyText" Margin="0 4 0 2"/>
-    <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinSize="0 130" SizeFlagsStretchRatio="3">
+    <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinSize="0 60" SizeFlagsStretchRatio="1">
         <BoxContainer Name="ChannelList" Orientation="Vertical" HorizontalExpand="True"/>
     </ScrollContainer>
 

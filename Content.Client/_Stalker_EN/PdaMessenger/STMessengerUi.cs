@@ -48,6 +48,16 @@ public sealed partial class STMessengerUi : UIFragment
         _channelPage = new STMessengerChannelPage();
         _composePage = new STMessengerComposePage();
 
+        if (fragmentOwner.HasValue)
+        {
+            var entMan = IoCManager.Resolve<IEntityManager>();
+            if (entMan.TryGetComponent<CartridgeComponent>(fragmentOwner.Value, out var cartridge)
+                && cartridge.Icon is not null)
+            {
+                _mainPage.HeaderIcon.SetFromSpriteSpecifier(cartridge.Icon);
+            }
+        }
+
         _root.AddChild(_mainPage);
         _root.AddChild(_channelPage);
         _root.AddChild(_composePage);
@@ -125,7 +135,7 @@ public sealed partial class STMessengerUi : UIFragment
             return;
 
         // Deep-link from external systems (e.g. merc board Contact button)
-        if (messengerState.NavigateToChatId is not null && _currentChatId != messengerState.NavigateToChatId)
+        if (messengerState.NavigateToChatId is not null)
         {
             _currentChatId = messengerState.NavigateToChatId;
 

@@ -15,7 +15,8 @@ st-pda-password-remove-button = Remove
 
 # PDA settings page button
 st-pda-password-settings-button = Set Password
-st-pda-password-settings-button-description = Set or change a password to protect this PDA from unauthorized access.
+st-pda-password-settings-button-description = Set or change a password to protect
+    this PDA from unauthorized access.
 
 # Server popups
 st-pda-password-not-owner = Only the PDA owner can change the password.

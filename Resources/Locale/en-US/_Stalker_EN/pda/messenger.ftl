@@ -6,7 +6,6 @@ st-messenger-program-name = Messenger
 # Channel names
 st-messenger-channel-general = General
 st-messenger-channel-rookie = Rookie
-st-messenger-channel-trading = Trading
 
 # Main page
 st-messenger-header-title = STALKER MESSENGER

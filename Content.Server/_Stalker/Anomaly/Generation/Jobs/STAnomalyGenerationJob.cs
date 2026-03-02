@@ -143,9 +143,9 @@ public sealed partial class STAnomalyGenerationJob : Job<STAnomalyGenerationJobD
                 continue;
 
             var position = _transform.GetWorldPosition(transform);
-            var coordinates = new Vector2i((int) position.X, (int) position.Y);
+            var coordinates = new Vector2i((int) Math.Floor(position.X), (int) Math.Floor(position.Y));
             var size = blocker.Size;
-            blockerAreas.Add(new Box2i(coordinates.X - size, coordinates.Y - size, coordinates.X + size + 1, coordinates.Y + size));
+            blockerAreas.Add(new Box2i(coordinates.X - size, coordinates.Y - size, coordinates.X + size + 1, coordinates.Y + size + 1));
         }
 
         var coordinatesToRemove = new List<Vector2i>();
@@ -170,6 +170,7 @@ public sealed partial class STAnomalyGenerationJob : Job<STAnomalyGenerationJobD
         foreach (var coord in coordinatesToRemove)
         {
             _tileCoordinates.Remove(coord);
+            _tileCoordinatesSpawn.Remove(coord);
         }
     }
     // stalker-en-changes-end

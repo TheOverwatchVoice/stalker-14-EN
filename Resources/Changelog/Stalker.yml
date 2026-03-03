@@ -1028,5 +1028,23 @@
   id: 112
   time: '2026-03-03T00:23:04.467458+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/568
+- author: teecoding
+  changes:
+  - message: Fixed character dummy in lobby sometimes displaying incorrectly
+    type: Fix
+  - message: Fixed gauze stack showing wrong amount
+    type: Fix
+  - message: Balaklava and some outfits no longer have visual issues
+    type: Fix
+  - message: PDA cartridge names, flag construction steps, and loadout groups are
+      now properly translated
+    type: Add
+  - message: Some toggleable clothing was missing its storage when toggled
+    type: Fix
+  - message: Covert factions no longer expose their real faction on the bulletin board
+    type: Fix
+  id: 113
+  time: '2026-03-03T14:06:41.642879+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/570
 Name: Stalker
 Order: -1

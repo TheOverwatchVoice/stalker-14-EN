@@ -1,0 +1,11 @@
+- type: alert
+  id: Stealthy
+  clickEvent: !type:ToggleThievingEvent
+  icons:
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-off
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-on
+  maxSeverity: 1
+  name: alerts-stealthy-name
+  description: alerts-stealthy-desc

@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260305122025_StalkerENAddCharacterRanks")]
+    partial class StalkerENAddCharacterRanks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -1473,134 +1476,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("stalker_messenger_ids", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.StalkerNewsArticle", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("stalker_news_articles_id");
-
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("author");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("content");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("created_at");
-
-                    b.Property<int>("EmbedColor")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("embed_color");
-
-                    b.Property<long>("PublishTimeTicks")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("publish_time_ticks");
-
-                    b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("round_id");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("title");
-
-                    b.HasKey("Id")
-                        .HasName("PK_stalker_news_articles");
-
-                    b.ToTable("stalker_news_articles", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.StalkerNewsComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("stalker_news_comments_id");
-
-                    b.Property<int>("ArticleId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("article_id");
-
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("author");
-
-                    b.Property<string>("AuthorFaction")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("author_faction");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("content");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("created_at");
-
-                    b.Property<long>("PostedTimeTicks")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("posted_time_ticks");
-
-                    b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("round_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_stalker_news_comments");
-
-                    b.HasIndex("ArticleId");
-
-                    b.ToTable("stalker_news_comments", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.StalkerNewsReaction", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("stalker_news_reactions_id");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("created_at");
-
-                    b.Property<string>("ReactionId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("reaction_id");
-
-                    b.Property<int>("TargetId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("target_id");
-
-                    b.Property<int>("TargetType")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("target_type");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_stalker_news_reactions");
-
-                    b.HasIndex("TargetType", "TargetId");
-
-                    b.HasIndex("TargetType", "TargetId", "UserId", "ReactionId")
-                        .IsUnique();
-
-                    b.ToTable("stalker_news_reactions", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.StalkerPdaPassword", b =>

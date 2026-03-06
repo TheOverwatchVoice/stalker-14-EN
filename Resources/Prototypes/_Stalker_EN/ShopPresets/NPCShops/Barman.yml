@@ -298,6 +298,7 @@
         DrinkWhiskeyColaGlass: 60
         DrinkB52Glass: 150
         DrinkLongIslandIcedTeaGlass: 420 # Long Island Time
+        STDrinkYevishWineBottleFull: 2000
 
     - name: shop-category-armor
       priority: 7

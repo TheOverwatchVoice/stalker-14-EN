@@ -1189,5 +1189,22 @@
   id: 128
   time: '2026-03-06T20:00:33.225916+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/590
+- author: crocodilecarousel
+  changes:
+  - message: Cook's Wine added to barman
+    type: Add
+  - message: Fishing rods can be equipped to back or gun slots
+    type: Add
+  - message: You can no longer sell sliced food
+    type: Fix
+  - message: Flags no longer ash when destroyed via means that are not fire
+    type: Fix
+  - message: SKS with integrated scope added to Monolith infiltrator loadout
+    type: Tweak
+  - message: Beer artifact despawns in 9999 seconds instead of 300
+    type: Tweak
+  id: 129
+  time: '2026-03-06T20:03:55.386372+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/591
 Name: Stalker
 Order: -1

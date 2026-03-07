@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Robust.Shared.Map;
 
 namespace Content.Shared._RD.Watcher;
 
@@ -20,7 +21,7 @@ public sealed partial class RDWatcherSystem
         var query = EntityQueryEnumerator<RDWatcherTargetComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var transform))
         {
-            _targets.Add(new TargetEntity(uid, _transform.GetWorldPosition(transform)));
+            _targets.Add(new TargetEntity(uid, _transform.GetWorldPosition(transform), _transform.GetMapId((uid, transform))));
         }
 
         var visited = new HashSet<EntityUid>();
@@ -42,6 +43,9 @@ public sealed partial class RDWatcherSystem
                 foreach (var other in _targets)
                 {
                     if (visited.Contains(other.Uid))
+                        continue;
+
+                    if (other.MapId != current.MapId)
                         continue;
 
                     if ((other.Position - current.Position).Length() > Inst.Comp.GroupRadius)
@@ -81,5 +85,9 @@ public sealed partial class RDWatcherSystem
         }
     }
 
-    private readonly record struct TargetEntity(EntityUid Uid, Vector2 Position);
+    private readonly record struct TargetEntity(
+        EntityUid Uid,
+        Vector2 Position,
+        MapId MapId
+    );
 }

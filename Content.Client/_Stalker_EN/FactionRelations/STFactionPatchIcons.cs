@@ -23,6 +23,8 @@ public static class STFactionPatchIcons
     private const string Renegades = "Renegades";
     private const string Rookies = "Rookies";
     private const string Journalists = "Journalists";
+
+    private const string Seraphims = "Seraphims";
     private const string UN = "UN";
 
     /// <summary>
@@ -33,16 +35,17 @@ public static class STFactionPatchIcons
         [Loners] = (PatchRsiPath, "stalker"),
         [Freedom] = (PatchRsiPath, "freedom"),
         [Bandits] = (PatchRsiPath, "band"),
-        [Duty] = (PatchRsiPathEN, "dolg1"),
+        [Duty] = (PatchRsiPath, "dolg"),
         [Ecologist] = (PatchRsiPath, "sci"),
         [Neutrals] = (PatchRsiPath, "ne"),
         [Mercenaries] = (PatchRsiPath, "merc"),
-        [Military] = (PatchRsiPathEN, "voen1"),
-        [Monolith] = (PatchRsiPath, "monolith"),
+        [Military] = (PatchRsiPath, "voen3"),
+        [Monolith] = (PatchRsiPath, "monolithfree"),
         [ClearSky] = (PatchRsiPath, "cn"),
         [Renegades] = (PatchRsiPath, "rene"),
         [Rookies] = (PatchRsiPathEN, "rookie"),
         [Journalists] = (PatchRsiPath, "journalist"),
         [UN] = (PatchRsiPath, "un"),
+        [Seraphims] = (PatchRsiPath, "seraph_officer"),
     };
 }

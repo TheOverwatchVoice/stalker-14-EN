@@ -1,16 +1,16 @@
 - type: mapLoader
   id: StalkerBaseMaps
   mapPaths:
-    KordonUnerground: /Maps/_ST/World/KordonPodzemV75.yml
+    KordonUnerground: /Maps/_ST/World/KordonPodzemV76.yml
     Svalka: /Maps/_ST/World/SvalkaV159.yml
-    SvalkaUnderground: /Maps/_ST/World/SvalkaPodzemkaV61.yml
-    Agroprom: /Maps/_ST/World/AgropromV100.yml
+    SvalkaUnderground: /Maps/_ST/World/SvalkaPodzemkaV62.yml
+    Agroprom: /Maps/_ST/World/AgropromV101.yml
     PodzemkaLoschina: /Maps/_ST/World/PodzemkaLohinaV13.yml
     MilitaryBase: /Maps/_ST/World/MBaseV15.yml
-    TemnajLohina: /Maps/_ST/World/TemnajLohinaV94.yml
-    Bolota: /Maps/_ST/World/BolotaV80.yml
-    TemnajDolina: /Maps/_ST/World/TemnajDolinaGEN2V44.yml
-    Bar: /Maps/_ST/World/RostokAndWildsV62.yml
-    RedForest: /Maps/_ST/World/RedForestV87.yml
-    Limansk: /Maps/_ST/World/limanskV153.yml
-    BarUnderground: /Maps/_ST/World/UndegroundWildsBar100radsV38.yml
+    TemnajLohina: /Maps/_ST/World/TemnajLohinaV95.yml
+    Bolota: /Maps/_ST/World/BolotaV81.yml
+    TemnajDolina: /Maps/_ST/World/TemnajDolinaGEN2V46.yml
+    Bar: /Maps/_ST/World/RostokAndWildsV68.yml
+    RedForest: /Maps/_ST/World/RedForestV88.yml
+    Limansk: /Maps/_ST/World/limanskV154.yml
+    BarUnderground: /Maps/_ST/World/UndegroundWildsBar100radsV39.yml

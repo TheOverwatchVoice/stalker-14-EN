@@ -18,6 +18,7 @@
     - Rookies
     - Journalists
     - UN
+    - Seraphims
   bandMapping:
     Stalker: Loners
     Freedom: Freedom
@@ -32,6 +33,7 @@
     Renegades: Renegades
     Journalists: Journalists
     UN: UN
+    Seraphims: Seraphims
   factionGroups:
     Loners:
       - Rookies
@@ -56,9 +58,10 @@
     - { factionA: Monolith, factionB: Military, relation: War }
     - { factionA: Monolith, factionB: ClearSky, relation: War }
     - { factionA: Monolith, factionB: Renegades, relation: War }
+    - { factionA: Monolith, factionB: Seraphims, relation: War }
     # Loners relations
     - { factionA: Loners, factionB: Bandits, relation: Hostile }
-    - { factionA: Loners, factionB: Renegades, relation: Hostile }
+    - { factionA: Loners, factionB: Renegades, relation: War }
     # Freedom relations
     - { factionA: Freedom, factionB: Duty, relation: War }
     - { factionA: Freedom, factionB: Renegades, relation: Hostile }
@@ -66,24 +69,24 @@
     - { factionA: Bandits, factionB: Duty, relation: War }
     - { factionA: Bandits, factionB: Ecologist, relation: Hostile }
     - { factionA: Bandits, factionB: Military, relation: War }
-    - { factionA: Bandits, factionB: ClearSky, relation: War }
+    - { factionA: Bandits, factionB: ClearSky, relation: Hostile }
     - { factionA: Bandits, factionB: Renegades, relation: Hostile }
     # Duty relations
-    - { factionA: Duty, factionB: Ecologist, relation: Hostile }
-    - { factionA: Duty, factionB: Mercenaries, relation: Hostile }
     - { factionA: Duty, factionB: Military, relation: Hostile }
-    - { factionA: Duty, factionB: ClearSky, relation: Hostile }
     - { factionA: Duty, factionB: Renegades, relation: War }
     # Ecologist relations
-    - { factionA: Ecologist, factionB: Mercenaries, relation: Hostile }
     - { factionA: Ecologist, factionB: Military, relation: Alliance }
-    - { factionA: Ecologist, factionB: Renegades, relation: Hostile }
+    - { factionA: Ecologist, factionB: Renegades, relation: War }
     # Mercenaries relations
-    - { factionA: Mercenaries, factionB: Military, relation: Hostile }
-    - { factionA: Mercenaries, factionB: ClearSky, relation: Hostile }
-    - { factionA: Mercenaries, factionB: Renegades, relation: Hostile }
+    - { factionA: Mercenaries, factionB: Military, relation: War }
+    - { factionA: Mercenaries, factionB: Renegades, relation: War }
+    - { factionA: Mercenaries, factionB: Bandits, relation: Hostile }
     # Military relations
     - { factionA: Military, factionB: ClearSky, relation: Hostile }
     - { factionA: Military, factionB: Renegades, relation: War }
     # ClearSky relations
     - { factionA: ClearSky, factionB: Renegades, relation: War }
+    # Seraphims relations
+    - { factionA: Seraphims, factionB: Renegades, relation: War }
+    - { factionA: Seraphims, factionB: Duty, relation: Hostile }
+    - { factionA: Seraphims, factionB: Freedom, relation: War }

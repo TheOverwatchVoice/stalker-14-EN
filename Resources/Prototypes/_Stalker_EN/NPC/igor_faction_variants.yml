@@ -100,3 +100,12 @@
   - type: BandsManaging
     shopListingsProto: STBandShopListings
     faction: Renegades
+
+- type: entity
+  parent: NPCIgorIvanovich
+  id: NPCIgorIvanovichSeraphims
+  suffix: ST, Seraphims
+  components:
+  - type: BandsManaging
+    shopListingsProto: STBandShopListings
+    faction: Seraphims

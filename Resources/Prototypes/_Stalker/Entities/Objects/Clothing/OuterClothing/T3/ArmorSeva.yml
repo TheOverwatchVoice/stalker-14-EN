@@ -522,9 +522,13 @@
     - type: Armor
       armorClass: 3
       modifiers:
-        coefficients:
-          Slash: 0.6
-          Piercing: 0.55
+       flatReductions:
+         Blunt: 5
+         Slash: 5
+         Piercing: 5 
+       coefficients:
+         Slash: 0.6
+         Piercing: 0.55
 
 - type: entity
   parent: STClothingHeadHardsuitSevaHelmBase

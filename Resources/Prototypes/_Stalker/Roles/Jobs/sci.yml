@@ -139,7 +139,7 @@
         - type: Access
           groups:
             - Sci
-            - SciHead
+            - Sci_rector
         - type: Bands
           band: Stalker
           bandIcon: sci_rector

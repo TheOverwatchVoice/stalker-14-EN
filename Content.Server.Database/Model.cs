@@ -59,6 +59,7 @@ namespace Content.Server.Database
         public DbSet<StalkerPdaPassword> StalkerPdaPasswords { get; set; } = null!; // stalker-en-changes
         public DbSet<StalkerNewsArticle> StalkerNewsArticles { get; set; } = null!; // stalker-en-changes
         public DbSet<StalkerNewsComment> StalkerNewsComments { get; set; } = null!; // stalker-en-changes
+        public DbSet<StalkerNewsReaction> StalkerNewsReactions { get; set; } = null!; // stalker-en-changes
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -398,6 +399,14 @@ namespace Content.Server.Database
                 .HasKey(c => c.Id);
             modelBuilder.Entity<StalkerNewsComment>()
                 .HasIndex(c => c.ArticleId);
+
+            modelBuilder.Entity<StalkerNewsReaction>()
+                .HasKey(r => r.Id);
+            modelBuilder.Entity<StalkerNewsReaction>()
+                .HasIndex(r => new { r.TargetType, r.TargetId });
+            modelBuilder.Entity<StalkerNewsReaction>()
+                .HasIndex(r => new { r.TargetType, r.TargetId, r.UserId, r.ReactionId })
+                .IsUnique();
             // stalker-en-changes-end
 
             // Changes for modern HWID integration
@@ -1688,6 +1697,31 @@ namespace Content.Server.Database
         public DateTime CreatedAt { get; set; }
 
         public string? AuthorFaction { get; set; }
+    }
+
+    /// <summary>
+    /// Stores a single reaction from a player to a news target (article or comment).
+    /// Unique constraint: (TargetType, TargetId, UserId, ReactionId).
+    /// </summary>
+    public sealed class StalkerNewsReaction
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        /// <summary>0 = Article, 1 = Comment (reserved for future use).</summary>
+        [Required]
+        public int TargetType { get; set; }
+
+        [Required]
+        public int TargetId { get; set; }
+
+        [Required]
+        public Guid UserId { get; set; }
+
+        [Required]
+        public string ReactionId { get; set; } = default!;
+
+        public DateTime CreatedAt { get; set; }
     }
     // stalker-en-changes-end
 

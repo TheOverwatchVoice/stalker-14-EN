@@ -1268,5 +1268,12 @@
   id: 137
   time: '2026-03-10T01:40:53.203839+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/571
+- author: Roland410
+  changes:
+  - message: Adds missing artifacts to anomalies.
+    type: Add
+  id: 138
+  time: '2026-03-10T01:44:53.276459+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/603
 Name: Stalker
 Order: -1

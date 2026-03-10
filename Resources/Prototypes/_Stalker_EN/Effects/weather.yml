@@ -3,12 +3,6 @@
   sprite:
     sprite: /Textures/_Stalker_EN/Effects/weather.rsi
     state: redstorm
-  sound:
-    path:
-      /Audio/Effects/Weather/rain2.ogg
-    params:
-      loop: true
-      volume: -6
 
 - type: weather
   id: STFogLight

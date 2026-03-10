@@ -3,24 +3,12 @@
   sprite:
     sprite: /Textures/_Stalker_EN/Effects/weather.rsi # EN
     state: rain
-  sound: # EN
-    path:
-      /Audio/Effects/Weather/rain2.ogg
-    params:
-      loop: true
-      volume: -6
 
 - type: weather
   id: STStorm
   sprite:
     sprite: /Textures/_Stalker_EN/Effects/weather.rsi # EN
     state: storm
-  sound: # EN
-    path:
-      /Audio/Effects/Weather/rain_heavy.ogg
-    params:
-      loop: true
-      volume: -8
 
 - type: entity
   id: BaseWeatherAdmeme

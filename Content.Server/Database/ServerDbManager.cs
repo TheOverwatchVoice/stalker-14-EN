@@ -429,6 +429,14 @@ namespace Content.Server.Database
         // stalker-en-changes: News articles
         Task<List<StalkerNewsArticle>> GetRecentStalkerNewsArticlesAsync(int limit);
         Task<int> AddStalkerNewsArticleAsync(StalkerNewsArticle article);
+        Task DeleteStalkerNewsArticleAsync(int articleId);
+        Task<List<StalkerNewsComment>> GetStalkerNewsCommentsAsync(List<int> articleIds);
+        Task<int> AddStalkerNewsCommentAsync(StalkerNewsComment comment);
+
+        // stalker-en-changes: News reactions
+        Task<List<StalkerNewsReaction>> GetStalkerNewsReactionsAsync(int targetType, List<int> targetIds);
+        Task<bool> ToggleStalkerNewsReactionAsync(int targetType, int targetId, Guid userId, string reactionId);
+        Task DeleteStalkerNewsReactionsByTargetAsync(int targetType, int targetId);
         #endregion
     }
     /// <summary>
@@ -1293,6 +1301,43 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddStalkerNewsArticleAsync(article));
+        }
+
+        public Task DeleteStalkerNewsArticleAsync(int articleId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteStalkerNewsArticleAsync(articleId));
+        }
+
+        public Task<List<StalkerNewsComment>> GetStalkerNewsCommentsAsync(List<int> articleIds)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetStalkerNewsCommentsAsync(articleIds));
+        }
+
+        public Task<int> AddStalkerNewsCommentAsync(StalkerNewsComment comment)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddStalkerNewsCommentAsync(comment));
+        }
+
+        // stalker-en-changes: News reactions
+        public Task<List<StalkerNewsReaction>> GetStalkerNewsReactionsAsync(int targetType, List<int> targetIds)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetStalkerNewsReactionsAsync(targetType, targetIds));
+        }
+
+        public Task<bool> ToggleStalkerNewsReactionAsync(int targetType, int targetId, Guid userId, string reactionId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ToggleStalkerNewsReactionAsync(targetType, targetId, userId, reactionId));
+        }
+
+        public Task DeleteStalkerNewsReactionsByTargetAsync(int targetType, int targetId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteStalkerNewsReactionsByTargetAsync(targetType, targetId));
         }
         // stalker-en-changes-end
 

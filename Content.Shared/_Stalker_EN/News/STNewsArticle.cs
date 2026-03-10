@@ -75,6 +75,9 @@ public sealed class STNewsArticleSummary
     /// <summary>Embed accent color (RGB integer).</summary>
     public readonly int EmbedColor;
 
+    /// <summary>Number of comments on this article.</summary>
+    public readonly int CommentCount;
+
     public STNewsArticleSummary(
         int id,
         string title,
@@ -82,7 +85,8 @@ public sealed class STNewsArticleSummary
         string author,
         int roundId,
         TimeSpan publishTime,
-        int embedColor)
+        int embedColor,
+        int commentCount = 0)
     {
         Id = id;
         Title = title;
@@ -91,6 +95,7 @@ public sealed class STNewsArticleSummary
         RoundId = roundId;
         PublishTime = publishTime;
         EmbedColor = embedColor;
+        CommentCount = commentCount;
     }
 }
 
@@ -99,7 +104,15 @@ public sealed class STNewsArticleSummary
 /// </summary>
 public static class STNewsConstants
 {
+    /// <summary>Maximum character length for article titles.</summary>
     public const int MaxTitleLength = 50;
-    public const int MaxContentLength = 2048;
+
+    /// <summary>Maximum character length for article body content.</summary>
+    public const int MaxContentLength = 65000;
+
+    /// <summary>Character length of the plain-text preview shown in article list cards.</summary>
     public const int PreviewLength = 150;
+
+    /// <summary>Maximum character length for comments.</summary>
+    public const int MaxCommentLength = 500;
 }

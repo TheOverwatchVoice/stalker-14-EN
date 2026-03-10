@@ -2,6 +2,7 @@
     xmlns="https://spacestation14.io"
     xmlns:news="clr-namespace:Content.Client._Stalker_EN.News"
     xmlns:controls="clr-namespace:Content.Client._Stalker_EN.UI.Controls"
+
     Margin="4">
 
     <PanelContainer StyleClasses="BackgroundDark"/>
@@ -35,7 +36,7 @@
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4 4 4 2">
                 <Button Name="BackButton"/>
                 <Control HorizontalExpand="True"/>
-                <Button Name="DetailCopyLinkButton"/>
+                <Button Name="DeleteArticleButton" Visible="False"/>
             </BoxContainer>
             <PanelContainer StyleClasses="LowDivider" Margin="4 0 4 4"/>
 
@@ -48,6 +49,28 @@
                     <Label Name="DetailMeta" FontColorOverride="#888888"/>
                     <PanelContainer StyleClasses="LowDivider" Margin="0 4 0 4"/>
                     <RichTextLabel Name="DetailContent" HorizontalExpand="True"/>
+
+                    <!-- Reaction Bar -->
+                    <WrapContainer Name="DetailReactionBar" LayoutAxis="Horizontal" SeparationOverride="4"
+                                   CrossSeparationOverride="4" Margin="0 8 0 0" HorizontalExpand="True"
+                                   HorizontalAlignment="Stretch"/>
+                    <BoxContainer Name="DetailActionRow" Orientation="Horizontal" HorizontalExpand="True"
+                                  HorizontalAlignment="Right" SeparationOverride="4" Margin="0 4 0 0"/>
+
+                    <!-- Comments Section -->
+                    <PanelContainer StyleClasses="LowDivider" Margin="0 8 0 4"/>
+                    <Label Name="CommentsHeaderLabel" StyleClasses="LabelHeading" Margin="0 0 0 4"/>
+                    <BoxContainer Name="CommentList" Orientation="Vertical" HorizontalExpand="True"/>
+
+                    <!-- Comment Input -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 8 0 0">
+                        <TextEdit Name="CommentEdit" HorizontalExpand="True" MinSize="0 60"/>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2 0 0">
+                            <Label Name="CommentCounter" FontColorOverride="#888888"/>
+                            <Control HorizontalExpand="True"/>
+                            <Button Name="PostCommentButton"/>
+                        </BoxContainer>
+                    </BoxContainer>
                 </BoxContainer>
             </ScrollContainer>
         </BoxContainer>

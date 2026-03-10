@@ -6,6 +6,7 @@ using System.Text.Json;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
@@ -15,9 +16,11 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    partial class PostgresServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260309110946_StalkerENAddNewsComments")]
+    partial class StalkerENAddNewsComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1598,10 +1601,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("author");
 
-                    b.Property<string>("AuthorFaction")
-                        .HasColumnType("text")
-                        .HasColumnName("author_faction");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("text")
@@ -1625,47 +1624,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasIndex("ArticleId");
 
                     b.ToTable("stalker_news_comments", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.StalkerNewsReaction", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("stalker_news_reactions_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<string>("ReactionId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("reaction_id");
-
-                    b.Property<int>("TargetId")
-                        .HasColumnType("integer")
-                        .HasColumnName("target_id");
-
-                    b.Property<int>("TargetType")
-                        .HasColumnType("integer")
-                        .HasColumnName("target_type");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_stalker_news_reactions");
-
-                    b.HasIndex("TargetType", "TargetId");
-
-                    b.HasIndex("TargetType", "TargetId", "UserId", "ReactionId")
-                        .IsUnique();
-
-                    b.ToTable("stalker_news_reactions", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.StalkerPdaPassword", b =>

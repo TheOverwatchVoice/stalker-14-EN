@@ -494,4 +494,9 @@ public enum LogType
     /// Stalker PDA messenger actions (send message, add/remove contact).
     /// </summary>
     STMessenger = 194,
+
+    /// <summary>
+    /// Stalker news actions (publish, delete, comment).
+    /// </summary>
+    STNews = 195, // stalker-en-changes
 }

@@ -28,6 +28,22 @@ public sealed partial class STNewsUi : UIFragment
         {
             SendMessage(new STNewsRequestArticleEvent(articleId), userInterface);
         };
+        _fragment.OnDeleteArticle += articleId =>
+        {
+            SendMessage(new STNewsDeleteArticleEvent(articleId), userInterface);
+        };
+        _fragment.OnPostComment += (articleId, content) =>
+        {
+            SendMessage(new STNewsPostCommentEvent(articleId, content), userInterface);
+        };
+        _fragment.OnCloseArticle += () =>
+        {
+            SendMessage(new STNewsCloseArticleEvent(), userInterface);
+        };
+        _fragment.OnToggleReaction += (articleId, reactionId) =>
+        {
+            SendMessage(new STNewsToggleReactionEvent(articleId, reactionId), userInterface);
+        };
     }
 
     public override void UpdateState(BoundUserInterfaceState state)

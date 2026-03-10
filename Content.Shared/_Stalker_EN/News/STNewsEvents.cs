@@ -36,6 +36,59 @@ public sealed class STNewsRequestArticleEvent : CartridgeMessageEvent
 }
 
 /// <summary>
+/// Client requests deletion of own article (current round only).
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class STNewsDeleteArticleEvent : CartridgeMessageEvent
+{
+    public readonly int ArticleId;
+
+    public STNewsDeleteArticleEvent(int articleId)
+    {
+        ArticleId = articleId;
+    }
+}
+
+/// <summary>
+/// Client posts a flat comment on an article.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class STNewsPostCommentEvent : CartridgeMessageEvent
+{
+    public readonly int ArticleId;
+    public readonly string Content;
+
+    public STNewsPostCommentEvent(int articleId, string content)
+    {
+        ArticleId = articleId;
+        Content = content;
+    }
+}
+
+/// <summary>
+/// Client→Server: Toggle a reaction on a news article.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class STNewsToggleReactionEvent : CartridgeMessageEvent
+{
+    public readonly int ArticleId;
+    public readonly string ReactionId;
+
+    public STNewsToggleReactionEvent(int articleId, string reactionId)
+    {
+        ArticleId = articleId;
+        ReactionId = reactionId;
+    }
+}
+
+/// <summary>
+/// Client signals it has navigated back from article detail to the list view.
+/// Used to clear ViewingArticleId so broadcast updates stop including article detail.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class STNewsCloseArticleEvent : CartridgeMessageEvent { }
+
+/// <summary>
 /// Local by-ref event raised on <see cref="STNewsCartridgeComponent"/> entities to request
 /// opening a specific article. Decouples messenger -> news cartridge dependency.
 /// </summary>

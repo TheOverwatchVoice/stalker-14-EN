@@ -292,6 +292,8 @@
         ClothingBeltBandolierStalker: 20 # T1 - PVE
         ClothingBeltTarzanGreen: 200 # T1 - PVP
         ClothingBeltTarzanOrange: 200 # T1 - PVP
+        ClothingBeltWebbingHolsterStalkerZarya: 1000
+        ClothingBeltWebbingDoubleStalkerZaryaSmall: 1500
           # Containers
         MedkitCMSStalker: 250 # T1
         MedkitGrizzlyStalker: 850 # T2

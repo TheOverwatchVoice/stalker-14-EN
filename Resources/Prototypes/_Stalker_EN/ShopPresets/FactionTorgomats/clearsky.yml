@@ -276,6 +276,8 @@
       ClothingBackpackDuffelMilitaryOlive: 1300 # T4
       # Belts
       ClothingBeltBandolierStalker: 20 # T1 - PVE
+      ClothingBeltWebbingHolsterStalkerZarya: 500
+      ClothingBeltWebbingDoubleStalkerZaryaSmall: 1000
       # Containers
       MedkitCMSStalker: 450 # T1
       MedkitGrizzlyStalker: 850 # T2

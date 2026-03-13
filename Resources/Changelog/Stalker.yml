@@ -1468,5 +1468,22 @@
   id: 154
   time: '2026-03-13T20:52:37.091052+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/625
+- author: teecoding
+  changes:
+  - message: Messenger send button works again (whoops)
+    type: Fix
+  - message: Anonymous toggle no longer shows up in DMs where it did nothing anyway
+    type: Fix
+  - message: Messenger channels can now be configured to allow or block anonymous
+      messages
+    type: Add
+  - message: No more hiding behind anonymous messages in channels.
+    type: Tweak
+  - message: Changing factions mid-round no longer locks you out of your new faction's
+      messenger channels
+    type: Fix
+  id: 155
+  time: '2026-03-13T22:02:02.073509+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/626
 Name: Stalker
 Order: -1

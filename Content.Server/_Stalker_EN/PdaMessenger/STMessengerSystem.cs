@@ -4,7 +4,9 @@ using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.PDA;
 using Content.Server.PDA.Ringer;
+using Content.Server._Stalker_EN.Camera;
 using Content.Shared._Stalker.Bands;
+using Content.Shared._Stalker_EN.Camera;
 using Content.Shared._Stalker_EN.CCVar;
 using Content.Shared._Stalker_EN.CharacterRank;
 using Content.Shared._Stalker_EN.FactionRelations;
@@ -15,6 +17,7 @@ using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.PDA;
@@ -47,6 +50,8 @@ public sealed partial class STMessengerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RingerSystem _ringer = default!;
     [Dependency] private readonly SharedSTFactionResolutionSystem _factionResolution = default!;
+    [Dependency] private readonly STPhotoSystem _photoSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     private const int MaxChannelMessages = 200;
     private const int MaxDmMessages = 100;
@@ -263,7 +268,7 @@ public sealed partial class STMessengerSystem : EntitySystem
         server.NextSendTime = _timing.CurTime + server.SendCooldown;
 
         var content = send.Content.Trim();
-        if (string.IsNullOrEmpty(content))
+        if (string.IsNullOrEmpty(content) && send.PhotoEntity is null)
             return;
 
         var maxLen = _config.GetCVar(STCCVars.MessengerMaxMessageLength);
@@ -271,14 +276,56 @@ public sealed partial class STMessengerSystem : EntitySystem
             content = content[..maxLen];
 
         // Resolve sender name from stored owner name (survives entity deletion)
-        var senderName = server.OwnerCharacterName;
-        if (string.IsNullOrEmpty(senderName))
+        if (string.IsNullOrEmpty(server.OwnerCharacterName))
             return;
 
-        var senderKey = (server.OwnerUserId, senderName);
+        // Photos are only allowed in DMs — strip for channel messages
+        var isDm = send.TargetChatId.StartsWith(STMessengerChat.DmChatPrefix, StringComparison.Ordinal);
 
-        var loaderUid = GetEntity(args.LoaderUid);
-        var chatId = send.TargetChatId;
+        // Channel with no text content (photo-only) — reject
+        if (!isDm && string.IsNullOrEmpty(content))
+            return;
+
+        // If a photo is attached to a DM, process it immediately
+        Guid? photoId = null;
+        if (isDm && send.PhotoEntity is { } photoNetEntity)
+        {
+            var photoUid = GetEntity(photoNetEntity);
+            if (!TryComp<STPhotoComponent>(photoUid, out var photoComp)
+                || photoComp.ImageData.Length == 0
+                || !_handsSystem.TryGetActiveItem(args.Actor, out var activeItem)
+                || activeItem != photoUid)
+            {
+                return;
+            }
+
+            photoId = Guid.NewGuid();
+            _photoSystem.StoreMessengerPhoto(photoId.Value, photoComp.ImageData);
+
+            var maxPhotos = _config.GetCVar(STCCVars.MessengerMaxPhotos);
+            _photoSystem.EvictMessengerPhotos(maxPhotos);
+        }
+
+        ProcessSendMessage(ent, server, send.TargetChatId, content, send.IsAnonymous,
+            send.ReplyToId, args.Actor, GetEntity(args.LoaderUid), photoId);
+    }
+
+    /// <summary>
+    /// Core message processing: routing, creation, eviction, logging, notifications, broadcast.
+    /// </summary>
+    private void ProcessSendMessage(
+        Entity<STMessengerComponent> ent,
+        STMessengerServerComponent server,
+        string chatId,
+        string content,
+        bool isAnonymous,
+        uint? replyToId,
+        EntityUid actor,
+        EntityUid loaderUid,
+        Guid? photoId = null)
+    {
+        var senderName = server.OwnerCharacterName;
+        var senderKey = (server.OwnerUserId, senderName);
         var isDm = chatId.StartsWith(STMessengerChat.DmChatPrefix, StringComparison.Ordinal);
 
         // Effective anonymous flag: only allowed for non-DM channels that explicitly permit it
@@ -290,7 +337,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             : senderName;
 
         string? replySnippet = null;
-        if (send.ReplyToId is { } replyId)
+        if (replyToId is { } replyId)
         {
             replySnippet = FindReplySnippet(chatId, isDm, server, replyId);
         }
@@ -367,7 +414,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             displayName,
             content,
             _timing.CurTime,
-            send.ReplyToId,
+            replyToId,
             replySnippet,
             senderFaction,
             senderRankIcon);
@@ -378,23 +425,32 @@ public sealed partial class STMessengerSystem : EntitySystem
         server.LastSeenMessageId[chatId] = msgId;
 
         if (chatMessages.Count > maxMessages)
-            chatMessages.RemoveRange(0, chatMessages.Count - maxMessages);
+        {
+            var evictCount = chatMessages.Count - maxMessages;
+            for (var i = 0; i < evictCount; i++)
+            {
+                if (chatMessages[i].PhotoId is { } evictedPhotoId)
+                    _photoSystem.RemoveMessengerPhoto(evictedPhotoId);
+            }
+
+            chatMessages.RemoveRange(0, evictCount);
+        }
 
         // Admin log — include anonymous pseudonym so admins can trace abuse
-        var replyInfo = send.ReplyToId is { } rid
+        var replyInfo = replyToId is { } rid
             ? $" (reply to #{rid}: \"{replySnippet}\")"
             : "";
 
         if (isAnonymous)
         {
             _adminLogger.Add(LogType.STMessenger, LogImpact.Medium,
-                $"{ToPrettyString(args.Actor):player} sent anonymous message " +
+                $"{ToPrettyString(actor):player} sent anonymous message " +
                 $"(as \"{displayName}\") to {chatId}{replyInfo}: {content}");
         }
         else
         {
             _adminLogger.Add(LogType.STMessenger, LogImpact.Medium,
-                $"{ToPrettyString(args.Actor):player} sent message to {chatId}{replyInfo}: {content}");
+                $"{ToPrettyString(actor):player} sent message to {chatId}{replyInfo}: {content}");
         }
 
         if (isDm)
@@ -942,6 +998,7 @@ public sealed partial class STMessengerSystem : EntitySystem
         _messengerPdas.Clear();
         _anonymousPseudonyms.Clear();
         _usedPseudonyms.Clear();
+        _photoSystem.ClearMessengerPhotos();
         // Do NOT clear _messengerIdCache or _characterToMessengerId — IDs persist across rounds
 
         foreach (var proto in _sortedChannels)

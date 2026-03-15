@@ -61,6 +61,7 @@ namespace Content.Server.Database
         public DbSet<StalkerNewsComment> StalkerNewsComments { get; set; } = null!; // stalker-en-changes
         public DbSet<StalkerNewsReaction> StalkerNewsReactions { get; set; } = null!; // stalker-en-changes
         public DbSet<StalkerCharacterRank> StalkerCharacterRanks { get; set; } = null!; // stalker-en-changes
+        public DbSet<StalkerNewsArticlePhoto> StalkerNewsArticlePhotos { get; set; } = null!; // stalker-en-changes
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -400,6 +401,12 @@ namespace Content.Server.Database
                 .HasKey(c => c.Id);
             modelBuilder.Entity<StalkerNewsComment>()
                 .HasIndex(c => c.ArticleId);
+
+            modelBuilder.Entity<StalkerNewsArticlePhoto>()
+                .HasKey(p => p.Id);
+            modelBuilder.Entity<StalkerNewsArticlePhoto>()
+                .HasIndex(p => p.PhotoId)
+                .IsUnique();
 
             modelBuilder.Entity<StalkerNewsReaction>()
                 .HasKey(r => r.Id);
@@ -1672,6 +1679,26 @@ namespace Content.Server.Database
         public long PublishTimeTicks { get; set; }
 
         public int EmbedColor { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>Optional photo attached to this article.</summary>
+        public Guid? PhotoId { get; set; }
+    }
+
+    /// <summary>
+    /// Stores a photo attached to a Stalker News article. Persists across rounds.
+    /// </summary>
+    public sealed class StalkerNewsArticlePhoto
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        public Guid PhotoId { get; set; }
+
+        [Required]
+        public byte[] PhotoData { get; set; } = Array.Empty<byte>();
 
         public DateTime CreatedAt { get; set; }
     }

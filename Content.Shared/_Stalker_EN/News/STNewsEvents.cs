@@ -13,11 +13,17 @@ public sealed class STNewsPublishEvent : CartridgeMessageEvent
     public readonly string Content;
     public readonly int EmbedColor;
 
-    public STNewsPublishEvent(string title, string content, int embedColor)
+    /// <summary>
+    /// Optional photo entity to attach. Must be held in active hand.
+    /// </summary>
+    public readonly NetEntity? PhotoEntity;
+
+    public STNewsPublishEvent(string title, string content, int embedColor, NetEntity? photoEntity = null)
     {
         Title = title;
         Content = content;
         EmbedColor = embedColor;
+        PhotoEntity = photoEntity;
     }
 }
 

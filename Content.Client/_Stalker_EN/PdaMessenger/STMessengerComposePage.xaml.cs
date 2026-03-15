@@ -31,7 +31,6 @@ public sealed partial class STMessengerComposePage : BoxContainer
 
     private int _maxLength;
     private string _chatId = string.Empty;
-    private bool _isDmChat;
 
     public STMessengerComposePage()
     {
@@ -71,7 +70,7 @@ public sealed partial class STMessengerComposePage : BoxContainer
     public void Setup(string chatId, uint? replyToId, string? replySnippet, string? displayName = null, string? initialContent = null)
     {
         _chatId = chatId;
-        _isDmChat = chatId.StartsWith(STMessengerChat.DmChatPrefix, StringComparison.Ordinal);
+        var isDmChat = chatId.StartsWith(STMessengerChat.DmChatPrefix, StringComparison.Ordinal);
         ContentInput.TextRope = initialContent is not null ? new Rope.Leaf(initialContent) : Rope.Leaf.Empty;
         AnonymousToggle.Pressed = false;
 
@@ -83,7 +82,7 @@ public sealed partial class STMessengerComposePage : BoxContainer
         CharCounter.FontColorOverride = remaining < 0 ? Color.Red : null;
         SendButton.Disabled = remaining < 0;
 
-        if (_isDmChat)
+        if (isDmChat)
         {
             // Use the display name (character name) if available, otherwise fall back to messenger ID from chat ID
             RecipientLabel.Text = displayName ?? chatId[STMessengerChat.DmChatPrefix.Length..];

@@ -232,6 +232,11 @@
       STElasticRubberRed: 50
       STElasticRubberGreen: 50
       STElasticRubberBlue: 50
+      # Cameras
+      STCamera: 750
+      STCameraVintage: 1200
+      STCameraDamaged: 400
+      STCameraFilm: 150
 
   - name: shop-category-provisions
     priority: 9
@@ -553,6 +558,11 @@
       STElasticRubberRed: 50
       STElasticRubberGreen: 50
       STElasticRubberBlue: 50
+      # Cameras
+      STCamera: 750
+      STCameraVintage: 1200
+      STCameraDamaged: 400
+      STCameraFilm: 150
 
   - name: shop-category-modules
     priority: 11

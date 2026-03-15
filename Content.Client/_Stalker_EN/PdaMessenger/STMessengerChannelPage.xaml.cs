@@ -56,7 +56,7 @@ public sealed partial class STMessengerChannelPage : BoxContainer, IOfferLinkCli
         // Full rebuild only if chat changed or messages were reset
         if (chat.Id != _lastChatId || chat.Messages.Count < _lastMessageCount)
         {
-            MessageList.RemoveAllChildren();
+            MessageList.DisposeAllChildren();
             _lastMessageCount = 0;
             _lastChatId = chat.Id;
         }

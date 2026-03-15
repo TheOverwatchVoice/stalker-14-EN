@@ -22,7 +22,11 @@ public sealed class STMessengerSendEvent : CartridgeMessageEvent
     /// </summary>
     public readonly bool IsAnonymous;
 
-    public STMessengerSendEvent(string targetChatId, string content, uint? replyToId = null, bool isAnonymous = false)
+    public STMessengerSendEvent(
+        string targetChatId,
+        string content,
+        uint? replyToId = null,
+        bool isAnonymous = false)
     {
         TargetChatId = targetChatId;
         Content = content;

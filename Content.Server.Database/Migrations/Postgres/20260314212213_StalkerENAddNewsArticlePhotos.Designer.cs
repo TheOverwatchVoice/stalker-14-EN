@@ -6,6 +6,7 @@ using System.Text.Json;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
@@ -15,9 +16,11 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    partial class PostgresServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260314212213_StalkerENAddNewsArticlePhotos")]
+    partial class StalkerENAddNewsArticlePhotos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1404,26 +1407,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasName("PK_stalker_bands");
 
                     b.ToTable("stalker_bands", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.StalkerCharacterRank", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.Property<string>("CharacterName")
-                        .HasColumnType("text")
-                        .HasColumnName("character_name");
-
-                    b.Property<TimeSpan>("TimeSpent")
-                        .HasColumnType("interval")
-                        .HasColumnName("time_spent");
-
-                    b.HasKey("UserId", "CharacterName")
-                        .HasName("PK_stalker_character_ranks");
-
-                    b.ToTable("stalker_character_ranks", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.StalkerFaction", b =>

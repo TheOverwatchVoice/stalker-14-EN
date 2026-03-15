@@ -29,6 +29,9 @@ public sealed class STNewsArticle
     /// <summary>Embed accent color (RGB integer).</summary>
     public readonly int EmbedColor;
 
+    /// <summary>Photo attached to this article. Null if no photo.</summary>
+    public readonly Guid? PhotoId;
+
     public STNewsArticle(
         int id,
         string title,
@@ -36,7 +39,8 @@ public sealed class STNewsArticle
         string author,
         int roundId,
         TimeSpan publishTime,
-        int embedColor)
+        int embedColor,
+        Guid? photoId = null)
     {
         Id = id;
         Title = title;
@@ -45,6 +49,7 @@ public sealed class STNewsArticle
         RoundId = roundId;
         PublishTime = publishTime;
         EmbedColor = embedColor;
+        PhotoId = photoId;
     }
 }
 
@@ -78,6 +83,9 @@ public sealed class STNewsArticleSummary
     /// <summary>Number of comments on this article.</summary>
     public readonly int CommentCount;
 
+    /// <summary>Whether this article has an attached photo.</summary>
+    public readonly bool HasPhoto;
+
     public STNewsArticleSummary(
         int id,
         string title,
@@ -86,7 +94,8 @@ public sealed class STNewsArticleSummary
         int roundId,
         TimeSpan publishTime,
         int embedColor,
-        int commentCount = 0)
+        int commentCount = 0,
+        bool hasPhoto = false)
     {
         Id = id;
         Title = title;
@@ -96,6 +105,7 @@ public sealed class STNewsArticleSummary
         PublishTime = publishTime;
         EmbedColor = embedColor;
         CommentCount = commentCount;
+        HasPhoto = hasPhoto;
     }
 }
 

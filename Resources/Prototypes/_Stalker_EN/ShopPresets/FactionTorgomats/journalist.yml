@@ -76,3 +76,8 @@
         STElasticRubberGreen: 50
         STElasticRubberBlue: 50
         FoldedFlagHelper: 250
+        # Cameras
+        STCamera: 750
+        STCameraVintage: 1200
+        STCameraDamaged: 400
+        STCameraFilm: 150

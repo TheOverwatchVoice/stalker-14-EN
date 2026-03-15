@@ -20,9 +20,9 @@ public sealed partial class STNewsUi : UIFragment
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
         _fragment = new STNewsUiFragment();
-        _fragment.OnPublishArticle += (title, content, color) =>
+        _fragment.OnPublishArticle += (title, content, color, photoEntity) =>
         {
-            SendMessage(new STNewsPublishEvent(title, content, color), userInterface);
+            SendMessage(new STNewsPublishEvent(title, content, color, photoEntity), userInterface);
         };
         _fragment.OnRequestArticle += articleId =>
         {

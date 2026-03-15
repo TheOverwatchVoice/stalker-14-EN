@@ -388,3 +388,45 @@ public sealed class CrayonItemStalker : IItemStalkerStorage
         return id;
     }
 }
+
+// stalker-en-changes-start: photo stash persistence
+/// <summary>
+/// Stash persistence data for a photo entity, storing its unique ID and base64-encoded image data.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class PhotoItemStalker : IItemStalkerStorage
+{
+    public string ClassType { get; set; } = "PhotoItemStalker";
+    public string PrototypeName { get; set; } = "";
+    public uint CountVendingMachine { get; set; }
+    public string? EngravedMessage { get; set; }
+    public string? CurrentLabel { get; set; }
+    /// <summary>
+    /// Unique identifier for the photo, serialized as a string GUID.
+    /// </summary>
+    public string PhotoId { get; set; } = "";
+
+    /// <summary>
+    /// Base64-encoded raw image data captured by the camera.
+    /// </summary>
+    public string ImageData { get; set; } = "";
+
+    public PhotoItemStalker(string prototypeName, string photoId, string imageData, uint countVendingMachine = 1)
+    {
+        PrototypeName = prototypeName;
+        PhotoId = photoId;
+        ImageData = imageData;
+        CountVendingMachine = countVendingMachine;
+    }
+
+    public string Identifier()
+    {
+        var id = "PH_" + PrototypeName + "_" + PhotoId;
+        if (!string.IsNullOrEmpty(EngravedMessage))
+            id += "_ENG=" + StalkerIdentifierHelper.DeterministicHash(EngravedMessage);
+        if (!string.IsNullOrEmpty(CurrentLabel))
+            id += "_LBL=" + StalkerIdentifierHelper.DeterministicHash(CurrentLabel);
+        return id;
+    }
+}
+// stalker-en-changes-end

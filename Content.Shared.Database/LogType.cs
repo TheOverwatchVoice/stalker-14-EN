@@ -499,4 +499,9 @@ public enum LogType
     /// Stalker news actions (publish, delete, comment).
     /// </summary>
     STNews = 195, // stalker-en-changes
+
+    /// <summary>
+    /// Camera photo actions (capture, delete, admin purge).
+    /// </summary>
+    STPhoto = 196, // stalker-en-changes
 }

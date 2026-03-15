@@ -1,12 +1,17 @@
 using System.Text.RegularExpressions;
+using Content.Server.Administration;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
 using Content.Server.CartridgeLoader;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.PDA.Ringer;
+using Content.Server._Stalker_EN.Camera;
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared._Stalker_EN.Camera;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -40,6 +45,8 @@ public sealed partial class STNewsSystem : EntitySystem
     [Dependency] private readonly RingerSystem _ringer = default!;
     [Dependency] private readonly SharedSTFactionResolutionSystem _factionResolution = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     private static readonly ProtoId<AccessLevelPrototype> JournalistAccess = "Journalist";
     private static readonly ProtoId<STBandPrototype> ClearSkyBandId = "STClearSkyBand";
@@ -129,7 +136,8 @@ public sealed partial class STNewsSystem : EntitySystem
                     dbArticle.Author,
                     dbArticle.RoundId,
                     TimeSpan.FromTicks(dbArticle.PublishTimeTicks),
-                    dbArticle.EmbedColor));
+                    dbArticle.EmbedColor,
+                    dbArticle.PhotoId));
             }
 
             // Load comments for all cached articles
@@ -343,12 +351,31 @@ public sealed partial class STNewsSystem : EntitySystem
 
         var author = MetaData(args.Actor).EntityName;
 
+        // Validate and extract attached photo data
+        Guid? photoId = null;
+        byte[]? photoData = null;
+        if (publish.PhotoEntity is { } photoNetEntity)
+        {
+            var photoUid = GetEntity(photoNetEntity);
+            if (!TryComp<STPhotoComponent>(photoUid, out var photoComp)
+                || photoComp.ImageData.Length == 0
+                || !_hands.TryGetActiveItem(args.Actor, out var activeItem)
+                || activeItem != photoUid)
+            {
+                return;
+            }
+
+            photoId = Guid.NewGuid();
+            photoData = photoComp.ImageData;
+        }
+
+        var photoInfo = photoId is { } pid ? $" with photo {pid}" : "";
         _adminLogger.Add(
             LogType.STNews,
             LogImpact.Low,
-            $"{ToPrettyString(args.Actor):player} published news article: \"{title}\"");
+            $"{ToPrettyString(args.Actor):player} published news article: \"{title}\"{photoInfo}");
 
-        PublishArticleAsync(title, content, author, publish.EmbedColor);
+        PublishArticleAsync(title, content, author, publish.EmbedColor, photoId, photoData);
     }
 
     private void OnRequestArticle(
@@ -388,20 +415,24 @@ public sealed partial class STNewsSystem : EntitySystem
 
     private void OnDelete(STNewsDeleteArticleEvent delete, CartridgeMessageEvent args)
     {
-        if (!HasJournalistAccess(args.Actor))
-            return;
-
         var article = FindArticleById(delete.ArticleId);
         if (article == null)
             return;
 
-        // Only allow deletion of own articles from the current round
-        if (article.RoundId != _gameTicker.RoundId)
-            return;
+        var isAdmin = IsAdmin(args.Actor);
 
-        var actorName = MetaData(args.Actor).EntityName;
-        if (article.Author != actorName)
-            return;
+        if (!isAdmin)
+        {
+            if (!HasJournalistAccess(args.Actor))
+                return;
+
+            if (article.RoundId != _gameTicker.RoundId)
+                return;
+
+            var actorName = MetaData(args.Actor).EntityName;
+            if (article.Author != actorName)
+                return;
+        }
 
         for (var i = 0; i < _articles.Count; i++)
         {
@@ -415,11 +446,13 @@ public sealed partial class STNewsSystem : EntitySystem
         RemoveReactionCacheForArticle(delete.ArticleId);
         _cachedSummaries = null;
 
+        var impact = isAdmin ? LogImpact.High : LogImpact.Medium;
         _adminLogger.Add(
             LogType.STNews,
-            LogImpact.Medium,
+            impact,
             $"{ToPrettyString(args.Actor):player} deleted news article #{delete.ArticleId}: \"{article.Title}\"");
 
+        // The DB DeleteArticleAsync cascades to the attached photo
         DeleteArticleAsync(delete.ArticleId);
         DeleteReactionsForArticleAsync(delete.ArticleId);
 
@@ -569,7 +602,9 @@ public sealed partial class STNewsSystem : EntitySystem
         string title,
         string content,
         string author,
-        int embedColor)
+        int embedColor,
+        Guid? photoId = null,
+        byte[]? photoData = null)
     {
         try
         {
@@ -581,10 +616,22 @@ public sealed partial class STNewsSystem : EntitySystem
                 RoundId = _gameTicker.RoundId,
                 PublishTimeTicks = _gameTicker.RoundDuration().Ticks,
                 EmbedColor = embedColor,
+                PhotoId = photoId,
                 CreatedAt = DateTime.UtcNow,
             };
 
-            var dbId = await _dbManager.AddStalkerNewsArticleAsync(dbArticle);
+            StalkerNewsArticlePhoto? dbPhoto = null;
+            if (photoId is { } pid && photoData != null)
+            {
+                dbPhoto = new StalkerNewsArticlePhoto
+                {
+                    PhotoId = pid,
+                    PhotoData = photoData,
+                    CreatedAt = DateTime.UtcNow,
+                };
+            }
+
+            var dbId = await _dbManager.AddStalkerNewsArticleWithPhotoAsync(dbArticle, dbPhoto);
 
             var article = new STNewsArticle(
                 dbId,
@@ -593,7 +640,8 @@ public sealed partial class STNewsSystem : EntitySystem
                 author,
                 dbArticle.RoundId,
                 TimeSpan.FromTicks(dbArticle.PublishTimeTicks),
-                embedColor);
+                embedColor,
+                photoId);
 
             var maxCached = _config.GetCVar(STCCVars.NewsMaxCachedArticles);
             _articles.Insert(0, article);
@@ -711,6 +759,12 @@ public sealed partial class STNewsSystem : EntitySystem
 
     #region Helpers
 
+    private bool IsAdmin(EntityUid actor)
+    {
+        return TryComp<ActorComponent>(actor, out var actorComp)
+               && _adminManager.IsAdmin(actorComp.PlayerSession);
+    }
+
     private bool HasJournalistAccess(EntityUid actor)
     {
         var tags = _accessReader.FindAccessTags(actor);
@@ -731,10 +785,13 @@ public sealed partial class STNewsSystem : EntitySystem
 
     /// <summary>
     /// Checks whether the given actor can delete the given article.
-    /// Must be journalist, same author name, and current round.
+    /// Admins can delete any article; journalists can only delete their own from the current round.
     /// </summary>
     private bool CanDeleteArticle(STNewsArticle article, EntityUid actor)
     {
+        if (IsAdmin(actor))
+            return true;
+
         if (!HasJournalistAccess(actor))
             return false;
 
@@ -780,7 +837,8 @@ public sealed partial class STNewsSystem : EntitySystem
                 article.RoundId,
                 article.PublishTime,
                 article.EmbedColor,
-                commentCount));
+                commentCount,
+                article.PhotoId.HasValue));
         }
 
         _cachedSummaries = summaries;
@@ -814,14 +872,16 @@ public sealed partial class STNewsSystem : EntitySystem
 
     private HashSet<int> GetDeletableArticleIds(EntityUid actor)
     {
-        if (!HasJournalistAccess(actor))
+        var isAdmin = IsAdmin(actor);
+
+        if (!isAdmin && !HasJournalistAccess(actor))
             return new HashSet<int>();
 
         var actorName = MetaData(actor).EntityName;
         var ids = new HashSet<int>();
         foreach (var article in _articles)
         {
-            if (article.RoundId == _gameTicker.RoundId && article.Author == actorName)
+            if (isAdmin || (article.RoundId == _gameTicker.RoundId && article.Author == actorName))
                 ids.Add(article.Id);
         }
 
@@ -903,6 +963,21 @@ public sealed partial class STNewsSystem : EntitySystem
             return null;
 
         return _factionResolution.GetBandFactionName(bandProto.Name);
+    }
+
+    /// <summary>
+    /// Checks whether a photo with the given ID is referenced by any cached article.
+    /// Used by STPhotoSystem to prevent DB enumeration via shared photo requests.
+    /// </summary>
+    public bool IsPhotoInCache(Guid photoId)
+    {
+        foreach (var article in _articles)
+        {
+            if (article.PhotoId == photoId)
+                return true;
+        }
+
+        return false;
     }
 
     #endregion

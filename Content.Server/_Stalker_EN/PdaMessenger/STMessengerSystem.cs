@@ -271,18 +271,32 @@ public sealed partial class STMessengerSystem : EntitySystem
             content = content[..maxLen];
 
         // Resolve sender name from stored owner name (survives entity deletion)
-        var senderName = server.OwnerCharacterName;
-        if (string.IsNullOrEmpty(senderName))
+        if (string.IsNullOrEmpty(server.OwnerCharacterName))
             return;
 
-        var senderKey = (server.OwnerUserId, senderName);
+        ProcessSendMessage(ent, server, send.TargetChatId, content, send.IsAnonymous,
+            send.ReplyToId, args.Actor, GetEntity(args.LoaderUid));
+    }
 
-        var loaderUid = GetEntity(args.LoaderUid);
-        var chatId = send.TargetChatId;
+    /// <summary>
+    /// Core message processing: routing, creation, eviction, logging, notifications, broadcast.
+    /// </summary>
+    private void ProcessSendMessage(
+        Entity<STMessengerComponent> ent,
+        STMessengerServerComponent server,
+        string chatId,
+        string content,
+        bool isAnonymous,
+        uint? replyToId,
+        EntityUid actor,
+        EntityUid loaderUid)
+    {
+        var senderName = server.OwnerCharacterName;
+        var senderKey = (server.OwnerUserId, senderName);
         var isDm = chatId.StartsWith(STMessengerChat.DmChatPrefix, StringComparison.Ordinal);
 
         // Effective anonymous flag: only allowed for non-DM channels that explicitly permit it
-        var isAnonymous = send.IsAnonymous && !isDm;
+        isAnonymous = isAnonymous && !isDm;
 
         // Determine display name: anonymous pseudonym for channels, real name for DMs
         var displayName = isAnonymous
@@ -290,7 +304,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             : senderName;
 
         string? replySnippet = null;
-        if (send.ReplyToId is { } replyId)
+        if (replyToId is { } replyId)
         {
             replySnippet = FindReplySnippet(chatId, isDm, server, replyId);
         }
@@ -367,7 +381,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             displayName,
             content,
             _timing.CurTime,
-            send.ReplyToId,
+            replyToId,
             replySnippet,
             senderFaction,
             senderRankIcon);
@@ -378,23 +392,26 @@ public sealed partial class STMessengerSystem : EntitySystem
         server.LastSeenMessageId[chatId] = msgId;
 
         if (chatMessages.Count > maxMessages)
-            chatMessages.RemoveRange(0, chatMessages.Count - maxMessages);
+        {
+            var evictCount = chatMessages.Count - maxMessages;
+            chatMessages.RemoveRange(0, evictCount);
+        }
 
         // Admin log — include anonymous pseudonym so admins can trace abuse
-        var replyInfo = send.ReplyToId is { } rid
+        var replyInfo = replyToId is { } rid
             ? $" (reply to #{rid}: \"{replySnippet}\")"
             : "";
 
         if (isAnonymous)
         {
             _adminLogger.Add(LogType.STMessenger, LogImpact.Medium,
-                $"{ToPrettyString(args.Actor):player} sent anonymous message " +
+                $"{ToPrettyString(actor):player} sent anonymous message " +
                 $"(as \"{displayName}\") to {chatId}{replyInfo}: {content}");
         }
         else
         {
             _adminLogger.Add(LogType.STMessenger, LogImpact.Medium,
-                $"{ToPrettyString(args.Actor):player} sent message to {chatId}{replyInfo}: {content}");
+                $"{ToPrettyString(actor):player} sent message to {chatId}{replyInfo}: {content}");
         }
 
         if (isDm)

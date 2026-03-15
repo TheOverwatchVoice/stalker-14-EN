@@ -219,6 +219,11 @@
         STElasticRubberGreen: 50
         STElasticRubberBlue: 50
         FoldedFlagMili: 250
+        # Cameras
+        STCamera: 750
+        STCameraVintage: 1200
+        STCameraDamaged: 400
+        STCameraFilm: 150
 
     - name: shop-category-customization
       priority: 11

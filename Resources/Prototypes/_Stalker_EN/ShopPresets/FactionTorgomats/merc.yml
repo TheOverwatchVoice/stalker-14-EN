@@ -288,6 +288,11 @@
         ClothingBackpackDuffelGreenStalkerHydroponic: 500
         ExtendedEmergencyOxygenTankFilledStalker: 50
         FoldedFlagMerc: 250
+        # Cameras
+        STCamera: 750
+        STCameraVintage: 1200
+        STCameraDamaged: 400
+        STCameraFilm: 150
 
     - name: shop-category-modules
       priority: 11

@@ -1,4 +1,4 @@
-- type: entity
+- type: entity # Stalker_EN Changes
   abstract: true
   parent: STBaseWeaponSMG
   id: STBaseWeaponSMGMP5
@@ -12,11 +12,11 @@
   - type: Clothing
     sprite: _Stalker/Objects/Weapons/Guns/SMGs/mp5/mp5.rsi
   - type: Gun
-    minAngle: 40
-    maxAngle: 85
-    angleIncrease: 1
-    angleDecay: 8
-    fireRate: 9.5
+    minAngle: 35
+    maxAngle: 65
+    angleIncrease: 2.1
+    angleDecay: 12
+    fireRate: 8
     soundGunshot:
       path: /Audio/_Stalker/Effects/Guns/n_mp5_shot.ogg
   - type: ItemSlots

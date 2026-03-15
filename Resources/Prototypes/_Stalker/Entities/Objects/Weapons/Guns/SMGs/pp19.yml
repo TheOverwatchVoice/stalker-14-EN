@@ -1,4 +1,4 @@
-- type: entity
+- type: entity # Stalker_EN Changes
   abstract: true
   parent: STBaseWeaponSMG
   id: STBaseWeaponSMGPP19
@@ -12,11 +12,11 @@
   - type: Clothing
     sprite: _Stalker/Objects/Weapons/Guns/SMGs/bizon.rsi
   - type: Gun
-    minAngle: 40
-    maxAngle: 90
-    angleIncrease: 1
-    angleDecay: 5
-    fireRate: 10
+    minAngle: 35
+    maxAngle: 70
+    angleIncrease: 2.3
+    angleDecay: 10
+    fireRate: 8
     soundGunshot:
       path: /Audio/_Stalker/Effects/Guns/919.ogg
   - type: ItemSlots

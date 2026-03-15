@@ -406,6 +406,10 @@
       STModuleSilencerSMGT1: 600
       STModuleSniperSightT1: 600
       STModuleSilencerSniperT1: 600
+      STModuleSilencerRiflesT2Ru: 2800
+      STModuleSilencerRiflesT2Nato: 2800
+      STModuleSilencerSniperT2: 2800
+      STModuleSilencerSMGT2: 2800
 
   - name: shop-category-customization
     priority: 12

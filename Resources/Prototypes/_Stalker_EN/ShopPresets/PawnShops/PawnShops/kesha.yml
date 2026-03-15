@@ -345,3 +345,7 @@
         STModuleSilencerSMGT1: 1600
         STModuleSniperSightT1: 1600
         STModuleSilencerSniperT1: 1400
+        STModuleSilencerRiflesT2Ru: 4600
+        STModuleSilencerRiflesT2Nato: 4600
+        STModuleSilencerSniperT2: 4600
+        STModuleSilencerSMGT2: 4800

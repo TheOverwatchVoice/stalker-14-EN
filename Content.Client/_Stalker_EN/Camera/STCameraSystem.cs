@@ -45,6 +45,7 @@ public sealed class STCameraSystem : SharedSTCameraSystem
     private const int GlitchChannelMaxShift = 7;
     private const double GlitchNoiseChance = 0.005;
 
+    /// <inheritdoc />
     public override void Initialize()
     {
         base.Initialize();
@@ -95,8 +96,7 @@ public sealed class STCameraSystem : SharedSTCameraSystem
     }
 
     /// <summary>
-    /// Applies a photo effect using direct pixel manipulation via GetPixelSpan().
-    /// This avoids IImageProcessingContext methods blocked by the RobustToolbox sandbox.
+    /// Applies a photo effect using sandbox-safe pixel manipulation via BMP serialization.
     /// </summary>
     private static void ApplyEffect(Image<Rgba32> image, STPhotoEffect effect, Guid token)
     {
@@ -125,13 +125,13 @@ public sealed class STCameraSystem : SharedSTCameraSystem
         var cy = height / 2f;
         var maxDist = MathF.Sqrt(cx * cx + cy * cy);
 
-        var span = image.GetPixelSpan();
+        var pixels = ExtractPixels(image);
         for (var y = 0; y < height; y++)
         {
             for (var x = 0; x < width; x++)
             {
                 var i = y * width + x;
-                var p = span[i];
+                var p = pixels[i];
 
                 // Normalize to 0–1
                 var rf = p.R / 255f;
@@ -179,9 +179,11 @@ public sealed class STCameraSystem : SharedSTCameraSystem
                 var g = (byte)Math.Clamp((int)(gf * 255f), 0, 255);
                 var b = (byte)Math.Clamp((int)(bf * 255f), 0, 255);
 
-                span[i] = new Rgba32(r, g, b, p.A);
+                pixels[i] = new Rgba32(r, g, b, p.A);
             }
         }
+
+        WritePixels(image, pixels);
     }
 
     /// <summary>
@@ -193,15 +195,15 @@ public sealed class STCameraSystem : SharedSTCameraSystem
     {
         var width = image.Width;
         var height = image.Height;
-        var span = image.GetPixelSpan();
+        var pixels = ExtractPixels(image);
         var rng = new Random(token.GetHashCode());
 
         // Step 1: Convert to grayscale (BT.601 luminance)
-        for (var i = 0; i < span.Length; i++)
+        for (var i = 0; i < pixels.Length; i++)
         {
-            var p = span[i];
+            var p = pixels[i];
             var gray = (byte)(LumaR * p.R + LumaG * p.G + LumaB * p.B);
-            span[i] = new Rgba32(gray, gray, gray, p.A);
+            pixels[i] = new Rgba32(gray, gray, gray, p.A);
         }
 
         // Reusable row buffers — hoisted to avoid per-row allocations
@@ -219,12 +221,12 @@ public sealed class STCameraSystem : SharedSTCameraSystem
 
             // Copy row to temp buffer, then write back shifted
             for (var x = 0; x < width; x++)
-                rowBuf[x] = span[rowStart + x];
+                rowBuf[x] = pixels[rowStart + x];
 
             for (var x = 0; x < width; x++)
             {
                 var srcX = x - offset;
-                span[rowStart + x] = srcX >= 0 && srcX < width
+                pixels[rowStart + x] = srcX >= 0 && srcX < width
                     ? rowBuf[srcX]
                     : new Rgba32(0, 0, 0, 255);
             }
@@ -241,7 +243,7 @@ public sealed class STCameraSystem : SharedSTCameraSystem
 
             // Read current row luminance values
             for (var x = 0; x < width; x++)
-                lumBuf[x] = span[rowStart + x].R; // grayscale, so R == G == B
+                lumBuf[x] = pixels[rowStart + x].R; // grayscale, so R == G == B
 
             for (var x = 0; x < width; x++)
             {
@@ -256,18 +258,78 @@ public sealed class STCameraSystem : SharedSTCameraSystem
                 var bSrc = x - shift;
                 var b = bSrc >= 0 ? lumBuf[bSrc] : lumBuf[0];
 
-                span[rowStart + x] = new Rgba32(r, g, b, span[rowStart + x].A);
+                pixels[rowStart + x] = new Rgba32(r, g, b, pixels[rowStart + x].A);
             }
         }
 
         // Step 4: Salt-and-pepper noise
-        for (var i = 0; i < span.Length; i++)
+        for (var i = 0; i < pixels.Length; i++)
         {
             if (rng.NextDouble() >= GlitchNoiseChance)
                 continue;
 
             var noise = rng.Next(2) == 0 ? (byte)0 : (byte)255;
-            span[i] = new Rgba32(noise, noise, noise, span[i].A);
+            pixels[i] = new Rgba32(noise, noise, noise, pixels[i].A);
+        }
+
+        WritePixels(image, pixels);
+    }
+
+    /// <summary>
+    /// Reads all pixels from an image via BMP serialization.
+    /// This avoids GetPixelSpan() which is not whitelisted in the RobustToolbox sandbox.
+    /// </summary>
+    private static Rgba32[] ExtractPixels(Image<Rgba32> image)
+    {
+        using var ms = new MemoryStream();
+        image.SaveAsBmp(ms);
+        var bmp = ms.ToArray();
+
+        // BMP file header: pixel data offset at bytes 10–13
+        var dataOffset = BitConverter.ToInt32(bmp, 10);
+        // DIB header: width at bytes 18–21, height at bytes 22–25, bpp at bytes 28–29
+        var width = BitConverter.ToInt32(bmp, 18);
+        var rawHeight = BitConverter.ToInt32(bmp, 22);
+        var bpp = BitConverter.ToInt16(bmp, 28);
+        var height = Math.Abs(rawHeight);
+        var topDown = rawHeight < 0;
+        var bytesPerPixel = bpp / 8;
+        var stride = (width * bytesPerPixel + 3) & ~3; // rows padded to 4-byte boundary
+
+        var pixels = new Rgba32[width * height];
+        for (var y = 0; y < height; y++)
+        {
+            // BMP stores rows bottom-up by default; negative height means top-down
+            var srcRow = topDown ? y : height - 1 - y;
+            var rowOffset = dataOffset + srcRow * stride;
+            for (var x = 0; x < width; x++)
+            {
+                var px = rowOffset + x * bytesPerPixel;
+                // BMP pixel order is BGRA
+                var b = bmp[px];
+                var g = bmp[px + 1];
+                var r = bmp[px + 2];
+                var a = bytesPerPixel >= 4 ? bmp[px + 3] : (byte) 255;
+                pixels[y * width + x] = new Rgba32(r, g, b, a);
+            }
+        }
+
+        return pixels;
+    }
+
+    /// <summary>
+    /// Writes a pixel array back to an image using the whitelisted indexer (set_Item).
+    /// </summary>
+    private static void WritePixels(Image<Rgba32> image, Rgba32[] pixels)
+    {
+        var width = image.Width;
+        var height = image.Height;
+        for (var y = 0; y < height; y++)
+        {
+            for (var x = 0; x < width; x++)
+            {
+                image[x, y] = pixels[y * width + x];
+            }
         }
     }
 }

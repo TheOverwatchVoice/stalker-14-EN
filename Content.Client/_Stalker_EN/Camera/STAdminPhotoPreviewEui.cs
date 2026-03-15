@@ -3,6 +3,7 @@ using Content.Client.Eui;
 using Content.Shared._Stalker_EN.Camera;
 using Content.Shared.Eui;
 using Robust.Client.Graphics;
+using Robust.Shared.Log;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -14,17 +15,22 @@ namespace Content.Client._Stalker_EN.Camera;
 public sealed class STAdminPhotoPreviewEui : BaseEui
 {
     [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private readonly ILogManager _log = default!;
 
+    private ISawmill _sawmill = default!;
     private STPhotoWindow? _window;
 
+    /// <inheritdoc />
     public override void Opened()
     {
+        _sawmill = _log.GetSawmill("st.camera.eui");
         _window = new STPhotoWindow();
         _window.OpenCentered();
         _window.StartLoading();
         _window.OnClose += () => SendMessage(new CloseEuiMessage());
     }
 
+    /// <inheritdoc />
     public override void HandleState(EuiStateBase state)
     {
         if (state is not STAdminPhotoPreviewEuiState photoState)
@@ -46,12 +52,14 @@ public sealed class STAdminPhotoPreviewEui : BaseEui
             var texture = _clyde.LoadTextureFromImage(image);
             _window.SetTexture(texture);
         }
-        catch (SixLabors.ImageSharp.ImageFormatException)
+        catch (Exception ex)
         {
+            _sawmill.Warning($"Failed to load admin photo preview image: {ex.Message}");
             _window.ShowUnavailable();
         }
     }
 
+    /// <inheritdoc />
     public override void Closed()
     {
         _window?.Close();

@@ -4,9 +4,9 @@
   id: NukeDisk
   description: A nuclear auth disk, capable of arming a nuke if used along with a code. Note from nanotrasen reads "THIS IS YOUR MOST IMPORTANT POSESSION, SECURE DAT FUKKEN DISK!"
   components:
-  - type: NukeDisk
-  - type: SpecialRespawn
-    prototype: NukeDisk
+#  - type: NukeDisk
+#  - type: SpecialRespawn
+#    prototype: NukeDisk
   - type: Sprite
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
@@ -14,12 +14,12 @@
     price: 2000
   - type: CargoSellBlacklist
   - type: ArrivalsBlacklist
-  - type: WarpPoint
-    follow: true
-    location: nuke disk
-    blacklist:
-      tags:
-      - GhostOnlyWarp
+#  - type: WarpPoint
+#    follow: true
+#    location: nuke disk
+#    blacklist:
+#      tags:
+#      - GhostOnlyWarp
   - type: Tag
     tags:
     - HighRiskItem

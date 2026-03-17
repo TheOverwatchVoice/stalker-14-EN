@@ -49,5 +49,20 @@
         GlockenspielInstrument: 3000
         BanjoInstrument: 3000
         CelloInstrument: 4000
-        MicrophoneInstrument: 5000 
+        MicrophoneInstrument: 5000
+    - name: Portable Musical Instruments
+      priority: 4
+      items:
+        PianoInstrumentPortablePack: 5000
+        UprightPianoInstrumentPortablePack: 6000
+        VibraphoneInstrumentPortablePack: 6000
+        MarimbaInstrumentPortablePack: 5000
+        ChurchOrganInstrumentPortablePack: 6000
+        TubaInstrumentPortablePack: 6000
+        HarpInstrumentPortablePack: 6000
+        TimpaniInstrumentPortablePack: 5000
+        TaikoInstrumentPortablePack: 5000
+        ContrabassInstrumentPortablePack: 6000
+        MinimoogInstrumentPortablePack: 6000
+        TomDrumsInstrumentPortablePack: 5000
 

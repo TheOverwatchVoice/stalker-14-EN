@@ -1611,5 +1611,17 @@
   id: 169
   time: '2026-03-18T07:48:12.520992+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/662
+- author: teecoding
+  changes:
+  - message: Radar detector no longer picks up artifacts and anomalies that are inside
+      containers
+    type: Fix
+  - message: Radar sweep no longer misses blips near the top of the display
+    type: Fix
+  - message: Radar should be rotated correctly.
+    type: Fix
+  id: 170
+  time: '2026-03-18T07:49:40.055064+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/665
 Name: Stalker
 Order: -1

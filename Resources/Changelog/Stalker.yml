@@ -1667,5 +1667,12 @@
   id: 174
   time: '2026-03-19T10:39:29.316796+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/666
+- author: DuckManZach
+  changes:
+  - message: Added a shortcut insert/withdraw button for the stash
+    type: Add
+  id: 175
+  time: '2026-03-19T10:45:19.004836+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/668
 Name: Stalker
 Order: -1

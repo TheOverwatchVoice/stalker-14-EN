@@ -436,6 +436,7 @@
         BookCookingStalkerGuide: 200
         BookCookingStalkerHomemade: 800
         STRag: 10
+        BoomboxPortable: 500
 
     - name: shop-category-modules
       priority: 12

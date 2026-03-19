@@ -1,6 +1,6 @@
 - type: job
   id: StalkerMonolith
-  name: job-monolith
+  name: Noontide
   icon: monolith
   description: job-monolith-desc
   playTimeTracker: JobMonolith
@@ -66,7 +66,7 @@
 
 - type: job
   id: StalkerHeadMonolith
-  name: Monolith Preacher
+  name: Noontide Leader
   icon: monolith
   description: Lead the Monolith on a Crusade across the Zone. Follow the order of the Monolith.
   playTimeTracker: JobHeadMonolith

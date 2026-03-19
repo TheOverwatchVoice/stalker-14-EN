@@ -1,6 +1,6 @@
 - type: job
   id: StalkerRene
-  name: job-renegade
+  name: ISG Operative
   icon: rene
   description: job-renegade-desc
   playTimeTracker: JobRenegat
@@ -39,7 +39,7 @@
 
 - type: job
   id: StalkerHeadRene
-  name: job-head-renegade
+  name: ISG Commander
   icon: rene
   description: job-head-renegade-desc
   playTimeTracker: JobHeadRenegat

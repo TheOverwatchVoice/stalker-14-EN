@@ -1,6 +1,6 @@
 - type: job
   id: StalkerDolg
-  name: job-dolg
+  name: Ward Soldier
   icon: dolg1
   description: job-dolg-desc
   playTimeTracker: JobDolg
@@ -44,7 +44,7 @@
 
 - type: job
   id: StalkerHeadDolg
-  name: job-head-dolg
+  name: Ward komendant
   icon: dolg2
   description: job-head-dolg-desc
   playTimeTracker: JobHeadDolg

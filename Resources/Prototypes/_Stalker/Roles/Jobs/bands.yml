@@ -1,6 +1,6 @@
 - type: job
   id: StalkerBandit
-  name: job-bandit
+  name: Bandito
   icon: band
   description: job-bandit-desc
   playTimeTracker: JobBandit
@@ -46,7 +46,7 @@
           
 - type: job
   id: StalkerHeadBandit
-  name: job-head-bandit
+  name: Sultan
   icon: band
   description: job-head-bandit-desc
   playTimeTracker: JobHeadBandit

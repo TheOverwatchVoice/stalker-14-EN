@@ -1,6 +1,6 @@
 - type: job
   id: MilitaryStalker
-  name: job-military-stalker
+  name: IPSF Soldier
   icon: voen
   description: job-military-stalker-desc
   playTimeTracker: JobMilitaryStalker
@@ -47,7 +47,7 @@
 
 - type: job
   id: HeadMilitaryStalker
-  name: job-military-stalker-commander
+  name: IPSF Commander
   icon: voen
   description: job-military-stalker-desc
   playTimeTracker: JobHeadMilitaryStalker
@@ -94,7 +94,7 @@
 
 - type: job
   id: Military
-  name: job-military
+  name: IPSF Soldier
   icon: voen1EN
   description: job-military-desc
   playTimeTracker: JobMilitary
@@ -138,7 +138,7 @@
 
 - type: job
   id: MilitaryHead
-  name: job-military-head
+  name: IPSF Commander
   icon: voen2EN
   description: job-military-head-desc
   playTimeTracker: JobHeadMilitary
@@ -185,7 +185,7 @@
 
 - type: job
   id: MilitaryOfficer
-  name: job-military-officer
+  name: IPSF Officer
   icon: voen3EN
   description: job-military-officer-desc
   playTimeTracker: JobOfficerMilitary

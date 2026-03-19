@@ -6,7 +6,7 @@
 
 - type: job
   id: StalkerRookie
-  name: job-stalker-rookie
+  name: Loot Box
   icon: rookie
   description: job-stalker-rookie-desc
   playTimeTracker: JobStalkerRookie

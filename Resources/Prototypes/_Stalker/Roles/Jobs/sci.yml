@@ -1,6 +1,6 @@
 - type: job
   id: StalkerScientist
-  name: job-scientist
+  name: SIRCAA Scientist
   icon: sci
   description: job-scientist-desc
   playTimeTracker: JobStalkerSci
@@ -44,7 +44,7 @@
 
 - type: job
   id: sci
-  name: job-sci
+  name: SIRCAA Scientist
   icon: sci
   description: job-sci-desc
   playTimeTracker: JobSci
@@ -88,7 +88,7 @@
 
 - type: job
   id: sci_decan
-  name: job-sci_decan
+  name: SIRCAA Soldier
   icon: sci_decan
   description: job-sci_decan-desc
   playTimeTracker: Jobsci_decan
@@ -132,7 +132,7 @@
 
 - type: job
   id: sci_rector
-  name: job-sci_rector
+  name: SIRCAA Head
   icon: sci_rector
   description: job-sci_rector-desc
   playTimeTracker: JobSci_rector

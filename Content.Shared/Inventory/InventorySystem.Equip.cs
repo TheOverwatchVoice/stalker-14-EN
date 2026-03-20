@@ -245,7 +245,7 @@ public abstract partial class InventorySystem
 
         if (slot == "mask" && TryGetSlotEntity(target, "head", out var headItem, inventory)) // Stalker-Changes-Start
         {
-            if (_tagSystem.HasTag(itemUid, "BlockMask") && _tagSystem.HasTag(headItem.Value, "BlockMask"))
+            if (_tagSystem.HasTag(itemUid, "BlockMask") && _tagSystem.HasTag(headItem.Value, "BlockMask") || _tagSystem.HasTag(itemUid, "BlockHead")) // Stalker EN change - needed to make masks block head
             {
                 return false;
             }
@@ -253,7 +253,7 @@ public abstract partial class InventorySystem
 
         if (slot == "head" && TryGetSlotEntity(target, "mask", out var maskItem, inventory))
         {
-            if (_tagSystem.HasTag(itemUid, "BlockMask") && _tagSystem.HasTag(maskItem.Value, "BlockMask"))
+            if (_tagSystem.HasTag(itemUid, "BlockMask") && _tagSystem.HasTag(maskItem.Value, "BlockMask") || _tagSystem.HasTag(maskItem.Value, "BlockHead")) // Stalker EN change - needed to make masks block head
             {
                 return false;
             }

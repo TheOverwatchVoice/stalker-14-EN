@@ -30,8 +30,8 @@ public sealed partial class ContentAudioSystem
     [Dependency] private readonly RulesSystem _rules = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    private readonly TimeSpan _minAmbienceTime = TimeSpan.FromSeconds(30);
-    private readonly TimeSpan _maxAmbienceTime = TimeSpan.FromSeconds(60);
+    private readonly TimeSpan _minAmbienceTime = TimeSpan.FromSeconds(45); // stalker EN change
+    private readonly TimeSpan _maxAmbienceTime = TimeSpan.FromSeconds(90); // stalker EN change
 
     private const float AmbientMusicFadeTime = 10f;
     private static float _volumeSlider;
@@ -249,7 +249,7 @@ public sealed partial class ContentAudioSystem
             return amb;
         }
 
-        _sawmill.Warning($"Unable to find fallback ambience track");
+        //_sawmill.Warning($"Unable to find fallback ambience track"); // stalker EN change removed so the console is not spammed
         return null;
     }
 

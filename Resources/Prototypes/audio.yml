@@ -39,38 +39,39 @@
     - /Audio/_Stalker/Ambient/ambmusi/tdv.ogg
     - /Audio/_Stalker/Ambient/ambmusi/topi.ogg
 
-- type: ambientMusic
-  id: StalkerSoundAmbient
-  sound:
-    params:
-      volume: 6
-    collection: StalkerSound
-  rules: OnMapGrid
-  fadeIn: false
-  interruptable: true
-  priority: 3
+# stalker EN change start
+#- type: ambientMusic
+#  id: StalkerSoundAmbient
+#  sound:
+#    params:
+#      volume: 6
+#    collection: StalkerSound
+#  rules: OnMapGrid
+#  fadeIn: false
+#  interruptable: true
+#  priority: 3
 
-- type: ambientMusic
-  id: StalkerHorrorAmbient
-  sound:
-    params:
-      volume: 6
-    collection: StalkerHorrorSound
-  rules: OnMapGrid
-  fadeIn: false
-  interruptable: true
-  priority: 2
+#- type: ambientMusic
+#  id: StalkerHorrorAmbient
+#  sound:
+#    params:
+#      volume: 6
+#    collection: StalkerHorrorSound
+#  rules: OnMapGrid
+#  fadeIn: false
+#  interruptable: true
+#  priority: 2
 
-- type: ambientMusic
-  id: StalkerMusicAmbient
-  sound:
-    params:
-      volume: 3
-    collection: StalkerMusicSound
-  rules: OnMapGrid
-  fadeIn: true
-  interruptable: true
-  priority: 3
+#- type: ambientMusic
+#  id: StalkerMusicAmbient
+#  sound:
+#    params:
+#      volume: 3
+#    collection: StalkerMusicSound
+#  rules: OnMapGrid
+#  fadeIn: true
+#  interruptable: true
+#  priority: 3
 
 - type: rules
   id: OnMapGrid
@@ -78,13 +79,14 @@
     - !type:OnMapGridRule
 
 ## Fallback if nothing else found
-- type: ambientMusic
-  id: StalkerFallbackMusicAmbient
-  sound:
-    params:
-      volume: 3
-    collection: StalkerMusicSound
-  rules: AlwaysTrue
+#- type: ambientMusic
+#  id: StalkerFallbackMusicAmbient
+#  sound:
+#    params:
+#      volume: 3
+#    collection: StalkerMusicSound
+#  rules: AlwaysTrue
+# stalker EN change end
 
 - type: rules
   id: AlwaysTrue

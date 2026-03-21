@@ -21,6 +21,8 @@
     size: Tiny
   - type: StealTarget
     stealGroup: Stamp
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: alternate rubber stamp

@@ -41,6 +41,8 @@
           - Pill
           - Healing
           - Defibrillator
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-equipment-category
 
 - type: entity
   parent: ClothingBeltStorageStalkerBase

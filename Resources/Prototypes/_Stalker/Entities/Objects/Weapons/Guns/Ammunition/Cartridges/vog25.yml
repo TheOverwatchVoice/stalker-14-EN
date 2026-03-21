@@ -13,7 +13,8 @@
       - Cartridge
   - type: STWeight
     self: 0.25
-
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cartridges-category
 
 - type: entity
   parent: GrenadeVOGbase

@@ -595,6 +595,8 @@
   - type: Tag
     tags:
     - Pill
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-medicine-category
 
 - type: entity
   name: pill canister
@@ -623,3 +625,5 @@
       tags:
       - Pill
   - type: Dumpable
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-medicine-category

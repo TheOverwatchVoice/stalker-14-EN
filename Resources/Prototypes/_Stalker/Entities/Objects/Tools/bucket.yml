@@ -34,7 +34,8 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
-
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 - type: entity
   parent: STBucket

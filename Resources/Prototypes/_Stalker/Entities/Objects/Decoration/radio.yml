@@ -23,6 +23,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Devices/mp3player.rsi
     state: base
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   id: RadioStandStalkerIgorIvanovichTheme
@@ -65,6 +67,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -83,6 +87,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -101,6 +107,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -119,6 +127,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -137,6 +147,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -155,6 +167,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c4
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -173,6 +187,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c2
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -191,6 +207,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c3
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -209,6 +227,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -227,6 +247,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -245,6 +267,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -263,6 +287,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -281,6 +307,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -299,6 +327,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -317,6 +347,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 # ДОНАТНЫЕ КАССЕТЫ
 
@@ -337,6 +369,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -355,6 +389,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -373,6 +409,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -391,6 +429,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -409,6 +449,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -427,6 +469,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -445,6 +489,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -463,6 +509,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -481,6 +529,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -499,6 +549,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -517,6 +569,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -535,6 +589,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -553,6 +609,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -571,6 +629,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -589,6 +649,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -607,6 +669,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -625,6 +689,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -643,6 +709,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -661,6 +729,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -679,6 +749,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -697,6 +769,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -715,6 +789,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -733,6 +809,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -751,6 +829,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -769,6 +849,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -787,6 +869,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -805,6 +889,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -823,6 +909,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -841,6 +929,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -859,6 +949,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -877,6 +969,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -895,6 +989,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -913,6 +1009,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -931,6 +1029,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -949,6 +1049,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -967,6 +1069,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -985,6 +1089,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1003,6 +1109,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1021,6 +1129,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1039,6 +1149,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1057,6 +1169,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1075,6 +1189,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1093,6 +1209,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1111,6 +1229,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1129,6 +1249,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1147,6 +1269,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1165,6 +1289,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1183,6 +1309,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1201,6 +1329,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1219,6 +1349,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1237,6 +1369,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1255,6 +1389,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1273,6 +1409,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1291,6 +1429,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1309,6 +1449,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1327,6 +1469,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1345,6 +1489,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1363,6 +1509,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1381,6 +1529,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1399,6 +1549,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1417,6 +1569,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1435,6 +1589,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1453,6 +1609,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1471,6 +1629,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1489,6 +1649,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1507,6 +1669,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1525,6 +1689,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 # Groups Donate Cassets
 
@@ -1547,6 +1713,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1565,6 +1733,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1583,6 +1753,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1601,6 +1773,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1619,6 +1793,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1637,6 +1813,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1655,6 +1833,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1673,6 +1853,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1691,6 +1873,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1709,6 +1893,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1727,6 +1913,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 # Donate Premium
 
@@ -1747,6 +1935,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1765,6 +1955,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1783,6 +1975,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1801,6 +1995,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1819,6 +2015,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1837,6 +2035,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1855,6 +2055,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1873,6 +2075,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1891,6 +2095,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1909,6 +2115,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1927,6 +2135,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1945,6 +2155,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1963,6 +2175,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1981,6 +2195,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -1999,6 +2215,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2017,6 +2235,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2035,6 +2255,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2053,6 +2275,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2071,6 +2295,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2089,6 +2315,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2107,6 +2335,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2125,6 +2355,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2143,6 +2375,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2161,6 +2395,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2179,6 +2415,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 # Contributor
 - type: entity
@@ -2214,6 +2452,9 @@
       quickEquip: false
     - type: Item
       size: Normal
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-equipment-category
+
 
 - type: entity
   parent: CasetsConBag
@@ -2294,6 +2535,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteUSSRContributorRadio
@@ -2311,6 +2555,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteAction1ContributorRadio
@@ -2328,6 +2575,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteGeneralReleaseContributorRadio
@@ -2345,6 +2595,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteGrooveDealersContributorRadio
@@ -2362,6 +2615,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteInTheHouseInAHeartbeatContributorRadio
@@ -2379,6 +2635,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteGambit
@@ -2396,6 +2655,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteAtomicHeartKomarovoContributorRadio
@@ -2413,6 +2675,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteLinkinParkIntheEndContributorRadio
@@ -2430,6 +2695,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2448,6 +2715,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2466,6 +2735,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteFDJContributorRadio
@@ -2483,6 +2755,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2501,6 +2775,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2519,6 +2795,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteGimnUSSRContributorRadio
@@ -2536,6 +2815,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2554,6 +2835,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2572,6 +2855,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2590,6 +2875,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2608,6 +2895,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2626,6 +2915,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2644,6 +2935,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2662,6 +2955,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2680,6 +2975,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteS1keContributorRadio
@@ -2697,6 +2995,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2715,6 +3015,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2733,6 +3035,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2751,6 +3055,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2769,6 +3075,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2787,6 +3095,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2805,6 +3115,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2823,6 +3135,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2841,6 +3155,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2859,6 +3175,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CassetePogasliSvechiContributorRadio
@@ -2876,6 +3195,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteMamaPriyezzhayIMenyaZaberiContributorRadio
@@ -2893,6 +3215,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteGSN1ContributorRadio
@@ -2910,6 +3235,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteGSN2ContributorRadio
@@ -2927,6 +3255,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteGeranContributorRadio
@@ -2944,6 +3275,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2962,6 +3295,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2980,6 +3315,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -2998,6 +3335,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3016,6 +3355,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3034,6 +3375,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3052,6 +3395,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3070,6 +3415,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3088,6 +3435,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3106,6 +3455,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3124,6 +3475,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3142,6 +3495,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3160,6 +3515,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3178,6 +3535,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3196,6 +3555,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3214,6 +3575,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3232,6 +3595,8 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
 
 - type: entity
   parent: BaseItem
@@ -3250,6 +3615,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CassetevietnamContributorRadio
@@ -3267,6 +3635,9 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteHerzContributorRadio
@@ -3284,6 +3655,9 @@
     - type: Sprite
       sprite: _Stalker/Objects/Misc/casete.rsi
       state: c6
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-cassettes-category
+
 - type: entity
   parent: BaseItem
   id: CasseteJewishTailorContributorRadio
@@ -3301,6 +3675,8 @@
     - type: Sprite
       sprite: _Stalker/Objects/Misc/casete.rsi
       state: c6
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-cassettes-category
 
 # СТАТИЧЕСКОЕ РАДИО
 

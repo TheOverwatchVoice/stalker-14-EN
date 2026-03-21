@@ -10,6 +10,8 @@
     scale: 0.6, 0.6
   - type: Trash
     time: 600
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   name: "Паспорт России"
@@ -23,6 +25,8 @@
     scale: 0.6, 0.6
   - type: Trash
     time: 600
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   name: "Паспорт Казахстана"
@@ -36,6 +40,8 @@
     scale: 0.6, 0.6
   - type: Trash
     time: 600
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   name: "Паспорт Украины"
@@ -49,6 +55,8 @@
     scale: 0.6, 0.6
   - type: Trash
     time: 600
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   name: "удостоверение СБУ"
@@ -60,3 +68,5 @@
     sprite: _Stalker/Objects/Misc/passports.rsi
     state: iconSBU
     scale: 0.7, 0.7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category

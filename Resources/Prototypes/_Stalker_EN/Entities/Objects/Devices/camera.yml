@@ -23,6 +23,8 @@
   - type: STCamera
   - type: STWeight
     self: 0.5
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   parent: STCamera
@@ -72,6 +74,8 @@
   - type: STPhoto
   - type: STWeight
     self: 0.1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: BaseItem

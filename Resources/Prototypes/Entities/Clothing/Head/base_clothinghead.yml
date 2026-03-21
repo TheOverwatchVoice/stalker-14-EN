@@ -24,6 +24,8 @@
     tags:
     - ClothMade
     - WhitelistChameleon
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-armor-category
 
 - type: entity
   abstract: true

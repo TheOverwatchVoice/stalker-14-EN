@@ -13,3 +13,5 @@
         - Military
         - MilitaryOfficer
         - MilitaryHead
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-tools-category

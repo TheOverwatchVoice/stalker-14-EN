@@ -10,4 +10,6 @@
     maxAngle: -30
   - type: Gun
     minAngle: 21
-    maxAngle: 32   
+    maxAngle: 32
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category

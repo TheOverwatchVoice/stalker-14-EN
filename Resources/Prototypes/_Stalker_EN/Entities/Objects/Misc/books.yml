@@ -45,6 +45,8 @@
     containers:
       storagebase: !type:Container
         ents: [ ]
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 # update this whenever a lightcraft food is added
 - type: entity

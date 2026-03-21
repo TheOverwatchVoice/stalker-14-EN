@@ -9,7 +9,7 @@
   - type: STBulkBuyable # stalker-14-en
     maxQuantity: 10
   - type: RepositoryItem
-    categoryName: repository-cartridges-category
+    categoryName: repository-ammoboxes-category
   - type: STWeight
     self: 0.5
   - type: BallisticAmmoProvider
@@ -36,6 +36,7 @@
   - type: Trash
     time: 300
 
+
 - type: entity
   abstract: true
   parent: BaseItem
@@ -47,7 +48,7 @@
   - type: STBulkBuyable # stalker-14-en
     maxQuantity: 5
   - type: RepositoryItem
-    categoryName: repository-cartridges-category
+    categoryName: repository-ammoboxes-category
   - type: STWeight
     self: 5
   - type: BallisticAmmoProvider

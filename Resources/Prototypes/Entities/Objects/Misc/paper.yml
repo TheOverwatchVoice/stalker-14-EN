@@ -55,6 +55,8 @@
   - type: Item
     size: Tiny
   - type: PhysicalComposition
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   name: paper

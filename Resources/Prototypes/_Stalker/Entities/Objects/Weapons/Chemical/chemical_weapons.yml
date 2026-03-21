@@ -279,6 +279,8 @@
           maxDuration: 10 # 300.0
           startValue: 5.0
           endValue: 1.5
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-weapons-category
 
 - type: entity
   name: голубая граната GL-1
@@ -287,7 +289,7 @@
   description: Химическая осветительная граната. Предназначена для освещения участков местности во время ночного боя.
   components:
     - type: ExpendableLight
-      glowColorLit: "#00bfff"    
+      glowColorLit: "#00bfff"
     - type: PointLight
       enabled: false
       color: "#00bfff"
@@ -299,7 +301,7 @@
   description: Химическая осветительная граната. Предназначена для освещения участков местности во время ночного боя.
   components:
     - type: ExpendableLight
-      glowColorLit: "#ff4f00"    
+      glowColorLit: "#ff4f00"
     - type: PointLight
       enabled: false
       color: "#ff4f00"

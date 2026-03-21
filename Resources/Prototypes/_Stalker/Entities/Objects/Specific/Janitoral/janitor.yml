@@ -35,3 +35,5 @@
   - type: GuideHelp
     guides:
     - Janitorial
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category

@@ -7,6 +7,8 @@
   components:
     - type: Paper
       content: book-text-cooking-stalker
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-tools-category
 
 - type: entity
   parent: BookBase
@@ -30,4 +32,5 @@
         - state: decor_wingette
           color: "#453827"
         - state: icon_stars
-    
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-tools-category

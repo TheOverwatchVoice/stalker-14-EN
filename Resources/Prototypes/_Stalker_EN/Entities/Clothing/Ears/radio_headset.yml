@@ -35,3 +35,5 @@
     state: icon
   - type: Clickable
   - type: InteractionOutline
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category

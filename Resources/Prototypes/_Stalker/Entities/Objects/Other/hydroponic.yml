@@ -244,3 +244,5 @@
   - type: Item
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     storedRotation: -90
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category

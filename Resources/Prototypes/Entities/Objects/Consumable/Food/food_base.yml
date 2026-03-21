@@ -13,6 +13,8 @@
   - type: Sprite
   - type: StaticPrice
     price: 0
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 #
 # Base component for consumable food
@@ -24,6 +26,8 @@
   id: FoodBase
   components:
   - type: SpaceGarbage
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 # This base type is used to cover all of the "obvious" things that should be doable to open-package food.
 # Practically this means injection.
@@ -38,6 +42,8 @@
     solution: food
   - type: RefillableSolution
     solution: food
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 # usable by any food that can be opened
 # handles appearance with states "icon" and "icon-open"
@@ -57,3 +63,5 @@
           True: {state: "icon-open"}
           False: {state: "icon"}
   - type: Openable
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category

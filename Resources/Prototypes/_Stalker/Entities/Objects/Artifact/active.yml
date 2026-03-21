@@ -12,3 +12,5 @@
       shootMaxInterval: 7
       shootRange: 7.5
       lightningPrototype: Lightning
+    - type: RepositoryItem
+      categoryName: repository-artifacts-category

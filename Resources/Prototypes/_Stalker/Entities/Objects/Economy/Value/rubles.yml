@@ -49,8 +49,8 @@
   - type: Tag
     tags:
     - Roubles
-  - type: RepositoryItem
-    categoryName: repository-money-category
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-currency-category
 
 - type: currency
   id: Roubles

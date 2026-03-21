@@ -13,6 +13,8 @@
     slots: [mask]
   - type: StaticPrice
     price: 25
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category
 
 - type: entity
   abstract: true

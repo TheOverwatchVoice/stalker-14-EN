@@ -40,6 +40,8 @@
       speedModifier: 0.75 # a bit unwieldly but does the job
     - type: Wieldable
     - type: Engraveable # en
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-weapons-category
 
 - type: entity
   parent: StalkerBaseBallBat

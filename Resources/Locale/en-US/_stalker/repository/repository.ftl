@@ -6,20 +6,28 @@ repository-ui-search-label = Search:
 repository-ui-search-clear-button = Clear
 
 # Categories
-repository-misc-category = ETC
 repository-user-category = Your items
 repository-all-category = All
-repository-crafting-category = Materials
-repository-artifact-category = Artifacts
-repository-medicine-category = Medicine
-repository-equipment-category = Equipment
-repository-armor-category = Armor
-repository-detectors-category = Detectors
-repository-money-category = Money
-repository-tools-category = Tools
-repository-cartridges-category = Cartridges
-repository-magazines-category = Magazines
 repository-weapons-category = Weapons
+repository-attachments-category = Attachments
+repository-magazines-category = Magazines
+repository-ammoboxes-category = Ammo Boxes
+repository-cartridges-category = Cartridges
+repository-armor-category = Armor
+repository-artifacts-category = Artifacts
+repository-medicine-category = Medicine
+repository-consumables-category = Consumables
+repository-equipment-category = Equipment
+repository-detectors-category = Detectors
+repository-tools-category = Tools
+repository-materials-category = Materials
+repository-blueprints-category = Blueprints
+repository-mutantparts-category = Mutant Parts
+repository-currency-category = Currency
+repository-cassettes-category = Cassettes
+repository-clothing-category = Clothing
+repository-miscellaneous-category = Miscellaneous
+repository-uncategorized-category = Uncategorized
 
 # Items
 repository-item-name-display = Name: { $name }

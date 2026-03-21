@@ -11,3 +11,5 @@
         reagents:
         - ReagentId: RobustHarvest
           Quantity: 30
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category

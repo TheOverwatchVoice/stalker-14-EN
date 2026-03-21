@@ -14,7 +14,7 @@
     state: recipe
   - type: Craftable
   - type: RepositoryItem
-    categoryName: repository-crafting-category
+    categoryName: repository-blueprints-category
   - type: Tag
     tags:
     - STCookingRecipe

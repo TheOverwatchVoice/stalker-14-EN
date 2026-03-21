@@ -70,6 +70,8 @@
   # EN end
   - type: STWeight
     self: 3
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-artifacts-category
 
 - type: entity
   name: продвинутый контейнер для артефактов

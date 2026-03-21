@@ -24,3 +24,5 @@
     slots: [belt]
     quickEquip: false
     sprite: _Stalker_EN/Objects/Misc/Clipboards/ecoclipboard.rsi
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category

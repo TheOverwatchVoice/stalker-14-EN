@@ -27,6 +27,8 @@
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category
 
 - type: entity
   parent: BaseKnife

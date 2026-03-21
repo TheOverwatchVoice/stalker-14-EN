@@ -22,6 +22,8 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-magazines-category
 
 - type: entity
   parent: BaseSpeedLoaderRemingtonMagnum

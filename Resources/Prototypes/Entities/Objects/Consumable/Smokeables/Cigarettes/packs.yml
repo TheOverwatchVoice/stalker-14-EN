@@ -70,6 +70,8 @@
     - cig5
     - cig6
   - type: Appearance
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   id: CigPackMixedBase
@@ -135,6 +137,8 @@
     - cig5
     - cig6
   - type: Appearance
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   id: CigPackGreen

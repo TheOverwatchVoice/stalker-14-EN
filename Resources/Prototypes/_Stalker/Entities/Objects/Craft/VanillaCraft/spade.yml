@@ -24,3 +24,5 @@
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
   - type: Craftable
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category

@@ -145,6 +145,9 @@
     autoRot: true
     radius: 3
     netsync: false
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category
+
 
 - type: entity
   parent: BaseStalkerPDA

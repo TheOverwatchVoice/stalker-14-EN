@@ -27,3 +27,5 @@
     modifiers:
       flatReductions:
         Radiation: 2
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-artifacts-category

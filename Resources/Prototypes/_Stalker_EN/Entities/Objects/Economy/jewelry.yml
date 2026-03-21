@@ -12,7 +12,8 @@
       sprite: _Stalker_EN/Objects/Economy/jewelry_silver.rsi
     - type: STWeight
       self: 0.1
-
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: STBaseItem
@@ -26,6 +27,8 @@
       sprite: _Stalker_EN/Objects/Economy/jewelry_gold.rsi
     - type: STWeight
       self: 0.1
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-miscellaneous-category
 
 - type: entity
   id: STWristwatchGold
@@ -46,6 +49,8 @@
     sprite: _Stalker_EN/Objects/Devices/goldwatch.rsi
   - type: STWeight
     self: 0.2
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: [ RingBase, STBaseItem ]
@@ -59,5 +64,5 @@
       sprite: _Stalker_EN/Objects/Economy/gold_big_diamond_ring.rsi
     - type: STWeight
       self: 0.05
-
-
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-miscellaneous-category

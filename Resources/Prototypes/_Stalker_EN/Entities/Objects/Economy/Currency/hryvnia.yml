@@ -44,7 +44,7 @@
       tags:
       - Hryvnias
     - type: RepositoryItem
-      categoryName: repository-money-category
+      categoryName: repository-currency-category
 
 - type: currency
   id: Hryvnias

@@ -34,6 +34,8 @@
         base:
           Primed: { state: primed }
           Unprimed: { state: icon }
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category
 
 - type: entity
   name: composition C-4

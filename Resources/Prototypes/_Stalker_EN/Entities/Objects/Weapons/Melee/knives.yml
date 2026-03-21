@@ -32,6 +32,8 @@
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/armblade.rsi
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category
 
 - type: entity
   name: hunting knife

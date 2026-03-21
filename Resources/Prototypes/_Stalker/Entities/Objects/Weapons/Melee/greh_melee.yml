@@ -56,6 +56,8 @@
           Blunt: 15
           Slash: 15
           Heat: 15
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-weapons-category
 
 - type: entity
   name: святой кинжал греха
@@ -220,3 +222,5 @@
       reflects:
         - NonEnergy
       soundOnReflect: /Audio/_Stalker/Effects/sear.ogg
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-weapons-category

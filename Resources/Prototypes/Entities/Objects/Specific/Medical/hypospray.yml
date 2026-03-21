@@ -163,6 +163,8 @@
     price: 75 # These are limited supply items.
   - type: TrashOnSolutionEmpty
     solution: pen
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-medicine-category
 
 - type: entity
   name: emergency medipen

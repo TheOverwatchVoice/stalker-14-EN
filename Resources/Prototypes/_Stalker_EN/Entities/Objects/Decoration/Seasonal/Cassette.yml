@@ -15,3 +15,5 @@
   - type: Sprite
     sprite: _Stalker/Objects/Misc/casete.rsi
     state: c7
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cassettes-category

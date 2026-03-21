@@ -12,6 +12,8 @@
     sprite: _Stalker/Objects/Misc/gold_dice.rsi
     state: d20_20
     noRot: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: BaseDice
@@ -29,6 +31,8 @@
     sprite: _Stalker/Objects/Misc/gold_dice.rsi
     state: percentile_0
     noRot: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: DiceBag
@@ -49,6 +53,8 @@
         children:
         - id: d20GoldDice
         - id: GoldPercentileDie
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: BaseDice
@@ -62,3 +68,5 @@
     currentValue: 6
   - type: Sprite
     state: d6_6
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category

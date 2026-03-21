@@ -14,7 +14,7 @@
     flavors:
     - fishy
   - type: RepositoryItem
-    categoryName: repository-misc-category
+    categoryName: repository-mutantparts-category
 
 # 32x32 normal
 - type: entity

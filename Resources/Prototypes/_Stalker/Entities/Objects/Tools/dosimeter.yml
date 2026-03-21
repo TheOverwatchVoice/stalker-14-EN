@@ -32,6 +32,8 @@
             Med: {state: geiger_on_med}
             High: {state: geiger_on_high}
             Extreme: {state: geiger_on_ext}
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-tools-category
 
 - type: entity
   parent: BaseDosimeter

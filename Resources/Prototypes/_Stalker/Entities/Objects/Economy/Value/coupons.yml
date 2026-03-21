@@ -35,6 +35,8 @@
     - type: Tag
       tags:
         - SupplyTalons
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-currency-category
 
 - type: currency
   id: SupplyTalons

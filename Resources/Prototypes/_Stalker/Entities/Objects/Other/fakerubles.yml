@@ -42,6 +42,8 @@
   - type: Tag
     tags:
     - RoublesFake
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-currency-category
 - type: currency
   id: RoublesFake
   displayName: store-currency-display-ruble

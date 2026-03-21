@@ -38,3 +38,5 @@
     quickEquip: false
     slots:
       - Belt
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category

@@ -39,6 +39,8 @@
     - BaseballBat
   - type: PullDoAfter
     pullTime: 3
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category
 
 
 - type: entity
@@ -72,3 +74,5 @@
   - type: PullDoAfter
     pullTime: 1
   - type: Engraveable # en
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category

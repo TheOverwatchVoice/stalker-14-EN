@@ -28,3 +28,5 @@
   - type: Tag
     tags:
       - CaptainSabre
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category

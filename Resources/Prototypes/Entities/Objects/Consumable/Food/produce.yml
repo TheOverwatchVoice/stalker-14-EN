@@ -14,6 +14,8 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: food
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 - type: entity
   parent: ProduceBase
@@ -44,6 +46,8 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: food
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 # Subclasses
 

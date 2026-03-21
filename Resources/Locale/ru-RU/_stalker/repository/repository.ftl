@@ -6,7 +6,7 @@ repository-ui-search-label = Поиск:
 repository-ui-search-clear-button = Очистить
 
 # Categories
-repository-misc-category = Прочее
+repository-miscellaneous-category = Прочее
 repository-user-category = Ваши предметы
 repository-all-category = Все
 

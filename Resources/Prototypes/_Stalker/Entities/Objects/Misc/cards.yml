@@ -20,6 +20,8 @@
     - Card
   - type: Card
   - type: Appearance
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: BaseCard
@@ -415,6 +417,8 @@
   - type: ContainerContainer
     containers:
       bin-container: !type:Container
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: BaseCardBin

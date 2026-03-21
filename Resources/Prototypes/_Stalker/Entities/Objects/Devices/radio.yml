@@ -55,3 +55,5 @@
     interfaces:
       enum.RadioStalkerUiKey.Key:
         type: STRadioBoundUserInterface
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category

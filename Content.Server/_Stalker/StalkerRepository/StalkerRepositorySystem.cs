@@ -419,7 +419,7 @@ public sealed class StalkerRepositorySystem : EntitySystem
     private RepositoryItemInfo GenerateItemInfo(EntityUid item, bool userItem = false)
     {
         // gets item category or sets default
-        var catName = Loc.GetString("repository-misc-category");
+        var catName = Loc.GetString("repository-uncategorized-category");
         var metaData = MetaData(item);
         if (TryComp<RepositoryItemComponent>(item, out var repoItem))
         {

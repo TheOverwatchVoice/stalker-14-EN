@@ -23,6 +23,8 @@
     - STCartridge545
   - type: StaticPrice
     price: 0
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-currency-category
 
 - type: currency
   id: Bullet545

@@ -76,3 +76,5 @@
     - type: Tag
       tags:
       - Torch
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-equipment-category

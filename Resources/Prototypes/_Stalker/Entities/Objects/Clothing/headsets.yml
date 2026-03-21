@@ -14,6 +14,8 @@
     - type: Headset
     - type: EncryptionKeyHolder
       keySlots: 2
+    - type: RepositoryItem
+      categoryName: repository-equipment-category
 
 - type: entity
   parent: ClothingHeadset

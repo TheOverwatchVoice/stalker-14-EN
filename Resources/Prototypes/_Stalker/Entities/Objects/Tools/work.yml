@@ -77,6 +77,8 @@
         - 0,0,4,8
     - type: STWeight
       self: 25
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-equipment-category
 
 - type: entity
   parent: BaseStructure
@@ -222,6 +224,8 @@
       sprite:  _Stalker/Objects/Misc/coupon.rsi
       state: coupon
     - type: Craftable
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-currency-category
 
 - type: lightCraftingRecipe
   id: lightCraftActiveWorkbench

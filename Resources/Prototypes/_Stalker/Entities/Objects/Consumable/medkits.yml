@@ -11,6 +11,8 @@
     self: 0.2
   - type: Trash
     time: 1200
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-medicine-category
 
 - type: entity
   parent: STBaseHealingItem

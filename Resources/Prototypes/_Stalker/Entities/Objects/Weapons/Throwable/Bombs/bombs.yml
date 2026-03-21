@@ -74,6 +74,8 @@
           acts: [ "Destruction" ]
         - !type:ExplodeBehavior
     - type: Craftable
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-weapons-category
 
 - type: entity
   name: динамитная шашка с фитилем

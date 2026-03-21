@@ -24,3 +24,5 @@
       components:
         - Produce
         - Seed
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category

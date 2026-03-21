@@ -2,7 +2,7 @@
   id: CartridgeRocketRPO
   name: Выстрел РПО
   parent: BaseItem
-  description: Военные преступления 
+  description: Военные преступления
   components:
   - type: Item
     size: Small
@@ -12,3 +12,5 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     state: rpg
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cartridges-category

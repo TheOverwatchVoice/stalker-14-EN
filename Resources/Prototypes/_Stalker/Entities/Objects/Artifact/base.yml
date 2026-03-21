@@ -31,7 +31,7 @@
       - STArtifact
     - type: Material
     - type: RepositoryItem
-      categoryName: repository-artifact-category
+      categoryName: repository-artifacts-category
     - type: Craftable
     - type: Currency
       price:
@@ -58,3 +58,5 @@
       containers:
         storagebase: !type:Container
           ents: []
+    - type: RepositoryItem
+      categoryName: repository-artifacts-category

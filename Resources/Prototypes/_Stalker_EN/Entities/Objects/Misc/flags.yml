@@ -7,6 +7,8 @@
   - type: Sprite
     sprite: _Stalker_EN/Objects/Fun/flags_folded.rsi
   - type: Craftable
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: folded bandit flag

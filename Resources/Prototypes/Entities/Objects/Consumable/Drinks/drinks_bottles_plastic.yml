@@ -23,6 +23,8 @@
   - type: Tag
     tags:
     - DrinkBottle # Needed to fit in the soda dispenser, needs a better name
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 - type: entity
   abstract: true

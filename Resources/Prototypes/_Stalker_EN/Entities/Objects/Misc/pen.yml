@@ -9,3 +9,5 @@
     state: pen_centcom
   - type: Item
     heldPrefix: pen_centcom
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category

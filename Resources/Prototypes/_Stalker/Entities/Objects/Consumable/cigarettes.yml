@@ -16,6 +16,8 @@
     price: 5
   - type: InjectableSolution
     solution: smokable
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 # Base for all cigars and cigarettes.
 - type: entity

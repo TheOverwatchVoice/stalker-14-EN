@@ -112,6 +112,8 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category
 
 - type: entity
   parent: EmergencyOxygenTank

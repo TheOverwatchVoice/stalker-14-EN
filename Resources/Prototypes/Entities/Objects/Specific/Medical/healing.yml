@@ -12,6 +12,8 @@
   # Inherited
   - type: StaticPrice
     price: 0
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-medicine-category
 
 - type: entity
   name: ointment

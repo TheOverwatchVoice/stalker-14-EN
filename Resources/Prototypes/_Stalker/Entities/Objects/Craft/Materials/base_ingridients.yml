@@ -27,5 +27,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-materials-category
 

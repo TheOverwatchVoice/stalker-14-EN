@@ -34,6 +34,8 @@
       size: Small
     - type: Trash
       time: 300
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-equipment-category
 
 - type: entity
   parent: STBoltBag

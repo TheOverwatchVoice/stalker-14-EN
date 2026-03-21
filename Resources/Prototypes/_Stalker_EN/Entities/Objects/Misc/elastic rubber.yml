@@ -12,6 +12,8 @@
   - type: Tag
     tags:
       - STElasticRubberRed
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: STBaseItem
@@ -27,6 +29,8 @@
   - type: Tag
     tags:
       - STElasticRubberGreen
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: STBaseItem
@@ -42,3 +46,5 @@
   - type: Tag
     tags:
       - STElasticRubberBlue
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category

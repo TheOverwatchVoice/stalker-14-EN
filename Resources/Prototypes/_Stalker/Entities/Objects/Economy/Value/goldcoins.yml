@@ -41,6 +41,8 @@
   - type: Tag
     tags:
     - Goldcoins
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-currency-category
 - type: currency
   id: Goldcoins
   displayName: store-currency-display-gold-coins

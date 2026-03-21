@@ -26,3 +26,5 @@
   - type: Item
     size: Normal
     sprite: _Stalker/Objects/Weapons/Melee/birch_whisk.rsi
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category

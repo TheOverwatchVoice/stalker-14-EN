@@ -53,6 +53,8 @@
       Meaterial: 300
   - type: Trash
     time: 600
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 - type: entity
   parent: FoodMeatBase
@@ -72,6 +74,8 @@
     entity: FoodMeatRotten
     # once it would say bloated, turn into the rotten prototype
     stage: 1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 # bruh
 - type: Tag

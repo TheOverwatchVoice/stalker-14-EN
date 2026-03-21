@@ -38,6 +38,8 @@
   - type: Tag
     tags:
     - Fangs
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-currency-category
 
 - type: currency
   id: Fangs

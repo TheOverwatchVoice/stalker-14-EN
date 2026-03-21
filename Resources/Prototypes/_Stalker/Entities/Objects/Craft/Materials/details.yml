@@ -14,7 +14,7 @@
       count: 1
     - type: Craftable
     - type: RepositoryItem
-      categoryName: repository-crafting-category
+      categoryName: repository-materials-category
 
 - type: entity
   parent: STBaseIngridient
@@ -31,7 +31,7 @@
       count: 1
     - type: Craftable
     - type: RepositoryItem
-      categoryName: repository-crafting-category
+      categoryName: repository-materials-category
 
 - type: entity
   parent: STBaseIngridient
@@ -48,7 +48,7 @@
       count: 1
     - type: Craftable
     - type: RepositoryItem
-      categoryName: repository-crafting-category
+      categoryName: repository-materials-category
 
 - type: entity
   parent: STBaseIngridient
@@ -65,4 +65,4 @@
       count: 1
     - type: Craftable
     - type: RepositoryItem
-      categoryName: repository-crafting-category
+      categoryName: repository-materials-category

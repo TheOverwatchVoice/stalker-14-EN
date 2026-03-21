@@ -36,6 +36,8 @@
     - type: Tag
       tags:
         - ChevronMonolit
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-currency-category
 
 - type: currency
   id: ChevronMonolit

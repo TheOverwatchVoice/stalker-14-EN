@@ -15,3 +15,5 @@
           Quantity: 50
         - ReagentId: Napalm
           Quantity: 200
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category

@@ -35,6 +35,8 @@
   - type: Tag
     tags:
     - DrinkCan
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-consumables-category
 
 ## Filled
 

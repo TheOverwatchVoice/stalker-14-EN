@@ -44,6 +44,8 @@
     damage:
       types:
         Blunt: 1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
 
 - type: entity
   parent: BaseItem
@@ -69,6 +71,9 @@
   - type: DamageOtherOnHit
     damage:
       types:
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-miscellaneous-category
+
 
 - type: entity
   id: BookSpaceEncyclopedia

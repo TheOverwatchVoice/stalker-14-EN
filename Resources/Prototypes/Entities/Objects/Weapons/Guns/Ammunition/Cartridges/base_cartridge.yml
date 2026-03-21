@@ -42,3 +42,5 @@
         volume: -1
   - type: StaticPrice
     price: 1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-cartridges-category

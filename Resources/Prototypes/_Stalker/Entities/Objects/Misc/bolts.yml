@@ -29,6 +29,8 @@
         restitution: 0.0
         mask:
         - ItemMask
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   parent: STBaseBolt

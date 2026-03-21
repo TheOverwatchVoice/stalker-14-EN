@@ -35,6 +35,8 @@
     - type: Tag
       tags:
         - PremiumSupplyTalons
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-currency-category
 
 - type: currency
   id: PremiumSupplyTalons

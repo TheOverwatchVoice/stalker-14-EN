@@ -69,6 +69,8 @@
         keyOut: timer
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category
 
 - type: entity # Starts fuse after taking 10 damage, is destroyed without activating/detonating after taking 45 damage.
   abstract: true
@@ -87,3 +89,5 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-weapons-category

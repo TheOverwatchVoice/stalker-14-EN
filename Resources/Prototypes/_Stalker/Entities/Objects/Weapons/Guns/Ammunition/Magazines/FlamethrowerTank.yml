@@ -23,3 +23,5 @@
   - type: BatteryAmmoProvider
     proto: Flame
     fireCost: 1
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-magazines-category

@@ -45,7 +45,8 @@
       enabled: true
       radius: 1.5
       softness: 5
-
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-tools-category
 
 - type: entity
   parent: BaseMachineAnomalyDestructor

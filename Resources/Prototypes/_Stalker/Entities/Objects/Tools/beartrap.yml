@@ -62,6 +62,8 @@
             - ItemMask
     - type: Rotatable
     - type: Anchorable
+    - type: RepositoryItem # stalker-en change
+      categoryName: repository-tools-category
 
 - type: entity
   name: капкан

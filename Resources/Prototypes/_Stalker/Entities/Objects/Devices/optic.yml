@@ -20,3 +20,5 @@
     delay: 0.4
     offset: 14
     useInHand: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-equipment-category

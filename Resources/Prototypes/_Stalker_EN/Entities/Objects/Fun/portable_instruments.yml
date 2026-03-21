@@ -136,6 +136,8 @@
     prototype: PianoInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: portable upright piano pack
@@ -153,6 +155,8 @@
     prototype: UprightPianoInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: portable vibraphone pack
@@ -170,6 +174,8 @@
     prototype: VibraphoneInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: portable marimba pack
@@ -186,6 +192,8 @@
     prototype: MarimbaInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: portable church organ pack
@@ -203,6 +211,8 @@
     prototype: ChurchOrganInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: portable tuba pack
@@ -220,6 +230,8 @@
     prototype: TubaInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   id: HarpInstrumentPortablePack
@@ -237,6 +249,8 @@
     prototype: HarpInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   id: TimpaniInstrumentPortablePack
@@ -254,6 +268,8 @@
     prototype: TimpaniInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   id: TaikoInstrumentPortablePack
@@ -271,6 +287,8 @@
     prototype: TaikoInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   id: ContrabassInstrumentPortablePack
@@ -288,6 +306,8 @@
     prototype: ContrabassInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   name: portable minimoog pack
@@ -305,6 +325,8 @@
     prototype: MinimoogInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 - type: entity
   id: TomDrumsInstrumentPortablePack
@@ -322,6 +344,8 @@
     prototype: TomDrumsInstrumentPortable
     doAfter: 5
     removeOnInteract: true
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
   ### portable DAW pack won't be listed in the instruments shop, instead, it could be a reward from events or something
 - type: entity
@@ -340,7 +364,8 @@
     prototype: DawInstrumentPortable
     doAfter: 5
     removeOnInteract: true
-
+  - type: RepositoryItem # stalker-en change
+    categoryName: repository-tools-category
 
 ### Portable instruments
 

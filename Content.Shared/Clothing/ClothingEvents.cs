@@ -61,6 +61,8 @@ public sealed class EquipmentVisualsUpdatedEvent : EntityEventArgs
 
 public sealed partial class ToggleMaskEvent : InstantActionEvent { }
 
+public sealed partial class ToggleHelmetVisorEvent : InstantActionEvent { }
+
 /// <summary>
 ///     Event raised on the mask entity when it is toggled.
 /// </summary>

@@ -44,6 +44,16 @@
     sprite: _Stalker/Objects/Clothing/hats/Vityaz1C.rsi
   - type: Clothing
     sprite: _Stalker/Objects/Clothing/hats/Vityaz1C.rsi
+  - type: HelmetVisor
+    toggleAction: ActionToggleHelmetVisor
+    equippedPrefixUp: visor-up
+    visorUpReflectProb: 0.09
+    visorUpModifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.85
+    enabled: true
 
 - type: entity
   parent: STClothingHeadHelmetTacticalT3Base

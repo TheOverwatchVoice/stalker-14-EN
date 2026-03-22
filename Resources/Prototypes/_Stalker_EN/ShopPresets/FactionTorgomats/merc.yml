@@ -203,6 +203,7 @@
         FoodTinMRE: 120
         DrinkLemonadehBottleFull: 50
         STFoodMeatSalami: 350
+        CigPackBub: 200
 
     - name: shop-category-armor
       priority: 6

@@ -252,6 +252,7 @@
       FoodTinMRE: 120
       DrinkLemonadehBottleFull: 50
       STFoodMeatSalami: 350
+      CigPackBub: 400
 
   - name: shop-category-medicine
     priority: 10

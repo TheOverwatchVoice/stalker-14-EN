@@ -258,6 +258,7 @@
         FoodSTEgg: 75
         FoodSTTomato: 75
         STDrinkJar: 300
+        CigPackBub: 200
 
     - name: shop-category-armor
       priority: 6

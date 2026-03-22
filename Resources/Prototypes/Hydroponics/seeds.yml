@@ -142,7 +142,7 @@
   plantRsi: Objects/Specific/Hydroponics/carrot.rsi
   packetPrototype: CarrotSeeds
   productPrototypes:
-    - FoodCarrot
+    - FoodSTCarrot
   lifespan: 25
   maturation: 10
   production: 3
@@ -383,7 +383,7 @@
   plantRsi: Objects/Specific/Hydroponics/potato.rsi
   packetPrototype: PotatoSeeds
   productPrototypes:
-    - FoodPotato
+    - FoodSTPotato
   lifespan: 30
   maturation: 10
   production: 3
@@ -521,7 +521,7 @@
   plantRsi: Objects/Specific/Hydroponics/tomato.rsi
   packetPrototype: TomatoSeeds
   productPrototypes:
-    - FoodTomato
+    - FoodSTTomato
   mutationPrototypes:
     - blueTomato
     - bloodTomato
@@ -687,7 +687,7 @@
   plantRsi: Objects/Specific/Hydroponics/cabbage.rsi
   packetPrototype: CabbageSeeds
   productPrototypes:
-    - FoodCabbage
+    - FoodSTCabbage
   lifespan: 50
   maturation: 7
   production: 5
@@ -801,7 +801,7 @@
   plantRsi: Objects/Specific/Hydroponics/corn.rsi
   packetPrototype: CornSeeds
   productPrototypes:
-    - FoodCorn
+    - FoodSTCorn
   lifespan: 25
   maturation: 8
   production: 6
@@ -829,7 +829,7 @@
   plantRsi: Objects/Specific/Hydroponics/onion.rsi
   packetPrototype: OnionSeeds
   productPrototypes:
-    - FoodOnion
+    - FoodSTOnion
   mutationPrototypes:
     - onionred
     - bloonion
@@ -1495,7 +1495,7 @@
   plantRsi: Objects/Specific/Hydroponics/rice.rsi
   packetPrototype: RiceSeeds
   productPrototypes:
-    - RiceBushel
+    - FoodSTRice
   lifespan: 25
   maturation: 6
   production: 3

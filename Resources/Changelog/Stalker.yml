@@ -1782,5 +1782,20 @@
   id: 187
   time: '2026-03-22T22:21:28.777382+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/697
+- author: me, @LaCumbiaDelCoronavirus
+  changes:
+  - message: Swamps now has the pit.
+    type: Add
+  - message: Safezone markers for swamp
+    type: Add
+  - message: Removed rng cave portals in swamp (AND invisible walls)
+    type: Remove
+  - message: 3x3 grabber anoms no longer spawn in swamps.
+    type: Tweak
+  - message: fixed troll portals in swamps
+    type: Fix
+  id: 188
+  time: '2026-03-23T11:06:07.371740+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/699
 Name: Stalker
 Order: -1

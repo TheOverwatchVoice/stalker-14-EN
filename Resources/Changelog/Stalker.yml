@@ -1797,5 +1797,12 @@
   id: 188
   time: '2026-03-23T11:06:07.371740+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/699
+- author: me
+  changes:
+  - message: Some entities in Swamps were translated
+    type: Fix
+  id: 189
+  time: '2026-03-23T11:59:45.961997+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/700
 Name: Stalker
 Order: -1

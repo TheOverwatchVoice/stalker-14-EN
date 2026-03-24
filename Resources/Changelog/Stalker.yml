@@ -1804,5 +1804,16 @@
   id: 189
   time: '2026-03-23T11:59:45.961997+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/700
+- author: RebelledCombine
+  changes:
+  - message: Fixed damage falloff. It should now decrease bullet damage the longer
+      it travels.
+    type: Fix
+  - message: Integrated RMC's bullet prediction system into our code so they now work
+      together properly.
+    type: Fix
+  id: 190
+  time: '2026-03-24T00:13:19.483671+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/704
 Name: Stalker
 Order: -1

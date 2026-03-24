@@ -1,3 +1,4 @@
+# Stalker EN Changes - Falloff increased
 - type: entity
   abstract: true
   parent: STBaseEntity
@@ -43,9 +44,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 4
-      falloff: 0.03
+      falloff: 0.2       # Gentle base falloff
     - range: 20
-      falloff: 0.2
+      falloff: 0.8       # Moderate drop
   - type: LagCompensation
 
 - type: entity
@@ -83,9 +84,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 1
-      falloff: 0.1
+      falloff: 0.6       # Gentle falloff for beanbag/melee
     - range: 4
-      falloff: 0.9
+      falloff: 1.5       # Still drops off quickly but not extreme
 
 - type: entity
   abstract: true
@@ -100,9 +101,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 2
-      falloff: 0.05
+      falloff: 0.4       # Gentle falloff (was 0.6)
     - range: 8
-      falloff: 0.2
+      falloff: 1.2       # Moderate drop (was 1.8)
 
 - type: entity
   abstract: true
@@ -117,9 +118,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 4
-      falloff: 0.05
+      falloff: 0.35      # Light rifle falloff
     - range: 15
-      falloff: 0.2
+      falloff: 1.0       # Moderate drop
 
 - type: entity
   abstract: true
@@ -134,9 +135,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 4
-      falloff: 0.03
+      falloff: 0.25      # Medium rifle falloff
     - range: 20
-      falloff: 0.2
+      falloff: 0.8       # Balanced drop
 
 - type: entity
   abstract: true
@@ -151,9 +152,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 4
-      falloff: 0.02
+      falloff: 0.15      # Light falloff for heavy rifles
     - range: 30
-      falloff: 0.2
+      falloff: 0.6       # Gradual drop
 
 - type: entity
   abstract: true
@@ -168,9 +169,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 8
-      falloff: 0.01
+      falloff: 0.1       # Very light falloff
     - range: 45
-      falloff: 0.2
+      falloff: 0.5       # Long range effectiveness
 
 - type: entity
   abstract: true
@@ -185,9 +186,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 2
-      falloff: 0.07
+      falloff: 0.35      # Gentle falloff for subsonic
     - range: 15
-      falloff: 0.2
+      falloff: 1.2       # Moderate drop
 
 - type: entity
   abstract: true
@@ -202,9 +203,9 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 5
-      falloff: 0.03
+      falloff: 0.4       # Gentle falloff for .45 ACP
     - range: 12
-      falloff: 0.2
+      falloff: 1.2       # Moderate drop
 
 # stalker EN change - used for revolvers
 - type: entity
@@ -220,6 +221,6 @@
   - type: STProjectileDamageFalloff
     thresholds:
     - range: 2
-      falloff: 0.02
+      falloff: 0.3       # Gentle revolver falloff
     - range: 8
-      falloff: 0.05
+      falloff: 0.8       # Moderate drop

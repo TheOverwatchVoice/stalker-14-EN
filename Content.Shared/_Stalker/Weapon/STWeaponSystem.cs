@@ -6,6 +6,8 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
+using System.Numerics;
+using EntityCoordinates = Robust.Shared.Map.EntityCoordinates;
 
 namespace Content.Shared._Stalker.Weapon;
 
@@ -47,12 +49,15 @@ public sealed class STWeaponSystem : EntitySystem
 
     private void OnWeaponDamageFalloffShot(Entity<STWeaponDamageFalloffComponent> weapon, ref AmmoShotEvent args)
     {
+        var gunCoords = new EntityCoordinates(weapon.Owner, Vector2.Zero);
+
         foreach (var projectile in args.FiredProjectiles)
         {
             if (!TryComp(projectile, out STProjectileDamageFalloffComponent? falloffComponent))
                 continue;
 
             _projectile.SetProjectileFalloffWeaponModifier((projectile, falloffComponent), weapon.Comp.ModifiedFalloffMultiplier);
+            _projectile.SetFalloffStartCoordinates(projectile, gunCoords);
         }
     }
 
@@ -91,6 +96,8 @@ public sealed class STWeaponSystem : EntitySystem
 
     private void OnWeaponAccuracyShot(Entity<STWeaponAccuracyComponent> weapon, ref AmmoShotEvent args)
     {
+        var gunCoords = new EntityCoordinates(weapon.Owner, Vector2.Zero);
+
         var netId = GetNetEntity(weapon.Owner).Id;
         for (var t = 0; t < args.FiredProjectiles.Count; ++t)
         {
@@ -101,6 +108,7 @@ public sealed class STWeaponSystem : EntitySystem
             accuracyComponent.GunSeed = ((long) t << 32) | (uint) netId;
 
             Dirty<STProjectileAccuracyComponent>((args.FiredProjectiles[t], accuracyComponent));
+            _projectile.SetAccuracyStartCoordinates(args.FiredProjectiles[t], gunCoords);
         }
     }
 }

@@ -13,8 +13,10 @@ public sealed partial class STProjectileDamageFalloffComponent : Component
     [DataField, AutoNetworkedField]
     public List<DamageFalloffThreshold> Thresholds = new()
     {
-        new DamageFalloffThreshold(6f, 0.01f, false),
-        new DamageFalloffThreshold(35f, 1f, true),
+        new DamageFalloffThreshold(0f, 0f, false),      // 0-8: full damage
+        new DamageFalloffThreshold(8f, 1.5f, false),    // 8-15: lose 1.5 per unit
+        new DamageFalloffThreshold(15f, 3f, false),     // 15-25: lose 3 per unit
+        new DamageFalloffThreshold(25f, 5f, false),     // 25+: lose 5 per unit
     };
 
     /// <summary>

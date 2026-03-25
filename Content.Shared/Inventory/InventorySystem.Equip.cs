@@ -247,7 +247,10 @@ public abstract partial class InventorySystem
         {
             if (_tagSystem.HasTag(itemUid, "BlockMask") && _tagSystem.HasTag(headItem.Value, "BlockMask") || _tagSystem.HasTag(itemUid, "BlockHead")) // Stalker EN change - needed to make masks block head
             {
-                return false;
+                if (!TryComp<SlotBlockOverrideComponent>(headItem.Value, out var over) || !over.Overridden)
+                {
+                    return false;
+                }
             }
         }
 
@@ -255,7 +258,10 @@ public abstract partial class InventorySystem
         {
             if (_tagSystem.HasTag(itemUid, "BlockMask") && _tagSystem.HasTag(maskItem.Value, "BlockMask") || _tagSystem.HasTag(maskItem.Value, "BlockHead")) // Stalker EN change - needed to make masks block head
             {
-                return false;
+                if (!TryComp<SlotBlockOverrideComponent>(itemUid, out var over) || !over.Overridden)
+                {
+                    return false;
+                }
             }
         }
 
@@ -596,8 +602,11 @@ public abstract partial class InventorySystem
         {
             if (_tagSystem.HasTag(maskItem.Value, "BlockMask") && _tagSystem.HasTag(headItem.Value, "BlockMask"))
             {
-                reason = "You need to unequip your mask or hat first";
-                return false;
+                if (!TryComp<SlotBlockOverrideComponent>(headItem.Value, out var over) || !over.Overridden)
+                {
+                    reason =  "You need to unequip your mask or hat first";
+                    return false;
+                }
             }
         }
 
@@ -616,8 +625,11 @@ public abstract partial class InventorySystem
         {
             if (_tagSystem.HasTag(maskItemReverse.Value, "BlockMask") && _tagSystem.HasTag(headItemRevert.Value, "BlockMask"))
             {
-                reason = "You need to unequip your mask or hat first";
-                return false;
+                if (!TryComp<SlotBlockOverrideComponent>(headItemRevert.Value, out var over) || !over.Overridden)
+                {
+                    reason =  "You need to unequip your mask or hat first";
+                    return false;
+                }
             }
         }
 

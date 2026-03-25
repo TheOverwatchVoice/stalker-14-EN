@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
@@ -8,6 +8,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Storage;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared._Stalker_EN.Clothing; //stalker-changes
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -21,6 +22,7 @@ public sealed partial class IngestionSystem
         SubscribeLocalEvent<IngestionBlockerComponent, ItemMaskToggledEvent>(OnBlockerMaskToggled);
         SubscribeLocalEvent<IngestionBlockerComponent, IngestionAttemptEvent>(OnIngestionBlockerAttempt);
         SubscribeLocalEvent<IngestionBlockerComponent, InventoryRelayedEvent<IngestionAttemptEvent>>(OnIngestionBlockerAttempt);
+        SubscribeLocalEvent<IngestionBlockerComponent, VisorToggledEvent>(OnBlockerVisorToggled);
 
         // Edible Event
         SubscribeLocalEvent<EdibleComponent, EdibleEvent>(OnEdible);
@@ -159,5 +161,10 @@ public sealed partial class IngestionSystem
             return;
 
         args.Cancelled = true;
+    }
+
+    private static void OnBlockerVisorToggled(Entity<IngestionBlockerComponent> ent, ref VisorToggledEvent args)
+    {
+        ent.Comp.Enabled = !args.IsUp;
     }
 }

@@ -2,6 +2,7 @@ using Content.Shared.Foldable;
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Clothing.EntitySystems;
 
 namespace Content.Shared._Stalker_EN.Clothing;
 
@@ -19,6 +20,7 @@ public sealed class STFoldableIdentityBlockerSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<IdentityBlockerComponent, FoldedEvent>(OnFolded);
+        SubscribeLocalEvent<IdentityBlockerComponent, VisorToggledEvent>(OnIdentityVisorToggled);
     }
 
     private void OnFolded(Entity<IdentityBlockerComponent> ent, ref FoldedEvent args)
@@ -34,5 +36,11 @@ public sealed class STFoldableIdentityBlockerSystem : EntitySystem
             var wearer = Transform(ent).ParentUid;
             _identity.QueueIdentityUpdate(wearer);
         }
+    }
+
+    private void OnIdentityVisorToggled(Entity<IdentityBlockerComponent> ent, ref VisorToggledEvent args)
+    {
+        ent.Comp.Enabled = !args.IsUp;
+        _identity.QueueIdentityUpdate(Transform(ent).ParentUid);
     }
 }

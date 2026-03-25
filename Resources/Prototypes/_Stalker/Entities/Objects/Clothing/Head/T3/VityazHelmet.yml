@@ -28,11 +28,24 @@
     reflects:
       - NonEnergy
     soundOnReflect: /Audio/_Stalker/Effects/sear.ogg
+  - type: HelmetVisor
+    toggleAction: ActionToggleHelmetVisor
+    equippedPrefixUp: visor-up
+    iconStateUp: icon-visor-up
+    visorUpReflectProb: 0.09
+    visorUpModifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.85
+    isToggleable: true
   - type: HideLayerClothing
     slots:
     - Hair
     - HeadTop
     - Snout
+  - type: SlotBlockOverride
+    tag: BlockMask
 
 - type: entity
   parent: STClothingHeadHelmetTacticalT3Base
@@ -44,6 +57,7 @@
     sprite: _Stalker/Objects/Clothing/hats/Vityaz1C.rsi
   - type: Clothing
     sprite: _Stalker/Objects/Clothing/hats/Vityaz1C.rsi
+
 
 - type: entity
   parent: STClothingHeadHelmetTacticalT3Base
@@ -99,7 +113,7 @@
     sprite: _Stalker/Objects/Clothing/hats/Vityaz1M.rsi
   - type: Clothing
     sprite: _Stalker/Objects/Clothing/hats/Vityaz1M.rsi
-
+    
 - type: entity
   parent: STClothingHeadHelmetTacticalT3Base
   id: ClothingHeadHelmetVityaz1Zavet

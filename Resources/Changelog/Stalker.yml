@@ -1903,5 +1903,12 @@
   id: 200
   time: '2026-03-28T15:37:29.298804+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/722
+- author: dallaszzz
+  changes:
+  - message: Tweaks a bunch of things with monolith
+    type: Tweak
+  id: 201
+  time: '2026-03-28T15:43:26.826861+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/720
 Name: Stalker
 Order: -1

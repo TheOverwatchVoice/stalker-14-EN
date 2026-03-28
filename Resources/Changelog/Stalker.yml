@@ -1910,5 +1910,14 @@
   id: 201
   time: '2026-03-28T15:43:26.826861+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/720
+- author: Noguchi47
+  changes:
+  - message: 2 brand new pistols, Browning Hi-Power and Mauser C96
+    type: Add
+  - message: added the new pistols in various of vendors, find out IC as always :3
+    type: Add
+  id: 202
+  time: '2026-03-28T15:46:00.728080+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/721
 Name: Stalker
 Order: -1

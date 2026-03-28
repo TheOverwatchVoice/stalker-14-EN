@@ -1875,5 +1875,12 @@
   id: 197
   time: '2026-03-26T12:49:26.716319+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/714
+- author: dallaszzz
+  changes:
+  - message: Fixes ambient music on yantar, yantar lab and swamps
+    type: Fix
+  id: 198
+  time: '2026-03-28T01:55:41.015603+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/718
 Name: Stalker
 Order: -1

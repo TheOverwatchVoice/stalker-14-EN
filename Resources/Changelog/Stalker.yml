@@ -1919,5 +1919,12 @@
   id: 202
   time: '2026-03-28T15:46:00.728080+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/721
+- author: dallaszzz
+  changes:
+  - message: Fixes issues with the new mono content
+    type: Fix
+  id: 203
+  time: '2026-03-28T17:24:30.604160+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/724
 Name: Stalker
 Order: -1

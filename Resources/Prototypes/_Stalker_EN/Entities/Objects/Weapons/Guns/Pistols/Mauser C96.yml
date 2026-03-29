@@ -30,16 +30,20 @@
       - STCartridge919
       - C96Clip
     proto: null
+    chambers: [null, null, null, null, null, null, null, null, null, null]
+    ammoSlots: [null, null, null, null, null, null, null, null, null, null]
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
       gun_auto_sear: !type:ContainerSlot
-    gun_auto_sear:
-       name: Insides
-       priority: 2
-       whitelist:
-         tags:
-         - STModuleAutoSear
+  - type: ItemSlots
+    slots:
+      gun_auto_sear:
+        name: Insides
+        priority: 2
+        whitelist:
+          tags:
+          - STModuleAutoSear
   - type: RepositoryItem
     categoryName: repository-weapons-category
 
@@ -48,7 +52,7 @@
   parent: STWeaponPistolC96
   suffix: ST
   id: STWeaponPistolC96RE
-  description: The Red9 is a Handgun that is available for Leon to purchase from the Merchant in Resident Evil 4. It also is notable for having an antique appearance. 
+  description: The Red9 is a Handgun that is available for Leon to purchase from the Merchant in Resident Evil 4. It also is notable for having an antique appearance.
   components:
   - type: STWeight
     self: 1.13
@@ -75,15 +79,11 @@
       - STCartridge919
       - C96Clip
     proto: null
+    chambers: [null, null, null, null, null, null, null, null, null, null]
+    ammoSlots: [null, null, null, null, null, null, null, null, null, null]
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
       gun_auto_sear: !type:ContainerSlot
-    gun_auto_sear:
-       name: Insides
-       priority: 2
-       whitelist:
-         tags:
-         - STModuleAutoSear
   - type: RepositoryItem
-    categoryName: repository-weapons-category            
+    categoryName: repository-weapons-category

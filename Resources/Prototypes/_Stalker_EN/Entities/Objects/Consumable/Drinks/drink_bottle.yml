@@ -293,7 +293,7 @@
   - STDrinkJar
   steps:
     firstIngredient: STRag
-    secondIngredient: STDrinkJarDirtWater
+    secondIngredient: STDrinkJarDirtyWater
     keepFirst: true
     exactFirst: false
     time: 3

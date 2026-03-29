@@ -17,3 +17,6 @@
       - STWeight
       requireAll: true
   - type: STWeightSelfModifier
+  - type: StatusEffectAlert
+    alert: ReagentWeightReduction
+    showDuration: false

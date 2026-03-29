@@ -43,7 +43,8 @@ public sealed class STWeightModStatusSystem : EntitySystem
         // Check if status effect already exists
         var hasExistingEffect = _status.HasStatusEffect(uid, effectProto);
 
-        if (!_status.TryAddStatusEffectDuration(uid, effectProto, out var statusEffect, duration ?? TimeSpan.FromSeconds(2)))
+        // Use TryUpdateStatusEffectDuration to extend existing effect without recreating it
+        if (!_status.TryUpdateStatusEffectDuration(uid, effectProto, out var statusEffect, duration ?? TimeSpan.FromSeconds(2)))
             return false;
 
         if (EntityManager.TryGetComponent<STWeightSelfModifierComponent>(statusEffect, out var comp))

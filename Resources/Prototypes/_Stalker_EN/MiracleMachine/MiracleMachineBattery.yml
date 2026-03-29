@@ -13,6 +13,9 @@
       - state: overlay-unshaded
         shader: unshaded
         visible: true
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Monolith
     - type: Explosive
       explosionType: Default
       maxIntensity: 100

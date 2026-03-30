@@ -59,6 +59,7 @@
         556WarmagBox: 500
         556FMJBox: 300
         556M855Box: 3000
+        739HEBox: 2500
 
     - name: shop-category-medicine # 70% discount from stalkers
       priority: 4

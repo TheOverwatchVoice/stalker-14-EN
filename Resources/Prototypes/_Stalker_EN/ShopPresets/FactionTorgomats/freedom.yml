@@ -162,6 +162,7 @@
         45ACPMFMJBox: 550 # T2
         45ACPAPBox: 1500 # T3
         45ACPRIPBox: 500 # Mutant
+        739HEBox: 2500
 
     - name: shop-category-medicine
       priority: 4

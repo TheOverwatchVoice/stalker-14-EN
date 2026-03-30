@@ -1960,5 +1960,18 @@
   id: 206
   time: '2026-03-30T19:41:27.079536+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/735
+- author: dallaszzz & @CVSthePharmacy
+  changes:
+  - message: PP2000 and OTS
+    type: Add
+  - message: Currently non functional grenade launcher variant of the M16
+    type: Add
+  - message: New sprites for the M4 and M16
+    type: Tweak
+  - message: Fixes an issue with 1911 and USP mags
+    type: Fix
+  id: 207
+  time: '2026-03-30T19:47:36.464778+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/719
 Name: Stalker
 Order: -1

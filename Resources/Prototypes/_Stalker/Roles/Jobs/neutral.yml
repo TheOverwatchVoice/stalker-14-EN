@@ -10,10 +10,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobNeutral
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: NeutralGear
   supervisors: job-neutral-stalker-supervisor
   canBeAntag: false

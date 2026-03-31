@@ -9,10 +9,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobStalkerSci
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: SciGear
   supervisors: job-scientist-supervisor
   canBeAntag: false
@@ -53,10 +49,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobSci
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: SciGear
   supervisors: job-scientist-supervisor
   canBeAntag: false
@@ -97,10 +89,6 @@
     # - !type:RoleTimeRequirement
     #   role: Jobsci_decan
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: SciGear2
   supervisors: job-scientist-supervisor
   canBeAntag: false
@@ -141,10 +129,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobSci_rector
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: SciGear3
   supervisors: job-scientist-supervisor
   canBeAntag: false

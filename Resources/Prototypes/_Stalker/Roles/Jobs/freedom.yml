@@ -9,10 +9,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobFreedom
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: FreedomGear
   supervisors: job-freedom-supervisor
   canBeAntag: false
@@ -53,10 +49,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobHeadFreedom
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: FreedomGearHead # EN
   supervisors: job-head-freedom-supervisor
   canBeAntag: false

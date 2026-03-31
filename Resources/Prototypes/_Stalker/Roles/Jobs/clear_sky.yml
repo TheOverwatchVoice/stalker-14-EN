@@ -9,10 +9,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobClearSky
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: StalkerClearSkyGear
   supervisors: job-clearsky-supervisor
   canBeAntag: false
@@ -55,10 +51,6 @@
   # - !type:RoleTimeRequirement
   #   role: JobClearSky
   #   time: 1
-  - !type:SpeciesRequirement
-    species:
-    - Human
-    - Dwarf
   startingGear: StalkerClearSkyGearHead # EN
   supervisors: job-clearsky-commander-supervisor
   canBeAntag: false

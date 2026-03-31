@@ -9,10 +9,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobRenegat
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
   startingGear: ReneGear
   supervisors: job-renegade-supervisor
   canBeAntag: false
@@ -49,10 +45,6 @@
   # - !type:RoleTimeRequirement
   #   role: JobRenegat
   #   time: 1
-  - !type:SpeciesRequirement
-    species:
-    - Human
-    - Dwarf
   startingGear: ReneGearHead # EN
   supervisors: job-head-renegade-supervisor
   canBeAntag: false

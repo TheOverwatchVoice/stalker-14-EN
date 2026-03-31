@@ -9,9 +9,6 @@
     # - !type:RoleTimeRequirement
     #   role: JobMonolith
     #   time: 1
-    - !type:SpeciesRequirement
-      species:
-      - Human
   startingGear: MonolithGear
   supervisors: job-monolith-supervisor
   canBeAntag: false
@@ -77,9 +74,6 @@
   # - !type:RoleTimeRequirement
   #   role: JobMonolith
   #   time: 1
-  - !type:SpeciesRequirement
-    species:
-    - Human
   startingGear: MonolithGear
   supervisors: job-stalker-head-monolith-supervisor
   canBeAntag: false

@@ -1,6 +1,6 @@
 - type: persistentCraftNode
   id: PersistentCraftWeaponAmmoNodeT1
-  name: Боеприпасы I
+  name: Ammo I
   description: persistent-craft-node-sub-recipe-desc
   branch: Ammo
   cost: 0
@@ -10,7 +10,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponAmmoNodeT2
-  name: Боеприпасы II
+  name: Ammo II
   description: persistent-craft-node-sub-recipe-desc
   branch: Ammo
   cost: 0
@@ -22,7 +22,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponAmmoNodeT3
-  name: Боеприпасы III
+  name: Ammo III
   description: persistent-craft-node-sub-recipe-desc
   branch: Ammo
   cost: 0
@@ -34,7 +34,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponAmmoNodeT4
-  name: Боеприпасы IV
+  name: Ammo IV
   description: persistent-craft-node-sub-recipe-desc
   branch: Ammo
   cost: 0
@@ -46,7 +46,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponAmmoNodeT5
-  name: Боеприпасы V
+  name: Ammo V
   description: persistent-craft-node-sub-recipe-desc
   branch: Ammo
   cost: 0

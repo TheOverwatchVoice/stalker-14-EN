@@ -1,6 +1,6 @@
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeAi2T1
-  name: АИ-2 T1
+  name: AI-2 T1
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 0
@@ -10,7 +10,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeBandageT1
-  name: бинт T1
+  name: Bandage T1
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 0
@@ -22,7 +22,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeBruisePackT1
-  name: наб. ушибов T1
+  name: Bruise Pack T1
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 0
@@ -34,7 +34,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeOintmentT1
-  name: мазь T1
+  name: Ointment T1
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 0
@@ -46,7 +46,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeArmyMedkitT2
-  name: армейская апт. T2
+  name: Army Medkit T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 15
@@ -58,7 +58,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeBloodpackT2
-  name: пакет крови T2
+  name: Blood Pack T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 15
@@ -70,7 +70,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeScienceMedkitT3
-  name: научная апт. T3
+  name: Science Medkit T3
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 80
@@ -82,7 +82,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeEliteMedkitT4
-  name: продв. апт. T4
+  name: Advanced Medkit T4
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 160
@@ -106,7 +106,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeYodarinT15
-  name: йодрадин T1.5
+  name: Iodradin T1.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 10
@@ -116,7 +116,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeProbudT3
-  name: пробудофилин T3
+  name: Probudophilin T3
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 80
@@ -128,7 +128,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftMedicineNodeFufloT5
-  name: фуфломицин T4.5
+  name: Fuflomycin T4.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Medicine
   cost: 320

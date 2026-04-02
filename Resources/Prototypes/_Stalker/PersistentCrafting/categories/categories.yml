@@ -1,121 +1,121 @@
 - type: persistentCraftCategory
   id: weapons
-  name: Оружие
+  name: Weapons
   order: 0
 
 - type: persistentCraftCategory
   id: ammo
-  name: Боеприпасы
+  name: Ammo
   order: 1
 
 - type: persistentCraftCategory
   id: armor
-  name: Броня
+  name: Armor
   order: 2
 
 - type: persistentCraftCategory
   id: anomaly
-  name: Аномалии
+  name: Anomalies
   order: 3
 
 - type: persistentCraftCategory
   id: anomaly-detectors
-  name: Детекторы аномалий
+  name: Anomaly Detectors
   order: 0
 
 - type: persistentCraftCategory
   id: artifact-detectors
-  name: Детекторы артефактов
+  name: Artifact Detectors
   order: 1
 
 - type: persistentCraftCategory
   id: artifact-breakdown
-  name: Разбор артефактов
+  name: Artifact Breakdown
   order: 2
 
 - type: persistentCraftCategory
   id: anomaly-dust
-  name: Конвертация материалов
+  name: Material Conversion
   order: 3
 
 - type: persistentCraftCategory
   id: materials-tools
-  name: Инструменты
+  name: Tools
   order: 4
 
 - type: persistentCraftCategory
   id: upgrades
-  name: Улучшения
+  name: Upgrades
   order: 4
 
 - type: persistentCraftCategory
   id: special
-  name: Прочее
+  name: Misc
   order: 99
 
 - type: persistentCraftSubCategory
   id: starter
   category: weapons
-  name: Базовое
+  name: Basic
   order: 0
 
 - type: persistentCraftSubCategory
   id: upgrades
   category: anomaly-detectors
-  name: Улучшения
+  name: Upgrades
   order: 1
 
 - type: persistentCraftSubCategory
   id: material-disassemble
   category: anomaly-dust
-  name: Разбор
+  name: Disassembly
   order: 2
 
 - type: persistentCraftSubCategory
   id: materials-fishing-rods
   category: materials-tools
-  name: Удочки
+  name: Fishing Rods
   order: 1
 
 - type: persistentCraftSubCategory
   id: materials-trash-detectors
   category: materials-tools
-  name: Металлоискатели
+  name: Metal Detectors
   order: 2
 
 - type: persistentCraftSubCategory
   id: advanced
   category: weapons
-  name: Продвинутое
+  name: Advanced
   order: 2
 
 - type: persistentCraftSubCategory
   id: elite
   category: weapons
-  name: Элита
+  name: Elite
   order: 3
 
 - type: persistentCraftSubCategory
   id: tier-1
-  name: Уровень I
+  name: Tier I
   order: 1
 
 - type: persistentCraftSubCategory
   id: tier-2
-  name: Уровень II
+  name: Tier II
   order: 2
 
 - type: persistentCraftSubCategory
   id: tier-3
-  name: Уровень III
+  name: Tier III
   order: 3
 
 - type: persistentCraftSubCategory
   id: tier-4
-  name: Уровень IV
+  name: Tier IV
   order: 4
 
 - type: persistentCraftSubCategory
   id: tier-5
-  name: Уровень V
+  name: Tier V
   order: 5

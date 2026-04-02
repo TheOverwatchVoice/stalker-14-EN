@@ -2,7 +2,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeToz34T1
-  name: ТОЗ-34 T1
+  name: TOZ-34 T1
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 0
@@ -12,7 +12,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeObrezT1
-  name: Обрез T1
+  name: Sawed-off Shotgun T1
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 5
@@ -24,7 +24,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeMP133T2
-  name: МР-133 T2
+  name: MP-133 T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 15
@@ -48,7 +48,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeMP153T3
-  name: МР-153 T3
+  name: MP-153 T3
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 80
@@ -96,7 +96,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeSaiga12T45
-  name: Сайга-12 T4.5
+  name: Saiga-12 T4.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 160
@@ -108,7 +108,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeAKS74UT1
-  name: АКС-74У T1
+  name: AKS-74U T1
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 0
@@ -118,7 +118,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeVsvGlukharT2
-  name: ВСВ Глухарь T2
+  name: VSV Glukhar T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 15
@@ -130,7 +130,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeAKS74T3
-  name: АКС-74 T3
+  name: AKS-74 T3
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 80
@@ -142,7 +142,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeRPK74T3
-  name: РПК-74 T3
+  name: RPK-74 T3
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 80
@@ -154,7 +154,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeA545T4
-  name: А-545 T4
+  name: A-545 T4
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 160
@@ -166,7 +166,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeAK74MT45
-  name: АК-74М T4.5
+  name: AK-74M T4.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 160
@@ -178,7 +178,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeSaiga762T15
-  name: Сайга 7.62 T1.5
+  name: Saiga 7.62 T1.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 10
@@ -200,7 +200,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeAKMCT35
-  name: АКМС T3.5
+  name: AKMS T3.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 80
@@ -212,7 +212,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeAK103T45
-  name: АК-103 T4.5
+  name: AK-103 T4.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 160
@@ -224,7 +224,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeMosinT2
-  name: Мосина T2
+  name: Mosin T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 15
@@ -398,7 +398,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeKedrT2
-  name: Кедр T2
+  name: Kedr T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 15
@@ -422,7 +422,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeVereskT3
-  name: Вереск 9x19 T3
+  name: Veresk 9x19 T3
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 80
@@ -434,7 +434,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeVityazT35
-  name: Витязь T3.5
+  name: Vityaz T3.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 80
@@ -504,7 +504,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeRsh12T45
-  name: РШ-12 T4.5
+  name: RSh-12 T4.5
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 160
@@ -516,7 +516,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeApsT2
-  name: АПС T2
+  name: APS T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 15
@@ -526,7 +526,7 @@
 
 - type: persistentCraftNode
   id: PersistentCraftWeaponNodeBizonT2
-  name: Бизон T2
+  name: Bizon T2
   description: persistent-craft-node-sub-recipe-desc
   branch: Weapon
   cost: 15

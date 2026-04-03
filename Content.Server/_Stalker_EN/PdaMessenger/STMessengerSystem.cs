@@ -481,6 +481,7 @@ public sealed partial class STMessengerSystem : EntitySystem
     /// Gets the band icon name for a player based on their band/faction.
     /// Uses the mob holding the PDA (not the PDA entity itself).
     /// Falls back to OwnerBand if mob is not available.
+    /// Clear Sky is disguised as Stalker for lore consistency.
     /// </summary>
     private string? GetBandIcon(STMessengerServerComponent server)
     {
@@ -490,6 +491,10 @@ public sealed partial class STMessengerSystem : EntitySystem
             var holder = xform.ParentUid;
             if (holder.IsValid() && TryComp<BandsComponent>(holder, out var bands))
             {
+                // Clear Sky is disguised as Loners on PDA (lore consistency)
+                if (bands.BandProto == ClearSkyBandId)
+                    return "stalker";
+
                 if (!string.IsNullOrEmpty(bands.BandStatusIcon))
                     return bands.BandStatusIcon;
             }
@@ -498,6 +503,10 @@ public sealed partial class STMessengerSystem : EntitySystem
         // Try 2: Fallback to OwnerBand and map to bandIcon
         if (server.OwnerBand.HasValue)
         {
+            // Clear Sky disguise
+            if (server.OwnerBand.Value == ClearSkyBandId)
+                return "stalker";
+
             return GetBandIconForBandProto(server.OwnerBand.Value);
         }
 

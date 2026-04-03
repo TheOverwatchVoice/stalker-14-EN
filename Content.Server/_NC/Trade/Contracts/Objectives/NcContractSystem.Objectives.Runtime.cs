@@ -38,9 +38,8 @@ public sealed partial class NcContractSystem : EntitySystem
 
     private void InitializeObjectiveRuntime()
     {
-        // TEMP(binary-search): Test 2 isolate SpawnAndDeleteEntityCountTest leak.
-        // SubscribeLocalEvent<EntityTerminatingEvent>(OnObjectiveTrackedEntityTerminating);
-        // SubscribeLocalEvent<MobStateChangedEvent>(OnObjectiveTrackedMobStateChanged);
+        SubscribeLocalEvent<EntityTerminatingEvent>(OnObjectiveTrackedEntityTerminating);
+        SubscribeLocalEvent<MobStateChangedEvent>(OnObjectiveTrackedMobStateChanged);
         SubscribeLocalEvent<NcContractGhostRoleSpawnerComponent, TakeGhostRoleEvent>(OnContractGhostRoleTakeover);
         SubscribeLocalEvent<NcContractRepairObjectiveComponent, InteractUsingEvent>(OnRepairObjectiveInteractUsing);
         SubscribeLocalEvent<NcContractRepairObjectiveComponent, ContractRepairDoAfterEvent>(OnRepairObjectiveDoAfter);

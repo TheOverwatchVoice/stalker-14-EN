@@ -8,21 +8,24 @@ namespace Content.Server._NC.Trade;
 
 public sealed partial class NcContractSystem : EntitySystem
 {
-    private void OnObjectiveTrackedMobStateChanged(EntityUid uid, MobStateComponent comp, MobStateChangedEvent args)
+    private void OnObjectiveTrackedMobStateChanged(MobStateChangedEvent args)
     {
+        if (_objectiveRuntimeByTarget.Count == 0)
+            return;
+
         if (args.NewMobState != MobState.Dead || args.OldMobState == MobState.Dead)
             return;
 
-        if (!_objectiveRuntimeByTarget.TryGetValue(uid, out var key))
+        if (!_objectiveRuntimeByTarget.TryGetValue(args.Target, out var key))
             return;
 
-        if (!TryGetObjectiveContract(key, out var storeComp, out var contract) || !contract.IsHuntObjective)
+        if (!TryGetObjectiveContract(key, out var comp, out var contract) || !contract.IsHuntObjective)
             return;
 
-        if (!TrySpawnRequiredObjectiveProofOrFail(key, storeComp, contract, Transform(uid).Coordinates))
+        if (!TrySpawnRequiredObjectiveProofOrFail(key, comp, contract, Transform(args.Target).Coordinates))
             return;
 
-        OnObjectiveTrackedTargetResolved(key, uid);
+        OnObjectiveTrackedTargetResolved(key, args.Target);
     }
 
     private void HandleHuntObjectiveTargetResolved(

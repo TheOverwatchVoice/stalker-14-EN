@@ -18,9 +18,10 @@ public sealed class StoreSystemStructuredLoader : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NcStoreComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<NcStoreComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<NcStoreComponent, EntityTerminatingEvent>(OnTerminating);
+        // TEMP(binary-search): Test 4 isolate SpawnAndDeleteEntityCountTest leak.
+        // SubscribeLocalEvent<NcStoreComponent, MapInitEvent>(OnMapInit);
+        // SubscribeLocalEvent<NcStoreComponent, ComponentStartup>(OnStartup);
+        // SubscribeLocalEvent<NcStoreComponent, EntityTerminatingEvent>(OnTerminating);
     }
 
     private void OnTerminating(EntityUid uid, NcStoreComponent comp, ref EntityTerminatingEvent args)

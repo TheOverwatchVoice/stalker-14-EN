@@ -67,23 +67,22 @@ public sealed partial class StoreStructuredSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        // TEMP(binary-search): Test 3 isolate SpawnAndDeleteEntityCountTest leak.
-        // SubscribeLocalEvent<NcStoreComponent, ActivatableUIOpenAttemptEvent>(OnUiOpenAttempt);
-        // SubscribeLocalEvent<NcStoreComponent, BoundUIClosedEvent>(OnUiClosed);
-        // SubscribeLocalEvent<NcStoreComponent, RequestUiRefreshMessage>(OnUiRefreshRequest);
-        // SubscribeLocalEvent<NcStoreComponent, StoreSetVisibleListingsBoundUiMessage>(OnSetVisibleListings);
-        // SubscribeLocalEvent<AccessReaderComponent, AccessReaderConfigurationChangedEvent>(OnAccessReaderChanged);
-        // SubscribeLocalEvent<NcStoreComponent, ComponentShutdown>(OnStoreShutdown);
-        // SubscribeLocalEvent<ContainerManagerComponent, EntInsertedIntoContainerMessage>(OnUserEntInserted);
-        // SubscribeLocalEvent<ContainerManagerComponent, EntRemovedFromContainerMessage>(OnUserEntRemoved);
-        // SubscribeLocalEvent<StackComponent, StackCountChangedEvent>(OnStackCountChanged);
-        // SubscribeLocalEvent<EntParentChangedMessage>(OnWatchedEntityParentChanged);
-        // SubscribeLocalEvent<NcStoreComponent, ClaimContractBoundMessage>(OnClaimContract);
-        // SubscribeLocalEvent<NcStoreComponent, TakeContractBoundMessage>(OnTakeContract);
-        // SubscribeLocalEvent<NcStoreComponent, SkipContractBoundMessage>(OnSkipContract);
-        // SubscribeLocalEvent<NcStoreComponent, RequestContractPinpointerBoundMessage>(OnRequestContractPinpointer);
-        // SubscribeLocalEvent<EntityStorageComponent, StorageAfterOpenEvent>(OnStorageOpen);
-        // SubscribeLocalEvent<EntityStorageComponent, StorageAfterCloseEvent>(OnStorageClose);
+        SubscribeLocalEvent<NcStoreComponent, ActivatableUIOpenAttemptEvent>(OnUiOpenAttempt);
+        SubscribeLocalEvent<NcStoreComponent, BoundUIClosedEvent>(OnUiClosed);
+        SubscribeLocalEvent<NcStoreComponent, RequestUiRefreshMessage>(OnUiRefreshRequest);
+        SubscribeLocalEvent<NcStoreComponent, StoreSetVisibleListingsBoundUiMessage>(OnSetVisibleListings);
+        SubscribeLocalEvent<AccessReaderComponent, AccessReaderConfigurationChangedEvent>(OnAccessReaderChanged);
+        SubscribeLocalEvent<NcStoreComponent, ComponentShutdown>(OnStoreShutdown);
+        SubscribeLocalEvent<ContainerManagerComponent, EntInsertedIntoContainerMessage>(OnUserEntInserted);
+        SubscribeLocalEvent<ContainerManagerComponent, EntRemovedFromContainerMessage>(OnUserEntRemoved);
+        SubscribeLocalEvent<StackComponent, StackCountChangedEvent>(OnStackCountChanged);
+        SubscribeLocalEvent<EntParentChangedMessage>(OnWatchedEntityParentChanged);
+        SubscribeLocalEvent<NcStoreComponent, ClaimContractBoundMessage>(OnClaimContract);
+        SubscribeLocalEvent<NcStoreComponent, TakeContractBoundMessage>(OnTakeContract);
+        SubscribeLocalEvent<NcStoreComponent, SkipContractBoundMessage>(OnSkipContract);
+        SubscribeLocalEvent<NcStoreComponent, RequestContractPinpointerBoundMessage>(OnRequestContractPinpointer);
+        SubscribeLocalEvent<EntityStorageComponent, StorageAfterOpenEvent>(OnStorageOpen);
+        SubscribeLocalEvent<EntityStorageComponent, StorageAfterCloseEvent>(OnStorageClose);
     }
 
 

@@ -22,7 +22,7 @@
         Blunt: -0.5
         Slash: -0.5
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -67,7 +67,7 @@
         Radiation: -0.5
         Heat: 0.3
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -104,7 +104,7 @@
         Blunt: -1
         Slash: -1
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -149,7 +149,7 @@
         Slash: -1
         Heat: 0.8
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -189,7 +189,7 @@
         Blunt: -2
         Slash: -2
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -226,7 +226,7 @@
       types:
         Cold: -4
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -265,7 +265,7 @@
         Cellular: -3
         Heat: 0.1
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -339,7 +339,7 @@
       types:
         Compression: -2
         Piercing: 0.08 # we're so back
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -373,7 +373,7 @@
       types:
         Bloodloss: -6
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2

@@ -28,7 +28,7 @@
         Cold: -0.2
         Caustic: -0.2
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -69,7 +69,7 @@
         Cold: -0.4
         Caustic: -0.4
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -125,7 +125,7 @@
         Cold: -1
         Caustic: -1
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -167,7 +167,7 @@
         Radiation: -0.3
         Caustic: 0.8
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -243,7 +243,7 @@
         Radiation: -0.5
         Psy: -0.25
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -281,7 +281,7 @@
         Cold: -1.5
         Caustic: -1.5
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -321,7 +321,7 @@
         Cold: -2
         Caustic: -2
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2

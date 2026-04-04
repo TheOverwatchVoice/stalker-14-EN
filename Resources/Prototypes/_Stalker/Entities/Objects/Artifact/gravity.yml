@@ -27,7 +27,7 @@
       types:
         Radiation: 0.5
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -59,7 +59,7 @@
       types:
         Radiation: 2
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -120,7 +120,7 @@
       types:
         Radiation: 3
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -156,7 +156,7 @@
       types:
         Radiation: -0.25
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -188,7 +188,7 @@
       types:
         Radiation: 1
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -220,7 +220,7 @@
       types:
         Radiation: -2
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -252,7 +252,7 @@
       types:
         Radiation: -2
     interval: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -281,7 +281,7 @@
     castShadows: false
   - type: PersonalDamage
     staminaDamage: -6
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: true
     armorClass: 2
@@ -312,7 +312,7 @@
     damage:
       types:
         Radiation: 1
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: false
     armorClass: 2
@@ -354,7 +354,7 @@
     damage:
       types:
         Radiation: 1.5
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: false
     armorClass: 3
@@ -396,7 +396,7 @@
     damage:
       types:
         Radiation: 2
-    ignoreResistance: true # EN
+    ignoreResistances: true # EN
   - type: Armor
     hiddenExamine: false
     armorClass: 4

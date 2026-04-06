@@ -19,7 +19,8 @@
         <BoxContainer Name="ProgramBarContent" Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Center" Margin="4 8"/>
     </ScrollContainer>
     <BoxContainer Name="ViewContainer" HorizontalExpand="True" VerticalExpand="True" Access="Public" Margin="1 0 3 0">
-        <BoxContainer Orientation="Vertical"
+        <BoxContainer Name="HomeView"
+                      Orientation="Vertical"
                       VerticalExpand="True"
                       HorizontalExpand="True"
                       MinSize="50 50"
@@ -46,7 +47,7 @@
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
         </BoxContainer>
-        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
+        <ScrollContainer Name="SettingsView" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
             <BoxContainer Orientation="Vertical"
                           VerticalExpand="True"
                           HorizontalExpand="True"

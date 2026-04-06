@@ -120,12 +120,21 @@ namespace Content.Client.PDA
                 && EntMan.GetEntity(updateState.PdaOwnerInfo.PdaOwnerEntity.Value) == _playerMgr.LocalEntity.Value;
             _menu.SetPasswordButton.Visible = isOwner;
             // stalker-en-changes-end
+
+            // Switch to home if there's no active program and we're on program view
+            // This handles the case when server closes a program
+            if (updateState.ActiveUI == null && _menu.GetCurrentView() == PdaMenu.ProgramContentView)
+            {
+                _menu.ToHomeScreen();
+            }
         }
 
         protected override void AttachCartridgeUI(Control cartridgeUIFragment, string? title)
         {
             _menu?.ProgramView.AddChild(cartridgeUIFragment);
-            _menu?.ToProgramView(title ?? Loc.GetString("comp-pda-io-program-fallback-title"));
+            _menu?.ToProgramView();
+
+            // Note: title parameter is currently unused as PdaMenu doesn't display program titles in the header
         }
 
         protected override void DetachCartridgeUI(Control cartridgeUIFragment)
@@ -133,22 +142,27 @@ namespace Content.Client.PDA
             if (_menu is null)
                 return;
 
-            // Only go to home screen if we're NOT on Settings view AND there's no active program
-            // Don't switch to home when:
-            // - switching between programs (hasActiveProgram = true)
-            // - we're on Settings view (user intentionally went to Settings)
-            var currentView = _menu.GetCurrentView();
-            var hasActiveProgram = _menu.GetActiveProgram().HasValue;
-
-            if (currentView != PdaMenu.SettingsView && !hasActiveProgram)
-                _menu.ToHomeScreen();
-
+            // Don't switch views here - let UpdateState handle view changes based on server authority
+            // This prevents unwanted home switching when:
+            // - switching between programs
+            // - user is on Settings view
+            // Only remove the UI fragment
             _menu.ProgramView.RemoveChild(cartridgeUIFragment);
         }
 
         protected override void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)
         {
             _menu?.UpdateAvailablePrograms(programs, ActivateCartridge, InstallCartridge, UninstallCartridge);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && _menu != null)
+            {
+                _menu.OnProgramDeactivated -= DeactivateActiveCartridge;
+            }
+
+            base.Dispose(disposing);
         }
 
         private PdaBorderColorComponent? GetBorderColorComponent()

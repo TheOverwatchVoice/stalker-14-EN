@@ -43,8 +43,6 @@ namespace Content.Client.PDA
             _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
             RobustXamlLoader.Load(this);
 
-            ViewContainer.OnChildAdded += control => control.Visible = false;
-
             HomeButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/home.png"));
             FlashLightToggleButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/light.png"));
             EjectPenButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/pencil.png"));
@@ -273,18 +271,13 @@ namespace Content.Client.PDA
         /// <summary>
         /// Changes the current view to the program content view
         /// </summary>
-        public void ToProgramView(string title)
+        public void ToProgramView()
         {
             HomeButton.IsCurrent = false;
             SettingsButton.IsCurrent = false;
 
             ChangeView(ProgramContentView);
         }
-
-        /// <summary>
-        /// Gets the currently active program entity, if any
-        /// </summary>
-        public EntityUid? GetActiveProgram() => _activeProgram;
 
         /// <summary>
         /// Gets the currently active view number
@@ -297,31 +290,43 @@ namespace Content.Client.PDA
         /// </summary>
         public void ChangeView(int view)
         {
-            if (ViewContainer.ChildCount <= view)
+            // Use named references instead of relying on child order
+            var views = new Control[] { HomeView, SettingsView, ProgramView };
+
+            if (views.Length <= view || view < 0)
                 return;
 
-            ViewContainer.GetChild(_currentView).Visible = false;
-            ViewContainer.GetChild(view).Visible = true;
+            for (var i = 0; i < views.Length; i++)
+            {
+                views[i].Visible = (i == view);
+            }
+
             _currentView = view;
         }
 
         private void HideAllViews()
         {
-            var views = ViewContainer.Children;
-            foreach (var view in views)
-            {
-                view.Visible = false;
-            }
+            HomeView.Visible = false;
+            SettingsView.Visible = false;
+            ProgramView.Visible = false;
         }
+
+        private TimeSpan _lastDisplayedTime;
 
         protected override void Draw(DrawingHandleScreen handle)
         {
             base.Draw(handle);
 
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+            var truncated = TimeSpan.FromSeconds((int)stationTime.TotalSeconds);
 
-            StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time-stalker", // Stalker-en-changes - PDA UI
-                ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+            // Only update when the second actually changes to avoid per-frame layout invalidation
+            if (truncated != _lastDisplayedTime)
+            {
+                _lastDisplayedTime = truncated;
+                StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time-stalker",
+                    ("time", truncated.ToString("hh\\:mm\\:ss"))));
+            }
         }
     }
 }

@@ -114,16 +114,6 @@
     FoodMeatSTSuckerJerkedSingle: 600
     STFoodMeatSalo: 35
 
-    #Lumber
-    STTradePlankT1: 30
-    STTradePlankT2: 45
-    STTradePlankT3: 60
-    STTradePlankT4: 75
-    STLogStalkerT1: 15
-    STLogStalkerT2: 23
-    STLogStalkerT3: 30
-    STLogStalkerT4: 38
-
 # Cooking
     FoodSTFreshCheese: 100
     FoodSTRiceCooked: 250

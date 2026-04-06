@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
 using Content.Server.Database;
 using Content.Server.Discord;
+using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.PDA.Ringer;
 using Content.Shared._Stalker.Bands;
@@ -51,6 +52,7 @@ public sealed partial class STMessengerSystem : EntitySystem
     [Dependency] private readonly RingerSystem _ringer = default!;
     [Dependency] private readonly SharedSTFactionResolutionSystem _factionResolution = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     private const int MaxChannelMessages = 200;
     private const int MaxDmMessages = 100;
@@ -460,16 +462,34 @@ public sealed partial class STMessengerSystem : EntitySystem
 
             NotifyChannelRecipients(channelProto, server);
 
-            // Send pop-up notification for General channel (if not muted)
+            // Send pop-up notification for General channel
             if (channelProto.ID == "STGeneral")
             {
                 var bandIcon = GetBandIcon(server);
+                var generalEvent = new PdaGeneralMessageEvent(displayName, content, displayName, bandIcon);
 
-                // Check if recipient has General channel muted
-                if (!server.MutedChannels.Contains(channelProto.ID))
+                foreach (var (pdaUid, (cartridgeUid, _)) in _messengerPdas)
                 {
-                    var generalEvent = new PdaGeneralMessageEvent(displayName, content, displayName, bandIcon);
-                    RaiseNetworkEvent(generalEvent);
+                    // 1. Skip if the channel is muted
+                    if (!TryComp(cartridgeUid, out STMessengerServerComponent? recipientServer) ||
+                        recipientServer.MutedChannels.Contains(channelProto.ID))
+                        continue;
+
+                    // 2. Check for PDA and its owner (mob)
+                    if (!TryComp(pdaUid, out PdaComponent? pdaComp) || !pdaComp.PdaOwner.HasValue)
+                        continue;
+
+                    var mobUid = pdaComp.PdaOwner.Value;
+
+                    // 3. Find the mob's Mind to get the player's UserId
+                    if (_mind.TryGetMind(mobUid, out var _, out var mindComp))
+                    {
+                        // 4. Find the session by UserId
+                        if (_playerManager.TryGetSessionById(mindComp.UserId, out var session))
+                        {
+                            RaiseNetworkEvent(generalEvent, session!);
+                        }
+                    }
                 }
             }
         }

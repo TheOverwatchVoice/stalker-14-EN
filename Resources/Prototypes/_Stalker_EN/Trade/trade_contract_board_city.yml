@@ -6,7 +6,7 @@
   suffix: ST, QUESTS
   components:
   - type: Sprite
-    drawdepth: WallMountedItems
+    drawdepth: OverMobs
     sprite: Structures/Wallmounts/noticeboard.rsi
     layers:
     - state: noticeboard

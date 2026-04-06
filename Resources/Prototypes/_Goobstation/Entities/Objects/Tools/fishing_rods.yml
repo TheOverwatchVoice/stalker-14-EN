@@ -68,6 +68,9 @@
     efficiency: 0.8
   - type: Trash
     time: 1200
+  - type: Construction
+    graph: FishingRodMakeshift
+    node: makeshiftRod
 
 # Golden rod
 - type: entity
@@ -123,3 +126,29 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/makeshift_lure.rsi
     size: Normal
+
+- type: constructionGraph
+  id: FishingRodMakeshift
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftRod
+      steps:
+      - material: STPinePlanks
+        amount: 1
+        doAfter: 2
+      - material: STCottonFabricT1
+        amount: 1
+        doAfter: 2
+  - node: makeshiftRod
+    entity: FishingRodMakeshift
+
+- type: construction
+  id: FishingRodMakeshift
+  graph: FishingRodMakeshift
+  hide: false
+  startNode: start
+  targetNode: makeshiftRod
+  category: construction-category-misc
+  objectType: Item

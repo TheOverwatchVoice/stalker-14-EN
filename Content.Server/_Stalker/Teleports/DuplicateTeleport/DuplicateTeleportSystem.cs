@@ -5,8 +5,8 @@ using Content.Server._Stalker.StalkerDB;
 using Content.Server._Stalker.StalkerRepository;
 using Content.Server._Stalker.Storage;
 using Content.Server._Stalker.Teleports.StalkerBandPortal;
-using Content.Server._Stalker_EN.NoobDenyer; // stalker-changes
-using Content.Server.Players.PlayTimeTracking; // stalker-changes
+using Content.Server.Players.PlayTimeTracking;
+using Content.Shared._Stalker_EN.NoobDenyer; // stalker-changes
 using Content.Shared._Stalker.StalkerRepository;
 using Content.Shared._Stalker.Teleport;
 using Content.Shared.Access.Systems;

@@ -123,7 +123,7 @@ namespace Content.Client.PDA
 
             // Switch to home if there's no active program and we're on program view
             // This handles the case when server closes a program
-            if (updateState.ActiveUI == null && _menu.GetCurrentView() == PdaMenu.ProgramContentView)
+            if (updateState.ActiveUI == null && _menu.GetCurrentView() == PdaMenu.ProgramContentViewIndex)
             {
                 _menu.ToHomeScreen();
             }
@@ -131,6 +131,10 @@ namespace Content.Client.PDA
 
         protected override void AttachCartridgeUI(Control cartridgeUIFragment, string? title)
         {
+            // Force the cartridge UI to expand to fill the entire ProgramView
+            cartridgeUIFragment.VerticalExpand = true;
+            cartridgeUIFragment.HorizontalExpand = true;
+
             _menu?.ProgramView.AddChild(cartridgeUIFragment);
             _menu?.ToProgramView();
 

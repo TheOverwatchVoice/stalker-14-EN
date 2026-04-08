@@ -2239,5 +2239,13 @@
   id: 237
   time: '2026-04-08T23:25:25.739543+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/779
+- author: nathan736
+  changes:
+  - message: you can now modify bizon mags into moded bizon mags using the same easy
+      craft method as the bizon.
+    type: Add
+  id: 238
+  time: '2026-04-08T23:56:39.705735+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/622
 Name: Stalker
 Order: -1

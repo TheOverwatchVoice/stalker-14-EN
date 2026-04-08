@@ -73,6 +73,16 @@
   - type: AccessReader
     access: [["MilitaryBarraks"]]
 
+- type: entity
+  parent: MapTeleportBaseUncollide
+  id: MBase-AgroUncollide
+  name: MBase-AgroUncollide
+  components:
+  - type: LinkByString
+    linkString: MBase-Agro
+  - type: AccessReader
+    access: [ [ "MilitaryBarraks" ] ]
+
 # Red Forest / Limansk
 
 - type: entity

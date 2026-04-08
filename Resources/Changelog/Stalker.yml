@@ -2225,5 +2225,12 @@
   id: 235
   time: '2026-04-07T22:48:13.969231+00:00'
   url: https://github.com/coolmankid12345/stalker-14-EN/pull/770
+- author: BELNAKBU
+  changes:
+  - message: Now theres no ninja flesh
+    type: Add
+  id: 236
+  time: '2026-04-08T15:21:55.836311+00:00'
+  url: https://github.com/coolmankid12345/stalker-14-EN/pull/773
 Name: Stalker
 Order: -1

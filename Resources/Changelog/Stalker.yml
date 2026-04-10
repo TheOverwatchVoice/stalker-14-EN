@@ -2270,5 +2270,12 @@
   id: 241
   time: '2026-04-09T22:18:22.972729+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/763
+- author: Nox38
+  changes:
+  - message: Redid the M16 into a L85 sidegrade burst gun.
+    type: Add
+  id: 242
+  time: '2026-04-10T07:44:53.029827+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/788
 Name: Stalker
 Order: -1

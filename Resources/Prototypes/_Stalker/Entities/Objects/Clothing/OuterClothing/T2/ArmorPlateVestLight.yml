@@ -7,7 +7,7 @@
   description: Стандартный бронежилет II типа, обеспечивающий достойную защиту от большинства видов повреждений
   components:
   - type: STWeight
-    self: 5
+    self: 4.5
   - type: Storage
     maxItemSize: Normal
     grid:

@@ -155,6 +155,7 @@
           # Helmets #
         ClothingHeadHelmetDolg: 200 # T1 - PVE
         ClothingHeadHelmetInfantryDolg: 750 # T2 - PVP
+        ClothingHeadHelmetBerill5MDolg: 2500 #T3
         ClothingHeadHelmetVityaz1M: 3000 #T3
         ClothingHeadAssaultHelmetDolg: 3500 #T3
           # OuterClothing #

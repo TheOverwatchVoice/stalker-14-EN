@@ -204,6 +204,7 @@
       items:
           # Helmets #
         ClothingHeadHelmetInfantry: 600 # T2 - PVP
+        ClothingHeadHelmetAborigine: 2500 # T3
         ClothingHeadHelmetVityazKushch: 3000 # T3
         ClothingHeadAssaultHelmetFreedom: 3500 # T3
           # OuterClothing #

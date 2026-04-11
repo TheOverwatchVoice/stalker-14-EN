@@ -88,10 +88,7 @@ namespace Content.Client.PDA
                 SendMessage(new STPdaPasswordOpenSettingsMessage());
             };
 
-            _menu.OnProgramItemPressed += ActivateCartridge;
-            _menu.OnInstallButtonPressed += InstallCartridge;
-            _menu.OnUninstallButtonPressed += UninstallCartridge;
-            _menu.ProgramCloseButton.OnPressed += _ => DeactivateActiveCartridge();
+            _menu.OnProgramDeactivated += DeactivateActiveCartridge;
 
             var borderColorComponent = GetBorderColorComponent();
             if (borderColorComponent == null)
@@ -122,12 +119,24 @@ namespace Content.Client.PDA
             // Server-side IsAuthorized in OnOpenSettings provides the actual security gate.
             _menu.SetPasswordButton.Visible = true;
             // stalker-en-changes-end
+
+            // Switch to home if there's no active program and we're on program view
+            // This handles the case when server closes a program
+            if (updateState.ActiveUI == null && _menu.GetCurrentView() == PdaMenu.ProgramContentViewIndex)
+            {
+                _menu.ToHomeScreen();
+            }
         }
 
         protected override void AttachCartridgeUI(Control cartridgeUIFragment, string? title)
         {
+            // Force the cartridge UI to expand to fill the entire ProgramView
+            cartridgeUIFragment.VerticalExpand = true;
+            cartridgeUIFragment.HorizontalExpand = true;
+
             _menu?.ProgramView.AddChild(cartridgeUIFragment);
-            _menu?.ToProgramView(title ?? Loc.GetString("comp-pda-io-program-fallback-title"));
+            _menu?.ToProgramView();
+
         }
 
         protected override void DetachCartridgeUI(Control cartridgeUIFragment)
@@ -135,14 +144,22 @@ namespace Content.Client.PDA
             if (_menu is null)
                 return;
 
-            _menu.ToHomeScreen();
-            _menu.HideProgramHeader();
             _menu.ProgramView.RemoveChild(cartridgeUIFragment);
         }
 
         protected override void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)
         {
-            _menu?.UpdateAvailablePrograms(programs);
+            _menu?.UpdateAvailablePrograms(programs, ActivateCartridge, InstallCartridge, UninstallCartridge);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && _menu != null)
+            {
+                _menu.OnProgramDeactivated -= DeactivateActiveCartridge;
+            }
+
+            base.Dispose(disposing);
         }
 
         private PdaBorderColorComponent? GetBorderColorComponent()

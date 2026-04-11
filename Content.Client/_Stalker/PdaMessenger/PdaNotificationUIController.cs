@@ -106,7 +106,7 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         foreach (var entry in _activeNotifications)
-            entry.Panel.Orphan();
+            entry.Panel.Dispose();
 
         _activeNotifications.Clear();
         _notificationContainer?.Orphan();
@@ -197,7 +197,7 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
         while (_activeNotifications.Count > MaxNotifications || GetTotalHeight() + hotbarHeight > MaxTotalHeight)
         {
             var oldest = _activeNotifications.First();
-            oldest.Panel.Orphan();
+            oldest.Panel.Dispose();
             _activeNotifications.RemoveAt(0);
 
             if (_activeNotifications.Count == 0)
@@ -235,7 +235,7 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
                 if (elapsed >= NotificationTotalLifetime)
                 {
                     // Notification lifetime ended, remove it
-                    entry.Panel.Orphan();
+                    entry.Panel.Dispose();
                     toRemove.Add(entry);
                     needsPositionUpdate = true;
                 }

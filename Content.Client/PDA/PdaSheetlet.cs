@@ -22,80 +22,71 @@ public sealed class PdaSheetlet : Sheetlet<NanotrasenStylesheet>
         var angleBorderRect =
             sheet.GetTexture(panelCfg.GeometricPanelBorderPath).IntoPatch(StyleBox.Margin.All, 10);
 
-        // stalker-en-changes: Modern dark theme colors (GitHub Dark Dimmed inspired)
-        var primaryBg = Color.FromHex("#24292e");
-        var secondaryBg = Color.FromHex("#2d333b");
-        var accentColor = Color.FromHex("#539bf5");
-        var textColor = Color.FromHex("#adbac7");
-        var borderColor = Color.FromHex("#444c56");
-        var highlightColor = Color.FromHex("#316dca");
-
         return
         [
             //PDA - Backgrounds
             E<PanelContainer>()
                 .Class("PdaContentBackground")
                 .Prop(PanelContainer.StylePropertyPanel, StyleBoxHelpers.SquareStyleBox(sheet))
-                .Prop(Control.StylePropertyModulateSelf, secondaryBg),
+                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#25252a")),
 
             E<PanelContainer>()
                 .Class("PdaBackground")
                 .Prop(PanelContainer.StylePropertyPanel, StyleBoxHelpers.SquareStyleBox(sheet))
-                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#1c2128")),
+                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#000000")),
 
             E<PanelContainer>()
                 .Class("PdaBackgroundRect")
                 .Prop(PanelContainer.StylePropertyPanel, StyleBoxHelpers.BaseStyleBox((sheet)))
-                .Prop(Control.StylePropertyModulateSelf, primaryBg),
+                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#717059")),
 
             E<PanelContainer>()
                 .Class("PdaBorderRect")
-                .Prop(PanelContainer.StylePropertyPanel, angleBorderRect)
-                .Prop(Control.StylePropertyModulateSelf, borderColor),
+                .Prop(PanelContainer.StylePropertyPanel, angleBorderRect),
 
-            //PDA - Buttons with modern accent colors
+            //PDA - Buttons
             E<PdaSettingsButton>()
                 .Pseudo(ContainerButton.StylePseudoClassNormal)
                 .Prop(PdaSettingsButton.StylePropertyBgColor, Color.FromHex(PdaSettingsButton.NormalBgColor))
-                .Prop(PdaSettingsButton.StylePropertyFgColor, textColor),
+                .Prop(PdaSettingsButton.StylePropertyFgColor, Color.FromHex(PdaSettingsButton.EnabledFgColor)),
 
             E<PdaSettingsButton>()
                 .Pseudo(ContainerButton.StylePseudoClassHover)
                 .Prop(PdaSettingsButton.StylePropertyBgColor, Color.FromHex(PdaSettingsButton.HoverColor))
-                .Prop(PdaSettingsButton.StylePropertyFgColor, textColor),
+                .Prop(PdaSettingsButton.StylePropertyFgColor, Color.FromHex(PdaSettingsButton.EnabledFgColor)),
 
             E<PdaSettingsButton>()
                 .Pseudo(ContainerButton.StylePseudoClassPressed)
-                .Prop(PdaSettingsButton.StylePropertyBgColor, accentColor)
-                .Prop(PdaSettingsButton.StylePropertyFgColor, Color.White),
+                .Prop(PdaSettingsButton.StylePropertyBgColor, Color.FromHex(PdaSettingsButton.PressedColor))
+                .Prop(PdaSettingsButton.StylePropertyFgColor, Color.FromHex(PdaSettingsButton.EnabledFgColor)),
 
             E<PdaSettingsButton>()
                 .Pseudo(ContainerButton.StylePseudoClassDisabled)
                 .Prop(PdaSettingsButton.StylePropertyBgColor, Color.FromHex(PdaSettingsButton.NormalBgColor))
-                .Prop(PdaSettingsButton.StylePropertyFgColor, Color.FromHex("#636e7b")),
+                .Prop(PdaSettingsButton.StylePropertyFgColor, Color.FromHex(PdaSettingsButton.DisabledFgColor)),
 
             E<PdaProgramItem>()
                 .Pseudo(ContainerButton.StylePseudoClassNormal)
-                .Prop(PdaProgramItem.StylePropertyBgColor, secondaryBg),
+                .Prop(PdaProgramItem.StylePropertyBgColor, Color.FromHex(PdaProgramItem.NormalBgColor)),
 
             E<PdaProgramItem>()
                 .Pseudo(ContainerButton.StylePseudoClassHover)
-                .Prop(PdaProgramItem.StylePropertyBgColor, highlightColor),
+                .Prop(PdaProgramItem.StylePropertyBgColor, Color.FromHex(PdaProgramItem.HoverColor)),
 
             E<PdaProgramItem>()
                 .Pseudo(ContainerButton.StylePseudoClassPressed)
-                .Prop(PdaProgramItem.StylePropertyBgColor, accentColor),
+                .Prop(PdaProgramItem.StylePropertyBgColor, Color.FromHex(PdaProgramItem.HoverColor)),
 
-            //PDA - Text with improved contrast
+            //PDA - Text
             E<Label>()
                 .Class("PdaContentFooterText")
                 .Prop(Label.StylePropertyFont, sheet.BaseFont.GetFont(10))
-                .Prop(Label.StylePropertyFontColor, Color.FromHex("#768390")),
+                .Prop(Label.StylePropertyFontColor, Color.FromHex("#757575")),
 
             E<Label>()
                 .Class("PdaWindowFooterText")
                 .Prop(Label.StylePropertyFont, sheet.BaseFont.GetFont(10))
-                .Prop(Label.StylePropertyFontColor, Color.FromHex("#545d68")),
+                .Prop(Label.StylePropertyFontColor, Color.FromHex("#333d3b")),
         ];
     }
 }

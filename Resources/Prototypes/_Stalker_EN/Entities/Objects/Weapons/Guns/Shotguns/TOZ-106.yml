@@ -45,7 +45,7 @@
           - MagazineTOZ106
       gun_chamber:
         name: Chamber
-        startingItem:
+        startingItem: Cartridge62mmBuckshot
         priority: 2
         whitelist:
           tags:

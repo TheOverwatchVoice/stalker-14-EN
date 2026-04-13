@@ -2380,5 +2380,14 @@
   id: 254
   time: '2026-04-13T13:14:39.094384+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/810
+- author: Noguchi47
+  changes:
+  - message: brand new shotgun TOZ 106 and its 20gauge ammo
+    type: Add
+  - message: added the gun to several vendors. Find out IC as always teehee
+    type: Add
+  id: 255
+  time: '2026-04-13T16:51:51.007085+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/803
 Name: Stalker
 Order: -1

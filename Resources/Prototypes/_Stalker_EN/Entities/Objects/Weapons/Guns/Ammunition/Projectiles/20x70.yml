@@ -1,7 +1,7 @@
 #By Noguchi.47
 - type: entity
   abstract: True
-  id: STBasePellet
+  id: STBasePellet20g
   categories: [ HideSpawnMenu ]
   parent: STBaseBean
   components:
@@ -17,7 +17,7 @@
 - type: entity
   id: STPellet62mm
   name: pellet 6.2mm
-  parent: STBasePellet
+  parent: STBasePellet20g
   components:
   - type: Projectile
     damage:
@@ -40,7 +40,7 @@
 - type: entity
   id: STPellet75mm
   name: pellet 7.5mm
-  parent: STBasePellet
+  parent: STBasePellet20g
   components:
   - type: Projectile
     projectileClass: 1

@@ -57,8 +57,12 @@ public sealed partial class StalkerRepositoryMenu : DefaultWindow
         // Loadout button opens separate window
         OpenLoadoutsButton.OnPressed += _ => OpenLoadoutsPressed?.Invoke();
 
-        // stalker-en-changes: Crash recovery button
-        CrashRecoveryButton.OnPressed += _ => CrashRecoveryPressed?.Invoke();
+        // stalker-en-changes: Crash recovery button (hide banner immediately to prevent double-clicks)
+        CrashRecoveryButton.OnPressed += _ =>
+        {
+            CrashRecoveryBanner.Visible = false;
+            CrashRecoveryPressed?.Invoke();
+        };
     }
 
     // stalker-en-changes

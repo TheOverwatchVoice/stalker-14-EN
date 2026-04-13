@@ -1872,6 +1872,16 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .ExecuteUpdateAsync(s => s.SetProperty(r => r.CrashRecovery, (string?) null));
         }
 
+        public async Task<List<string>> GetAllCrashRecoveryLogins()
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Stalkers
+                .Where(s => s.CrashRecovery != null && s.Login != null)
+                .Select(s => s.Login!)
+                .ToListAsync();
+        }
+
         public async Task SetCrashRecoveryBatch(Dictionary<string, string> loginToJson)
         {
             await using var db = await GetDb();

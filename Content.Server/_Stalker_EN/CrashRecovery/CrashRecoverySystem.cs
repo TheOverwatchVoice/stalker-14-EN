@@ -59,6 +59,9 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
     // Concurrent operation protection for claims
     private readonly ConcurrentDictionary<EntityUid, byte> _currentlyProcessingClaims = new();
 
+    // Logins with unclaimed recovery data — snapshots must not overwrite these
+    private readonly HashSet<string> _pendingRecoveryLogins = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -80,6 +83,11 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
     {
         base.Shutdown();
 
+        // Clear crash recovery on graceful shutdown.
+        // On real crashes, the process dies without reaching here, so data persists correctly.
+        if (_enabled)
+            _dbManager.ClearAllCrashRecovery();
+
         _cfg.UnsubValueChanged(STCCVars.CrashRecoveryEnabled, v => _enabled = v);
         _cfg.UnsubValueChanged(STCCVars.CrashRecoverySaveInterval, v => _saveInterval = v);
     }
@@ -93,7 +101,28 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
         _timeSinceLastSave = 0;
         _snapshotQueue.Clear();
         _dirtyPlayers.Clear();
+        _pendingRecoveryLogins.Clear();
         _sawmill.Info("Crash recovery game rule started");
+
+        // Load logins with unclaimed recovery data so periodic snapshots don't overwrite them
+        LoadPendingRecoveryLogins();
+    }
+
+    private async void LoadPendingRecoveryLogins()
+    {
+        try
+        {
+            var logins = await _dbManager.GetAllCrashRecoveryLogins();
+            foreach (var login in logins)
+                _pendingRecoveryLogins.Add(login);
+
+            if (logins.Count > 0)
+                _sawmill.Info($"Loaded {logins.Count} pending crash recovery logins");
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Failed to load pending crash recovery logins: {e}");
+        }
     }
 
     protected override void Ended(EntityUid uid, CrashRecoveryRuleComponent component,
@@ -108,6 +137,7 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
         _dbManager.ClearAllCrashRecovery();
         _snapshotQueue.Clear();
         _dirtyPlayers.Clear();
+        _pendingRecoveryLogins.Clear();
         _timeSinceLastSave = 0;
     }
 
@@ -157,6 +187,14 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
         if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
 
+        // Don't show banner if a claim is already being processed
+        if (_currentlyProcessingClaims.ContainsKey(actor))
+        {
+            _ui.SetUiState(repository, StalkerRepositoryUiKey.Key,
+                new CrashRecoveryUpdateState(false, 0));
+            return;
+        }
+
         var login = actorComp.PlayerSession.Name;
 
         try
@@ -168,10 +206,14 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
 
             if (string.IsNullOrEmpty(json))
             {
+                _pendingRecoveryLogins.Remove(login);
                 _ui.SetUiState(repository, StalkerRepositoryUiKey.Key,
                     new CrashRecoveryUpdateState(false, 0));
                 return;
             }
+
+            // Mark this login as having unclaimed recovery data so snapshots don't overwrite it
+            _pendingRecoveryLogins.Add(login);
 
             var itemCount = 0;
             try
@@ -223,6 +265,7 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
 
             // Clear FIRST (optimistic — prevents duplication if spawn crashes)
             await _dbManager.SetCrashRecovery(login, null);
+            _pendingRecoveryLogins.Remove(login);
 
             if (!Exists(uid) || !Exists(msg.Actor))
                 return;
@@ -307,6 +350,10 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
 
             var login = session.Name;
 
+            // Don't overwrite unclaimed recovery data from a previous crash
+            if (_pendingRecoveryLogins.Contains(login))
+                continue;
+
             try
             {
                 var data = CapturePlayerState(playerEntity);
@@ -373,6 +420,10 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
                 continue;
 
             var login = session.Name;
+
+            // Don't overwrite unclaimed recovery data from a previous crash
+            if (_pendingRecoveryLogins.Contains(login))
+                continue;
 
             try
             {
@@ -459,6 +510,43 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
 
                 CaptureItemRecursive(contained, inventory, depth + 1);
             }
+        }
+    }
+
+    /// <summary>
+    /// Immediately snapshots a player's equipped state to DB.
+    /// Called when stash contents change to keep crash recovery in sync.
+    /// </summary>
+    public void ImmediateSnapshot(EntityUid player)
+    {
+        if (!_enabled)
+            return;
+
+        if (!TryComp<ActorComponent>(player, out var actorComp))
+            return;
+
+        if (!HasComp<InventoryComponent>(player))
+            return;
+
+        var login = actorComp.PlayerSession.Name;
+
+        // Don't overwrite unclaimed recovery data from a previous crash
+        if (_pendingRecoveryLogins.Contains(login))
+            return;
+
+        try
+        {
+            var data = CapturePlayerState(player);
+            if (data != null)
+                _dbManager.SetCrashRecoveryBatch(new Dictionary<string, string> { { login, data } });
+            else
+                _dbManager.SetCrashRecovery(login, null);
+
+            _dirtyPlayers.Remove(player);
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Failed immediate snapshot for {login}: {e}");
         }
     }
 

@@ -221,8 +221,10 @@ public sealed class StalkerRepositorySystem : EntitySystem
         // Note: Loadout state is sent on demand when user opens the loadout menu,
         // not here, to avoid race conditions with the async database call.
 
-        // stalker-en-changes: Check for crash recovery data (async — arrives on next tick)
-        _crashRecovery.CheckAndSendCrashRecoveryState(uid, args.User);
+        // stalker-en-changes: Check for crash recovery data only on personal stash
+        // StorageOwner uses prefixes (e.g. "PB" for personal box), so use EndsWith
+        if (TryComp<ActorComponent>(args.User, out var actor) && component.StorageOwner.EndsWith(actor.PlayerSession.Name))
+            _crashRecovery.CheckAndSendCrashRecoveryState(uid, args.User);
     }
 
     private void UpdateUiState(EntityUid? user, EntityUid repository, StalkerRepositoryComponent? component = null)
@@ -299,6 +301,7 @@ public sealed class StalkerRepositorySystem : EntitySystem
                 EjectItems(GetEntity(msg.Entity), item, msg.Count);
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"Player {Name(msg.Actor):user} ejected {msg.Count} {msg.Item.Name} from repository");
                 _stalkerStorageSystem.SaveStorage(component);
+                _crashRecovery.ImmediateSnapshot(msg.Actor);
                 UpdateUiState(msg.Actor, GetEntity(msg.Entity), component);
                 _loadoutSystem.SendLoadoutStateUpdate(GetEntity(msg.Entity), component, msg.Actor);
             }
@@ -347,6 +350,7 @@ public sealed class StalkerRepositorySystem : EntitySystem
         // logging, saving, ui updating
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"Player {Name(msg.Actor):user} inserted {msg.Count} {msg.Item.Name} into repository");
         _stalkerStorageSystem.SaveStorage(component);
+        _crashRecovery.ImmediateSnapshot(msg.Actor);
         RaiseLocalEvent(msg.Actor, new RepositoryItemInjectedEvent(uid, msg.Item));
         UpdateUiState(msg.Actor, GetEntity(msg.Entity), component);
         _loadoutSystem.SendLoadoutStateUpdate(uid, component, msg.Actor);
@@ -389,6 +393,7 @@ public sealed class StalkerRepositorySystem : EntitySystem
         // logging, saving, ui updating
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"Player {Name(args.User):user} inserted 1 {itemInfo.Name} into repository");
         _stalkerStorageSystem.SaveStorage(component);
+        _crashRecovery.ImmediateSnapshot(args.User);
         RaiseLocalEvent(args.User, new RepositoryItemInjectedEvent(args.Target, itemInfo));
         // stalker-changes: only update UI if already open, don't open it just from inserting an item
         if (_ui.IsUiOpen(uid, StalkerRepositoryUiKey.Key, args.User))

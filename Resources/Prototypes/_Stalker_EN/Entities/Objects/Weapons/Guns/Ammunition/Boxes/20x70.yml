@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseAmmoBoxStalker
   suffix: ST
-  id: 6.2mmBuckshotBox
+  id: 62mmBuckshotBox
   name: box of 20/70 gauge shells loaded with 6.2mm buckshot.
   description: Only for TOZ-106 and come with 10 shells. Can't penetrate any body armours.
   components:
@@ -23,9 +23,9 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: 6.2mmBuckshotBox
+  parent: 62mmBuckshotBox
   suffix: ST
-  id: 7.5mmBuckshotBox
+  id: 75mmBuckshotBox
   name: box of 20/70 gauge shells loaded with 7.5mm buckshot.
   description: Only for TOZ-106 and come with 10 shells. Can penetrate T1 body armours.
   components:

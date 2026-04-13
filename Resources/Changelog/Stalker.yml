@@ -2363,5 +2363,13 @@
   id: 252
   time: '2026-04-13T10:55:20.696597+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/808
+- author: teecoding
+  changes:
+  - message: Fixed crash recovery offering to restore items during normal play, causing
+      item duplication
+    type: Fix
+  id: 253
+  time: '2026-04-13T12:14:06.712760+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/809
 Name: Stalker
 Order: -1

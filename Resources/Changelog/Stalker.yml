@@ -2414,5 +2414,12 @@
   id: 258
   time: '2026-04-13T19:40:26.149058+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/805
+- author: teecoding
+  changes:
+  - message: Crash recovery button no longer appears after normal server restarts
+    type: Fix
+  id: 259
+  time: '2026-04-14T11:20:52.701268+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/818
 Name: Stalker
 Order: -1

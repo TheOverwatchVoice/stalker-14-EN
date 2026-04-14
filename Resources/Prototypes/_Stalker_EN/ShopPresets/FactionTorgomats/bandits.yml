@@ -383,7 +383,8 @@
       priority: 12
       items:
         SnapPop: 50
-        CraftGunpowderBank: 200
+        CraftGunpowderBank: 500
+        CraftMaterialGunpowder: 200
         KhattabkaGrenade: 350
         DG05SmokeGrenade: 500
         RGD5Grenade: 1000

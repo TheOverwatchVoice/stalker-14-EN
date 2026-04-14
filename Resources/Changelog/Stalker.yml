@@ -2428,5 +2428,12 @@
   id: 260
   time: '2026-04-14T19:39:15.682260+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/817
+- author: dallaszzz and Wassuy
+  changes:
+  - message: new 357 sprites
+    type: Add
+  id: 261
+  time: '2026-04-14T19:50:44.369901+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/813
 Name: Stalker
 Order: -1

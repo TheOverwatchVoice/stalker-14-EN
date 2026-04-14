@@ -317,8 +317,9 @@
         Radiation: 0.85
         Heat: 0.85
         Shock: 0.85
-        Compression: 0.8
+        Compression: 0.7
   - type: PersonalDamage # EN
+    staminaDamage: -2 # EN same as a sparkler
     interval: 1
     damage:
       types:
@@ -542,6 +543,24 @@
       - 2,2,2,3
       - 4,2,4,3
       - 6,2,6,3
+  - type: Armor # EN
+    armorClass: 3
+    modifiers:
+      flatReductions:
+        Blunt: 5
+        Slash: 5
+        Piercing: 5
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.60
+        Piercing: 0.70
+        Compression: 0.8
+        Radiation: 0.90
+        Heat: 0.75
+        Caustic: 0.80
+        Shock: 0.75
+  - type: GrantsArtifactSlots
+    slots: 5 # EN
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHatMonolith
     slot: head

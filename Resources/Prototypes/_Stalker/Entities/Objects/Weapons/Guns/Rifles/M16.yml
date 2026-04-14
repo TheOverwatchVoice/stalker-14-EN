@@ -14,7 +14,7 @@
   - type: Gun
     #fireRate: 4.5 stalker EN change
     fireRate: 6 # stalker EN change
-    burstFireRate: 12 # stalker EN change
+    burstFireRate: 10 # stalker EN change
     burstCooldown: 0.25 # stalker EN change
     soundGunshot:
       path: /Audio/_Stalker/Effects/Guns/m4.ogg

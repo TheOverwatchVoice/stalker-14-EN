@@ -79,12 +79,8 @@ public sealed partial class PdaNotificationPanel : PanelContainer
         else
         {
             // Sprite icon mode - use RSI sprite from band.rsi (same as STMessenger)
-            // Clear Sky disguise as Loners on PDA (lore consistency)
-            var bandIcon = _bandId ?? string.Empty;
-            if (_isDisguised && bandIcon == "cn")
-                bandIcon = "stalker";
-
-            var spriteState = GetSpriteStateForBandIcon(bandIcon);
+            // Server already sends the correct bandIcon (accounting for disguise via ActionChangeBand)
+            var spriteState = GetSpriteStateForBandIcon(_bandId ?? string.Empty);
 
             try
             {

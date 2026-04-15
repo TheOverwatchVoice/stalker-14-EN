@@ -17,11 +17,6 @@ public sealed class CharacterPortraitSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     private ISawmill _sawmill = default!;
 
-    /// <summary>
-    /// Job ID for disguise portraits (e.g., Clear Sky disguised as Stalkers).
-    /// </summary>
-    private const string DisguiseTargetJobId = "Stalker";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -141,27 +136,33 @@ public sealed class CharacterPortraitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Resolves the disguise portrait path randomly from Stalker portraits
+    /// Resolves the disguise portrait path randomly from target faction portraits
     /// if the entity belongs to a faction capable of disguise.
     /// Can be called via VV to re-resolve after manual changes.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     private void ResolveDisguisePortrait(EntityUid uid, CharacterPortraitComponent comp)
     {
-        // Check if this band can disguise as Stalkers
+        // Check if this band can disguise using AltBand and CanChange from BandsComponent
         var canDisguise = false;
+        var targetJobId = (string?)null;
 
-        if (TryComp<BandsComponent>(uid, out var bands) && bands.BandProto.HasValue)
+        if (TryComp<BandsComponent>(uid, out var bands))
         {
-            if (_protoManager.TryIndex<STBandPrototype>(bands.BandProto.Value, out var bandProto))
+            canDisguise = bands.AltBand != null && bands.CanChange;
+
+            if (bands.BandProto.HasValue)
             {
-                canDisguise = bandProto.CanDisguiseAsStalker;
+                if (_protoManager.TryIndex<STBandPrototype>(bands.BandProto.Value, out var bandProto))
+                {
+                    targetJobId = bandProto.DisguiseTargetJobId?.ToString();
+                }
             }
         }
 
-        if (!canDisguise)
+        if (!canDisguise || string.IsNullOrEmpty(targetJobId))
         {
-            // If can't disguise, ensure IsDisguised is false
+            // If can't disguise or no target job, ensure IsDisguised is false
             if (comp.IsDisguised)
             {
                 comp.IsDisguised = false;
@@ -177,18 +178,18 @@ public sealed class CharacterPortraitSystem : EntitySystem
             Dirty(uid, comp);
         }
 
-        // Find Stalker portraits
-        var stalkerPortraits = _protoManager.EnumeratePrototypes<CharacterPortraitPrototype>()
-            .Where(p => p.JobId == DisguiseTargetJobId)
+        // Find portraits for the target job
+        var targetPortraits = _protoManager.EnumeratePrototypes<CharacterPortraitPrototype>()
+            .Where(p => p.JobId == targetJobId)
             .ToList();
 
-        if (stalkerPortraits.Count > 0)
+        if (targetPortraits.Count > 0)
         {
             // If manually set, use it. If empty, pick random.
             // (For NPCs this will always be random)
             if (string.IsNullOrEmpty(comp.DisguisedPortraitPath))
             {
-                var chosenProto = stalkerPortraits[_random.Next(stalkerPortraits.Count)];
+                var chosenProto = targetPortraits[_random.Next(targetPortraits.Count)];
                 comp.DisguisedPortraitPath = PickRandomTexture(chosenProto.Textures).ToString();
                 Dirty(uid, comp);
             }

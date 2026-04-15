@@ -297,7 +297,8 @@
       bandIcon: cn
       bandProto: STClearSkyBand
       bandRankId: 1
-      altBand: stalker
+      altBand: stalker # Stalker EN change
+      canChange: true # Stalker EN change
     - type: Loadout
       prototypes: [ StalkerClearSkyGear ]
     - type: CharacterPortrait # Stalker EN change

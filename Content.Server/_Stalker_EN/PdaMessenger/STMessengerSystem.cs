@@ -254,9 +254,6 @@ public sealed partial class STMessengerSystem : EntitySystem
             case STMessengerNavigateToNewsEvent navigateToNews:
                 OnNavigateToNews(args.LoaderUid, navigateToNews);
                 break;
-            case STMessengerToggleDisguiseEvent toggleDisguise:
-                OnToggleDisguiseEvent(ent, server, args);
-                break;
         }
     }
 
@@ -511,43 +508,31 @@ public sealed partial class STMessengerSystem : EntitySystem
     /// <summary>
     /// Gets the band icon name for a player based on their band/faction.
     /// Uses the mob holding the PDA (not the PDA entity itself).
+    /// Returns BandStatusIcon from BandsComponent, using AltBand when disguised.
     /// Falls back to OwnerBand if mob is not available.
-    /// Clear Sky uses CharacterPortraitComponent.IsDisguised to determine band icon.
     /// </summary>
     private string? GetBandIcon(STMessengerServerComponent server)
     {
-        bool isDisguised = false;
-
-        // Try 1: Get IsDisguised from CharacterPortraitComponent on the mob
+        // Try 1: Get BandStatusIcon from BandsComponent on the mob
         if (TryComp<TransformComponent>(server.Owner, out var xform))
         {
             var holder = xform.ParentUid;
-            if (holder.IsValid())
+            if (holder.IsValid() && TryComp<BandsComponent>(holder, out var bands))
             {
-                if (TryComp<CharacterPortraitComponent>(holder, out var portraitComp))
-                {
-                    isDisguised = portraitComp.IsDisguised;
-                }
+                var isDisguised = bands.IsDisguised;
 
-                if (TryComp<BandsComponent>(holder, out var bands))
-                {
-                    // Clear Sky disguise as Loners on PDA (lore consistency)
-                    if (isDisguised && bands.BandProto == ClearSkyBandId)
-                        return "stalker";
+                // If disguised, use AltBand instead of BandStatusIcon
+                if (isDisguised && !string.IsNullOrEmpty(bands.AltBand))
+                    return bands.AltBand;
 
-                    if (!string.IsNullOrEmpty(bands.BandStatusIcon))
-                        return bands.BandStatusIcon;
-                }
+                if (!string.IsNullOrEmpty(bands.BandStatusIcon))
+                    return bands.BandStatusIcon;
             }
         }
 
-        // Try 2: Fallback to OwnerBand and map to bandIcon
+        // Try 2: Fallback to OwnerBand and map to bandIcon (accounting for disguise)
         if (server.OwnerBand.HasValue)
         {
-            // Clear Sky disguise
-            if (isDisguised && server.OwnerBand.Value == ClearSkyBandId)
-                return "stalker";
-
             return GetBandIconForBandProto(server.OwnerBand.Value);
         }
 
@@ -590,8 +575,8 @@ public sealed partial class STMessengerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets whether the player is disguised (e.g., Clear Sky disguised as Loners).
-    /// Walks up the transform hierarchy to find the mob entity.
+    /// Gets whether the player is disguised (using alternative patch).
+    /// Checks the BandsComponent.IsDisguised field.
     /// </summary>
     private bool GetIsDisguised(STMessengerServerComponent server)
     {
@@ -601,9 +586,9 @@ public sealed partial class STMessengerSystem : EntitySystem
 
             while (current.IsValid())
             {
-                if (TryComp<CharacterPortraitComponent>(current, out var portraitComp))
+                if (TryComp<BandsComponent>(current, out var bandsComp))
                 {
-                    return portraitComp.IsDisguised;
+                    return bandsComp.IsDisguised;
                 }
 
                 var parentXform = CompOrNull<TransformComponent>(current);
@@ -633,9 +618,17 @@ public sealed partial class STMessengerSystem : EntitySystem
 
     /// <summary>
     /// Maps band prototype ID to bandIcon name.
+    /// For disguise-capable factions, returns the alternative patch from DisguiseTargetBandIcon.
     /// </summary>
-    private static string? GetBandIconForBandProto(ProtoId<STBandPrototype> bandProtoId)
+    private string? GetBandIconForBandProto(ProtoId<STBandPrototype> bandProtoId, bool isDisguised = false)
     {
+        // If disguised and the band has an alternative patch, return it
+        if (isDisguised && _protoManager.TryIndex<STBandPrototype>(bandProtoId, out var bandProto))
+        {
+            if (!string.IsNullOrEmpty(bandProto.DisguiseTargetBandIcon))
+                return bandProto.DisguiseTargetBandIcon;
+        }
+
         return bandProtoId.Id switch
         {
             "STFreedomBand" => "freedom",
@@ -1445,31 +1438,6 @@ public sealed partial class STMessengerSystem : EntitySystem
             contactIdentity.UserId, contactIdentity.CharName, factionName);
 
         return true;
-    }
-
-    /// <summary>
-    /// Toggles the disguise state for Clear Sky members.
-    /// Only updates the mob's CharacterPortraitComponent (single source of truth).
-    /// </summary>
-    private void OnToggleDisguiseEvent(Entity<STMessengerComponent> ent, STMessengerServerComponent server, CartridgeMessageEvent args)
-    {
-        // Get the loader (PDA) entity from args
-        var loaderUid = GetEntity(args.LoaderUid);
-
-        // Toggle disguise in CharacterPortraitComponent on the mob holding the PDA
-        if (TryComp<TransformComponent>(loaderUid, out var xform))
-        {
-            var holder = xform.ParentUid;
-            if (holder.IsValid() && TryComp<CharacterPortraitComponent>(holder, out var portraitComp))
-            {
-                portraitComp.IsDisguised = !portraitComp.IsDisguised;
-                Dirty(holder, portraitComp);
-            }
-        }
-
-        // Force UI update with correct loaderUid for _viewedChat lookup
-        var state = BuildUiState(loaderUid, server);
-        _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state);
     }
 
     #endregion

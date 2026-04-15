@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Stalker.PdaMessenger;
+namespace Content.Shared._Stalker_EN.PdaMessenger;
 
 /// <summary>
 /// Event sent from server to all clients when a message is sent to the General PDA channel.

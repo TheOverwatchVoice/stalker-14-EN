@@ -54,7 +54,7 @@
         band: Stalker
         bandIcon: stalker
         bandProto: STStalkerBand
-        bandRankId: 1
+        bandRankId: 2
       - type: BlockTackingHolyItems
       - type: TeethPull
         teethProto: ToothStalker
@@ -156,5 +156,3 @@
     1: Stalker
     2: StalkerVeteran
     3: StalkerGuide
-
-

@@ -446,7 +446,7 @@
       band: Stalker
       bandIcon: stalker
       bandProto: STStalkerBand
-      bandRankId: 2 # Stalker EN change
+      bandRankId: 1
     - type: Access
       tags:
         - Stalker

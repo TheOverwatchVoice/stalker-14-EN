@@ -16,6 +16,7 @@
   id: Portrait_StalkerRookie
   name: st-portrait-rookie-stalker
   bandId: STStalkerBand
+  jobId: StalkerRookie
   textures:
     - "stalkers/rookies/rookie_1.png"
     - "stalkers/rookies/rookie_2.png"

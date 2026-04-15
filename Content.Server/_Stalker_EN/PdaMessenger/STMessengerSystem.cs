@@ -897,7 +897,7 @@ public sealed partial class STMessengerSystem : EntitySystem
 
         // Get IsDisguised from CharacterPortraitComponent on the mob (single source of truth)
         bool isDisguised = false;
-        if (TryComp<TransformComponent>(server.Owner, out var xform))
+        if (TryComp<TransformComponent>(loaderUid, out var xform))
         {
             var holder = xform.ParentUid;
             if (holder.IsValid() && TryComp<CharacterPortraitComponent>(holder, out var portraitComp))
@@ -1238,8 +1238,9 @@ public sealed partial class STMessengerSystem : EntitySystem
             return null;
 
         // Only Clear Sky is disguised as Loners on PDA
-        if (bands.BandProto == ClearSkyBandId)
-            return _factionResolution.GetBandFactionName(bands.BandName);
+        if (TryComp<CharacterPortraitComponent>(mob, out var portrait))
+            if (portrait.IsDisguised && bands.BandProto == ClearSkyBandId)
+                return _factionResolution.GetBandFactionName(bands.BandName);
 
         if (bands.BandProto is not { } bandProtoId)
             return null;

@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/13/2026 15:54:35
-  entityCount: 8121
+  time: 04/15/2026 20:22:07
+  entityCount: 8120
 maps:
 - 1
 grids:
@@ -38941,13 +38941,6 @@ entities:
     - type: Transform
       pos: -62.234585,-68.705185
       parent: 1
-- proto: kraz
-  entities:
-  - uid: 4305
-    components:
-    - type: Transform
-      pos: 5.5,-54.5
-      parent: 1
 - proto: Krest2
   entities:
   - uid: 4035
@@ -39477,12 +39470,26 @@ entities:
     - type: Transform
       pos: -13.5,21.5
       parent: 1
+- proto: MiracleMachinePsyField
+  entities:
+  - uid: 6071
+    components:
+    - type: Transform
+      pos: 4.5,67.5
+      parent: 1
 - proto: MiracleMachineTeleporterSpawnerYantarDeadCity
   entities:
   - uid: 5776
     components:
     - type: Transform
       pos: -58.5,43.5
+      parent: 1
+- proto: MiracleMachineTeleporterSpawnerYantarRostok
+  entities:
+  - uid: 4305
+    components:
+    - type: Transform
+      pos: 43.5,96.5
       parent: 1
 - proto: MoonshineStill
   entities:
@@ -68323,28 +68330,12 @@ entities:
       parent: 1
     - type: LinkedEntity
       linkedEntities: []
-- proto: Yantar-MBase
-  entities:
-  - uid: 6711
-    components:
-    - type: Transform
-      pos: 6.5,-51.5
-      parent: 1
 - proto: Yantar-Mono
   entities:
   - uid: 5231
     components:
     - type: Transform
       pos: 26.5,8.5
-      parent: 1
-    - type: LinkedEntity
-      linkedEntities: []
-- proto: Yantar-Rostok
-  entities:
-  - uid: 6071
-    components:
-    - type: Transform
-      pos: 43.5,96.5
       parent: 1
     - type: LinkedEntity
       linkedEntities: []

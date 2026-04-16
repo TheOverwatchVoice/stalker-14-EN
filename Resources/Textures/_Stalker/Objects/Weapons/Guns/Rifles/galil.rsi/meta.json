@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": "CC-BY-NC-SA-3.0",
+  "license": null,
   "copyright": "Stalker14 CLA",
   "size": {
     "x": 48,
@@ -48,6 +48,9 @@
     },
     {
       "name": "muzzle"
+    },
+    {
+      "name": "base-foregrip"
     }
   ]
 }

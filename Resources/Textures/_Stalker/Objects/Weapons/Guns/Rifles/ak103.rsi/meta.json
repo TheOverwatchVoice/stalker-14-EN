@@ -47,7 +47,12 @@
     {
       "name": "wielded-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "base-launcher"
+    },
+    {
+      "name": "base-foregrip"
     }
-  ],
-  "license": "CC-BY-NC-SA-3.0"
+  ]
 }

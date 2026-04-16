@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": "CC-BY-NC-SA-3.0",
+  "license": "Stalker License 14",
   "copyright": "Made by gr0x / neki5h and belay5",
   "size": {
     "x": 48,
@@ -57,6 +57,9 @@
     {
       "name": "wielded-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "base-foregrip"
     }
   ]
 }

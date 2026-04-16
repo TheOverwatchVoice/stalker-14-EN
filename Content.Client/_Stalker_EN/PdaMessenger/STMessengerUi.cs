@@ -73,17 +73,17 @@ public sealed partial class STMessengerUi : UIFragment
 
         _mainPage.OnAddContact += messengerId =>
         {
-            userInterface.SendMessage(new CartridgeUiMessage(new STMessengerAddContactEvent(messengerId)));
+            userInterface.SendPredictedMessage(new CartridgeUiMessage(new STMessengerAddContactEvent(messengerId)));
         };
 
         _mainPage.OnRemoveContact += contactMessengerId =>
         {
-            userInterface.SendMessage(new CartridgeUiMessage(new STMessengerRemoveContactEvent(contactMessengerId)));
+            userInterface.SendPredictedMessage(new CartridgeUiMessage(new STMessengerRemoveContactEvent(contactMessengerId)));
         };
 
         _mainPage.OnToggleMute += channelId =>
         {
-            userInterface.SendMessage(new CartridgeUiMessage(new STMessengerToggleMuteEvent(channelId)));
+            userInterface.SendPredictedMessage(new CartridgeUiMessage(new STMessengerToggleMuteEvent(channelId)));
         };
 
         _mainPage.OnToggleRandomName += randomName =>
@@ -109,13 +109,13 @@ public sealed partial class STMessengerUi : UIFragment
 
         _channelPage.OnOfferLinkClicked += offerId =>
         {
-            userInterface.SendMessage(new CartridgeUiMessage(
+            userInterface.SendPredictedMessage(new CartridgeUiMessage(
                 new STMessengerNavigateToOfferEvent(offerId)));
         };
 
         _channelPage.OnNewsLinkClicked += articleId =>
         {
-            userInterface.SendMessage(new CartridgeUiMessage(
+            userInterface.SendPredictedMessage(new CartridgeUiMessage(
                 new STMessengerNavigateToNewsEvent(articleId)));
         };
 
@@ -133,7 +133,7 @@ public sealed partial class STMessengerUi : UIFragment
 
         _composePage.OnSend += (chatId, content, isAnonymous) =>
         {
-            userInterface.SendMessage(new CartridgeUiMessage(
+            userInterface.SendPredictedMessage(new CartridgeUiMessage(
                 new STMessengerSendEvent(chatId, content, _replyToId, isAnonymous)));
 
             _replyToId = null;
@@ -194,7 +194,7 @@ public sealed partial class STMessengerUi : UIFragment
         _currentChatId = chatId;
 
         // Tell server which chat we're viewing (for lazy message loading)
-        _userInterface?.SendMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(chatId)));
+        _userInterface?.SendPredictedMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(chatId)));
 
         _mainPage!.Visible = false;
         _composePage!.Visible = false;
@@ -209,7 +209,7 @@ public sealed partial class STMessengerUi : UIFragment
         _composePage!.Visible = false;
         _mainPage!.Visible = true;
 
-        _userInterface?.SendMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(null)));
+        _userInterface?.SendPredictedMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(null)));
     }
 
     private void ShowCompose(string chatId, string? initialContent = null)

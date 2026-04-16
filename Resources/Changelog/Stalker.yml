@@ -2341,5 +2341,146 @@
   id: 250
   time: '2026-04-12T13:46:10.894841+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/800
+- author: teecoding
+  changes:
+  - message: Your equipment is now saved periodically and can be recovered from the
+      repository after a server crash
+    type: Add
+  id: 251
+  time: '2026-04-12T22:25:52.106839+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/802
+- author: teecoding
+  changes:
+  - message: Crash recovery no longer duplicates items that were already in your stash
+    type: Fix
+  - message: Crash recovery button can no longer be clicked multiple times to duplicate
+      items
+    type: Fix
+  - message: Crash recovery button no longer appears after a normal server restart
+    type: Fix
+  - message: Crash recovery button no longer appears on shared stashes
+    type: Fix
+  id: 252
+  time: '2026-04-13T10:55:20.696597+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/808
+- author: teecoding
+  changes:
+  - message: Fixed crash recovery offering to restore items during normal play, causing
+      item duplication
+    type: Fix
+  id: 253
+  time: '2026-04-13T12:14:06.712760+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/809
+- author: teecoding
+  changes:
+  - message: Stash no longer appears empty when opening personal storage
+    type: Fix
+  - message: Crash recovery banner no longer shows after normal server restart
+    type: Fix
+  id: 254
+  time: '2026-04-13T13:14:39.094384+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/810
+- author: Noguchi47
+  changes:
+  - message: brand new shotgun TOZ 106 and its 20gauge ammo
+    type: Add
+  - message: added the gun to several vendors. Find out IC as always teehee
+    type: Add
+  id: 255
+  time: '2026-04-13T16:51:51.007085+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/803
+- author: Nox38, @CaramelKitten
+  changes:
+  - message: Added a new T3 helmet for Freedom - the Sphere-08 "Turtle".
+    type: Add
+  - message: Rewrote Sphere helmet descriptions.
+    type: Tweak
+  - message: Added Sphere helmets to Freedom and Duty vendors for 2500r.
+    type: Tweak
+  id: 256
+  time: '2026-04-13T18:09:17.642872+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/794
+- author: BELNAKBU
+  changes:
+  - message: Now pop up nots will show when general channel is muted
+    type: Tweak
+  id: 257
+  time: '2026-04-13T19:37:15.001257+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/806
+- author: nathan736
+  changes:
+  - message: fixed planks when junped on causing people to get stuck against walls
+    type: Fix
+  id: 258
+  time: '2026-04-13T19:40:26.149058+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/805
+- author: teecoding
+  changes:
+  - message: Crash recovery button no longer appears after normal server restarts
+    type: Fix
+  id: 259
+  time: '2026-04-14T11:20:52.701268+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/818
+- author: BELNAKBU
+  changes:
+  - message: bug fix  by ticket 0153
+    type: Add
+  id: 260
+  time: '2026-04-14T19:39:15.682260+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/817
+- author: dallaszzz and Wassuy
+  changes:
+  - message: new 357 sprites
+    type: Add
+  id: 261
+  time: '2026-04-14T19:50:44.369901+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/813
+- author: Mooringt
+  changes:
+  - message: resprited military zenith
+    type: Tweak
+  id: 262
+  time: '2026-04-14T22:05:17.631425+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/807
+- author: Nox38, @CaramelKitten
+  changes:
+  - message: Added berets for Bandits, Mercs, and Freedom! Look for them in the customization
+      section of your vendor.
+    type: Add
+  - message: Berets no longer have a long delay for equipping/de-equipping.
+    type: Tweak
+  id: 263
+  time: '2026-04-14T22:23:21.185161+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/812
+- author: BELNAKBU
+  changes:
+  - message: Fix(i hope) ui pda
+    type: Add
+  id: 264
+  time: '2026-04-15T00:05:01.594508+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/820
+- author: Roland410
+  changes:
+  - message: Adds lathe to renegade base.
+    type: Add
+  - message: Miscellaneous improvements to the CS base, until a proper remap is done.
+    type: Tweak
+  id: 265
+  time: '2026-04-15T03:39:35.377097+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/797
+- author: DuckManZach
+  changes:
+  - message: Locations and common abbreviations get spelled out in chat
+    type: Add
+  id: 266
+  time: '2026-04-15T03:42:59.470354+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/792
+- author: dallaszzz and @TheOverwatchVoice
+  changes:
+  - message: things on most maps
+    type: Fix
+  id: 267
+  time: '2026-04-15T19:30:35.090900+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/811
 Name: Stalker
 Order: -1

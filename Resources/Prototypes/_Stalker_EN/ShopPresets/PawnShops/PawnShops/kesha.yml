@@ -87,7 +87,8 @@
 
      #Weapons and armour ---- min cost / 2
 
-    #12x70
+    #12x70 & 20x70
+    STBaseWeaponShotgunTOZ106: 250
     STWeaponShotgunMP155T: 20
     STWeaponShotgunTOZ34: 100
     STWeaponShotgunMP133: 170
@@ -184,7 +185,8 @@
             # Melee
         StalkerBallBat: 70
             # Guns
-        # 7mm
+        # 7mm & 20gauge
+        STBaseWeaponShotgunTOZ106: 1000 #T1 this gun is giga chad killer
         STWeaponShotgunSPAS: 3500 # T3
         STWeaponShotgunBenelliM4Super90: 6500 #i dont think its actually that good
         # Smg

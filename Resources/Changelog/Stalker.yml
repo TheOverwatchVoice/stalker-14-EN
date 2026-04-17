@@ -2512,5 +2512,18 @@
   id: 270
   time: '2026-04-17T00:27:36.101840+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/828
+- author: Aliwenko
+  changes:
+  - message: Event inserts to be opened up in future and connect to event maps.
+    type: Add
+  - message: More detail in some areas that were empty or underworked.
+    type: Add
+  - message: Prettied up some caves and tunnels, including one entrance from cordon.
+    type: Tweak
+  - message: Put down some bayun spawns and couple caches.
+    type: Tweak
+  id: 271
+  time: '2026-04-17T00:35:05.045537+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/821
 Name: Stalker
 Order: -1

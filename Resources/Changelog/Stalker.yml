@@ -2505,5 +2505,12 @@
   id: 269
   time: '2026-04-16T22:00:15.810071+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/822
+- author: crocodilecarousel
+  changes:
+  - message: Tooth Necklace can now be stashed, and will be under the Clothing category
+    type: Fix
+  id: 270
+  time: '2026-04-17T00:27:36.101840+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/828
 Name: Stalker
 Order: -1

@@ -313,6 +313,7 @@
       ClothingBackpackDuffelGreenStalker: 30 # T1
       ClothingBackpackTacticGreenStalker: 450 # T2
       ClothingBackpackMercStalker: 550 # T3
+      ClothingBackpackDuffelCommonStalker: 750 # T3
       ClothingBackpackDuffelHikingVSRF: 1150 # T4
       ClothingBackpackDuffelMilitaryOlive: 1300 # T4
       # Belts

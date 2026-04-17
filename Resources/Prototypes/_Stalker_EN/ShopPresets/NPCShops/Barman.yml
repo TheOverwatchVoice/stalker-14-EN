@@ -361,7 +361,8 @@
       items:
         ClothingBackpackTacticOliveStalker: 557
         ClothingBackpackTacticBeigeStalker: 568
-        ClothingBackpackStalkerZaryaGreen: 1059
+        ClothingBackpackStalkerZaryaGreen: 1000
+        ClothingBackpackMercStalker: 750
         ClothingBackpackTownBlackStalker: 185
         ClothingBackpackTownWhiteStalker: 190
         STClothingBeltThrowingKnifes: 200

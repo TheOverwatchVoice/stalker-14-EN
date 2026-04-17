@@ -298,6 +298,7 @@
         ##-------------------------------------------
         ClothingBackpackMercStalker: 800 # T3 PvE
         ClothingBackpackStalkerZaryaBlack: 1000 # T3 PvP
+        #ClothingBackpackDuffelCommonStalker: 1500 # T3 PvP, commented out as per Faction Lead request
         ##-------------------------------------------
           # Belts
         ClothingBeltBandolierStalker: 20 # T1 - PvE

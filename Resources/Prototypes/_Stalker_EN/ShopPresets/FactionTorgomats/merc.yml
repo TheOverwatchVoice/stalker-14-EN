@@ -112,6 +112,7 @@
         STWeaponRevolverSWPC325TR: 350
         STWeaponRevolverRugerRedhawk: 650
         # SMGs
+        STWeaponSMGUMP: 1900
         STWeaponSMGMP5: 2200
         # Rifles
         STWeaponRifleL85: 2200 # T2
@@ -139,6 +140,7 @@
         751Mag20: 400
         751Mag30: 500
         # .45
+        UMPMag25: 190
         USPMag12: 170
         M1911Mag7: 100
         STSpeedLoader45ACPEmpty: 90

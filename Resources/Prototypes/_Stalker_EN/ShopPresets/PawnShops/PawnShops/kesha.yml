@@ -163,6 +163,7 @@
     STWeaponSniperVSS: 6000
 
     #.45 acp
+    STWeaponSMGUMP: 650
     STWeaponPistolUSP: 800
     STWeaponPistolM1911: 500
     STWeaponPistolM1911Chrome: 600

@@ -702,32 +702,4 @@
     damage:
       types:
         Slash: 0.1
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 4
-        reagents:
-        - ReagentId: Bananadine
-          Quantity: 1.5
-        - ReagentId: Honk
-          Quantity: 0.5
-        - ReagentId: Laughter
-          Quantity: 2
-  - type: SolutionRegeneration
-    solution: injector
-    duration: 0.25
-    generated:
-      reagents:
-      - ReagentId: Bananadine
-        Quantity: 1.5
-      - ReagentId: Honk
-        Quantity: 0.5
-      - ReagentId: Laughter
-        Quantity: 2
-  - type: SolutionInjectWhileEmbedded
-    transferAmount: 4
-    updateInterval: 0.1
-    maxInjections: 1
-    solution: injector
-    pierceArmor: false
 # endregion Nanotrasen Cards

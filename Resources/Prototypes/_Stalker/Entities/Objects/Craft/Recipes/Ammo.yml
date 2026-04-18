@@ -170,7 +170,7 @@
     CraftMaterialGunpowder:
       amount: 3
     STCraftSheetBrassT3:
-      amount: 5
+      amount: 4
 
 - type: craftRecipe
   id: newrecipe545HPBoxCink
@@ -187,7 +187,7 @@
     CraftMaterialGunpowder:
       amount: 4
     STCraftSheetBrassT3:
-      amount: 3
+      amount: 2
 
 - type: craftRecipe
   id: newrecipe545BPBoxCink
@@ -295,7 +295,7 @@
     CraftMaterialGunpowder:
       amount: 4
     STCraftSheetBrassT3:
-      amount: 3
+      amount: 2
 
 - type: craftRecipe
   id: newrecipe918PBMBoxCink
@@ -312,7 +312,7 @@
     CraftMaterialGunpowder:
       amount: 3
     STCraftSheetBrassT3:
-      amount: 5
+      amount: 4
 
 ############################################################################# 9x19
 
@@ -365,7 +365,7 @@
     CraftMaterialGunpowder:
       amount: 4
     STCraftSheetBrassT3:
-      amount: 3
+      amount: 2
 
 - type: craftRecipe
   id: newrecipe919PBMBoxCink
@@ -382,7 +382,7 @@
     CraftMaterialGunpowder:
       amount: 3
     STCraftSheetBrassT3:
-      amount: 5
+      amount: 4
 
 ########### 5,56
 
@@ -418,7 +418,7 @@
     CraftMaterialGunpowder:
       amount: 3
     STCraftSheetBrassT3:
-      amount: 5
+      amount: 4
 
 - type: craftRecipe
   id: newrecipe556WarmagBoxCink
@@ -435,7 +435,7 @@
     CraftMaterialGunpowder:
       amount: 4
     STCraftSheetBrassT3:
-      amount: 3
+      amount: 2
 
 - type: craftRecipe
   id: newrecipe556M856BoxCink
@@ -498,7 +498,6 @@
   resultProtos:
     - 725PBoxCink
     - 725PBoxCink
-    - 725PBoxCink
   craftTime: 30
   requiredWorkbench: StalkerWorktable1
   items:
@@ -515,7 +514,6 @@
   resultProtos:
     - 725PTBoxCink
     - 725PTBoxCink
-    - 725PTBoxCink
   craftTime: 30
   requiredWorkbench: StalkerWorktable1
   items:
@@ -530,7 +528,6 @@
 - type: craftRecipe
   id: newrecipe725LRNPCBoxCink
   resultProtos:
-    - 725LRNPCBoxCink
     - 725LRNPCBoxCink
     - 725LRNPCBoxCink
   craftTime: 30
@@ -566,7 +563,6 @@
 - type: craftRecipe
   id: newrecipe739FMJBoxCink
   resultProtos:
-    - 739FMJBoxCink
     - 739FMJBoxCink
     - 739FMJBoxCink
   craftTime: 30
@@ -641,7 +637,6 @@
   resultProtos:
     - 751M80BoxCink
     - 751M80BoxCink
-    - 751M80BoxCink
   craftTime: 30
   requiredWorkbench: StalkerWorktable1
   items:
@@ -656,7 +651,6 @@
 - type: craftRecipe
   id: newrecipe751UNBoxCink
   resultProtos:
-    - 751UNBoxCink
     - 751UNBoxCink
     - 751UNBoxCink
   craftTime: 60
@@ -775,7 +769,7 @@
     CraftMaterialGunpowder:
       amount: 3
     STCraftSheetBrassT3:
-      amount: 3
+      amount: 2
 
 - type: craftRecipe
   id: newrecipe45ACPAPBoxCink
@@ -792,7 +786,7 @@
     CraftMaterialGunpowder:
       amount: 3
     STCraftSheetBrassT3:
-      amount: 5
+      amount: 4
 
 ########## 9x39
 

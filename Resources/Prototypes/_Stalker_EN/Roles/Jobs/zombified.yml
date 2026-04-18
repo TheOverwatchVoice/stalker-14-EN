@@ -4,7 +4,7 @@
   icon: zombieEN
   description: job-zombified-desc
   playTimeTracker: JobZombified
-  whitelisted: false
+  whitelisted: true
   requirements:
     - !type:SpeciesRequirement
       species:

@@ -143,6 +143,14 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             _metaSystem.SetEntityName(entity.Value, profile.Name);
 
             // stalker-en-start
+            // Apply job-specific appearance for Zombified
+            if (prototype != null && prototype.ID == "StalkerZombified")
+            {
+                _humanoidSystem.ApplyZombifiedAppearance(entity.Value, profile.Name);
+            }
+            //stalker-en-end
+
+            // stalker-en-start
             // Set character portrait for PDA notifications.
             // Portrait resolution flow:
             // 1. Set PortraitJobId from job prototype (used as fallback if BandsComponent not available).

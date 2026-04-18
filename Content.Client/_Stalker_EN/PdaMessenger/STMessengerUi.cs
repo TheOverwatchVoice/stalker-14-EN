@@ -6,6 +6,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Shared.Maths;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Stalker_EN.PdaMessenger;
 
@@ -194,7 +195,7 @@ public sealed partial class STMessengerUi : UIFragment
         _currentChatId = chatId;
 
         // Tell server which chat we're viewing (for lazy message loading)
-        _userInterface?.SendPredictedMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(chatId)));
+        _userInterface?.SendMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(chatId)));
 
         _mainPage!.Visible = false;
         _composePage!.Visible = false;
@@ -209,7 +210,7 @@ public sealed partial class STMessengerUi : UIFragment
         _composePage!.Visible = false;
         _mainPage!.Visible = true;
 
-        _userInterface?.SendPredictedMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(null)));
+        _userInterface?.SendMessage(new CartridgeUiMessage(new STMessengerViewChatEvent(null)));
     }
 
     private void ShowCompose(string chatId, string? initialContent = null)

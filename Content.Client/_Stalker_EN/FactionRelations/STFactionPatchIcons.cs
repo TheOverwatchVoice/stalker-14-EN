@@ -31,5 +31,6 @@ public static class STFactionPatchIcons
         [STReactionDefinitions.Rookies] = (PatchRsiPathEN, "rookie"),
         [STReactionDefinitions.Journalists] = (PatchRsiPath, "journalist"),
         [STReactionDefinitions.UN] = (PatchRsiPath, "un"),
+        [STReactionDefinitions.Zombiefied] = (PatchRsiPathEN, "zombified"),
     };
 }

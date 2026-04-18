@@ -1448,6 +1448,19 @@ namespace Content.Client.Lobby.UI
 
             // Refresh portraits when job priority changes
             RefreshPortraits();
+
+            // stalker-en-start: Apply job-specific appearance for Zombified
+            var currentJobId = GetHighestPriorityJobId();
+            if (currentJobId == "StalkerZombified" && Profile != null)
+            {
+                Profile = Profile.WithCharacterAppearance(Profile.Appearance
+                    .WithEyeColor(Color.FromHex("#EBEBEB"))
+                    .WithSkinColor(Color.FromHex("#9C9794FF")));
+                UpdateSkinColor();
+                UpdateEyePickers();
+                SetDirty();
+            }
+            // stalker-en-end
         }
 
         private void UpdateSexControls()

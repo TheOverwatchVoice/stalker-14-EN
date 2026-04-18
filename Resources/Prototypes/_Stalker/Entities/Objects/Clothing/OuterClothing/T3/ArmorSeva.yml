@@ -128,7 +128,7 @@
       clothingPrototype: ClothingHeadHardsuitSevaHelmSci
       slot: head
     - type: GrantsArtifactSlots
-      slots: 5 # EN
+      slots: 4 # EN
 
 - type: entity
   parent: STClothingHeadHardsuitSevaHelmBase

@@ -361,14 +361,14 @@
       items:
         ClothingBackpackTacticOliveStalker: 557
         ClothingBackpackTacticBeigeStalker: 568
-        ClothingBackpackStalkerZaryaGreen: 1059
+        ClothingBackpackStalkerZaryaGreen: 1000
+        ClothingBackpackMercStalker: 750
         ClothingBackpackTownBlackStalker: 185
         ClothingBackpackTownWhiteStalker: 190
         STClothingBeltThrowingKnifes: 200
         ClothingBeltPocketPouch: 450
         ClothingBeltHerbalistPouch: 450
         ClothingBeltWebbingHolsterStalkerZarya: 1000
-        ClothingBeltWebbingDoubleStalkerZaryaSmall: 1500
         ClothingBeltCrafterStalker: 3000
 
     - name: shop-category-raincoats-and-gasmasks
@@ -577,7 +577,8 @@
         ToolkitTearOne: 5000
         ToolkitTearTwo: 10000
         ToolkitTearThree: 15000
-        CraftGunpowderBank: 100
+        CraftGunpowderBank: 500
+        CraftMaterialGunpowder: 100
 
     - name: Smokables #explained using D&D lifestyle expenses
       priority: 16

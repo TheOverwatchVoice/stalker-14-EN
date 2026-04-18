@@ -298,6 +298,7 @@
         ##-------------------------------------------
         ClothingBackpackMercStalker: 800 # T3 PvE
         ClothingBackpackStalkerZaryaBlack: 1000 # T3 PvP
+        #ClothingBackpackDuffelCommonStalker: 1500 # T3 PvP, commented out as per Faction Lead request
         ##-------------------------------------------
           # Belts
         ClothingBeltBandolierStalker: 20 # T1 - PvE
@@ -389,7 +390,8 @@
       priority: 12
       items:
         SnapPop: 50
-        CraftGunpowderBank: 200
+        CraftGunpowderBank: 500
+        CraftMaterialGunpowder: 200
         KhattabkaGrenade: 350
         DG05SmokeGrenade: 500
         RGD5Grenade: 1000
@@ -411,6 +413,7 @@
         ClothingEyesGlasses: 50
         # faction
         ClothingEyesGlassesCheapSunglasses: 50
+        ClothingHeadBeretBandit: 50
         # MASK
         ClothingMaskNeckFacemask: 10
         ClothingMaskNeckBalaklava1: 10

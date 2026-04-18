@@ -236,9 +236,10 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.6
-        Compression: 0.7
+        Compression: 0.6
         Piercing: 0.8
   - type: PersonalDamage
+    staminaDamage: -1 # EN
     interval: 1
     damage:
       types:

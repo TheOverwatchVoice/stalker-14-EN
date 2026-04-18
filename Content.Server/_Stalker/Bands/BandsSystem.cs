@@ -19,6 +19,7 @@ using Content.Server._Stalker_EN.FactionRelations; // stalker-en-changes
 using Content.Shared._Stalker_EN.FactionRelations; // stalker-en-changes
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Player;
+using Content.Shared._Stalker_EN.Portraits;
 
 namespace Content.Server._Stalker.Bands
 {
@@ -369,9 +370,25 @@ namespace Content.Server._Stalker.Bands
         private void OnInit(EntityUid uid, BandsComponent component, ComponentInit args)
         {
             EnsureComp<StatusIconComponent>(uid);
-
+            // stalker-en start:
+            // Automatically apply patch swap on spawn for any faction with AltBand
+            // This makes them spawn with the alternative patch instead of the original
             if (component is { AltBand: not null, CanChange: true })
+            {
                 _actions.AddAction(uid, ref component.ActionChangeEntity, component.ActionChange, uid);
+
+                (component.BandStatusIcon, component.AltBand) = (component.AltBand, component.BandStatusIcon);
+                component.IsDisguised = true;
+
+                if (TryComp<CharacterPortraitComponent>(uid, out var portraitComp))
+                {
+                    portraitComp.IsDisguised = true;
+                    Dirty(uid, portraitComp);
+                }
+
+                Dirty(uid, component);
+            }
+            // stalker-en end
         }
 
         private void OnChange(Entity<BandsComponent> entity, ref ChangeBandEvent args)
@@ -382,9 +399,18 @@ namespace Content.Server._Stalker.Bands
             var comp = entity.Comp;
             if (comp.AltBand == null || !comp.CanChange)
                 return;
-
+            // stalker-en-start
             // Swap the band status icon and alt band name
             (comp.BandStatusIcon, comp.AltBand) = (comp.AltBand, comp.BandStatusIcon);
+            comp.IsDisguised = !comp.IsDisguised;
+
+            // Also update CharacterPortraitComponent for portrait disguise
+            if (TryComp<CharacterPortraitComponent>(entity, out var portraitComp))
+            {
+                portraitComp.IsDisguised = comp.IsDisguised;
+                Dirty(entity, portraitComp);
+            }
+            // stalker-en-end
             Dirty(entity);
             args.Handled = true;
         }

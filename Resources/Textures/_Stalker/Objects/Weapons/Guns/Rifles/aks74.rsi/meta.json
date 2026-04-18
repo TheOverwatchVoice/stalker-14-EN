@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": "Stalker License 14",
+  "license": "CC-BY-NC-SA-3.0",
   "copyright": "Made by gr0x / neki5h and belay5",
   "size": {
     "x": 48,
@@ -96,12 +96,6 @@
     {
       "name": "wielded-inhand-right-scope",
       "directions": 4
-    },
-    {
-      "name": "base-launcher"
-    },
-    {
-      "name": "base-foregrip"
     }
   ]
 }

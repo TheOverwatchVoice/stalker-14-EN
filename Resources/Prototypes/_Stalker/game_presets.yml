@@ -8,5 +8,5 @@
     - STEmissionEventScheduler
     - STWeatherScheduler
     - STLoadMaps
-    - STCrashRecovery
+    #- STCrashRecovery
   supportedMaps: STDefaultMapPool

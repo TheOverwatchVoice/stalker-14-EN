@@ -2604,5 +2604,13 @@
   id: 280
   time: '2026-04-19T04:59:15.529738+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/839
+- author: teecoding
+  changes:
+  - message: Fixed server hanging on shutdown after delayed_restart instead of exiting
+      cleanly.
+    type: Fix
+  id: 281
+  time: '2026-04-19T13:16:24.541009+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/840
 Name: Stalker
 Order: -1

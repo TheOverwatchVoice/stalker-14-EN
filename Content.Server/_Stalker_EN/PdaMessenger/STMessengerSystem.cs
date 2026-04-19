@@ -201,7 +201,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             // Emission started - send notification about connection loss
             var notification = new PdaGeneralMessageEvent(
                 sender,
-                "Connection lost",
+                "Connection lost...",
                 bandIcon: communicationCenterIcon,
                 portraitId: communicationCenterIcon);
 
@@ -215,7 +215,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             // Emission ended - send notification about connection restored
             var notification = new PdaGeneralMessageEvent(
                 sender,
-                "Connection restored",
+                "Connection established...",
                 bandIcon: communicationCenterIcon,
                 portraitId: communicationCenterIcon);
 

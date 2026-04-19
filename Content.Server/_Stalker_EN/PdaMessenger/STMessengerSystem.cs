@@ -505,22 +505,16 @@ public sealed partial class STMessengerSystem : EntitySystem
 
                 foreach (var (pdaUid, (cartridgeUid, _)) in _messengerPdas)
                 {
-
-                    // 1. Check for PDA and its owner (mob)
-                    if (!TryComp(pdaUid, out PdaComponent? pdaComp) || !pdaComp.PdaOwner.HasValue)
+                    if (!TryComp<STMessengerServerComponent>(cartridgeUid, out var recipientServer))
                         continue;
 
-                    var mobUid = pdaComp.PdaOwner.Value;
-
-                    // 2. Find the mob's Mind to get the player's UserId
-                    if (!_mind.TryGetMind(mobUid, out _, out var mindComp))
+                    if (!_playerManager.TryGetSessionById(new NetUserId(recipientServer.OwnerUserId), out var session))
                         continue;
 
-                    // 3. Find the session by UserId
-                    if (!_playerManager.TryGetSessionById(mindComp.UserId, out var session))
+                    if (session.AttachedEntity is null)
                         continue;
 
-                    // 4. Skip if this session already received the notification
+                    //Twice pop up check
                     if (!notifiedSessions.Add(session))
                         continue;
 

@@ -366,12 +366,14 @@
 - type: characterPortrait
   id: Portrait_Zombie
   name: st-portrait-zombie
-  bandId: Zombie
+  bandId: STZombiefiedBand
+  jobId: StalkerZombified
   textures:
     - "/Textures/_Stalker_EN/Portraits/zombiefied/zombie_1.png"
     - "/Textures/_Stalker_EN/Portraits/zombiefied/zombie_2.png"
     - "/Textures/_Stalker_EN/Portraits/zombiefied/zombie_3.png"
     - "/Textures/_Stalker_EN/Portraits/zombiefied/zombie_4.png"
+    - "/Textures/_Stalker_EN/Portraits/zombiefied/zombie_5.png"
 
 # MARK: Admin
 

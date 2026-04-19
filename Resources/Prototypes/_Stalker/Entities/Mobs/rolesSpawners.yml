@@ -552,14 +552,19 @@
     skinColor: "#9C9794FF"
     hasCustomSkinColor: true # Stalker-EN-Change: preserve custom skin color from YAML
   - type: Bands
-    band: Zombie
+    band: Stalker
     bandIcon: zombieEN
+    bandProto: STZombiefiedBand
+    bandRankId: 1
   - type: Access
     tags:
       - Stalker
+      - Zombified
   - type: NpcFactionMember
     factions:
       - Mutated
+  - type: Loadout
+    prototypes: [ StalkerZombifiedGear ]
   - type: Hunger
     baseDecayRate: 0
   - type: Thirst

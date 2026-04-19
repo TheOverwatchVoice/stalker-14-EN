@@ -2597,5 +2597,12 @@
   id: 279
   time: '2026-04-18T20:46:12.445645+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/835
+- author: stickycheZ101
+  changes:
+  - message: fixed various shovel related things
+    type: Fix
+  id: 280
+  time: '2026-04-19T04:59:15.529738+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/839
 Name: Stalker
 Order: -1

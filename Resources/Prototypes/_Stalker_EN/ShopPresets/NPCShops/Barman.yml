@@ -168,7 +168,7 @@
         # Shotguns
         STBaseWeaponShotgunTOZ106: 800 # T1
         STWeaponShotgunMP133: 500 # T2
-        STWeaponShotgunMossbergM88: 600
+        STWeaponShotgunMossbergM88: 600 # T2
         STWeaponShotgunMP153: 1700 # T2
         STWeaponShotgunSPAS: 2100
         # Pistols
@@ -273,6 +273,7 @@
         739FMJBox: 1950 # T3
         739HPBox: 750 # Mutant
         751UNBox: 750 # Mutant
+        754HPBox: 850 # Mutant
         # .357
         MagazineBox357Magnum: 600 # T2
         MagazineBox357MagnumAP: 1500 # T3
@@ -359,7 +360,7 @@
         SetArmourJacketNoviceWhiteBuyableCrate: 1500 # T2 - PvP
         STClothingOuterArmorLightPlateVestBaseANAgreenOld: 2000 # T3 - Weak
         STClothingOuterArmorLightPlateVestBaseANAgrayOld: 2000 # T3 - Weak
-        ClothingOuterArmorSevaStalker: 5000 # T3 - ENV
+        ClothingOuterArmorSevaStalker: 7000 # T3 - ENV
         SetZaryaStalkerBuyableCrate: 2250 # T2 - PVE
         ClothingOuterArmorStalker: 14000 # T3 - PvP
         ClothingOuterArmorAborigineStalker: 10000 # T3 - PvE

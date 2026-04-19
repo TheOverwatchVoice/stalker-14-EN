@@ -298,7 +298,7 @@
         STClothingOuterArmorRCBZ: 1800 # T2 - ENV
         ClothingOuterArmorZaryaStalker: 2000 # T2 - PVE
         SetZaryaStalkerBuyableCrate: 3300 # T2 - ENV
-        ClothingOuterArmorSevaStalker: 5000 # T3 - ENV
+        ClothingOuterArmorSevaStalker: 7000 # T3 - ENV
 
     - name: shop-category-storage-and-containers
       priority: 7

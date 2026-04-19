@@ -242,7 +242,7 @@
         # .45
         45ACPLFMJBox: 100 # T1
         45ACPMFMJBox: 300 # T2
-        45ACPRIPBox: 675 # Mutant
+        45ACPRIPBox: 625 # Mutant
         45ACPAPBox: 1450 # T3
         # 7.25
         725PBox: 100 # T1
@@ -269,8 +269,8 @@
         556WarmagBox: 500 # Mutant
         # 7.62
         739FMJBox: 1950 # T3
-        739HPBox: 850 # Mutant
-        751UNBox: 850 # Mutant
+        739HPBox: 750 # Mutant
+        751UNBox: 750 # Mutant
         # .357
         MagazineBox357Magnum: 600 # T2
         MagazineBox357MagnumAP: 1500 # T3
@@ -357,33 +357,44 @@
         SetArmourJacketNoviceWhiteBuyableCrate: 1500 # T2 - PvP
         STClothingOuterArmorLightPlateVestBaseANAgreenOld: 2000 # T3 - Weak
         STClothingOuterArmorLightPlateVestBaseANAgrayOld: 2000 # T3 - Weak
-        ClothingOuterArmorSevaStalker: 7000 # T3 - ENV
+        ClothingOuterArmorSevaStalker: 5000 # T3 - ENV
         SetZaryaStalkerBuyableCrate: 2250 # T2 - PVE
         ClothingOuterArmorStalker: 14000 # T3 - PvP
         ClothingOuterArmorAborigineStalker: 10000 # T3 - PvE
-        ClothingOuterArmor6B2: 2250 # T2
+        ClothingOuterArmor6B2: 2000 # T2 - PvP
+        STClothingOuterArmorRCBZ: 1800 # T2 - ENV
+        STClothingOuterArmorLightPlateVestBaseStalker: 1250 # T2 - PvP
         # Helmet
         ClothingHeadHelmetVityaz1C: 3500 # T3 - PvP
         ClothingHeadHelmetInfantry: 500 # T2
         STClothingHeadHelmetMakeshiftTacticalT3: 1000 # T2
-        # Belt
-        ClothingBeltBandolierStalker: 75
-        ClothingBeltTarzanOrange: 200
+        ClothingHeadHelmetSH68: 250 # T1 - PVP
+        ClothingHeadHelmetLight: 300 # T1 - uni
 
     - name: shop-category-storage-and-containers
       priority: 8
       items:
+        # Backpacks
         ClothingBackpackTacticOliveStalker: 557
         ClothingBackpackTacticBeigeStalker: 568
         ClothingBackpackStalkerZaryaGreen: 1000
         ClothingBackpackMercStalker: 750
         ClothingBackpackTownBlackStalker: 185
         ClothingBackpackTownWhiteStalker: 190
+        # Belts
         STClothingBeltThrowingKnifes: 200
+        ClothingBeltBandolierStalker: 20 # T1 - PVE
+        ClothingBeltTarzanOrange: 200 # T1 - PVP
+        ClothingBeltTarzanGreen: 200 # T1 - PVP
+        ClothingBeltWebbingHolsterStalkerZarya: 1000
+        # Containers
         ClothingBeltPocketPouch: 450
         ClothingBeltHerbalistPouch: 450
-        ClothingBeltWebbingHolsterStalkerZarya: 1000
         ClothingBeltCrafterStalker: 3000
+        MedkitCMSStalker: 250 # T1
+        MedkitGrizzlyStalker: 850 # T2
+        # Other
+        ClothingBackpackForestryRig: 500
 
     - name: shop-category-raincoats-and-gasmasks
       priority: 9
@@ -414,19 +425,19 @@
         STBoltBagFilled: 50
         STBoltBagOliveGrayFilled: 50
         # Artifact containers
-        BoxArtcont: 500
-        BoxArtcontBlack: 500
-        BoxArtcontBlue: 500
-        BoxArtcontYellow: 500
-        BoxArtcontOrange: 500
+        BoxArtcont: 400
+        BoxArtcontBlack: 400
+        BoxArtcontBlue: 400
+        BoxArtcontYellow: 400
+        BoxArtcontOrange: 400
         longrangemetaldetector: 3000
         # Anomaly detectors
-        ZoneAnomalyDetectorAD1: 450
-        ZoneAnomalyDetectorAD2: 1050
+        ZoneAnomalyDetectorAD1: 50
+        ZoneAnomalyDetectorAD2: 500
         # Artifact detectors
-        ZoneArtifactDetectorPulse: 200
-        ZoneArtifactDetectorHunter: 700
-        ZoneArtifactDetectorResponse: 2100
+        ZoneArtifactDetectorPulse: 100
+        ZoneArtifactDetectorHunter: 500
+        ZoneArtifactDetectorResponse: 1500
         ZoneArtifactDetectorSpruce: 6575 #T3
         Veles: 8000 # T3
         TrashDetectorTier1: 200

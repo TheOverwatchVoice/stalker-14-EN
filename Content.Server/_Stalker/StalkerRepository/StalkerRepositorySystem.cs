@@ -137,7 +137,19 @@ public sealed class StalkerRepositorySystem : EntitySystem
             InsertToRepo((uid, component), info);
         }
 
-        Task.Run(() => _sponsors.SetGiven(session.UserId, true));
+        // stalker-en-changes-start: try/catch prevents unobserved-task exceptions on DB error
+        Task.Run(() =>
+        {
+            try
+            {
+                _sponsors.SetGiven(session.UserId, true);
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"SetGiven({session.UserId}): {e}");
+            }
+        });
+        // stalker-en-changes-end
         _stalkerStorageSystem.SaveStorage(component);
     }
 

@@ -810,7 +810,6 @@ public sealed class StalkerStorageSystem : SharedStalkerStorageSystem
     //Сохранить инвентарь
     public void SaveStorage(StalkerRepositoryComponent _stalkerRepositoryComponent)
     {
-        Console.WriteLine("SaveStorage");
         var inventory = new AllStorageInventory();
         foreach (var item in _stalkerRepositoryComponent.ContainedItems)
         {

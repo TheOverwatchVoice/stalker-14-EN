@@ -68,6 +68,11 @@ public sealed class STMessengerUiState : BoundUserInterfaceState
     /// </summary>
     public readonly bool RandomNameWhenNotDisguised;
 
+    /// <summary>
+    /// If true, emission is currently active and STMessenger is disabled.
+    /// </summary>
+    public readonly bool IsEmissionActive;
+
     public STMessengerUiState(
         string messengerId,
         List<STMessengerChat> channels,
@@ -78,7 +83,8 @@ public sealed class STMessengerUiState : BoundUserInterfaceState
         bool isDisguised = false,
         string? ownerBand = null,
         bool canDisguise = false,
-        bool randomNameWhenNotDisguised = false)
+        bool randomNameWhenNotDisguised = false,
+        bool isEmissionActive = false)
     {
         MessengerId = messengerId;
         Channels = channels;
@@ -90,5 +96,6 @@ public sealed class STMessengerUiState : BoundUserInterfaceState
         OwnerBand = ownerBand;
         CanDisguise = canDisguise;
         RandomNameWhenNotDisguised = randomNameWhenNotDisguised;
+        IsEmissionActive = isEmissionActive;
     }
 }

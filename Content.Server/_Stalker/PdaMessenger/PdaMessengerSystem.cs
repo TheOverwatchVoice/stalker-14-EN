@@ -140,7 +140,7 @@ public sealed class PdaMessengerSystem : EntitySystem
             UpdateUiState(messenger, GetEntity(args.LoaderUid), messenger.Comp);
 
             // Send pop-up notification event to all clients EXCEPT the sender
-            var generalEvent = new PdaGeneralMessageEvent(message.Message.Title, message.Message.Content, senderName, message.Message.BandId, isDisguised: false);
+            var generalEvent = new PdaGeneralMessageEvent(message.Message.Title, message.Message.Content, message.Message.BandId, isDisguised: false);
             RaiseNetworkEvent(generalEvent, Filter.PvsExcept(user));
             _sawmill.Info($"[PDA Notify] Sent PdaGeneralMessageEvent to all clients except sender");
 

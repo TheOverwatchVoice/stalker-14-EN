@@ -26,7 +26,7 @@ public sealed partial class PdaNotificationPanel : PanelContainer
     private readonly bool _isDisguised;
     private bool _usePngIcons;
 
-    public PdaNotificationPanel(string title, string content, string sender, string? bandIcon = null, string? portraitId = null, bool isDisguised = false)
+    public PdaNotificationPanel(string title, string content, string? bandIcon = null, string? portraitId = null, bool isDisguised = false)
     {
         RobustXamlLoader.Load(this);
 

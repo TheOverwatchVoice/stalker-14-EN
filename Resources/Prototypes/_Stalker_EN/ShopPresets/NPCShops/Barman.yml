@@ -162,6 +162,8 @@
       priority: 1
       items:
         # Melee
+        StalkerBallBat: 50
+        STThrowingknifeBlue: 250
         STThrowingknifeYellow: 500
         # Shotguns
         STBaseWeaponShotgunTOZ106: 800 # T1
@@ -189,6 +191,7 @@
         STWeaponSMGPP19: 3300
         STWeaponSMGPP1901: 2000
         # Rifles
+        STWeaponRifleSaiga545: 1750
         STWeaponRifleAKS74U: 2000
         STWeaponRifleAKS74: 4200
         STWeaponRifleL85: 2250
@@ -448,18 +451,18 @@
       items:
         HuntingKnife: 1200
         STCombatKnife: 25
-        BoxZiptie: 100
+        BoxZiptie: 50
         BoxSafebox: 50
-        CheapLighter: 25
-        GeigerCounter: 100
-        BaseRadio: 100
-        STRadioHeadset: 300
-        STFlashlightSeclite: 150
-        PowerCellHyper: 125
-        HandheldGPSBasic: 100
+        CheapLighter: 5
+        GeigerCounter: 50
+        BaseRadio: 50
+        STRadioHeadset: 150
+        STFlashlightSeclite: 50
+        PowerCellHyper: 50
+        HandheldGPSBasic: 50
         Paper: 2
         Pen: 5
-        Binocularus1: 1000
+        Binocularus1: 800
         BoxFlare: 60
         ClothingBackpackDuffelGreenStalkerHydroponic: 500
         Beaker: 40
@@ -474,7 +477,7 @@
         STElasticRubberBlue: 50
         AAAAStalkerLopata: 2000
         BookCookingStalkerGuide: 200
-        BookCookingStalkerHomemade: 800
+        BookCookingStalkerHomemade: 600
         STRag: 10
         # Cameras
         STCamera: 750
@@ -594,6 +597,17 @@
         STCookingCakePlain: 3500
         STCookingFrogLegs: 2000
         STCookingPickledCherries: 2000
+        STDetectorAD1Blueprint: 2000
+        STZoneArtifactDetectorBushBlueprint: 4000
+        STZoneArtifactDetectorResponseBlueprint: 8000
+        DetectorVelesBlueprint: 12000
+        STClothingOuterJacketStalkerUpgradeBlueprint: 2000
+        ClothingOuterAnomalyStalkerJacketBlueprint: 2000
+        STCookingRice: 2000
+        STCookingDeruny: 2000
+        STCookingHrechanyky: 2000
+        STCookingKebabMeat: 2000
+        STCookingPickledSausage: 2000
 
     - name: shop-category-tools
       priority: 16
@@ -620,12 +634,15 @@
     SponsorBacker:
     - name: sponsor
       items:
-        STWeaponRifleAKS74UWhite: 650
-        STWeaponRifleAKMC: 5000
+        STWeaponRifleAKS74UWhite: 1350
+        STWeaponRifleAKMC: 4300
+        STHatchetSponsor: 150
+        STSpanishKnife: 100
     SponsorOMind:
     - name: О-сознание
       items:
         STWeaponRifleSVDSWood: 800
+        Base754Mag5: 400
   contributorCategories:
   - name: contributor
     items:

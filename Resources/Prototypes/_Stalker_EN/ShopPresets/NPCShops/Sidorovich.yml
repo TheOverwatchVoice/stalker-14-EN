@@ -98,21 +98,21 @@
     MutantPartControllerBrain: 2625
 
     # Meat
-    FoodMeatDogCooked: 70
-    STFoodMeatSpiderCooked: 35
-    FoodMeatBoarCooked: 110
-    FoodMeatSTBearCooked: 200
-    FoodMeatSTFishFilletCooked: 25
-    FoodMeatSTFishSteakCooked: 75
-    FoodMeatSTEelCooked: 150
-    STFoodMeatCvarci: 22
+    FoodMeatDogCooked: 75
+    STFoodMeatSpiderCooked: 40
+    FoodMeatBoarCooked: 115
+    FoodMeatSTBearCooked: 225
+    FoodMeatSTFishFilletCooked: 75
+    FoodMeatSTFishSteakCooked: 115
+    FoodMeatSTEelCooked: 190
+    STFoodMeatCvarci: 30
     FoodMeatSTRatCooked: 5 # whatever
     FoodMeatSTRatJerked: 10
-    FoodMeatSTDogJerkedSingle: 75
-    FoodMeatSTBoarJerkedSingle: 125
-    FoodMeatSTBearJerkedSingle: 245
-    FoodMeatSTSuckerJerkedSingle: 600
-    STFoodMeatSalo: 35
+    FoodMeatSTDogJerkedSingle: 115
+    FoodMeatSTBoarJerkedSingle: 150
+    FoodMeatSTBearJerkedSingle: 265
+    FoodMeatSTSuckerJerkedSingle: 675
+    STFoodMeatSalo: 75
 
 # Cooking
     FoodSTFreshCheese: 100

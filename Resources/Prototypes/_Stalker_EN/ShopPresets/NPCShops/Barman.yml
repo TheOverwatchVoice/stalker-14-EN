@@ -98,25 +98,26 @@
     MutantPartControllerBrain: 3500
 
     # Meat
-    STFoodMeatSalo: 95
+    STFoodMeatSalo: 100
+    STFoodMeatSpiderCooked: 50
     FoodMeatBoar: 55
     FoodMeatDog: 25
     FoodMeatSTBear: 65
-    FoodMeatBoarCooked: 80
-    FoodMeatDogCooked: 70
-    FoodMeatSTBearCooked: 140
-    FoodMeatSTFishFilletRaw: 20
-    FoodMeatSTFishSteakRaw: 50
-    FoodMeatSTEelRaw: 90
-    FoodMeatSTFishFilletCooked: 75
-    FoodMeatSTFishSteakCooked: 125
+    FoodMeatBoarCooked: 150
+    FoodMeatDogCooked: 100
+    FoodMeatSTBearCooked: 300
+    FoodMeatSTFishFilletRaw: 50
+    FoodMeatSTFishSteakRaw: 100
+    FoodMeatSTEelRaw: 100
+    FoodMeatSTFishFilletCooked: 100
+    FoodMeatSTFishSteakCooked: 150
     FoodMeatSTEelCooked: 250
-    STFoodMeatCvarci: 10
-    FoodMeatSTRatCooked: 1
-    FoodMeatSTRatJerked: 2 # 2x the profit!!!
-    FoodMeatSTDogJerkedSingle: 65
-    FoodMeatSTBoarJerkedSingle: 100
-    FoodMeatSTBearJerkedSingle: 205 # 615 per bear but thats what youre paying in ammo costs anyway
+    STFoodMeatCvarci: 40
+    FoodMeatSTRatCooked: 10
+    FoodMeatSTRatJerked: 20 # 2x the profit!!!
+    FoodMeatSTDogJerkedSingle: 150
+    FoodMeatSTBoarJerkedSingle: 200
+    FoodMeatSTBearJerkedSingle: 350 # 615 per bear but thats what youre paying in ammo costs anyway
     FoodMeatSTSuckerJerkedSingle: 900
 
     # Cooking
@@ -162,32 +163,40 @@
       items:
         # Melee
         STThrowingknifeYellow: 500
+        # Shotguns
+        STBaseWeaponShotgunTOZ106: 800 # T1
+        STWeaponShotgunMP133: 500 # T2
+        STWeaponShotgunMossbergM88: 600
+        STWeaponShotgunMP153: 1700 # T2
+        STWeaponShotgunSPAS: 2100
         # Pistols
+        WeaponPistolStalkerPM: 50 #T1
+        WeaponPistolStalkerTT: 50 #T1
+        STWeaponRevolverSWModel325: 500
         STWeaponPistolHiPower: 600
         STWeaponPistolM1911: 1500
         STWeaponPistolP99: 700
         WeaponPistolStalkerAPS: 800
         WeaponPistolGSH18: 500
-        WeaponPistolStalkerTT: 125
         WeaponPistolStalkerGlock: 300
-        STWeaponRevolverSWModel325: 1000
         STWeaponRevolverSWModel625: 1450
         STWeaponRevolverSWPC325TR: 350
-        # Shotguns
-        STBaseWeaponShotgunTOZ106: 800 # T1
-        STWeaponShotgunMossbergM88: 600
-        STWeaponShotgunSPAS: 2100
         # SMGs
+        STWeaponSMGMP40: 1000
+        STWeaponSMGPPSh41: 2500
         STWeaponSMGPPS43: 1750
         STWeaponSMGMP5: 2600
         STWeaponSMGPP19: 3300
         STWeaponSMGPP1901: 2000
         # Rifles
-        STWeaponRifleAKS74U: 3000
-        STWeaponRifleAKS74: 5500
+        STWeaponRifleAKS74U: 2000
+        STWeaponRifleAKS74: 4200
         STWeaponRifleL85: 2250
         STWeaponRifleAKM: 6700
         STWeaponRifleFAL: 3000
+        # Snipers
+        STWeaponSniperSKS: 1850 # T2
+        STWeaponSniperMosin: 1500
 
     - name: shop-category-magazines
       priority: 2
@@ -197,11 +206,9 @@
         HiPowerMag13: 140
         M1911Mag7: 140
         P99Mag15: 150
-        TTMag: 120
         GlockMag17: 200
         BaseGSH-18Mag10: 135
         BaseAPSMag: 225
-        STSpeedLoader45ACPEmpty: 120
         STSpeedLoader357MagnumEmpty: 160
         545Mag20: 250
         545Mag30: 500
@@ -214,6 +221,13 @@
         VityazMag: 240
         BasePPSMag: 300
         751Mag20: 650
+        TOZ106Mag5: 100
+        BasePMMag: 12
+        BasePPSHMag: 350
+        TTMag: 15
+        MP40Mag: 150
+        STSpeedLoader45ACPEmpty: 100
+        PP91Mag: 200
 
     - name: shop-category-ammunition
       priority: 3
@@ -222,37 +236,37 @@
         62mmBuckshotBox: 30 #T0
         75mmBuckshotBox: 200 #T1
         # 7mm
-        7mmBuckshotBox: 65 # T0
-        6mmBuckshotBox: 375 # T1
+        7mmBuckshotBox: 50 # T0
+        6mmBuckshotBox: 275 # T1
         8mmBuckshotBox: 825 # T2
         # .45
         45ACPLFMJBox: 100 # T1
-        45ACPMFMJBox: 590 # T2
-        45ACPRIPBox: 750 # Mutant
-        45ACPAPBox: 1600 # T3
+        45ACPMFMJBox: 300 # T2
+        45ACPRIPBox: 675 # Mutant
+        45ACPAPBox: 1450 # T3
         # 7.25
-        725PBox: 130 # T1
+        725PBox: 100 # T1
         725PTBox: 300 # T2
         725LRNPCBox: 625 # Mutant
         725PSTBox: 1450 # T3
         # 9.19
-        919PSOGJBox: 80 # T1
-        919PSTBox: 560 # T2
+        919PSOGJBox: 100 # T1
+        919PSTBox: 300 # T2
         919RIPBox: 625 # Mutant
         919PBMBox: 1450 # T3
         # 9.18
-        918PGJBox: 80 # T1
-        918PSTBox: 560 # T2
+        918PGJBox: 100 # T1
+        918PSTBox: 300 # T2
         918SP7Box: 625 # Mutant
-        918PBMBox: 1425 # T3
+        918PBMBox: 1450 # T3
         # 5.45
         545FMJBox: 650 # T2
-        545HPBox: 725 # Mutant
+        545HPBox: 500 # Mutant
         545PCBox: 1650 # T3
         # 5.56
         556FMJBox: 650 # T2
         556M855Box: 1650 # T3
-        556WarmagBox: 725 # Mutant
+        556WarmagBox: 500 # Mutant
         # 7.62
         739FMJBox: 1950 # T3
         739HPBox: 850 # Mutant
@@ -260,22 +274,22 @@
         # .357
         MagazineBox357Magnum: 600 # T2
         MagazineBox357MagnumAP: 1500 # T3
-        MagazineBox357MagnumHP: 800 # Mutant
+        MagazineBox357MagnumHP: 625 # Mutant
 
     - name: shop-category-medicine
       priority: 4
       items:
         STPillboxAntirad: 250
-        STGauze: 85
-        STOintment: 95
-        STBrutepack: 85
-        Bloodpack: 950
-        MedkitAI2: 320
-        Defibrillator: 1800
-        AntiRadMedipen: 200
-        STPillboxProbud: 400
-        MedkitMilitary: 450
-        MedkitScience: 350
+        STGauze: 65
+        STOintment: 75
+        STBrutepack: 65
+        Bloodpack: 550
+        MedkitAI2: 135
+        Defibrillator: 1000
+        AntiRadMedipen: 300
+        STPillboxProbud: 500
+        MedkitMilitary: 400
+        MedkitScience: 450
         MedkitElite: 650
         MedkitLAR: 720
         STOintmentGood: 400
@@ -289,9 +303,9 @@
         STEnergyDrinkRevo: 150
         STFoodBreadPlain: 20
         DrinkFlaskOld: 30
-        DrinkWaterBottleFull: 50
+        DrinkWaterBottleFull: 45
         FoodTinMRE: 100
-        DrinkLemonadehBottleFull: 75
+        DrinkLemonadehBottleFull: 50
         STFoodMeatSalami: 125
         FoodSTTomato: 70
         FoodSTCarrot: 55

@@ -2674,5 +2674,15 @@
   id: 288
   time: '2026-04-20T21:17:49.124726+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/849
+- author: BELNAKBU
+  changes:
+  - message: An emission disables messenger in the Zone and show pop notification
+      when connection lost
+    type: Add
+  - message: Now Clear Sky is always displayed in contacts as stalkers
+    type: Fix
+  id: 289
+  time: '2026-04-20T21:52:22.068076+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/842
 Name: Stalker
 Order: -1

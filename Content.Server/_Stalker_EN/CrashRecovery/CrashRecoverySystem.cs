@@ -62,6 +62,8 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
     // Logins with unclaimed recovery data — snapshots must not overwrite these
     private readonly HashSet<string> _pendingRecoveryLogins = new();
 
+    private readonly ConcurrentBag<Task> _pendingDbWrites = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -82,14 +84,54 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
     public override void Shutdown()
     {
         base.Shutdown();
-
-        // Clear crash recovery on graceful shutdown.
-        // On real crashes, the process dies without reaching here, so data persists correctly.
-        if (_enabled)
-            _dbManager.ClearAllCrashRecovery().GetAwaiter().GetResult();
+        // Safety net; EntryPoint.Shutdown drained earlier, but writes may have occurred since.
+        FlushPendingWrites(TimeSpan.FromSeconds(5));
 
         _cfg.UnsubValueChanged(STCCVars.CrashRecoveryEnabled, v => _enabled = v);
         _cfg.UnsubValueChanged(STCCVars.CrashRecoverySaveInterval, v => _saveInterval = v);
+    }
+
+    /// <summary>
+    /// Call BEFORE EntryPoint.Dispose so the Npgsql pool isn't saturated when it runs ClearAllCrashRecovery.
+    /// </summary>
+    public bool FlushPendingWrites(TimeSpan timeout)
+    {
+        var pending = _pendingDbWrites.ToArray();
+        if (pending.Length == 0)
+        {
+            _sawmill.Info("[shutdown] CrashRecoverySystem: no pending writes");
+            return true;
+        }
+
+        _sawmill.Info($"[shutdown] CrashRecoverySystem flushing {pending.Length} pending write(s)");
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+        var completed = false;
+        try
+        {
+            completed = Task.WhenAll(pending).Wait(timeout);
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"[shutdown] CrashRecoverySystem error flushing writes: {e}");
+        }
+        sw.Stop();
+        _sawmill.Info($"[shutdown] CrashRecoverySystem flush {(completed ? "completed" : "TIMED OUT")} after {sw.ElapsedMilliseconds}ms");
+        return completed;
+    }
+
+    private void TrackDbWrite(Func<Task> dbCall, string label)
+    {
+        _pendingDbWrites.Add(Task.Run(async () =>
+        {
+            try
+            {
+                await dbCall();
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"{label}: {e}");
+            }
+        }));
     }
 
     #region Game Rule Lifecycle
@@ -134,7 +176,7 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
             return;
 
         _sawmill.Info("Clearing all crash recovery data (round ended)");
-        _dbManager.ClearAllCrashRecovery();
+        TrackDbWrite(() => _dbManager.ClearAllCrashRecovery(), "ClearAllCrashRecovery(round-end)");
         _snapshotQueue.Clear();
         _dirtyPlayers.Clear();
         _pendingRecoveryLogins.Clear();
@@ -361,7 +403,7 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
 
         if (batch.Count > 0)
         {
-            _dbManager.SetCrashRecoveryBatch(batch);
+            TrackDbWrite(() => _dbManager.SetCrashRecoveryBatch(batch), $"SetCrashRecoveryBatch(force,{batch.Count})");
             _sawmill.Info($"Force snapshot saved for {batch.Count} players");
         }
         else
@@ -431,7 +473,7 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
         }
 
         if (batch.Count > 0)
-            _dbManager.SetCrashRecoveryBatch(batch);
+            TrackDbWrite(() => _dbManager.SetCrashRecoveryBatch(batch), $"SetCrashRecoveryBatch(periodic,{batch.Count})");
     }
 
     /// <summary>
@@ -531,9 +573,14 @@ public sealed class CrashRecoverySystem : GameRuleSystem<CrashRecoveryRuleCompon
         {
             var data = CapturePlayerState(player);
             if (data != null)
-                _dbManager.SetCrashRecoveryBatch(new Dictionary<string, string> { { login, data } });
+            {
+                var payload = new Dictionary<string, string> { { login, data } };
+                TrackDbWrite(() => _dbManager.SetCrashRecoveryBatch(payload), $"SetCrashRecoveryBatch(immediate,{login})");
+            }
             else
-                _dbManager.SetCrashRecovery(login, null);
+            {
+                TrackDbWrite(() => _dbManager.SetCrashRecovery(login, null), $"SetCrashRecovery(clear,{login})");
+            }
 
             _dirtyPlayers.Remove(player);
         }

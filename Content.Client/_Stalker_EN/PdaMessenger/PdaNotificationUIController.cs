@@ -14,6 +14,7 @@ using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+using Content.Client.UserInterface.Systems.Inventory.Widgets;
 
 namespace Content.Client._Stalker_EN.PdaMessenger;
 
@@ -73,17 +74,15 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
 
     /// <summary>
     /// Ensures the notification container is attached to the current active screen.
-    /// Recreates it if detached or attached to a stale screen's ViewportContainer.
+    /// Recreates it if detached or attached to a stale screen's activeScreen.
     /// </summary>
     private void EnsureContainerAttached()
     {
         var activeScreen = UIManager.ActiveScreen;
-        var viewportContainer = activeScreen?.FindControl<Control>("ViewportContainer")
-            ?? (Control?) activeScreen;
 
         if (_notificationContainer != null
             && _notificationContainer.IsInsideTree
-            && _notificationContainer.Parent == viewportContainer)
+            && _notificationContainer.Parent == activeScreen)
             return;
 
         _notificationContainer?.Orphan();
@@ -94,13 +93,13 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
             VerticalExpand = true
         };
 
-        if (viewportContainer != null)
+        if (activeScreen != null)
         {
-            viewportContainer.AddChild(_notificationContainer);
+            activeScreen.AddChild(_notificationContainer);
             _notificationContainer.SetPositionLast();
         }
 
-        _lastHotbarHeight = GetHotbarHeight();
+        _lastHotbarHeight = GetHotbarHeight(out _);
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
@@ -191,10 +190,10 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
         if (_activeNotifications.Count == 0)
             return;
 
-        var hotbarHeight = GetHotbarHeight();
+        var hotbarHeight = GetHotbarHeight(out _);
 
-        // Remove oldest notifications until we fit within limits
-        while (_activeNotifications.Count > MaxNotifications || GetTotalHeight() + hotbarHeight > MaxTotalHeight)
+        // Remove oldest notifications if we exceed max count
+        while (_activeNotifications.Count > MaxNotifications)
         {
             var oldest = _activeNotifications.First();
             oldest.Panel.Dispose();
@@ -281,7 +280,7 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
         if (UIManager.ActiveScreen == null || _activeNotifications.Count == 0)
             return false;
 
-        var hotbarHeight = GetHotbarHeight();
+        var hotbarHeight = GetHotbarHeight(out _);
 
         if (Math.Abs(hotbarHeight - _lastHotbarHeight) > 1f)
         {
@@ -295,24 +294,29 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
 
     /// <summary>
     /// Gets the current hotbar height including inventory if visible.
+    /// Also returns horizontal offset if inventory hotbar is visible.
     /// </summary>
-    private float GetHotbarHeight()
+    private float GetHotbarHeight(out float horizontalOffset)
     {
-        var hotbar = UIManager.ActiveScreen?.GetWidget<HotbarGui>();
-        var hotbarHeight = hotbar?.Visible == true ? hotbar.Size.Y : 0f;
-
-        // Also check inventory height if visible
-        var inventory = UIManager.ActiveScreen?.GetWidget<Content.Client.UserInterface.Systems.Inventory.Widgets.InventoryGui>();
-        if (inventory?.InventoryHotbar?.Visible == true)
+        horizontalOffset = 0f;
+        var inventory = UIManager.ActiveScreen?.GetWidget<InventoryGui>();
+        if (inventory?.Visible == true)
         {
-            var invHeight = inventory.InventoryHotbar.Size.Y;
+            var invHeight = inventory.Size.Y;
             if (invHeight > 1f)
             {
-                hotbarHeight += invHeight;
+                // If inventory hotbar is visible, add horizontal offset and adjust vertical offset
+                if (inventory.InventoryHotbar?.Visible == true)
+                {
+                    var hotbarHeight = inventory.InventoryButton.Size.Y;
+                    horizontalOffset = hotbarHeight * 3;
+                    return hotbarHeight * 2;
+                }
+                return invHeight;
             }
         }
 
-        return hotbarHeight;
+        return 0f;
     }
 
     /// <summary>
@@ -327,7 +331,9 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
         var yOffset = 0f;
 
         // Position at bottom of screen (above hotbar)
-        var baseY = screenHeight - BottomMargin - GetHotbarHeight();
+        var hotbarHeight = GetHotbarHeight(out var horizontalOffset);
+        var baseX = LeftMargin + horizontalOffset;
+        var baseY = screenHeight - BottomMargin - hotbarHeight;
 
         for (var i = _activeNotifications.Count - 1; i >= 0; i--)
         {
@@ -340,7 +346,7 @@ public sealed class PdaNotificationUIController : UIController, IOnStateEntered<
                 panelHeight = NotificationPanelHeight;
             }
 
-            var position = new Vector2(LeftMargin, baseY - yOffset - panelHeight);
+            var position = new Vector2(baseX, baseY - yOffset - panelHeight);
             LayoutContainer.SetPosition(panel, position);
 
             yOffset += panelHeight + Spacing;

@@ -2633,5 +2633,19 @@
   id: 284
   time: '2026-04-20T17:44:54.647407+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/851
+- author: AlesterPherrer
+  changes:
+  - message: Expanded Barman's stock to now encompass what Sidorovich sells as well.
+      Now he actually sells everything that Sid does.
+    type: Tweak
+  - message: Modified prices for a lot of Barman's things. Now they should be equal
+      or cheaper than Sid's.
+    type: Tweak
+  - message: Tweaked the meat prices in both Barman's and Sidorovich's shop. It should
+      sell at a better rate and spiced meat now sells better at bar.
+    type: Tweak
+  id: 285
+  time: '2026-04-20T21:00:18.638670+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/847
 Name: Stalker
 Order: -1

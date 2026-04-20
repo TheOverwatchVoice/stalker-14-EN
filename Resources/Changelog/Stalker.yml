@@ -2619,5 +2619,12 @@
   id: 282
   time: '2026-04-19T15:05:28.889214+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/841
+- author: BELNAKBU
+  changes:
+  - message: Moved pda notification panels
+    type: Tweak
+  id: 283
+  time: '2026-04-20T14:23:44.557785+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/850
 Name: Stalker
 Order: -1

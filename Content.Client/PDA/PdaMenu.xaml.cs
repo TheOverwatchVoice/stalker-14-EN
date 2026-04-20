@@ -179,7 +179,7 @@ namespace Content.Client.PDA
                 ("instructions", _instructions))
             );
 
-            AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
+            //AddressLabel.Text = state.Address?.ToUpper() ?? " - "; stalker-en-change
 
             EjectIdButton.IsActive = state.PdaOwnerInfo.IdOwner != null || state.PdaOwnerInfo.JobTitle != null;
             EjectPenButton.IsActive = state.HasPen;

@@ -2667,5 +2667,12 @@
   id: 287
   time: '2026-04-20T21:11:27.326539+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/852
+- author: TheOverwatchVoice
+  changes:
+  - message: added emission protection to Jupiter Buildings
+    type: Tweak
+  id: 288
+  time: '2026-04-20T21:17:49.124726+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/849
 Name: Stalker
 Order: -1

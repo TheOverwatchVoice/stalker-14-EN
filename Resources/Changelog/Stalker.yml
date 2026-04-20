@@ -2626,5 +2626,12 @@
   id: 283
   time: '2026-04-20T14:23:44.557785+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/850
+- author: nathan736
+  changes:
+  - message: admeme bag that makes handling players stashes better
+    type: Add
+  id: 284
+  time: '2026-04-20T17:44:54.647407+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/851
 Name: Stalker
 Order: -1

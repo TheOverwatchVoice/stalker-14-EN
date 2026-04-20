@@ -14,6 +14,9 @@
         <Label Name="MessengerIdLabel" StyleClasses="LabelSubText" VerticalAlignment="Center"/>
     </BoxContainer>
 
+    <!-- Emission Warning -->
+    <Label Name="EmissionWarningLabel" Text="{Loc 'st-messenger-emission-warning'}" StyleClasses="LabelKeyText" HorizontalAlignment="Center" Margin="0 4 0 4" Visible="False"/>
+
     <customControls:HSeparator Margin="0 2 0 2"/>
 
     <BoxContainer Orientation="Horizontal" VerticalExpand="True">

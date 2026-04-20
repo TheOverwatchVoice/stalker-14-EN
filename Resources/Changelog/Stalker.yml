@@ -2656,5 +2656,16 @@
   id: 286
   time: '2026-04-20T21:03:31.681754+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/853
+- author: teecoding
+  changes:
+  - message: Faction relations can now forbid specific transitions between specific
+      faction pairs via YAML config (for example, two factions that cannot make peace).
+    type: Add
+  - message: Monolith relation locks are now expressed explicitly in YAML as "War
+      only" instead of relying purely on the all-or-nothing restricted-factions list.
+    type: Tweak
+  id: 287
+  time: '2026-04-20T21:11:27.326539+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/852
 Name: Stalker
 Order: -1

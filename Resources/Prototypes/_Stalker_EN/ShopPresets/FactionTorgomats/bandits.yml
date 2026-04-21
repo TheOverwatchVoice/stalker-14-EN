@@ -1,5 +1,5 @@
 - type: shopPreset
-  id: BandsShopPresetEN # Pending Economy Change
+  id: BandsShopPresetEN # whoever made the original economy i cast kidney stone on you
   minSellPrice: 5
   itemsForSale:
     # Thermal group - 1

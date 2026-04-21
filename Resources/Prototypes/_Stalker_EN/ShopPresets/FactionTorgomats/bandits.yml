@@ -114,40 +114,6 @@
     FoodMeatSTSuckerJerkedSingle: 675
     STFoodMeatSalo: 50
 
-    # Cooking
-    FoodSTFreshCheese: 100
-    FoodSTRiceCooked: 250
-    FoodSTPancakes: 250
-    FoodSTOnionRings: 150
-    FoodSTFriedEggs: 300
-    FoodSTBorscht: 600
-    FoodSTCabbageSoup: 550
-    FoodSTMeatStew: 850
-    FoodSTFriedFish: 450 # this one might need adjusting
-    FoodSTCakePlain: 475
-    FoodSTHrechanyky: 525
-    FoodSTSyrnyky: 900
-    FoodSTDeruny: 575
-    FoodSTKebabMeat: 400
-    FoodSTKebabVeggie: 275
-    FoodSTCakeBerry: 750 # might need adjusting
-    FoodSTSnorkSoup: 0 # he dont want it
-    FoodSTIceCream: 300
-    FoodSTBraid: 0
-    FoodSTAmbrosia: 0
-    FoodSTFrogLegs: 775
-    FoodSTOracleGumbo: 0
-    STFoodJarCherriesPickled: 1350
-    STFoodJarJamBerry: 1350
-    STFoodJarKvass: 2300
-    STFoodJarSalo: 350
-    STFoodJarEggs: 375
-    STFoodJarMeatSausage: 775
-    STFoodJarMeatFishFillet: 300
-    STFoodJarMeatFishSteak: 850
-    STFoodJarMeatEel: 1250
-    STFoodJarWholeEelFermented: 2100
-
     #Value - x2 of Erjan Alimov/Jury Izvorotin
     STJewelrySilver: 800
     STJewelryGold: 1200
@@ -161,24 +127,25 @@
     IngotGold1: 1000
     MaterialDiamond1: 1500
 
-    #Misc
+    #Misc - Eco Price / 2
     ZoneAnomalyDetectorAD1: 50
     ZoneAnomalyDetectorUpgradeAD1: 50
-    ZoneAnomalyDetectorAD2: 225
-    ZoneAnomalyDetectorUpgradeAD2: 225
-    ZoneAnomalyDetectorAD3: 550
-    ZoneArtifactDetectorPulse: 20
-    ZoneArtifactDetectorHunter: 30
-    ZoneArtifactDetectorModifiedHunter: 30
+    ZoneAnomalyDetectorAD2: 500
+    ZoneAnomalyDetectorUpgradeAD2: 500
+    ZoneAnomalyDetectorAD3: 1200
+    ZoneArtifactDetectorPulse: 25
+    ZoneArtifactDetectorHunter: 50
+    ZoneArtifactDetectorModifiedHunter: 50
     ZoneArtifactDetectorBush: 50
-    ZoneArtifactDetectorResponse: 150
-    ZoneArtifactDetectorSpruce: 500
-    ZoneArtifactDetectorBarracuda: 750
-    ZoneArtifactDetectorSeaDevil: 750
-    ZoneArtifactDetectorBear: 2000
-    ZoneArtifactDetectorWolfhound: 5000
-    longrangemetaldetector: 900
-    Binocularus1: 200
+    ZoneArtifactDetectorResponse: 350
+    ZoneArtifactDetectorSpruce: 1100
+    ZoneArtifactDetectorBarracuda: 1750
+    ZoneArtifactDetectorSeaDevil: 750 # ???
+    Veles: 2250
+    ZoneArtifactDetectorBear: 4000
+    ZoneArtifactDetectorWolfhound: 10000
+    longrangemetaldetector: 1500
+    Binocularus1: 375
 
   # (Barman's price * 0.85[Faction decrease]) * 0.75[Antag rate] = Price, rounded up
   # Bandits are going to get murdered, so a lower rate is applied to them compared to Bar
@@ -415,13 +382,13 @@
         CheapLighter: 5
         GeigerCounter: 50
         BaseRadio: 50
-        STRadioHeadset: 150
+        STRadioHeadset: 100
         STFlashlightSeclite: 50
         PowerCellHyper: 50
         HandheldGPSBasic: 50
         Paper: 2
         Pen: 5
-        Binocularus1: 1000
+        Binocularus1: 550
         BoxFlare: 60
         ClothingBackpackDuffelGreenStalkerHydroponic: 500
         Beaker: 40
@@ -544,8 +511,7 @@
       priority: 14
       items:
         HarmonicaInstrument: 500
-        CardBin: 300
-        PokerCardBin: 450
+        CardDeckBlack: 100
         DiceBag: 50
         CasseteBandit: 500
 

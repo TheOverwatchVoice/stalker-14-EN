@@ -2705,5 +2705,12 @@
   id: 292
   time: '2026-04-21T21:59:46.317390+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/860
+- author: Vinny-Shick
+  changes:
+  - message: Standardised the results from crafting T0 through T3 ammo.
+    type: Add
+  id: 293
+  time: '2026-04-21T22:04:12.312878+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/834
 Name: Stalker
 Order: -1

@@ -618,6 +618,7 @@
     items:
       STEnergyDrink: 150
       STEnergyDrinkMonster: 150
+      HerculesBottleFull: 200
       STEnergyDrinkRevo: 200
       STDrinkBeerCanBaltic: 90
       DrinkVodkaBottleFull: 55
@@ -661,6 +662,7 @@
       ClothingBackpackDuffelBlackStalker: 30 # T1
       ClothingBackpackTacticBlackRadStalker: 450 # T2
       ClothingBackpackMercStalker: 650 # T3
+      ClothingBackpackDuffelCommonStalker: 750 #T3
       ClothingBackpackDuffelBlackMilitaryTacticStalker: 1000 # T4
       ClothingBackpackDuffelBlackTacticStalker: 1000 # T4
       # Belts
@@ -679,8 +681,9 @@
       # Gasmasks
       ClothingMaskGasM40Military: 700 #T2
       ClothingMaskGasXM40: 2200 # T3
-      # Raincoats
-      #ClothingOuterCoatLoyalist: 2500
+      # Raincoats - 50% reduction
+      ClothingOuterCoatDoshdevik: 50
+      ClothingOuterCoatLoyalist: 1500
 
   - name: shop-category-research-equipment
     priority: 9

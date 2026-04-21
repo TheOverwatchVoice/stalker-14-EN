@@ -108,7 +108,7 @@
       SledgehammerRenegats: 500
       StalkerBallBat: 120
         # Guns
-      #20gauge  
+      #20gauge
       STBaseWeaponShotgunTOZ106: 500 # T1
       # 7mm
       STWeaponShotgunMP155T: 45 #T0.5
@@ -247,12 +247,12 @@
       # BackPacks
       ClothingBackpackDuffelGreenStalker: 30 # T1
       ClothingBackpackTacticBeigeStalker: 450 # T2
-      ClothingBackpackMercStalker: 850 # T3
+      ClothingBackpackMercStalker: 750 # T3 - PVE
+      ClothingBackpackDuffelCommonStalker: 1000 # T3 - PVP
       # Belts
       ClothingBeltBandolierStalker: 20 # T1 - PVE
       ClothingBeltTarzanOrange: 200 # T1 - PVP
       ClothingBeltWebbingHolsterStalkerZarya: 500
-      ClothingBeltWebbingDoubleStalkerZaryaSmall: 1000
       # Containers
       MedkitCMSStalker: 400 # T1
       MedkitGrizzlyStalker: 1000 # T2

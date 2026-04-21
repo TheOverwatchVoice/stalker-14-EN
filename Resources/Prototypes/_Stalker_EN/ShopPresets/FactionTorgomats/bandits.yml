@@ -1,5 +1,5 @@
 - type: shopPreset
-  id: BandsShopPresetEN # whoever made the original economy i cast kidney stone on you
+  id: BandsShopPresetEN # bandaid, sid rates, pending econ rework
   minSellPrice: 5
   itemsForSale:
     # Thermal group - 1

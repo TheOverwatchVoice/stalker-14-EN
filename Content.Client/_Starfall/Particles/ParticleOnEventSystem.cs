@@ -6,6 +6,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Trigger;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Containers; // EN
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._Starfall.Particles;
@@ -18,6 +19,7 @@ public sealed class ParticleOnEventSystem : EntitySystem
     [Dependency] private readonly ParticleSystem _particles = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!; // EN
 
     // Track emitters spawned by OnThrown so we can stop them when the entity lands
     private readonly Dictionary<EntityUid, ActiveEmitter> _thrownEmitters = new();
@@ -95,8 +97,20 @@ public sealed class ParticleOnEventSystem : EntitySystem
     private void OnPrimed(Entity<ParticleOnPrimedComponent> ent, ref ActiveTimerTriggerEvent args)
         => Spawn(ent.Comp, ent.Owner);
 
-    private void OnGunShot(Entity<ParticleOnGunShotComponent> ent, ref AmmoShotEvent args)
-        => Spawn(ent.Comp, ent.Owner);
+    private void OnGunShot(Entity<ParticleOnGunShotComponent> ent, ref AmmoShotEvent args) // EN start
+    {
+        var entity = ent.Owner;
+        if (_containerSystem.TryGetContainingContainer(ent.Owner, out var container))
+            entity = container.Owner;
+
+        if (ent.Comp.InheritAngle)
+        {
+            var particleOverride = new ParticleRuntimeOverrides();
+            Spawn(ent.Comp, entity, args.Angle);
+        }
+        else
+            Spawn(ent.Comp, entity);
+    } // EN end
 
     private void OnGunShotProjectile(Entity<ParticleOnGunShotProjectileComponent> ent, ref AmmoShotEvent args)
     {
@@ -113,7 +127,7 @@ public sealed class ParticleOnEventSystem : EntitySystem
     private void OnProjectileHitOther(Entity<ParticleOnProjectileHitOtherComponent> ent, ref ProjectileHitEvent args)
         => Spawn(ent.Comp, args.Target);
 
-    private void Spawn(ParticleOnEventBase comp, EntityUid target)
+    private void Spawn(ParticleOnEventBase comp, EntityUid target, Angle? angle = null) // EN
     {
         if (!_proto.TryIndex(comp.Effect, out var proto))
         {
@@ -127,9 +141,10 @@ public sealed class ParticleOnEventSystem : EntitySystem
                         "Infinite effects cannot be used with ParticleOnEvent, they never stop emitting.");
             return;
         }
-
-        _particles.CreateParticle(comp.Effect, target, comp.ColorOverride);
+        if (angle != null) // EN start
+            _particles.CreateParticle(comp.Effect, target, comp.ColorOverride, true, new ParticleRuntimeOverrides { EmitAngle = -angle.Value + Angle.FromDegrees(90) });
+        else
+            _particles.CreateParticle(comp.Effect, target, comp.ColorOverride); // EN end
     }
-
 }
 

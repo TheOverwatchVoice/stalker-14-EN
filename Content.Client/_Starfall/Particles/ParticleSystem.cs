@@ -7,6 +7,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Shared.Configuration;
 using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Map;
+using Robust.Shared.Physics.Components; // EN
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
@@ -107,7 +108,8 @@ public sealed partial class ParticleSystem : EntitySystem
     }
 
     /// <summary>Spawns a particle effect at a given map coordinate.</summary>
-    public ActiveEmitter? SpawnEffect(ProtoId<ParticleEffectPrototype> effectId, MapCoordinates coords, EntityUid? attachedEntity = null, Color? colorOverride = null)
+    public ActiveEmitter? SpawnEffect(ProtoId<ParticleEffectPrototype> effectId, MapCoordinates coords, EntityUid? attachedEntity = null, Color? colorOverride = null,
+        ParticleRuntimeOverrides? overrides = null) // EN
     {
         if (!_protoManager.TryIndex(effectId, out var proto))
             return null;
@@ -118,9 +120,14 @@ public sealed partial class ParticleSystem : EntitySystem
 
         var emitter = CreateEmitter(proto, coords, attachedEntity);
         emitter.ColorOverride = colorOverride;
+        emitter.Overrides = overrides; // EN
 
         if (proto.Burst)
+        { // EN start - burst bypasses velocity which lives in the tick loop so it has to be done this way
+            if (TryComp<PhysicsComponent>(attachedEntity, out var physics))
+                emitter.EmitterVelocity = physics.LinearVelocity;
             BurstEmit(emitter);
+        } // EN end
 
         _emitters.Add(emitter);
         return emitter;
@@ -545,6 +552,10 @@ public sealed partial class ParticleSystem : EntitySystem
 
     private void BurstEmit(ActiveEmitter emitter)
     {
+        // EN start - added since burst bypasses angle override checks that are found in the tick update
+        var baseAngle = emitter.Overrides?.EmitAngle ?? emitter.Proto.EmitAngle;
+        emitter.EffectiveEmitAngle = (float)baseAngle.Theta;
+        // EN end
         var eyeAngle = (float)_eye.CurrentEye.Rotation;
         // Bypass quality settings for gameplay-critical particles
         var qualityMult = emitter.Proto.IgnoreQualitySettings ? 1f : QualityMultipliers[Math.Clamp(_quality, 0, QualityMultipliers.Length - 1)];

@@ -73,6 +73,10 @@ public sealed partial class ParticleOnPrimedComponent : ParticleOnEventBase
 [RegisterComponent]
 public sealed partial class ParticleOnGunShotComponent : ParticleOnEventBase
 {
+    // EN start
+    [DataField]
+    public bool InheritAngle = false;
+    // EN end
 }
 
 /// <summary>

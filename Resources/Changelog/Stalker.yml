@@ -2684,5 +2684,33 @@
   id: 289
   time: '2026-04-20T21:52:22.068076+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/842
+- author: BELNAKBU
+  changes:
+  - message: No i dont able to see artis stats
+    type: Fix
+  id: 290
+  time: '2026-04-21T05:00:47.604680+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/854
+- author: Wintoli
+  changes:
+  - message: Desert Eagle converted to .357 magnum with a slight bullet velocity increase.
+    type: Tweak
+  id: 291
+  time: '2026-04-21T18:22:35.175395+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/848
+- author: dallaszzz
+  changes:
+  - message: New muzzle smoke particles and muzzle flash sprite
+    type: Add
+  id: 292
+  time: '2026-04-21T21:59:46.317390+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/860
+- author: Vinny-Shick
+  changes:
+  - message: Standardised the results from crafting T0 through T3 ammo.
+    type: Add
+  id: 293
+  time: '2026-04-21T22:04:12.312878+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/834
 Name: Stalker
 Order: -1

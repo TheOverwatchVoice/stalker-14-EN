@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2026 07:16:08
-  entityCount: 11378
+  time: 04/19/2026 20:35:10
+  entityCount: 11468
 maps:
 - 2
 grids:
@@ -30493,6 +30493,460 @@ entities:
     components:
     - type: Transform
       pos: 38.5,-104.5
+      parent: 2
+- proto: StalkerExplSafezoneTriggerIn
+  entities:
+  - uid: 11379
+    components:
+    - type: Transform
+      pos: 72.5,-82.5
+      parent: 2
+  - uid: 11380
+    components:
+    - type: Transform
+      pos: 73.5,-82.5
+      parent: 2
+  - uid: 11383
+    components:
+    - type: Transform
+      pos: 77.5,-50.5
+      parent: 2
+  - uid: 11385
+    components:
+    - type: Transform
+      pos: 77.5,-70.5
+      parent: 2
+  - uid: 11387
+    components:
+    - type: Transform
+      pos: 109.5,-65.5
+      parent: 2
+  - uid: 11389
+    components:
+    - type: Transform
+      pos: 98.5,-26.5
+      parent: 2
+  - uid: 11390
+    components:
+    - type: Transform
+      pos: 102.5,-26.5
+      parent: 2
+  - uid: 11391
+    components:
+    - type: Transform
+      pos: 103.5,-26.5
+      parent: 2
+  - uid: 11392
+    components:
+    - type: Transform
+      pos: 104.5,-26.5
+      parent: 2
+  - uid: 11393
+    components:
+    - type: Transform
+      pos: 106.5,-26.5
+      parent: 2
+  - uid: 11394
+    components:
+    - type: Transform
+      pos: 107.5,-26.5
+      parent: 2
+  - uid: 11395
+    components:
+    - type: Transform
+      pos: 108.5,-26.5
+      parent: 2
+  - uid: 11403
+    components:
+    - type: Transform
+      pos: 91.5,-12.5
+      parent: 2
+  - uid: 11404
+    components:
+    - type: Transform
+      pos: 92.5,-12.5
+      parent: 2
+  - uid: 11407
+    components:
+    - type: Transform
+      pos: 73.5,-11.5
+      parent: 2
+  - uid: 11413
+    components:
+    - type: Transform
+      pos: 64.5,-12.5
+      parent: 2
+  - uid: 11414
+    components:
+    - type: Transform
+      pos: 65.5,-12.5
+      parent: 2
+  - uid: 11415
+    components:
+    - type: Transform
+      pos: 68.5,-12.5
+      parent: 2
+  - uid: 11416
+    components:
+    - type: Transform
+      pos: 69.5,-12.5
+      parent: 2
+  - uid: 11417
+    components:
+    - type: Transform
+      pos: 45.5,-27.5
+      parent: 2
+  - uid: 11418
+    components:
+    - type: Transform
+      pos: 41.5,-27.5
+      parent: 2
+  - uid: 11422
+    components:
+    - type: Transform
+      pos: 38.5,-11.5
+      parent: 2
+  - uid: 11423
+    components:
+    - type: Transform
+      pos: 12.5,-6.5
+      parent: 2
+  - uid: 11428
+    components:
+    - type: Transform
+      pos: 66.5,-97.5
+      parent: 2
+  - uid: 11429
+    components:
+    - type: Transform
+      pos: 66.5,-96.5
+      parent: 2
+  - uid: 11430
+    components:
+    - type: Transform
+      pos: 66.5,-95.5
+      parent: 2
+  - uid: 11432
+    components:
+    - type: Transform
+      pos: 90.5,-100.5
+      parent: 2
+  - uid: 11433
+    components:
+    - type: Transform
+      pos: 83.5,-109.5
+      parent: 2
+  - uid: 11435
+    components:
+    - type: Transform
+      pos: 36.5,-111.5
+      parent: 2
+  - uid: 11436
+    components:
+    - type: Transform
+      pos: 35.5,-111.5
+      parent: 2
+  - uid: 11437
+    components:
+    - type: Transform
+      pos: 33.5,-111.5
+      parent: 2
+  - uid: 11438
+    components:
+    - type: Transform
+      pos: 32.5,-111.5
+      parent: 2
+  - uid: 11439
+    components:
+    - type: Transform
+      pos: 30.5,-111.5
+      parent: 2
+  - uid: 11440
+    components:
+    - type: Transform
+      pos: 29.5,-111.5
+      parent: 2
+  - uid: 11441
+    components:
+    - type: Transform
+      pos: 27.5,-111.5
+      parent: 2
+  - uid: 11442
+    components:
+    - type: Transform
+      pos: 26.5,-111.5
+      parent: 2
+  - uid: 11452
+    components:
+    - type: Transform
+      pos: -1.5,-109.5
+      parent: 2
+  - uid: 11453
+    components:
+    - type: Transform
+      pos: -0.5,-99.5
+      parent: 2
+  - uid: 11459
+    components:
+    - type: Transform
+      pos: -17.5,-109.5
+      parent: 2
+  - uid: 11460
+    components:
+    - type: Transform
+      pos: -16.5,-109.5
+      parent: 2
+  - uid: 11461
+    components:
+    - type: Transform
+      pos: -19.5,-109.5
+      parent: 2
+  - uid: 11462
+    components:
+    - type: Transform
+      pos: -20.5,-109.5
+      parent: 2
+  - uid: 11463
+    components:
+    - type: Transform
+      pos: -34.5,-85.5
+      parent: 2
+  - uid: 11467
+    components:
+    - type: Transform
+      pos: 90.5,-92.5
+      parent: 2
+  - uid: 11468
+    components:
+    - type: Transform
+      pos: 91.5,-92.5
+      parent: 2
+- proto: StalkerExplSafezoneTriggerOut
+  entities:
+  - uid: 11381
+    components:
+    - type: Transform
+      pos: 72.5,-84.5
+      parent: 2
+  - uid: 11382
+    components:
+    - type: Transform
+      pos: 73.5,-84.5
+      parent: 2
+  - uid: 11384
+    components:
+    - type: Transform
+      pos: 79.5,-50.5
+      parent: 2
+  - uid: 11386
+    components:
+    - type: Transform
+      pos: 79.5,-70.5
+      parent: 2
+  - uid: 11388
+    components:
+    - type: Transform
+      pos: 109.5,-67.5
+      parent: 2
+  - uid: 11396
+    components:
+    - type: Transform
+      pos: 98.5,-24.5
+      parent: 2
+  - uid: 11397
+    components:
+    - type: Transform
+      pos: 102.5,-24.5
+      parent: 2
+  - uid: 11398
+    components:
+    - type: Transform
+      pos: 103.5,-24.5
+      parent: 2
+  - uid: 11399
+    components:
+    - type: Transform
+      pos: 104.5,-24.5
+      parent: 2
+  - uid: 11400
+    components:
+    - type: Transform
+      pos: 106.5,-24.5
+      parent: 2
+  - uid: 11401
+    components:
+    - type: Transform
+      pos: 107.5,-24.5
+      parent: 2
+  - uid: 11402
+    components:
+    - type: Transform
+      pos: 108.5,-24.5
+      parent: 2
+  - uid: 11405
+    components:
+    - type: Transform
+      pos: 91.5,-14.5
+      parent: 2
+  - uid: 11406
+    components:
+    - type: Transform
+      pos: 92.5,-14.5
+      parent: 2
+  - uid: 11408
+    components:
+    - type: Transform
+      pos: 73.5,-13.5
+      parent: 2
+  - uid: 11409
+    components:
+    - type: Transform
+      pos: 69.5,-14.5
+      parent: 2
+  - uid: 11410
+    components:
+    - type: Transform
+      pos: 68.5,-14.5
+      parent: 2
+  - uid: 11411
+    components:
+    - type: Transform
+      pos: 65.5,-14.5
+      parent: 2
+  - uid: 11412
+    components:
+    - type: Transform
+      pos: 64.5,-14.5
+      parent: 2
+  - uid: 11419
+    components:
+    - type: Transform
+      pos: 41.5,-25.5
+      parent: 2
+  - uid: 11420
+    components:
+    - type: Transform
+      pos: 45.5,-25.5
+      parent: 2
+  - uid: 11421
+    components:
+    - type: Transform
+      pos: 38.5,-13.5
+      parent: 2
+  - uid: 11424
+    components:
+    - type: Transform
+      pos: 68.5,-95.5
+      parent: 2
+  - uid: 11425
+    components:
+    - type: Transform
+      pos: 12.5,-8.5
+      parent: 2
+  - uid: 11426
+    components:
+    - type: Transform
+      pos: 68.5,-96.5
+      parent: 2
+  - uid: 11427
+    components:
+    - type: Transform
+      pos: 68.5,-97.5
+      parent: 2
+  - uid: 11431
+    components:
+    - type: Transform
+      pos: 88.5,-100.5
+      parent: 2
+  - uid: 11434
+    components:
+    - type: Transform
+      pos: 83.5,-107.5
+      parent: 2
+  - uid: 11443
+    components:
+    - type: Transform
+      pos: 36.5,-109.5
+      parent: 2
+  - uid: 11444
+    components:
+    - type: Transform
+      pos: 35.5,-109.5
+      parent: 2
+  - uid: 11445
+    components:
+    - type: Transform
+      pos: 33.5,-109.5
+      parent: 2
+  - uid: 11446
+    components:
+    - type: Transform
+      pos: -1.5,-107.5
+      parent: 2
+  - uid: 11447
+    components:
+    - type: Transform
+      pos: 26.5,-109.5
+      parent: 2
+  - uid: 11448
+    components:
+    - type: Transform
+      pos: 27.5,-109.5
+      parent: 2
+  - uid: 11449
+    components:
+    - type: Transform
+      pos: 32.5,-109.5
+      parent: 2
+  - uid: 11450
+    components:
+    - type: Transform
+      pos: 30.5,-109.5
+      parent: 2
+  - uid: 11451
+    components:
+    - type: Transform
+      pos: 29.5,-109.5
+      parent: 2
+  - uid: 11454
+    components:
+    - type: Transform
+      pos: -0.5,-101.5
+      parent: 2
+  - uid: 11455
+    components:
+    - type: Transform
+      pos: -16.5,-107.5
+      parent: 2
+  - uid: 11456
+    components:
+    - type: Transform
+      pos: -17.5,-107.5
+      parent: 2
+  - uid: 11457
+    components:
+    - type: Transform
+      pos: -19.5,-107.5
+      parent: 2
+  - uid: 11458
+    components:
+    - type: Transform
+      pos: -20.5,-107.5
+      parent: 2
+  - uid: 11464
+    components:
+    - type: Transform
+      pos: -32.5,-85.5
+      parent: 2
+  - uid: 11465
+    components:
+    - type: Transform
+      pos: 90.5,-90.5
+      parent: 2
+  - uid: 11466
+    components:
+    - type: Transform
+      pos: 91.5,-90.5
       parent: 2
 - proto: StalkerFenceMetalStraight
   entities:

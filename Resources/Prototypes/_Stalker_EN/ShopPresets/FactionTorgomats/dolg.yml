@@ -47,12 +47,12 @@
         # Rifles
         STWeaponRifleSaiga545: 1000
         STWeaponRifleAKS74U: 1500
-        STWeaponRifleAKS74: 4000
-        STWeaponRifleOC14: 5650
-        STWeaponRifleAK103: 8000
+        STWeaponRifleAKS74: 2500
+        STWeaponRifleOC14: 3500
         STWeaponRifleAKM: 6000
         STWeaponRifleStalkerAK12Dolg: 6000
         STWeaponRifleA545Dolg: 7500
+        STWeaponRifleAK103: 8000
         # SMGs
         STWeaponSMGPP91: 1200
         STWeaponSMGStalkerCP2Veresk: 2000

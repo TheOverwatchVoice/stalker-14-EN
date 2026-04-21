@@ -11,7 +11,6 @@ public sealed class PdaGeneralMessageEvent : EntityEventArgs
 {
     public readonly string Title;
     public readonly string Content;
-    public readonly string Sender;
 
     /// <summary>
     /// Band icon name (e.g. "stalker", "freedom", "Dolg", "band").
@@ -31,11 +30,10 @@ public sealed class PdaGeneralMessageEvent : EntityEventArgs
     /// </summary>
     public readonly bool IsDisguised;
 
-    public PdaGeneralMessageEvent(string title, string content, string sender, string? bandIcon = null, string? portraitId = null, bool isDisguised = false)
+    public PdaGeneralMessageEvent(string title, string content, string? bandIcon = null, string? portraitId = null, bool isDisguised = false)
     {
         Title = title;
         Content = content;
-        Sender = sender;
         BandIcon = bandIcon;
         PortraitId = portraitId;
         IsDisguised = isDisguised;

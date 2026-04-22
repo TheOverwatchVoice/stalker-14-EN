@@ -2719,5 +2719,13 @@
   id: 294
   time: '2026-04-22T16:00:01.489809+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/857
+- author: teecoding
+  changes:
+  - message: Fixed PDA messenger sometimes sending DMs to the wrong chat as replies
+      to unrelated messages.
+    type: Fix
+  id: 295
+  time: '2026-04-22T21:43:28.914102+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/864
 Name: Stalker
 Order: -1

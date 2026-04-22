@@ -2604,5 +2604,120 @@
   id: 280
   time: '2026-04-19T04:59:15.529738+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/839
+- author: teecoding
+  changes:
+  - message: Fixed server hanging on shutdown after delayed_restart instead of exiting
+      cleanly.
+    type: Fix
+  id: 281
+  time: '2026-04-19T13:16:24.541009+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/840
+- author: dallaszzz
+  changes:
+  - message: particle system
+    type: Add
+  id: 282
+  time: '2026-04-19T15:05:28.889214+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/841
+- author: BELNAKBU
+  changes:
+  - message: Moved pda notification panels
+    type: Tweak
+  id: 283
+  time: '2026-04-20T14:23:44.557785+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/850
+- author: nathan736
+  changes:
+  - message: admeme bag that makes handling players stashes better
+    type: Add
+  id: 284
+  time: '2026-04-20T17:44:54.647407+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/851
+- author: AlesterPherrer
+  changes:
+  - message: Expanded Barman's stock to now encompass what Sidorovich sells as well.
+      Now he actually sells everything that Sid does.
+    type: Tweak
+  - message: Modified prices for a lot of Barman's things. Now they should be equal
+      or cheaper than Sid's.
+    type: Tweak
+  - message: Tweaked the meat prices in both Barman's and Sidorovich's shop. It should
+      sell at a better rate and spiced meat now sells better at bar.
+    type: Tweak
+  id: 285
+  time: '2026-04-20T21:00:18.638670+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/847
+- author: BELNAKBU
+  changes:
+  - message: New verb for comparing armor.
+    type: Add
+  - message: Now you can compare armor stats at shops.
+    type: Tweak
+  id: 286
+  time: '2026-04-20T21:03:31.681754+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/853
+- author: teecoding
+  changes:
+  - message: Faction relations can now forbid specific transitions between specific
+      faction pairs via YAML config (for example, two factions that cannot make peace).
+    type: Add
+  - message: Monolith relation locks are now expressed explicitly in YAML as "War
+      only" instead of relying purely on the all-or-nothing restricted-factions list.
+    type: Tweak
+  id: 287
+  time: '2026-04-20T21:11:27.326539+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/852
+- author: TheOverwatchVoice
+  changes:
+  - message: added emission protection to Jupiter Buildings
+    type: Tweak
+  id: 288
+  time: '2026-04-20T21:17:49.124726+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/849
+- author: BELNAKBU
+  changes:
+  - message: An emission disables messenger in the Zone and show pop notification
+      when connection lost
+    type: Add
+  - message: Now Clear Sky is always displayed in contacts as stalkers
+    type: Fix
+  id: 289
+  time: '2026-04-20T21:52:22.068076+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/842
+- author: BELNAKBU
+  changes:
+  - message: No i dont able to see artis stats
+    type: Fix
+  id: 290
+  time: '2026-04-21T05:00:47.604680+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/854
+- author: Wintoli
+  changes:
+  - message: Desert Eagle converted to .357 magnum with a slight bullet velocity increase.
+    type: Tweak
+  id: 291
+  time: '2026-04-21T18:22:35.175395+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/848
+- author: dallaszzz
+  changes:
+  - message: New muzzle smoke particles and muzzle flash sprite
+    type: Add
+  id: 292
+  time: '2026-04-21T21:59:46.317390+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/860
+- author: Vinny-Shick
+  changes:
+  - message: Standardised the results from crafting T0 through T3 ammo.
+    type: Add
+  id: 293
+  time: '2026-04-21T22:04:12.312878+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/834
+- author: Nox38
+  changes:
+  - message: Reverted Duty Sphere-08 helmet to its old look.
+    type: Tweak
+  id: 294
+  time: '2026-04-22T16:00:01.489809+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/857
 Name: Stalker
 Order: -1

@@ -194,7 +194,7 @@ namespace Content.Server._Stalker.Bands
                 playerFaction = _factionRelations.ResolvePrimary(playerFaction);
 
             var relationsState = _factionRelations.BuildUiState();
-            var hideRelationsTab = !string.IsNullOrEmpty(playerFaction) && _factionRelations.IsFactionRestricted(playerFaction);
+            var hideRelationsTab = !string.IsNullOrEmpty(playerFaction) && _factionRelations.HidesRelationsUi(playerFaction);
 
             var allFactions = new List<string>();
             foreach (var f in relationsState.FactionIds)

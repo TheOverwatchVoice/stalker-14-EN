@@ -181,6 +181,9 @@ public sealed partial class STMessengerUi : UIFragment
 
         _mainPage?.UpdateState(messengerState);
 
+        // Update emission state in compose page
+        _composePage?.SetEmissionActive(messengerState.IsEmissionActive);
+
 
         if (_currentChatId is not null && _channelPage is { Visible: true })
         {

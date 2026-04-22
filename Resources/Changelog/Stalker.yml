@@ -2727,5 +2727,13 @@
   id: 295
   time: '2026-04-22T21:43:28.914102+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/864
+- author: AlesterPherrer
+  changes:
+  - message: Fixed inconsistent artifact sale rates with Ecologists with the newer
+      artifacts
+    type: Tweak
+  id: 296
+  time: '2026-04-22T22:18:00.396524+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/865
 Name: Stalker
 Order: -1

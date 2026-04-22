@@ -21,7 +21,8 @@ public sealed partial class STLeaderboardSystem
         shell.WriteLine($"Leaderboard entries ({_knownStalkers.Count}):");
         foreach (var (key, val) in _knownStalkers)
         {
-            shell.WriteLine($"  [{key.UserId}] {val.Name} | Band: {val.Band} | Rank: {val.RankIndex}");
+            var mobStatus = val.Mob.HasValue && val.Mob.Value.IsValid() ? "Alive" : "Deleted";
+            shell.WriteLine($"  [{key.UserId}] {val.Name} | {mobStatus}");
         }
     }
 

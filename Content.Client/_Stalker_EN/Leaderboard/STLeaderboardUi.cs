@@ -14,12 +14,6 @@ public sealed partial class STLeaderboardUi : UIFragment
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
         _fragment = new STLeaderboardUiFragment();
-        _fragment.OnRefresh += () =>
-        {
-            var msg = new STLeaderboardUiMessage(STLeaderboardUiAction.Refresh);
-            var wrapped = new CartridgeUiMessage(msg);
-            userInterface.SendMessage(wrapped);
-        };
     }
 
     public override void UpdateState(BoundUserInterfaceState state)

@@ -26,7 +26,7 @@ public sealed partial class STLeaderboardCartridgeComponent : Component
 /// </summary>
 public enum STLeaderboardFactionRelation : byte
 {
-    Same = 0,     // green — same faction
+    Same = 0,     // white — same faction
     Alliance = 1, // green — allied
     Neutral = 2,  // yellow — neutral
     Hostile = 3,  // orange — one-way hostile
@@ -40,12 +40,15 @@ public enum STLeaderboardFactionRelation : byte
 public record struct STLeaderboardEntry(
     string CharacterName,
     string? BandName,
+    string? BandIcon,
     int RankIndex,
     string? RankName,
     STLeaderboardFactionRelation BandRelation,
     bool IsMe,
-    int MutantsKilled,
-    int ArtifactsFound);
+    TimeSpan AccumulatedTime,
+    string? PortraitPath,
+    bool UsePatchInsteadOfPortrait,
+    string? DisplayBandName); // Display name (masked for disguise-capable factions)
 
 /// <summary>
 /// UI state sent from server to client with the full leaderboard.
@@ -67,15 +70,4 @@ public sealed class STLeaderboardUiState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class STLeaderboardUiMessage : CartridgeMessageEvent
 {
-    public readonly STLeaderboardUiAction Action;
-
-    public STLeaderboardUiMessage(STLeaderboardUiAction action)
-    {
-        Action = action;
-    }
-}
-
-public enum STLeaderboardUiAction : byte
-{
-    Refresh,
 }

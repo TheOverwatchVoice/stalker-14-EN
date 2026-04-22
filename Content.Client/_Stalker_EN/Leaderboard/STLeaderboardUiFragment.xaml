@@ -1,0 +1,28 @@
+<leaderboard:STLeaderboardUiFragment xmlns:leaderboard="clr-namespace:Content.Client._Stalker_EN.Leaderboard"
+                                   xmlns="https://spacestation14.io"
+                                   Orientation="Vertical"
+                                   VerticalExpand="True"
+                                   HorizontalExpand="True"
+                                   Margin="0">
+    <Label Name="Title" Text="{Loc 'st-leaderboard-title'}" Align="Center" FontColorOverride="#DAA520" StyleClasses="LabelBig"/>
+
+    <!-- Stats Block -->
+    <BoxContainer Name="StatsContainer" Orientation="Vertical" Margin="8,4,8,0">
+        <Label Name="StatsTitle" Text="{Loc 'st-leaderboard-stats-title'}" Align="Center" FontColorOverride="#DAA520" StyleClasses="LabelBig"/>
+        <PanelContainer StyleClasses="LowDivider"/>
+        <RichTextLabel Name="StatsKills" HorizontalExpand="True" Margin="0,2"/>
+        <RichTextLabel Name="StatsArts" HorizontalExpand="True" Margin="0,2"/>
+    </BoxContainer>
+
+    <PanelContainer StyleClasses="LowDivider" Margin="0,6"/>
+    <Button Name="RefreshButton" Text="{Loc 'st-leaderboard-refresh'}" HorizontalAlignment="Center" Margin="0 0 0 4"/>
+    <PanelContainer StyleClasses="LowDivider"/>
+    <ScrollContainer Name="EntriesScroll" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+        <BoxContainer Name="EntriesList" Orientation="Vertical" HorizontalExpand="True"/>
+    </ScrollContainer>
+    <!-- Pinned player entry — always visible, outside scroll -->
+    <BoxContainer Name="PinnedContainer" Orientation="Vertical" Visible="False" Margin="0,4,0,0">
+        <PanelContainer StyleClasses="LowDivider" Margin="8,6"/>
+        <BoxContainer Name="PinnedEntry" Orientation="Horizontal" Margin="8,4" HorizontalExpand="True"/>
+    </BoxContainer>
+</leaderboard:STLeaderboardUiFragment>

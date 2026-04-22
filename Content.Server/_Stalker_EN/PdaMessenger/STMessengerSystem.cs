@@ -8,6 +8,7 @@ using Content.Server.PDA;
 using Content.Server.PDA.Ringer;
 using Content.Shared._Stalker.Bands;
 using Content.Shared._Stalker.PdaMessenger;
+using Content.Shared._Stalker_EN.Emission;
 using Content.Shared._Stalker_EN.Portraits;
 using Content.Shared._Stalker_EN.CCVar;
 using Content.Shared._Stalker_EN.CharacterRank;
@@ -141,6 +142,11 @@ public sealed partial class STMessengerSystem : EntitySystem
 
     private WebhookIdentifier? _webhookIdentifier;
 
+    /// <summary>
+    /// Flag indicating if emission is active. When true, STMessenger is disabled.
+    /// </summary>
+    private bool _isEmissionActive = false;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -155,6 +161,7 @@ public sealed partial class STMessengerSystem : EntitySystem
         SubscribeLocalEvent<PdaComponent, GotEquippedHandEvent>(OnPdaPickedUp);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        SubscribeLocalEvent<EmissionStateChangedEvent>(OnEmissionStateChanged);
 
         CacheSortedChannels();
 
@@ -180,6 +187,43 @@ public sealed partial class STMessengerSystem : EntitySystem
             _discord.GetWebhook(value, data => _webhookIdentifier = data.ToIdentifier());
         else
             _webhookIdentifier = null;
+    }
+
+    private void OnEmissionStateChanged(ref EmissionStateChangedEvent args)
+    {
+        _isEmissionActive = args.IsActive;
+
+        const string communicationCenterIcon = "/Textures/_Stalker_EN/Portraits/communication_center.png";
+        const string sender = "Communication Center";
+
+        if (args.IsActive)
+        {
+            // Emission started - send notification about connection loss
+            var notification = new PdaGeneralMessageEvent(
+                sender,
+                "Connection lost...",
+                bandIcon: communicationCenterIcon,
+                portraitId: communicationCenterIcon);
+
+            foreach (var session in _playerManager.Sessions)
+            {
+                RaiseNetworkEvent(notification, session);
+            }
+        }
+        else
+        {
+            // Emission ended - send notification about connection restored
+            var notification = new PdaGeneralMessageEvent(
+                sender,
+                "Connection established...",
+                bandIcon: communicationCenterIcon,
+                portraitId: communicationCenterIcon);
+
+            foreach (var session in _playerManager.Sessions)
+            {
+                RaiseNetworkEvent(notification, session);
+            }
+        }
     }
 
     #region Cartridge Events
@@ -271,6 +315,10 @@ public sealed partial class STMessengerSystem : EntitySystem
         CartridgeMessageEvent args)
     {
         if (server.NextSendTime > _timing.CurTime)
+            return;
+
+        // Block message sending during emission
+        if (_isEmissionActive)
             return;
 
         server.NextSendTime = _timing.CurTime + server.SendCooldown;
@@ -499,7 +547,7 @@ public sealed partial class STMessengerSystem : EntitySystem
                 var bandIcon = GetBandIcon(server);
                 var portraitId = GetPortraitId(server);
                 var isDisguised = GetIsDisguised(server);
-                var generalEvent = new PdaGeneralMessageEvent(displayName, content, displayName, bandIcon, portraitId, isDisguised);
+                var generalEvent = new PdaGeneralMessageEvent(displayName, content, bandIcon, portraitId, isDisguised);
 
                 var notifiedSessions = new HashSet<ICommonSession>();
 
@@ -1011,7 +1059,8 @@ public sealed partial class STMessengerSystem : EntitySystem
             isDisguised,
             server.OwnerBand,
             GetCanDisguise(server),
-            server.RandomNameWhenNotDisguised);
+            server.RandomNameWhenNotDisguised,
+            _isEmissionActive);
     }
 
     private int CountUnread(string chatId, List<STMessengerMessage>? channelMessages, STMessengerServerComponent server)
@@ -1271,10 +1320,9 @@ public sealed partial class STMessengerSystem : EntitySystem
         if (MetaData(mob).EntityName != contactKey.CharName)
             return null;
 
-        // Only Clear Sky is disguised as Loners on PDA
-        if (TryComp<CharacterPortraitComponent>(mob, out var portrait))
-            if (portrait.IsDisguised && bands.BandProto == ClearSkyBandId)
-                return _factionResolution.GetBandFactionName(bands.BandName);
+        // Clear Sky always shows as Loners (stalker patch) on PDA
+        if (bands.BandProto == ClearSkyBandId)
+            return _factionResolution.GetBandFactionName("Stalker");
 
         if (bands.BandProto is not { } bandProtoId)
             return null;

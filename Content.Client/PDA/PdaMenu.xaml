@@ -94,10 +94,11 @@
                       Access="Public">
         </BoxContainer>
     </BoxContainer>
-    <BoxContainer Name="ContentFooter" HorizontalExpand="True" SetHeight="28" Margin="1 0 2 1">
+    <!--stalker-en-change:Delete this "leftover from vanila SS14"-->
+    <!--<BoxContainer Name="ContentFooter" HorizontalExpand="True" SetHeight="28" Margin="1 0 2 1">
         <controls:StripeBack HasBottomEdge="False" HasMargins="False" HorizontalExpand="True">
             <Label Text="Robust#OS ™" VerticalAlignment="Center" Margin="6 0" StyleClasses="PdaContentFooterText"/>
             <Label Name="AddressLabel" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="6 0" StyleClasses="PdaContentFooterText"/>
         </controls:StripeBack>
-    </BoxContainer>
+    </BoxContainer>-->
 </pda:PdaWindow>

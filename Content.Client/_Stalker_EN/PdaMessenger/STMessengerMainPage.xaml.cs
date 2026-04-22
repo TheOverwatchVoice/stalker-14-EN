@@ -54,6 +54,9 @@ public sealed partial class STMessengerMainPage : BoxContainer
     {
         MessengerIdLabel.Text = Loc.GetString("st-messenger-id-label", ("id", state.MessengerId));
 
+        // Show emission warning
+        EmissionWarningLabel.Visible = state.IsEmissionActive;
+
         ChannelList.RemoveAllChildren();
         foreach (var channel in state.Channels)
         {

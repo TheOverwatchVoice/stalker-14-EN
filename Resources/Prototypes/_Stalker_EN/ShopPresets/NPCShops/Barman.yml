@@ -184,6 +184,7 @@
         STWeaponRevolverSWModel625: 1450
         STWeaponRevolverSWPC325TR: 350
         # SMGs
+        STWeaponSMGUMP: 1900
         STWeaponSMGMP40: 1000
         STWeaponSMGPPSh41: 2500
         STWeaponSMGPPS43: 1750
@@ -204,6 +205,7 @@
     - name: shop-category-magazines
       priority: 2
       items:
+        UMPMag25: 200
         Base2070Mag: 30
         TOZ106Mag5: 100
         HiPowerMag13: 140

@@ -88,6 +88,9 @@
   id: MagazineUSP
 
 - type: Tag
+  id: MagazineUMP  
+
+- type: Tag
   id: MagazineHipower
 
 - type: Tag

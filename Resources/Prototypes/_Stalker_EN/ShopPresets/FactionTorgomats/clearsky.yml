@@ -151,6 +151,7 @@
       STWeaponShotgunMossbergM88: 630 # T2
       STWeaponShotgunSPAS: 1300 # T3
       # SMGs
+      STWeaponSMGUMP: 1800
       STWeaponSMGPP19: 2000
       STWeaponSMGMP5: 2000
       # Rifles
@@ -186,6 +187,7 @@
       Base751Mag10: 200
       751Mag20: 400
       # Smg
+      UMPMag25: 140
       BaseMP5Mag: 160
       BizonMag: 750
       BizonMag919: 800

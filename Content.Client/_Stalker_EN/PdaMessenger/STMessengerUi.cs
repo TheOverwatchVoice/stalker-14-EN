@@ -122,6 +122,8 @@ public sealed partial class STMessengerUi : UIFragment
 
         _composePage.OnBack += () =>
         {
+            _replyToId = null;
+            _replySnippet = null;
             _composePage.Visible = false;
             _channelPage!.Visible = true;
         };
@@ -195,6 +197,8 @@ public sealed partial class STMessengerUi : UIFragment
 
     private void NavigateToChat(string chatId)
     {
+        _replyToId = null;
+        _replySnippet = null;
         _currentChatId = chatId;
 
         // Tell server which chat we're viewing (for lazy message loading)
@@ -208,6 +212,8 @@ public sealed partial class STMessengerUi : UIFragment
 
     private void NavigateToMain()
     {
+        _replyToId = null;
+        _replySnippet = null;
         _currentChatId = null;
         _channelPage!.Visible = false;
         _composePage!.Visible = false;

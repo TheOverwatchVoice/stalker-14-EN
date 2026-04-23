@@ -116,7 +116,8 @@ public sealed partial class STLeaderboardUiFragment : BoxContainer
 
         var nameLine = new RichTextLabel { HorizontalExpand = true, Margin = new Thickness(0, 0, 0, 2) };
         var nameMsg = new FormattedMessage();
-        nameMsg.AddMarkupOrThrow($"[b]{position}. {FormattedMessage.EscapeText(entry.CharacterName)}[/b]");
+        var displayName = string.IsNullOrEmpty(entry.CharacterName) ? Loc.GetString("st-leaderboard-nodata") : entry.CharacterName;
+        nameMsg.AddMarkupOrThrow($"[b]{position}. {FormattedMessage.EscapeText(displayName)}[/b]");
         nameLine.SetMessage(nameMsg);
         infoBlock.AddChild(nameLine);
 

@@ -275,6 +275,8 @@ public sealed partial class STLeaderboardSystem : EntitySystem
     private string? GetAltBandFaction(BandsComponent bands)
     {
         var bandForMapping = bands.IsDisguised ? bands.BandStatusIcon : bands.AltBand;
+        if (string.IsNullOrEmpty(bandForMapping))
+            return null;
         return _factionResolution.GetBandFactionName(bandForMapping);
     }
 
@@ -425,13 +427,20 @@ public sealed partial class STLeaderboardSystem : EntitySystem
                 // Check if mob is deleted
                 var isMobDeleted = !v.Mob.HasValue || !v.Mob.Value.IsValid();
 
+                // Get mob value (only if valid)
+                EntityUid? mob = null;
+                if (v.Mob.HasValue && v.Mob.Value.IsValid())
+                {
+                    mob = v.Mob.Value;
+                }
+
                 // Get components (live)
                 BandsComponent? bands = null;
                 STCharacterRankComponent? rankComp = null;
-                if (!isMobDeleted)
+                if (mob.HasValue)
                 {
-                    TryComp(v.Mob.Value, out bands);
-                    TryComp(v.Mob.Value, out rankComp);
+                    TryComp(mob.Value, out bands);
+                    TryComp(mob.Value, out rankComp);
                 }
 
                 // Get band name and icon from BandsComponent
@@ -440,9 +449,9 @@ public sealed partial class STLeaderboardSystem : EntitySystem
 
                 // Get faction from Mob (live)
                 string? factionId = null;
-                if (!isMobDeleted)
+                if (mob.HasValue)
                 {
-                    factionId = GetPlayerFaction(v.Mob.Value);
+                    factionId = GetPlayerFaction(mob.Value);
                 }
 
                 // Get rank from STCharacterRankComponent (live)
@@ -459,17 +468,17 @@ public sealed partial class STLeaderboardSystem : EntitySystem
 
                 var isMe = viewerName != null && v.Name == viewerName;
 
-                // For deleted mobs: use nodata icon, dashes for faction and name, no relations
-                string? displayName = isMobDeleted ? null : v.Name;
+                // For deleted mobs: use nodata icon (handled by client fallback), dashes for faction and name, no relations
+                string displayName = isMobDeleted ? "" : v.Name;
                 string? displayBandName = isMobDeleted ? null : bandName;
-                string? portraitPath = isMobDeleted ? "nodata" : null;
+                string? portraitPath = isMobDeleted ? null : null; // Client handles null as nodata via fallback
                 bool usePatch = isMobDeleted;
                 STLeaderboardFactionRelation relation = STLeaderboardFactionRelation.Neutral;
 
                 if (!isMobDeleted)
                 {
                     // Get portrait path and determine if should use patch instead
-                    (portraitPath, usePatch) = GetPortraitOrPatch(v.Mob, factionId, isMe);
+                    (portraitPath, usePatch) = GetPortraitOrPatch(mob, factionId, isMe);
 
                     // Get display band name and relation
                     displayBandName = bandName;

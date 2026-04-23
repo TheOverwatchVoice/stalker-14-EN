@@ -236,6 +236,7 @@
       ClothingOuterArmorZaryaNeutral: 2000 # T2 - PVE
       STSkinsKitNeutral: 500
       STClothingOuterArmorSevaNeutral: 4500
+      STClothingOuterArmorLepestokNeutralEN: 14000
 
   - name: shop-category-storage-and-containers
     priority: 7

@@ -78,10 +78,15 @@ public sealed class RadioSystem : EntitySystem
 
         var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
         RaiseLocalEvent(messageSource, evt);
-
+        // stalker-en changes start - This forces Monolith voices on the monolith channel always to show hopefully their real name :pray:
         var name = evt.VoiceName;
-        name = FormattedMessage.EscapeText(name);
-
+        if (channel.ID == "Monolith") 
+        {
+            name = Name(messageSource);
+        }
+        // stalker-en changes end 
+            name = FormattedMessage.EscapeText(name);
+        
         SpeechVerbPrototype speech;
         if (evt.SpeechVerb != null && _prototype.Resolve(evt.SpeechVerb, out var evntProto))
             speech = evntProto;

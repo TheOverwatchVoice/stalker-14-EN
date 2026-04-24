@@ -2758,5 +2758,12 @@
   id: 299
   time: '2026-04-24T16:14:06.161433+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/876
+- author: DuckManZach
+  changes:
+  - message: Added shitting
+    type: Add
+  id: 300
+  time: '2026-04-24T16:48:56.592432+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/873
 Name: Stalker
 Order: -1

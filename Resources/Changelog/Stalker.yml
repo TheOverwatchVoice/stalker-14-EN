@@ -2751,5 +2751,12 @@
   id: 298
   time: '2026-04-23T22:33:52.446651+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/871
+- author: nathan736
+  changes:
+  - message: Monolith know who they are talking to in their minds
+    type: Tweak
+  id: 299
+  time: '2026-04-24T16:14:06.161433+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/876
 Name: Stalker
 Order: -1

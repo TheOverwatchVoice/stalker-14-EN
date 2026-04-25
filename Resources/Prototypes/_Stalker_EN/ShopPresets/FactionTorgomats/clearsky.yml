@@ -207,8 +207,8 @@
     priority: 3
     items:
       8mmBuckshotBox: 800 # T2
-      6mmBuckshotBox: 320 # T1
-      7mmBuckshotBox: 75 # T0
+      6mmBuckshotBox: 275 # T1
+      7mmBuckshotBox: 50  # T0
       # 7.25
       725LRNPCBox: 625 # Mutant
       725PBox: 100 # T1
@@ -216,25 +216,25 @@
       725PSTBox: 1450 # T3
       # 9.18
       918PGJBox: 100 # T1
-      918PSTBox: 560 # T2
+      918PSTBox: 300 # T2
       918SP7Box: 625 # Mutant
       918PBMBox: 1425 # T3
       # 9.19
       919RIPBox: 625 # Mutant
       919PSOGJBox: 100 # T1
-      919PSTBox: 500 # T2
+      919PSTBox: 300 # T2
       919PBMBox: 1450 # T3
       # .45
-      45ACPLFMJBox: 110 # T1
-      45ACPMFMJBox: 550 # T2
-      45ACPRIPBox: 700 # Mutant
-      45ACPAPBox: 1500 # T3
+      45ACPLFMJBox: 100 # T1
+      45ACPMFMJBox: 300 # T2
+      45ACPRIPBox: 625 # Mutant
+      45ACPAPBox: 1450 # T3
       # 5.45
-      545HPBox: 725 # Mutant
+      545HPBox: 500 # Mutant
       545PCBox: 1650 # T3
       545FMJBox: 650 # T2
       # 5.56
-      556WarmagBox: 725 # Mutant
+      556WarmagBox: 500 # Mutant
       556FMJBox: 650 # T2
       556M855Box: 1650 # T3
       # 7.39
@@ -249,7 +249,7 @@
       # .357
       MagazineBox357Magnum: 600 # T2
       MagazineBox357MagnumAP: 1500 # T3
-      MagazineBox357MagnumHP: 800 # Mutant
+      MagazineBox357MagnumHP: 625 # Mutant
 
   - name: shop-category-medicine
     priority: 4

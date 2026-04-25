@@ -1,7 +1,7 @@
 # Infantry helmet
 
 - type: lightCraftingRecipe
-  id:  STCraftSkinClothingHeadAssaultHelmetMilitary
+  id:  STCraftSkinClothingHeadInfantryHelmetMilitary
   results:
     - ClothingHeadHelmetInfantryMilitary
   steps:

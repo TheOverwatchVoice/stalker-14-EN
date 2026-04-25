@@ -2772,5 +2772,14 @@
   id: 301
   time: '2026-04-25T00:06:23.814490+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/870
+- author: Cassandra
+  changes:
+  - message: Ecology finally is hooked up to the phone network
+    type: Add
+  - message: Ecology Igor has arrived, he finally found yantar
+    type: Add
+  id: 302
+  time: '2026-04-25T04:09:31.352794+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/859
 Name: Stalker
 Order: -1

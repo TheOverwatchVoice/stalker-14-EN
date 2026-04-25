@@ -1326,9 +1326,9 @@ public sealed partial class STMessengerSystem : EntitySystem
         if (MetaData(mob).EntityName != contactKey.CharName)
             return null;
 
-        // Clear Sky always shows as Loners (stalker patch) on PDA
-        if (bands.BandProto == ClearSkyBandId)
-            return _factionResolution.GetBandFactionName("Stalker");
+        // Clear Sky shows as Loners on PDA only while their patch is hidden (disguised)
+        if (bands.IsDisguised && bands.BandProto == ClearSkyBandId)
+            return _factionResolution.GetBandFactionName(bands.BandName);
 
         if (bands.BandProto is not { } bandProtoId)
             return null;

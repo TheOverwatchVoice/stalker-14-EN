@@ -236,11 +236,9 @@
       ClothingOuterArmorZaryaNeutral: 2000 # T2 - PVE
       STSkinsKitNeutral: 500
       STClothingOuterArmorSevaNeutral: 4500
-<<<<<<< native-armor-and-poncho-neutral-resprites
       ClothingOuterArmorAborigineNeutral: 8000 # T3 - PVE// 20% off price
-=======
       STClothingOuterArmorLepestokNeutralEN: 14000
->>>>>>> master
+
 
   - name: shop-category-storage-and-containers
     priority: 7

@@ -64,7 +64,7 @@
 - type: stBand
   id: STZombiefiedBand
   name: Zombiefied
-  factionId: Zombiefied
+  factionId: Mutated
   maxMembers: 10
   managingRankId: 1
   hierarchy:

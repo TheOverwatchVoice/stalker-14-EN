@@ -1,40 +1,30 @@
 <Document>
-  # Core Rule 9 - Factions
+  # Core Rule 8 - Robbing and Looting
 
-  ## General Faction Rules
+  When engaging in interactions that involve robbing, kidnapping, or searching another player, you must clearly speak in English. You are allowed to use other languages in casual settings, however this is an English server. It is unfair to players who have no idea what you are asking or demanding.
 
-  Factions at war are allowed to shoot each other on sight outside of [color=#008000]Green Zones[/color]. Some factions are locked in perpetual war and will never change; the same applies for some alliances. Other wars and alliances are determined by faction leaders. Note: All factions are at war with [textlink="Monolith" link="RuleF4"].
+  Being robbed is something you will likely encounter often, as [textlink="Bandits" link="RuleF1"] and [textlink="Renegades" link="RuleF2"] frequently patrol the Zone. These rules apply to all factions — individual factions may have additional robbing rules in their [textlink="faction pages" link="RuleC9Stalker"].
 
-  Faction members should not hand out exclusive faction gear without permission from the faction lead. This is especially true for factions that spawn with free kits like the Military and Monolith. Faction members should also not let non-faction members see or use their shops without permission from their leader.
+  ## General Rules
 
-  When traveling in a group, if a member of your group is of a different faction and is being shot at by a member of one of their rival factions, you are allowed to assist your group member if you wish.
+  - Nobody should be robbing Rookies. If they have a green Rookie patch they're a new player with little to take, when engaging in antagonistic behavior with a Rookie take no more than one or two items from them. If they fight back they can be killed but shouldn't have all of their gear stripped.
+  - When setting out to rob in lower tier areas like Cordon, expect to run into players who don't have much worth taking. Consider setting up checkpoints to charge a toll for passing, or seeking more creative ways of engaging with players in these areas.
+  - When robbing a player, if they actively resist or make it difficult (constantly breaking restraints, trying to run, being overly uncooperative), you may put them into a critical state. However, you should use meds to revive them. If you have to revive more than twice, you are allowed to kill them — in this case, AHELPing problem behavior is encouraged. Resistance breaches the rules for Roleplay Standards, Fear Roleplay, and Suicide when captured.
+  - Anyone being robbed should at least be left with enough gear to reach a safe zone without dying to mutants on the way back.
+  - Robbers should NOT be using 'say' binds to rob people. You need to clearly type out that you are robbing said person. No Gmod "Drop 5k or die" binds.
 
-  Factions are required to roleplay as the faction they are playing. The leader must ensure that recruits have at least a basic understanding of the faction's lore and playstyle. This is to maintain an interactive experience.
+  ## Zone Restrictions
 
-  Faction leaders are held to a higher standard of roleplay and should maintain their faction's rules and check on their subordinates.
+  - No robbing or looting should take place in a [color=#008000]Green Zone[/color]. This includes SSD players.
+  - You are allowed to loot dead people outside of [color=#008000]Green Zones[/color], but you are not allowed to watch someone die and then proceed to loot them. Given the opportunity, you should attempt to rescue them unless the situation is too dangerous to handle (e.g., heavily irradiated area, anomaly field with no protection, horde of dangerous mutants).
 
-  If your faction is not listed here, then you have no specific faction rules or perpetual wars/alliances and should follow your leader's rules. You should also follow your leader's rules even if you have rules here. Leader rules should not overwrite faction rules.
+  ## Faction Gear
 
-  * Information on faction tabs is not for in-character knowledge — this is OOC knowledge for a better understanding of expected gameplay.*
+  Faction members catching a non-faction member wearing their gear is grounds to rob said individual. However, they should only confiscate the faction's exclusive gear or armor, unless the person resists — then anything is fair game. Factions are allowed to rob [textlink="Renegades" link="RuleF2"] and [textlink="Bandits" link="RuleF1"] if they are not allied with them and can confirm they are a member of those factions.
 
-  ## Alliances and Wars
+  ## Who Can Rob
 
-  When factions come to a situation that will change faction relations, there must be an administrator present or proof of roleplay interaction. Administration will use this to determine if it is grounds to approve or deny your request. You can message senior administrators in your faction's channel.
+  Factions that are hostile to each other are allowed to rob one another. In this scenario you should follow the same rules as Bandit robbing rules.
 
-  Senior Administrators (Host, Head Administrators) may ONLY make alterations to the faction relations chart. Once approved, a senior administrator will give the leader of the faction access to the appropriate channel to make an official declaration of war or alliance in the Discord and in-character.
-
-  Some wars or alliances MAY be done without roleplay if there has been substantial evidence to prove reasonable cause, as long as senior administrators see fit.
-
-  ## Faction Pages
-
-  - [textlink="Bandits" link="RuleF1"]
-  - [textlink="Renegades" link="RuleF2"]
-  - [textlink="Military" link="RuleF3"]
-  - [textlink="Monolith" link="RuleF4"]
-  - [textlink="Militia" link="RuleF5"]
-  - [textlink="Ecologist" link="RuleF6"]
-  - [textlink="Mercenaries" link="RuleF7"]
-  - [textlink="Duty" link="RuleF8"]
-  - [textlink="Freedom" link="RuleF9"]
-  - [textlink="Clear Sky" link="RuleF10"]
+  Loners are only allowed to rob people when accompanied by [textlink="Bandits" link="RuleF1"] or [textlink="Renegades" link="RuleF2"].
 </Document>

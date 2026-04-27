@@ -2805,5 +2805,12 @@
   id: 305
   time: '2026-04-25T23:37:39.921166+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/878
+- author: Cassandra
+  changes:
+  - message: The dean no longer has a LaTeX allergy
+    type: Tweak
+  id: 306
+  time: '2026-04-27T12:18:43.576936+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/885
 Name: Stalker
 Order: -1

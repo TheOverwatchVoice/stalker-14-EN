@@ -27,7 +27,7 @@
         - Gun
         - BallisticAmmoProvider
   - type: Item
-    size: Huge
+    size: Ginormous
     shape:
     - 0,0,4,1
   - type: PersonalDamageBlock

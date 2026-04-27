@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/15/2026 20:22:07
-  entityCount: 8120
+  time: 04/22/2026 21:05:24
+  entityCount: 8145
 maps:
 - 1
 grids:
@@ -25837,6 +25837,80 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -19.5,45.5
       parent: 1
+- proto: DrinkGlass
+  entities:
+  - uid: 8127
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8128
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8129
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8130
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8131
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8132
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8133
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8134
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8135
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8136
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8137
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
+  - uid: 8138
+    components:
+    - type: Transform
+      parent: 8126
+    - type: Physics
+      canCollide: False
 - proto: DynamicRadiationSpawner20
   entities:
   - uid: 5788
@@ -25862,6 +25936,13 @@ entities:
     components:
     - type: Transform
       pos: -21.41643,43.073223
+      parent: 1
+- proto: FaxMachineBase
+  entities:
+  - uid: 8122
+    components:
+    - type: Transform
+      pos: -43.5,-131.5
       parent: 1
 - proto: FenceBetonBroken
   entities:
@@ -39022,6 +39103,7 @@ entities:
     - type: Transform
       pos: -45.5,-106.5
       parent: 1
+    - type: LinkedEntity
 - proto: LocalTeleportEcoYantar
   entities:
   - uid: 6866
@@ -39108,6 +39190,38 @@ entities:
     components:
     - type: Transform
       pos: -38.5,66.5
+      parent: 1
+- proto: longrangemetaldetectorCrategrassSpawner
+  entities:
+  - uid: 8139
+    components:
+    - type: Transform
+      pos: -86.5,-58.5
+      parent: 1
+  - uid: 8143
+    components:
+    - type: Transform
+      pos: -33.5,8.5
+      parent: 1
+  - uid: 8144
+    components:
+    - type: Transform
+      pos: -56.5,29.5
+      parent: 1
+  - uid: 8145
+    components:
+    - type: Transform
+      pos: 38.5,78.5
+      parent: 1
+  - uid: 8146
+    components:
+    - type: Transform
+      pos: 62.5,19.5
+      parent: 1
+  - uid: 8147
+    components:
+    - type: Transform
+      pos: -78.5,-78.5
       parent: 1
 - proto: MachineCentrifuge
   entities:
@@ -39505,6 +39619,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,28.5
+      parent: 1
+- proto: NPCIgorIvanovichEcologist
+  entities:
+  - uid: 8125
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -49.5,-110.5
       parent: 1
 - proto: NPCResearchInstitutesEN
   entities:
@@ -40562,6 +40684,25 @@ entities:
     components:
     - type: Transform
       pos: 61.494656,0.77776235
+      parent: 1
+- proto: PhoneInstrument
+  entities:
+  - uid: 6711
+    components:
+    - type: Transform
+      pos: -47.512207,-135.48274
+      parent: 1
+  - uid: 8140
+    components:
+    - type: Transform
+      pos: -51.531002,-110.49792
+      parent: 1
+- proto: PhoneStalker
+  entities:
+  - uid: 8124
+    components:
+    - type: Transform
+      pos: -44.214996,-131.53508
       parent: 1
 - proto: PineTree01
   entities:
@@ -42640,6 +42781,71 @@ entities:
     - type: Transform
       pos: -50.5,50.5
       parent: 1
+- proto: ShelfBar
+  entities:
+  - uid: 8126
+    components:
+    - type: Transform
+      pos: -41.5,-104.5
+      parent: 1
+    - type: Storage
+      storedItems:
+        8127:
+          position: 0,0
+          _rotation: South
+        8128:
+          position: 1,0
+          _rotation: South
+        8129:
+          position: 2,0
+          _rotation: South
+        8130:
+          position: 3,0
+          _rotation: South
+        8131:
+          position: 4,0
+          _rotation: South
+        8132:
+          position: 5,0
+          _rotation: South
+        8133:
+          position: 0,3
+          _rotation: South
+        8134:
+          position: 1,3
+          _rotation: South
+        8135:
+          position: 2,3
+          _rotation: South
+        8136:
+          position: 3,3
+          _rotation: South
+        8137:
+          position: 4,3
+          _rotation: South
+        8138:
+          position: 5,3
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 8127
+          - 8128
+          - 8129
+          - 8130
+          - 8131
+          - 8132
+          - 8133
+          - 8134
+          - 8135
+          - 8136
+          - 8137
+          - 8138
+    - type: Fixtures
+      fixtures: {}
 - proto: Sink
   entities:
   - uid: 3953
@@ -50703,6 +50909,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -43.5,-129.5
+      parent: 1
+- proto: STEcoClipboard
+  entities:
+  - uid: 8123
+    components:
+    - type: Transform
+      pos: -47.527496,-136.35266
       parent: 1
 - proto: SteelBench
   entities:

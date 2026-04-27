@@ -409,9 +409,11 @@ public sealed partial class STMessengerSystem : EntitySystem
             if (!server.Contacts.TryGetValue(contactMessengerId, out var contactEntry))
                 return;
 
-            // Check if contact's faction changed (only update with non-null — preserve last-known on resolution failure)
+            // Refresh contact's cached faction so legitimate faction changes (e.g. Duty → Military)
+            // propagate to the contacts column. Clear Sky is force-mapped to Loners via
+            // alwaysHideClearSky so un-disguising never retroactively reveals their identity.
             var contactKey = (contactEntry.UserId, contactEntry.CharacterName);
-            var currentFaction = ResolveContactFaction(contactKey);
+            var currentFaction = ResolveContactFaction(contactKey, alwaysHideClearSky: true);
             if (currentFaction is not null && currentFaction != contactEntry.FactionName)
             {
                 contactEntry.FactionName = currentFaction;
@@ -516,7 +518,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             {
                 if (!recipientServer.Contacts.ContainsKey(server.MessengerId))
                 {
-                    var dmSenderFaction = ResolveContactFaction(senderKey);
+                    var dmSenderFaction = ResolveContactFaction(senderKey, alwaysHideClearSky: true);
                     recipientServer.Contacts[server.MessengerId] = new STContactEntry(
                         server.OwnerUserId, senderName, dmSenderFaction);
                     AddContactAsync(recipientServer.OwnerUserId, recipientServer.OwnerCharacterName,
@@ -806,7 +808,7 @@ public sealed partial class STMessengerSystem : EntitySystem
         if (server.Contacts.ContainsKey(add.MessengerId))
             return;
 
-        var factionName = ResolveContactFaction(contactIdentity);
+        var factionName = ResolveContactFaction(contactIdentity, alwaysHideClearSky: true);
         server.Contacts[add.MessengerId] = new STContactEntry(
             contactIdentity.UserId, contactIdentity.CharName, factionName);
 
@@ -1036,9 +1038,10 @@ public sealed partial class STMessengerSystem : EntitySystem
         var contactInfos = new List<STMessengerContactInfo>();
         foreach (var (contactMessengerId, contactEntry) in server.Contacts)
         {
-            // Fresh-resolve faction for online contacts; fall back to cached for offline
+            // Fresh-resolve faction for online contacts so faction changes propagate; fall back to cached
+            // for offline. alwaysHideClearSky keeps CS members pinned to Loners on contact lists.
             var contactKey = (contactEntry.UserId, contactEntry.CharacterName);
-            var currentFaction = ResolveContactFaction(contactKey);
+            var currentFaction = ResolveContactFaction(contactKey, alwaysHideClearSky: true);
             if (currentFaction is not null && currentFaction != contactEntry.FactionName)
             {
                 contactEntry.FactionName = currentFaction;
@@ -1312,7 +1315,13 @@ public sealed partial class STMessengerSystem : EntitySystem
     /// Resolves the current faction of an online contact by looking up their session's attached entity.
     /// Returns null if the contact is offline or has no faction.
     /// </summary>
-    private string? ResolveContactFaction((Guid UserId, string CharName) contactKey)
+    /// <param name="alwaysHideClearSky">
+    /// If true, Clear Sky members always render as Loners regardless of patch-hide state. Used by
+    /// contact-list surfaces — a player who saved a CS member while they were disguised must not have
+    /// the contact retroactively flip to "Clear Sky" once the CS player un-disguises.
+    /// Message faction tags pass false so they freeze at send time according to live disguise state.
+    /// </param>
+    private string? ResolveContactFaction((Guid UserId, string CharName) contactKey, bool alwaysHideClearSky = false)
     {
         if (!_playerManager.TryGetSessionById(new NetUserId(contactKey.UserId), out var session))
             return null;
@@ -1326,9 +1335,9 @@ public sealed partial class STMessengerSystem : EntitySystem
         if (MetaData(mob).EntityName != contactKey.CharName)
             return null;
 
-        // Clear Sky always shows as Loners (stalker patch) on PDA
-        if (bands.BandProto == ClearSkyBandId)
-            return _factionResolution.GetBandFactionName("Stalker");
+        // Clear Sky maps to Loners when (a) actively disguised, or (b) on a contact-list surface (anti-leak).
+        if (bands.BandProto == ClearSkyBandId && (bands.IsDisguised || alwaysHideClearSky))
+            return _factionResolution.GetBandFactionName(bands.BandName);
 
         if (bands.BandProto is not { } bandProtoId)
             return null;
@@ -1490,7 +1499,7 @@ public sealed partial class STMessengerSystem : EntitySystem
         if (server.Contacts.ContainsKey(contactMessengerId))
             return false;
 
-        var factionName = ResolveContactFaction(contactIdentity);
+        var factionName = ResolveContactFaction(contactIdentity, alwaysHideClearSky: true);
         server.Contacts[contactMessengerId] = new STContactEntry(
             contactIdentity.UserId, contactIdentity.CharName, factionName);
 

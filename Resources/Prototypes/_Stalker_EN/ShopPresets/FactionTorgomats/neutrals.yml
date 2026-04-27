@@ -236,7 +236,9 @@
       ClothingOuterArmorZaryaNeutral: 2000 # T2 - PVE
       STSkinsKitNeutral: 500
       STClothingOuterArmorSevaNeutral: 4500
+      ClothingOuterArmorAborigineNeutral: 8000 # T3 - PVE// 20% off price
       STClothingOuterArmorLepestokNeutralEN: 14000
+
 
   - name: shop-category-storage-and-containers
     priority: 7
@@ -276,6 +278,7 @@
       ClothingCloakShortCoverBlack: 1000
       ClothingOuterCoatDoshdevik: 100 # T1
       ClothingOuterCoatStalker: 1000
+      ClothingOuterCoatNeutralPoncho: 1000
       ClothingOuterCoatLoyalistLight: 2500
       ClothingOuterCoatLoyalist: 3000
       ClothingOuterCoatPoisk: 500 # t0

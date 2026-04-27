@@ -152,11 +152,12 @@
     - type: GrantsArtifactSlots
       slots: 5 # EN
 
+# EN
 - type: entity
   parent: STClothingHeadHardsuitSevaHelmBase
   id: ClothingHeadHardsuitSevaHelmSciMauve
-  name: шлем севы
-  description: Несмотря, на преимущественно стеклянную состовляющую, довольно прочный.
+  name: Mauve Seva Helmet
+  description: "A specialized SEVA in a striking shade of purple purpose built for psionic shielding"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

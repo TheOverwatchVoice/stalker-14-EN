@@ -204,7 +204,7 @@
     torso: ClothingTorsoShirtWhiteScientific
     outerClothing: ClothingOuterCoatLabSeniorResearcher
     head: ClothingHeadHatBeretRND
-    gloves: ClothingHandsGlovesNitrile
+    gloves: ClothingHandsGlovesLatex # EN
 
 # - type: stBand # Stalker-TODO: Why not combine them all under "STSciBand" band prototype? Also, factionId "ScientistsDecan" does not exist!
   # id: STSciDecanBand
@@ -223,7 +223,7 @@
     dogtag: ClothingNeckDogtagEcoLeader # EN
     outerClothing: ClothingOuterCoatRD
     head: ClothingHeadBeretUN
-    gloves: ClothingHandsGlovesNitrile
+    gloves: ClothingHandsGlovesLatex # EN
 
 # - type: stBand # Stalker-TODO: Why not combine them all under "STSciBand" band prototype? Also, factionId "ScientistsRector" does not exist!
   # id: STSciRectorBand

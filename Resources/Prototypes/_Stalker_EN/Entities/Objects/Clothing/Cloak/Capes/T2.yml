@@ -134,3 +134,47 @@
     slots:
     - Hair
     - HeadTop
+
+- type: entity
+  parent: STClothingCapeT2Base
+  id: ClothingOuterCoatNeutralPoncho
+  name: Neutral poncho 'Teachers Embrace'
+  suffix: ST, T2
+  description: Handzone by one of the oldest neutrals to be given as gifts for her fellow teachers
+  components:
+  - type: STWeight
+    self: 1.5
+  - type: Armor
+    armorClass: 2
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Heat: 0.95
+        Cold: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/neutral_poncho.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/neutral_poncho.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetNeutralPoncho
+
+- type: entity
+  parent: STClothingHeadHatBase
+  id: ClothingHeadHelmetNeutralPoncho
+  name: neutral poncho hood
+  categories: [ HideSpawnMenu ]
+  description: Messes with hair
+  components:
+  - type: STWeight
+    self: 0.1
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/hats/coat_hat_neutral_poncho.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/hats/coat_hat_neutral_poncho.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop

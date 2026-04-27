@@ -658,8 +658,8 @@ public sealed class STBulletinBoardSystem : EntitySystem
         if (!TryComp<BandsComponent>(uid, out var bands))
             return null;
 
-        // Only Clear Sky is disguised as Loners on PDA
-        if (bands.BandProto == ClearSkyBandId)
+        // Clear Sky shows as Loners only while their patch is hidden (disguised)
+        if (bands.IsDisguised && bands.BandProto == ClearSkyBandId)
             return _factionResolution.GetBandFactionName(bands.BandName);
 
         if (bands.BandProto is not { } bandProtoId)

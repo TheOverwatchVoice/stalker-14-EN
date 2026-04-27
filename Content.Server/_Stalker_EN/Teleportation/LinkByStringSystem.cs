@@ -19,16 +19,10 @@ public sealed class LinkByStringSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LinkByStringComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<LinkByStringComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<LinkByStringComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnStartup(Entity<LinkByStringComponent> ent, ref ComponentStartup args)
-    {
-        TryLink(ent);
-    }
-
-    private void OnHandleState(Entity<LinkByStringComponent> ent, ref ComponentHandleState args)
+    private void OnMapInit(Entity<LinkByStringComponent> ent, ref MapInitEvent args)
     {
         TryLink(ent);
     }

@@ -140,6 +140,39 @@ public sealed partial class STMessengerSystem : EntitySystem
     /// </summary>
     private List<STMessengerChannelPrototype> _sortedChannels = new();
 
+    /// <summary>
+    /// Coalesces multiple <see cref="BroadcastUiUpdate"/> calls in the same tick into a single
+    /// flush in <see cref="Update"/>. Without this, every message/contact event amplifies into
+    /// O(active_loaders * contacts) work per event.
+    /// </summary>
+    private bool _broadcastPending;
+
+    /// <summary>
+    /// Chat ID filter for the next coalesced broadcast (mirrors <see cref="BroadcastUiUpdate"/>'s
+    /// <c>changedChatId</c> parameter). Null means "no filter / broadcast to all loaders". Once
+    /// any pending event drops the filter (or two events disagree on the chat id), it stays null.
+    /// </summary>
+    private string? _broadcastChatHint;
+
+    /// <summary>
+    /// Tracks whether <see cref="_broadcastChatHint"/> is meaningful for the current pending
+    /// broadcast — distinguishes "explicitly null filter (broadcast to all)" from the freshly
+    /// cleared state.
+    /// </summary>
+    private bool _broadcastChatHintInitialized;
+
+    /// <summary>
+    /// Per-broadcast resolution cache for contact factions. Keyed by (userId, charName, alwaysHideClearSky).
+    /// Cleared at the start of each coalesced broadcast so values stay fresh across ticks but are
+    /// reused across loaders that share the same contact within a single broadcast.
+    /// </summary>
+    private readonly Dictionary<(Guid, string, bool), string?> _factionResolveCache = new();
+
+    /// <summary>
+    /// Per-broadcast resolution cache for contact rank icons. See <see cref="_factionResolveCache"/>.
+    /// </summary>
+    private readonly Dictionary<(Guid, string), string?> _rankResolveCache = new();
+
     private WebhookIdentifier? _webhookIdentifier;
 
     /// <summary>
@@ -179,6 +212,45 @@ public sealed partial class STMessengerSystem : EntitySystem
     {
         base.Shutdown();
         _config.UnsubValueChanged(STCCVars.MessengerDiscordWebhook, OnWebhookChanged);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (!_broadcastPending)
+            return;
+
+        var hint = _broadcastChatHint;
+        _broadcastPending = false;
+        _broadcastChatHint = null;
+        _broadcastChatHintInitialized = false;
+
+        // Per-broadcast resolution cache: shared across all loaders processed in this flush.
+        _factionResolveCache.Clear();
+        _rankResolveCache.Clear();
+
+        BroadcastUiUpdate(hint);
+    }
+
+    /// <summary>
+    /// Marks a UI broadcast as pending; the actual fan-out runs once at the next <see cref="Update"/>.
+    /// Multiple calls in the same tick collapse into one broadcast, and conflicting chat-id filters
+    /// widen to "all" (null hint).
+    /// </summary>
+    private void MarkBroadcastPending(string? chatId)
+    {
+        if (!_broadcastPending)
+        {
+            _broadcastPending = true;
+            _broadcastChatHint = chatId;
+            _broadcastChatHintInitialized = true;
+            return;
+        }
+
+        // Already pending — widen the filter if the new event disagrees with the prior hint.
+        if (_broadcastChatHintInitialized && _broadcastChatHint != chatId)
+            _broadcastChatHint = null;
     }
 
     private void OnWebhookChanged(string value)
@@ -579,7 +651,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             }
         }
 
-        BroadcastUiUpdate(chatId);
+        MarkBroadcastPending(chatId);
     }
 
     /// <summary>
@@ -819,7 +891,7 @@ public sealed partial class STMessengerSystem : EntitySystem
             $"{ToPrettyString(args.Actor):player} added messenger contact " +
             $"{contactIdentity.CharName} (ID: {add.MessengerId})");
 
-        BroadcastUiUpdate();
+        MarkBroadcastPending(null);
     }
 
     private void OnRemoveContact(
@@ -1040,8 +1112,10 @@ public sealed partial class STMessengerSystem : EntitySystem
         {
             // Fresh-resolve faction for online contacts so faction changes propagate; fall back to cached
             // for offline. alwaysHideClearSky keeps CS members pinned to Loners on contact lists.
+            // Cached variant: when multiple loaders share this contact within a single coalesced
+            // broadcast (see Update + _factionResolveCache), we resolve each contact once.
             var contactKey = (contactEntry.UserId, contactEntry.CharacterName);
-            var currentFaction = ResolveContactFaction(contactKey, alwaysHideClearSky: true);
+            var currentFaction = ResolveContactFactionCached(contactKey, alwaysHideClearSky: true);
             if (currentFaction is not null && currentFaction != contactEntry.FactionName)
             {
                 contactEntry.FactionName = currentFaction;
@@ -1049,7 +1123,7 @@ public sealed partial class STMessengerSystem : EntitySystem
                     contactEntry.UserId, contactEntry.CharacterName, currentFaction);
             }
 
-            var rankIcon = ResolveContactRankIcon(contactKey);
+            var rankIcon = ResolveContactRankIconCached(contactKey);
 
             contactInfos.Add(new STMessengerContactInfo(
                 contactEntry.CharacterName,
@@ -1259,6 +1333,11 @@ public sealed partial class STMessengerSystem : EntitySystem
         _messengerPdas.Clear();
         _anonymousPseudonyms.Clear();
         _usedPseudonyms.Clear();
+        _factionResolveCache.Clear();
+        _rankResolveCache.Clear();
+        _broadcastPending = false;
+        _broadcastChatHint = null;
+        _broadcastChatHintInitialized = false;
         // Do NOT clear _messengerIdCache or _characterToMessengerId — IDs persist across rounds
 
         foreach (var proto in _sortedChannels)
@@ -1292,6 +1371,38 @@ public sealed partial class STMessengerSystem : EntitySystem
     #endregion
 
     #region Helpers
+
+    /// <summary>
+    /// Per-broadcast cached variant of <see cref="ResolveContactRankIcon"/>. Used inside
+    /// <see cref="BuildUiState"/> so multiple loaders sharing the same contact within a coalesced
+    /// broadcast resolve that contact's rank only once. Cache is cleared at the start of each
+    /// coalesced broadcast in <see cref="Update"/>.
+    /// </summary>
+    private string? ResolveContactRankIconCached((Guid UserId, string CharName) contactKey)
+    {
+        var cacheKey = (contactKey.UserId, contactKey.CharName);
+        if (_rankResolveCache.TryGetValue(cacheKey, out var cached))
+            return cached;
+
+        var live = ResolveContactRankIcon(contactKey);
+        _rankResolveCache[cacheKey] = live;
+        return live;
+    }
+
+    /// <summary>
+    /// Per-broadcast cached variant of <see cref="ResolveContactFaction"/>. See
+    /// <see cref="ResolveContactRankIconCached"/> for the cache lifecycle.
+    /// </summary>
+    private string? ResolveContactFactionCached((Guid UserId, string CharName) contactKey, bool alwaysHideClearSky = false)
+    {
+        var cacheKey = (contactKey.UserId, contactKey.CharName, alwaysHideClearSky);
+        if (_factionResolveCache.TryGetValue(cacheKey, out var cached))
+            return cached;
+
+        var live = ResolveContactFaction(contactKey, alwaysHideClearSky);
+        _factionResolveCache[cacheKey] = live;
+        return live;
+    }
 
     /// <summary>
     /// Resolves the current rank icon of an online contact by looking up their session's attached entity.

@@ -257,6 +257,9 @@ public sealed partial class STNewsSystem : EntitySystem
         if (!_cacheReady)
             return;
 
+        if (!Resolve(uid, ref comp))
+            return;
+
         var newIds = GetNewArticleIds(comp);
         var canWrite = HasJournalistAccessForLoader(args.LoaderUid);
         var deletableIds = GetDeletableArticleIdsForLoader(args.LoaderUid);

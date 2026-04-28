@@ -46,9 +46,12 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
         var comp = RetrieveCartridgeComponent(activeUI);
         var control = ui?.GetUIFragmentRoot();
 
-        // Skip if the same fragment is already attached.
-        if (_activeCartridgeUI == ui && _activeUiFragment is not null)
+        // Skip if the same fragment is already attached, but still update the cartridge UI state
+        if (_activeCartridgeUI == ui && _activeUiFragment is not null && _activeCartridgeUI is not null)
+        {
+            _activeCartridgeUI.UpdateState(state);
             return;
+        }
 
         if (_activeUiFragment is not null)
             DetachCartridgeUI(_activeUiFragment);

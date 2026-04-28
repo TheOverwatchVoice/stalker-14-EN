@@ -2812,5 +2812,12 @@
   id: 306
   time: '2026-04-27T12:18:43.576936+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/885
+- author: nathan736
+  changes:
+  - message: Bodys now rot when 15 minutes has passed,
+    type: Tweak
+  id: 307
+  time: '2026-04-28T03:32:50.272373+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/884
 Name: Stalker
 Order: -1

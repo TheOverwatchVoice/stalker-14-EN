@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.CartridgeLoader.Events;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.PDA;
 using Content.Shared.CartridgeLoader;
@@ -113,7 +114,17 @@ public sealed class CartridgeLoaderSystem : SharedCartridgeLoaderSystem
             return;
 
         var programs = GetAvailablePrograms(loaderUid, loader);
-        var state = new CartridgeLoaderUiState(programs, GetNetEntity(loader.ActiveProgram));
+
+        // Get the active program's state synchronously
+        BoundUserInterfaceState? activeProgramState = null;
+        if (loader.ActiveProgram.HasValue)
+        {
+            var ev = new CartridgeGetStateEvent(loaderUid);
+            RaiseLocalEvent(loader.ActiveProgram.Value, ev);
+            activeProgramState = ev.State;
+        }
+
+        var state = new CartridgeLoaderUiState(programs, GetNetEntity(loader.ActiveProgram), activeProgramState);
         _userInterfaceSystem.SetUiState(loaderUid, loader.UiKey, state);
     }
 

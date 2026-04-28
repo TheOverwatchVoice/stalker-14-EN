@@ -3,6 +3,7 @@ using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.CartridgeLoader;
+using Content.Server.CartridgeLoader.Events;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
@@ -78,6 +79,7 @@ public sealed partial class STNewsSystem : EntitySystem
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeActivatedEvent>(OnCartridgeActivated);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeDeactivatedEvent>(OnCartridgeDeactivated);
+        SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeGetStateEvent>(OnGetState);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeMessageEvent>(OnMessage);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeAddedEvent>(OnCartridgeAdded);
         SubscribeLocalEvent<STNewsCartridgeComponent, STOpenNewsArticleEvent>(OnOpenArticle);
@@ -248,6 +250,26 @@ public sealed partial class STNewsSystem : EntitySystem
             GetCachedSummaries(), canWrite, openArticleId, openArticle, newIds,
             canDelete, comments, deletableIds, newCommentIds, articleReactions);
         _cartridgeLoader.UpdateCartridgeUiState(args.Loader, state);
+    }
+
+    private void OnGetState(EntityUid uid, STNewsCartridgeComponent? comp, CartridgeGetStateEvent args)
+    {
+        if (!_cacheReady)
+            return;
+
+        if (!Resolve(uid, ref comp))
+            return;
+
+        var newIds = GetNewArticleIds(comp);
+        var canWrite = HasJournalistAccessForLoader(args.LoaderUid);
+        var deletableIds = GetDeletableArticleIdsForLoader(args.LoaderUid);
+        var newCommentIds = GetNewCommentArticleIds(comp);
+        var viewerUserId = ResolveViewerUserId(args.LoaderUid);
+        var articleReactions = BuildAllArticleReactions(viewerUserId);
+        var state = new STNewsUiState(
+            GetCachedSummaries(), canWrite, null, null, newIds,
+            false, null, deletableIds, newCommentIds, articleReactions);
+        args.State = state;
     }
 
     private void OnCartridgeAdded(EntityUid uid, STNewsCartridgeComponent comp, CartridgeAddedEvent args)

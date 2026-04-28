@@ -29,8 +29,9 @@ namespace Content.Shared.PDA
             bool hasUplink = false,
             bool canPlayMusic = false,
             string? address = null,
-            bool silentModeEnabled = false) // stalker-changes
-            : base(programs, activeUI)
+            bool silentModeEnabled = false, // stalker-changes
+            BoundUserInterfaceState? activeProgramState = null) // stalker-en-changes
+            : base(programs, activeUI, activeProgramState)
         {
             FlashlightEnabled = flashlightEnabled;
             HasPen = hasPen;

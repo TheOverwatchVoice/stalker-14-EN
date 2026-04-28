@@ -252,7 +252,7 @@ public sealed partial class STNewsSystem : EntitySystem
         _cartridgeLoader.UpdateCartridgeUiState(args.Loader, state);
     }
 
-    private void OnGetState(EntityUid uid, STNewsCartridgeComponent comp, CartridgeGetStateEvent args)
+    private void OnGetState(EntityUid uid, STNewsCartridgeComponent? comp, CartridgeGetStateEvent args)
     {
         if (!_cacheReady)
             return;

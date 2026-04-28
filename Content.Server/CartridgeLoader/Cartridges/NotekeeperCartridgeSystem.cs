@@ -27,7 +27,7 @@ public sealed class NotekeeperCartridgeSystem : EntitySystem
         UpdateUiState(uid, args.Loader, component);
     }
 
-    private void OnGetState(EntityUid uid, NotekeeperCartridgeComponent component, CartridgeGetStateEvent args)
+    private void OnGetState(EntityUid uid, NotekeeperCartridgeComponent? component, CartridgeGetStateEvent args)
     {
         if (!Resolve(uid, ref component))
             return;

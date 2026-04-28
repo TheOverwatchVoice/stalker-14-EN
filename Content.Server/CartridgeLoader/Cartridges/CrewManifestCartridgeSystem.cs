@@ -54,7 +54,7 @@ public sealed class CrewManifestCartridgeSystem : EntitySystem
         UpdateUiState(uid, args.Loader, component);
     }
 
-    private void OnGetState(EntityUid uid, CrewManifestCartridgeComponent component, CartridgeGetStateEvent args)
+    private void OnGetState(EntityUid uid, CrewManifestCartridgeComponent? component, CartridgeGetStateEvent args)
     {
         if (!Resolve(uid, ref component))
             return;

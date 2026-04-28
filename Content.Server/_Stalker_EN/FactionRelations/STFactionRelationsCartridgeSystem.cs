@@ -324,8 +324,11 @@ public sealed class STFactionRelationsCartridgeSystem : EntitySystem
         _cartridgeLoaderSystem.UpdateCartridgeUiState(args.Loader, state);
     }
 
-    private void OnGetState(EntityUid uid, STFactionRelationsCartridgeComponent component, CartridgeGetStateEvent args)
+    private void OnGetState(EntityUid uid, STFactionRelationsCartridgeComponent? component, CartridgeGetStateEvent args)
     {
+        if (!Resolve(uid, ref component))
+            return;
+
         args.State = BuildUiState();
     }
 

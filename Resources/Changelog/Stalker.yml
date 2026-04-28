@@ -2836,5 +2836,12 @@
   id: 309
   time: '2026-04-28T19:31:24.447881+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/891
+- author: crocodilecarousel
+  changes:
+  - message: Rules for base raids
+    type: Add
+  id: 310
+  time: '2026-04-28T20:33:19.929673+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/889
 Name: Stalker
 Order: -1

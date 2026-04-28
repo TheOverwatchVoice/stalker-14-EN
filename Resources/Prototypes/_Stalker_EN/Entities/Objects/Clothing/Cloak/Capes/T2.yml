@@ -178,3 +178,83 @@
     slots:
     - Hair
     - HeadTop
+
+- type: entity
+  parent: STClothingCapeT2Base
+  id: ClothingOuterCoatDutyCOPoncho
+  name: Duty commissioned officer poncho
+  suffix: ST, T2
+  description: One out of a series of ponchos made of a mix of synthetic fabrics arranged by Duty artisans.
+  components:
+  - type: STWeight
+    self: 1.5
+  - type: Armor
+    armorClass: 2
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Heat: 0.95
+        Cold: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/duty_co_poncho.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/duty_co_poncho.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatDutyPoncho
+
+- type: entity
+  parent: ClothingOuterCoatDutyCOPoncho
+  id: ClothingOuterCoatDutyNCOPoncho
+  name: Duty non-commissioned officer poncho
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/duty_nco_poncho.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/duty_nco_poncho.rsi
+
+- type: entity
+  parent: ClothingOuterCoatDutyCOPoncho
+  id: ClothingOuterCoatDutyPVTPoncho
+  name: Duty private poncho
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/duty_pvt_poncho.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/duty_pvt_poncho.rsi
+
+- type: entity
+  parent: STClothingCapeT2Base
+  id: ClothingOuterCoatRostokPonchoLoose
+  name: Rostok loose poncho
+  suffix: ST, T2
+  description: A plain black poncho worn by those in Rostok.
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/rostok_poncho1.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/rostok_poncho1.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatRostokPoncho
+
+- type: entity
+  parent: ClothingOuterCoatRostokPonchoLoose
+  id: ClothingOuterCoatRostokPonchoRipped
+  name: Rostok ripped poncho
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/rostok_poncho2.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/rostok_poncho2.rsi
+
+- type: entity
+  parent: ClothingOuterCoatRostokPonchoLoose
+  id: ClothingOuterCoatRostokPonchoHeavy
+  name: Rostok heavy poncho
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/rostok_poncho3.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/rostok_poncho3.rsi

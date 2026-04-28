@@ -2828,5 +2828,13 @@
   id: 308
   time: '2026-04-28T18:55:29.895251+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/893
+- author: Stxcking
+  changes:
+  - message: Added 6 new ponchos to Duty and Rostok and 1 neckwear for Duty General
+      (not available yet)!
+    type: Add
+  id: 309
+  time: '2026-04-28T19:31:24.447881+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/891
 Name: Stalker
 Order: -1

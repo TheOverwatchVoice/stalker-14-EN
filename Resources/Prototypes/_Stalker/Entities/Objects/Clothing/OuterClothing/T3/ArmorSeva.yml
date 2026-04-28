@@ -122,9 +122,9 @@
   description: "A specialized SEVA in a striking shade of purple purpose built for psionic shielding"
   components:
     - type: Sprite
-      sprite: _Stalker/Objects/Clothing/outerClothing/seva_sci_mauve.rsi
+      sprite: _Stalker_EN/Objects/Clothing/outerClothing/seva_sci_mauve.rsi
     - type: Clothing
-      sprite: _Stalker/Objects/Clothing/outerClothing/seva_sci_mauve.rsi
+      sprite: _Stalker_EN/Objects/Clothing/outerClothing/seva_sci_mauve.rsi
     - type: ToggleableClothing
       clothingPrototype: ClothingHeadHardsuitSevaHelmSciMauve
       slot: head
@@ -161,9 +161,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Stalker/Objects/Clothing/hats/seva_sci_helm_mauve.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/seva_sci_helm_mauve.rsi
   - type: Clothing
-    sprite: _Stalker/Objects/Clothing/hats/seva_sci_helm_mauve.rsi
+    sprite: _Stalker_EN/Objects/Clothing/hats/seva_sci_helm_mauve.rsi
   - type: Armor
     armorClass: 1
     modifiers:

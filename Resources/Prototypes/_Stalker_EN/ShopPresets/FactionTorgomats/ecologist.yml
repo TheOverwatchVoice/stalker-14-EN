@@ -226,7 +226,6 @@
         ClothingOuterArmorSSP24Sapfire: 4500
         ClothingOuterArmorSevaSciWhite: 1550
         ClothingOuterArmorSevaSciRed: 1750
-        # ClothingOuterArmorSevaSciMauve: 6000
 
     - name: shop-category-storage-and-containers
       priority: 7

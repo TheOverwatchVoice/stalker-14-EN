@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.CartridgeLoader;
+using Content.Server.CartridgeLoader.Events;
 using Content.Server.Chat.Systems;
 using Content.Server.Database;
 using Content.Server.Discord;
@@ -117,6 +118,7 @@ public sealed class STFactionRelationsCartridgeSystem : EntitySystem
         SubscribeLocalEvent<STFactionRelationsCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<STFactionRelationsCartridgeComponent, CartridgeActivatedEvent>(OnCartridgeActivated);
         SubscribeLocalEvent<STFactionRelationsCartridgeComponent, CartridgeDeactivatedEvent>(OnCartridgeDeactivated);
+        SubscribeLocalEvent<STFactionRelationsCartridgeComponent, CartridgeGetStateEvent>(OnGetState);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
@@ -320,6 +322,11 @@ public sealed class STFactionRelationsCartridgeSystem : EntitySystem
     {
         var state = BuildUiState();
         _cartridgeLoaderSystem.UpdateCartridgeUiState(args.Loader, state);
+    }
+
+    private void OnGetState(EntityUid uid, STFactionRelationsCartridgeComponent component, CartridgeGetStateEvent args)
+    {
+        args.State = BuildUiState();
     }
 
     private void OnCartridgeActivated(EntityUid uid, STFactionRelationsCartridgeComponent component, CartridgeActivatedEvent args)

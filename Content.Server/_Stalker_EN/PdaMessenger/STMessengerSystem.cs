@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
+using Content.Server.CartridgeLoader.Events;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.Mind;
@@ -154,6 +155,7 @@ public sealed partial class STMessengerSystem : EntitySystem
         SubscribeLocalEvent<STMessengerComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<STMessengerComponent, CartridgeActivatedEvent>(OnCartridgeActivated);
         SubscribeLocalEvent<STMessengerComponent, CartridgeDeactivatedEvent>(OnCartridgeDeactivated);
+        SubscribeLocalEvent<STMessengerComponent, CartridgeGetStateEvent>(OnGetState);
         SubscribeLocalEvent<STMessengerComponent, CartridgeMessageEvent>(OnMessage);
         SubscribeLocalEvent<STMessengerServerComponent, EntityTerminatingEvent>(OnMessengerTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
@@ -234,6 +236,14 @@ public sealed partial class STMessengerSystem : EntitySystem
             return;
 
         UpdateUiState(ent, args.Loader, server);
+    }
+
+    private void OnGetState(Entity<STMessengerComponent> ent, ref CartridgeGetStateEvent args)
+    {
+        if (!TryComp<STMessengerServerComponent>(ent, out var server))
+            return;
+
+        args.State = BuildUiState(args.LoaderUid, server);
     }
 
     private void OnCartridgeActivated(Entity<STMessengerComponent> ent, ref CartridgeActivatedEvent args)

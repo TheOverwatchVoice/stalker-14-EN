@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.CartridgeLoader.Events;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
@@ -15,6 +16,7 @@ public sealed class NotekeeperCartridgeSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<NotekeeperCartridgeComponent, CartridgeMessageEvent>(OnUiMessage);
         SubscribeLocalEvent<NotekeeperCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
+        SubscribeLocalEvent<NotekeeperCartridgeComponent, CartridgeGetStateEvent>(OnGetState);
     }
 
     /// <summary>
@@ -23,6 +25,14 @@ public sealed class NotekeeperCartridgeSystem : EntitySystem
     private void OnUiReady(EntityUid uid, NotekeeperCartridgeComponent component, CartridgeUiReadyEvent args)
     {
         UpdateUiState(uid, args.Loader, component);
+    }
+
+    private void OnGetState(EntityUid uid, NotekeeperCartridgeComponent component, CartridgeGetStateEvent args)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        args.State = new NotekeeperUiState(component.Notes);
     }
 
     /// <summary>

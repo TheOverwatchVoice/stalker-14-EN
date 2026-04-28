@@ -114,7 +114,6 @@
     - type: GrantsArtifactSlots
       slots: 5 # EN
 
-
 - type: entity
   parent: STClothingOuterArmorSevaBase
   id: ClothingOuterArmorSevaSciWhite

@@ -2843,5 +2843,13 @@
   id: 310
   time: '2026-04-28T20:33:19.929673+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/889
+- author: teecoding
+  changes:
+  - message: Reduced server load when many players use the PDA Messenger or News cartridge
+      at once.
+    type: Fix
+  id: 311
+  time: '2026-04-29T09:59:36.687424+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/892
 Name: Stalker
 Order: -1

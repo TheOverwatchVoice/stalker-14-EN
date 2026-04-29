@@ -377,7 +377,7 @@
   - type: Contraband # EN
     severity: Monolith
   - type: GrantsArtifactSlots
-    slots: 2 # EN
+    slots: 3 # EN
 
 - type: entity
   parent: STClothingHeadHatHoodBase
@@ -442,7 +442,7 @@
   - type: Clothing
     sprite: _Stalker/Objects/Clothing/outerClothing/jacket_sci.rsi
   - type: GrantsArtifactSlots # Stalker EN
-    slots: 3
+    slots: 2
 
 - type: entity
   parent: STClothingHeadHatBase

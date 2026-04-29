@@ -106,7 +106,7 @@
 - type: stMessengerChannel
   id: STGovernment
   name: st-messenger-channel-gov
-  color: "#668844"
+  color: "#E0B0FF"
   requiredBands:
   - STMilitaryBand
   - STMilitaryStalkerBand

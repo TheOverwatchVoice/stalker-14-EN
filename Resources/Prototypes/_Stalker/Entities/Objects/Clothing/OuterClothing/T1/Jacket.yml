@@ -377,7 +377,7 @@
   - type: Contraband # EN
     severity: Monolith
   - type: GrantsArtifactSlots
-    slots: 3 # EN
+    slots: 2 # EN
 
 - type: entity
   parent: STClothingHeadHatHoodBase

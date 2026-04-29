@@ -1,6 +1,6 @@
 - type: entity
   name: Field Scientist ID
-  id: fieldScientistPermit.png
+  id: fieldScientistPermit
   parent: BookBase
   suffix: Stalker, Document, Scientists
   description: Identification papers for field scientists contracted by Ecology.

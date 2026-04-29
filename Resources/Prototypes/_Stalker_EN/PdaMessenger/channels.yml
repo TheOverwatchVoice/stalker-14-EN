@@ -102,3 +102,14 @@
   requiredBands:
   - STRenegatsBand
   sortOrder: 20
+
+- type: stMessengerChannel
+  id: STGovernment
+  name: st-messenger-channel-gov
+  color: "#E0B0FF"
+  requiredBands:
+  - STMilitaryBand
+  - STMilitaryStalkerBand
+  - STUNBand
+  - STSciBand
+  sortOrder: 21

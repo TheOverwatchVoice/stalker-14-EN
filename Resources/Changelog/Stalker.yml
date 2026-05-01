@@ -2879,5 +2879,13 @@
   id: 315
   time: '2026-05-01T11:43:46.247108+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/902
+- author: BELNAKBU
+  changes:
+  - message: Added a new cartridge for the PDA leaderboard. The data in it is saved
+      until the server restarts. After that, everything resets.
+    type: Add
+  id: 316
+  time: '2026-05-01T20:19:49.892244+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/882
 Name: Stalker
 Order: -1

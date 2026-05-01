@@ -25,6 +25,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.CartridgeLoader.Events;
 
 namespace Content.Server.PDA
 {
@@ -222,6 +223,15 @@ namespace Content.Server.PDA
             var silentModeEnabled = TryComp<STSilentModeComponent>(uid, out var silentMode) && silentMode.Enabled;
             // stalker-changes-end
 
+            // Get the active program's state synchronously
+            BoundUserInterfaceState? activeProgramState = null;
+            if (loader.ActiveProgram.HasValue)
+            {
+                var ev = new CartridgeGetStateEvent(uid);
+                RaiseLocalEvent(loader.ActiveProgram.Value, ev);
+                activeProgramState = ev.State;
+            }
+
             var state = new PdaUpdateState(
                 programs,
                 GetNetEntity(loader.ActiveProgram),
@@ -241,7 +251,8 @@ namespace Content.Server.PDA
                 showUplink,
                 hasInstrument,
                 address,
-                silentModeEnabled); // stalker-changes
+                silentModeEnabled, // stalker-changes
+                activeProgramState); // stalker-en-changes
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }

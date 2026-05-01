@@ -441,6 +441,8 @@
     sprite: _Stalker/Objects/Clothing/outerClothing/jacket_sci.rsi
   - type: Clothing
     sprite: _Stalker/Objects/Clothing/outerClothing/jacket_sci.rsi
+  - type: GrantsArtifactSlots # Stalker EN
+    slots: 2
 
 - type: entity
   parent: STClothingHeadHatBase

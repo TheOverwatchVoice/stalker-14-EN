@@ -1,5 +1,6 @@
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.CartridgeLoader;
+using Content.Server.CartridgeLoader.Events;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
@@ -27,6 +28,7 @@ public sealed class NanoTaskCartridgeSystem : SharedNanoTaskCartridgeSystem
 
         SubscribeLocalEvent<NanoTaskCartridgeComponent, CartridgeMessageEvent>(OnUiMessage);
         SubscribeLocalEvent<NanoTaskCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
+        SubscribeLocalEvent<NanoTaskCartridgeComponent, CartridgeGetStateEvent>(OnGetState);
 
         SubscribeLocalEvent<NanoTaskCartridgeComponent, CartridgeRemovedEvent>(OnCartridgeRemoved);
 
@@ -66,6 +68,11 @@ public sealed class NanoTaskCartridgeSystem : SharedNanoTaskCartridgeSystem
     private void OnUiReady(Entity<NanoTaskCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
         UpdateUiState(ent, args.Loader);
+    }
+
+    private void OnGetState(Entity<NanoTaskCartridgeComponent> ent, ref CartridgeGetStateEvent args)
+    {
+        args.State = new NanoTaskUiState(ent.Comp.Tasks);
     }
 
     private void SetupPrintedTask(EntityUid uid, NanoTaskItem item)

@@ -10,9 +10,12 @@ public class CartridgeLoaderUiState : BoundUserInterfaceState
     public NetEntity? ActiveUI;
     public List<NetEntity> Programs;
 
-    public CartridgeLoaderUiState(List<NetEntity> programs, NetEntity? activeUI)
+    public BoundUserInterfaceState? ActiveProgramState; //stalker-en-change
+
+    public CartridgeLoaderUiState(List<NetEntity> programs, NetEntity? activeUI, BoundUserInterfaceState? activeProgramState = null)
     {
         Programs = programs;
         ActiveUI = activeUI;
+        ActiveProgramState = activeProgramState;
     }
 }

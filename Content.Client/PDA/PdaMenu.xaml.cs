@@ -380,13 +380,13 @@ namespace Content.Client.PDA
         }
 
         /// <summary>
-        /// Handles server-side program deactivation. If the user is currently viewing a program,
-        /// returns to the Home screen. Safe to call even when no program was active.
+        /// Handles server-side program deactivation. Updates the local active program state
+        /// but does NOT change the view - programs work as tabs, so deactivating one
+        /// should not force a return to Home.
         /// </summary>
         public void OnServerProgramDeactivated()
         {
-            if (_currentView == ProgramContentViewIndex)
-                ToHomeScreen();
+            _activeProgram = null;
         }
 
 

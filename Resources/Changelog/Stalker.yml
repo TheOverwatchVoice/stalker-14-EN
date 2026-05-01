@@ -2805,5 +2805,79 @@
   id: 305
   time: '2026-04-25T23:37:39.921166+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/878
+- author: Cassandra
+  changes:
+  - message: The dean no longer has a LaTeX allergy
+    type: Tweak
+  id: 306
+  time: '2026-04-27T12:18:43.576936+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/885
+- author: nathan736
+  changes:
+  - message: Bodys now rot when 15 minutes has passed,
+    type: Tweak
+  id: 307
+  time: '2026-04-28T03:32:50.272373+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/884
+- author: BELNAKBU
+  changes:
+  - message: program highlighting
+    type: Fix
+  - message: Fix those laggy and depending on ping program tab
+    type: Fix
+  id: 308
+  time: '2026-04-28T18:55:29.895251+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/893
+- author: Stxcking
+  changes:
+  - message: Added 6 new ponchos to Duty and Rostok and 1 neckwear for Duty General
+      (not available yet)!
+    type: Add
+  id: 309
+  time: '2026-04-28T19:31:24.447881+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/891
+- author: crocodilecarousel
+  changes:
+  - message: Rules for base raids
+    type: Add
+  id: 310
+  time: '2026-04-28T20:33:19.929673+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/889
+- author: teecoding
+  changes:
+  - message: Reduced server load when many players use the PDA Messenger or News cartridge
+      at once.
+    type: Fix
+  id: 311
+  time: '2026-04-29T09:59:36.687424+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/892
+- author: Cassandra
+  changes:
+  - message: New experimental SEVA
+    type: Add
+  id: 312
+  time: '2026-04-29T10:01:18.105958+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/895
+- author: Cassandra
+  changes:
+  - message: Eco lab coat now adds artifact slots
+    type: Tweak
+  id: 313
+  time: '2026-04-29T15:46:27.793818+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/888
+- author: Cassandra
+  changes:
+  - message: Military and eco can now talk
+    type: Add
+  id: 314
+  time: '2026-04-29T20:09:01.424413+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/897
+- author: Cassandra
+  changes:
+  - message: PDA messenger can now store more contacts
+    type: Tweak
+  id: 315
+  time: '2026-05-01T11:43:46.247108+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/902
 Name: Stalker
 Order: -1

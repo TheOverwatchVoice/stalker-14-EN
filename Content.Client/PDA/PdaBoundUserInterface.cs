@@ -133,11 +133,18 @@ namespace Content.Client.PDA
             {
                 return;
             }
+            else if (cartridgeState != null)
+            {
+                // For CartridgeLoaderUiState (sent on program activate/deactivate), sync the active program
+                // so the UI highlights the correct program immediately
+                _menu.SyncActiveProgram(serverActiveProgram);
+            }
 
             // Server is the source of truth for which view to show.
             if (serverActiveProgram != null)
                 _menu.ToProgramView();
-            else if (serverActiveProgram.HasValue)
+            else if (state is PdaUpdateState)
+                // Only deactivate on PdaUpdateState with null active program
                 _menu.OnServerProgramDeactivated();
         }
 

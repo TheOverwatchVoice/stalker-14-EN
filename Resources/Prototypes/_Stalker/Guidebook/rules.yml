@@ -79,6 +79,7 @@
   - RuleF8
   - RuleF9
   - RuleF10
+  - RuleF11
 
 - type: guideEntry
   id: RuleC10Stalker
@@ -112,7 +113,7 @@
 
 - type: guideEntry
   id: RuleF5
-  name: Militia
+  name: Neutrals
   ruleEntry: true
   text: "/ServerInfo/Guidebook/ServerRules/Stalker14Rules/FactionRules/RuleF5.xml"
 
@@ -145,3 +146,9 @@
   name: Clear Sky
   ruleEntry: true
   text: "/ServerInfo/Guidebook/ServerRules/Stalker14Rules/FactionRules/RuleF10.xml"
+
+- type: guideEntry
+  id: RuleF11
+  name: Misc
+  ruleEntry: true
+  text: "/ServerInfo/Guidebook/ServerRules/Stalker14Rules/FactionRules/RuleF11.xml"

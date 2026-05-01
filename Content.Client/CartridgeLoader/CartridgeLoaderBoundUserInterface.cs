@@ -40,15 +40,18 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
 
         var activeUI = _entManager.GetEntity(loaderUiState.ActiveUI);
 
-        _activeProgram = activeUI;
-
         var ui = RetrieveCartridgeUI(activeUI);
         var comp = RetrieveCartridgeComponent(activeUI);
         var control = ui?.GetUIFragmentRoot();
 
-        // Skip if the same fragment is already attached.
-        if (_activeCartridgeUI == ui && _activeUiFragment is not null)
+        // Skip if the same fragment is already attached, but still update the cartridge UI state
+        if (_activeCartridgeUI == ui && _activeUiFragment is not null && _activeCartridgeUI is not null)
+        {
+            _activeCartridgeUI.UpdateState(state);
             return;
+        }
+
+        _activeProgram = activeUI;
 
         if (_activeUiFragment is not null)
             DetachCartridgeUI(_activeUiFragment);
@@ -60,13 +63,18 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
             return;
         }
 
+        _activeCartridgeUI = ui;
+
         if (control is not null && _activeProgram.HasValue)
         {
             AttachCartridgeUI(control, Loc.GetString(comp?.ProgramName ?? "default-program-name"));
-            SendCartridgeUiReadyEvent(_activeProgram.Value);
+
+            if (loaderUiState.ActiveProgramState != null)
+                _activeCartridgeUI?.UpdateState(loaderUiState.ActiveProgramState);
+            else
+                SendCartridgeUiReadyEvent(_activeProgram.Value); // fallback
         }
 
-        _activeCartridgeUI = ui;
         _activeUiFragment?.Dispose();
         _activeUiFragment = control;
     }

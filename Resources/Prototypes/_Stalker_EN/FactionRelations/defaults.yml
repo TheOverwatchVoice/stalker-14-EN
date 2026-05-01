@@ -18,8 +18,10 @@
     - Rookies
     - Journalists
     - UN
+    - Zombiefied
   bandMapping:
     Stalker: Loners
+    stalker: Loners # TODO: Change altBand system to proper mapping
     Freedom: Freedom
     Bandits: Bandits
     Dolg: Duty
@@ -32,17 +34,21 @@
     Renegades: Renegades
     Journalists: Journalists
     UN: UN
+    Zombiefied: Zombiefied
   factionGroups:
     Loners:
       - Rookies
       - Neutrals
       - Journalists
+    Monolith:
+      - Zombiefied
   restrictedFactions:
     - Loners
     - Monolith
   hiddenFactions:
     - Journalists
     - UN
+    - Zombiefied
   displayNames:
     ClearSky: Clear Sky
   # Pairwise relation transitions players cannot initiate. Pair order is ignored.

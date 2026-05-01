@@ -2872,5 +2872,12 @@
   id: 314
   time: '2026-04-29T20:09:01.424413+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/897
+- author: Cassandra
+  changes:
+  - message: PDA messenger can now store more contacts
+    type: Tweak
+  id: 315
+  time: '2026-05-01T11:43:46.247108+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/902
 Name: Stalker
 Order: -1

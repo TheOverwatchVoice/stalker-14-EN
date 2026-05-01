@@ -62,7 +62,7 @@ public sealed partial class STMessengerSystem : EntitySystem
 
     private const int MaxChannelMessages = 200;
     private const int MaxDmMessages = 100;
-    private const int MaxContacts = 50;
+    private const int MaxContacts = 255;
     private const int MaxRetryCollision = 10;
     private const int MaxPseudonymSuffix = 999;
     private static readonly TimeSpan InteractionCooldown = TimeSpan.FromSeconds(0.5);

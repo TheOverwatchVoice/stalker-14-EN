@@ -160,6 +160,9 @@
     sprite: _Stalker_EN/Objects/Clothing/cloak/neutral_poncho.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetNeutralPoncho
+  - type: HideLayerClothing
+    slots:
+    - FacialHair
 
 - type: entity
   parent: STClothingHeadHatBase
@@ -178,6 +181,7 @@
     slots:
     - Hair
     - HeadTop
+    - FacialHair
 
 - type: entity
   parent: STClothingCapeT2Base

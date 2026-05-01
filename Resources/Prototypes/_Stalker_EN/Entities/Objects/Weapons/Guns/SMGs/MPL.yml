@@ -28,7 +28,7 @@
     - type: ItemSlots
       slots:
         gun_magazine:
-          name: Magazine
+          name: 9x19 MPL Magazine (32)
           startingItem: MPLMag32
           insertSound: /Audio/_Stalker/Weapons/Guns/RifleGen/MagIn/rifle_magin.ogg
           ejectSound: /Audio/_Stalker/Weapons/Guns/RifleGen/MagOut/rifle_magout.ogg
@@ -50,7 +50,7 @@
             - STWeaponModuleSMGGrip
         gun_chamber:
           name: Chamber
-          startingItem: STCartridge919PSOGJ
+          startingItem:
           priority: 1
           whitelist:
             tags:

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Made by spriter for Stalker14",
+  "copyright": "Based on Rostock ponchos by Stxcking, modified by DallaSallaD.",
   "size": {
     "x": 32,
     "y": 32
@@ -14,13 +14,13 @@
       "name": "equipped-CLOAK",
       "directions": 4
     },
-      {
-          "name": "inhand-left",
-          "directions": 4
-      },
-      {
-          "name": "inhand-right",
-          "directions": 4
-      }
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
   ]
 }

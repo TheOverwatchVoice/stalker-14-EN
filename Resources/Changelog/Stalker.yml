@@ -2887,5 +2887,12 @@
   id: 316
   time: '2026-05-01T20:19:49.892244+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/882
+- author: TheOverwatchVoice
+  changes:
+  - message: Fixes Neutral TP and Stairs.
+    type: Tweak
+  id: 317
+  time: '2026-05-02T04:09:01.275402+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/905
 Name: Stalker
 Order: -1

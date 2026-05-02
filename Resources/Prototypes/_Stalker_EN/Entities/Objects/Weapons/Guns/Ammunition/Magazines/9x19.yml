@@ -275,7 +275,7 @@
         - STCartridge919
     capacity: 32
   - type: Sprite
-    sprite: _Stalker_EN/Objects/Weapons/Guns/Ammunition/Magazines/919/uzi/32.rsi
+    sprite: _Stalker_EN/Objects/Weapons/Guns/Ammunition/Magazines/919/Uzi/32.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]

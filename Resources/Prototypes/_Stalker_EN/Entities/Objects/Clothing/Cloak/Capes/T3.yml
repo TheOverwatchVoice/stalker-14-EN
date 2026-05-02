@@ -156,3 +156,57 @@
     damage:
       types:
         Radiation: 0
+
+- type: entity
+  parent: ClothingOuterCoatLoyalist
+  id: ClothingOuterCoatKevlarFreedom
+  name: Freedom Kevlar Poncho
+  description: A kevlar-reinforced poncho worn by Freedom fighters.
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/svoboda_poncho.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/svoboda_poncho.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetKevlarFreedom
+    requiredSlot:
+    - cloak
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container {}
+
+- type: entity
+  parent: ClothingOuterCoatKevlarFreedom
+  id: ClothingOuterCoatKevlarFreedomPCC
+  name: Freedom Kevlar PCC Poncho
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/svoboda_poncho_pcc.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/svoboda_poncho_pcc.rsi
+
+- type: entity
+  parent: ClothingOuterCoatKevlarFreedom
+  id: ClothingOuterCoatKevlarFreedomPCB
+  name: Freedom Kevlar PCB Poncho
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/cloak/svoboda_poncho_pcb.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/cloak/svoboda_poncho_pcb.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetLoyalistCoat
+  id: ClothingHeadHelmetKevlarFreedom
+  name: Freedom Poncho Hood
+  description: Sadly too small to fit over your helmet.
+  components:
+  - type: Sprite
+    sprite: _Stalker_EN/Objects/Clothing/hats/coat_hat_poncho_svoboda.rsi
+  - type: Clothing
+    sprite: _Stalker_EN/Objects/Clothing/hats/coat_hat_poncho_svoboda.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair

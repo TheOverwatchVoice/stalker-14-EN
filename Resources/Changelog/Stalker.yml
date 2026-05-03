@@ -2903,5 +2903,12 @@
   id: 318
   time: '2026-05-03T06:40:55.012280+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/904
+- author: Nox38, @DallaSallaD
+  changes:
+  - message: Added new ponchos and a cloak for Freedom!
+    type: Add
+  id: 319
+  time: '2026-05-03T06:42:41.503814+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/906
 Name: Stalker
 Order: -1

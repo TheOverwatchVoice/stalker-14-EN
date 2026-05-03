@@ -124,7 +124,8 @@
       STWeaponRifleAK103Mono: 24 # higher because its technically a faction weapon
       STWeaponRifleStalkerAbakan: 32
       STWeaponShotgunProtecta: 10
-      #STSeraKnife: 3 # removed until oilman lets me add it
+      STSharpenedKnife: 1
+      STKnifeShard: 85 # munny sink
       STWeaponPistolUSP: 2
       #STWeaponSniperSVDMono: 85 # not yet
 

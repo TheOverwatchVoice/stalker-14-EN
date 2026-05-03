@@ -1,42 +1,41 @@
 - type: entity
   abstract: true
   parent: STBaseWeaponSMG
-  id: STBaseWeaponSMGUMP
+  id: STBaseWeaponSMGMPL
   components:
     - type: STWeight
-      self: 2.6
+      self: 3
     - type: Item
-      sprite: _Stalker_EN/Objects/Weapons/Guns/SMGs/ump45.rsi
+      sprite: _Stalker_EN/Objects/Weapons/Guns/SMGs/MPL/MPL.rsi
     - type: Sprite
-      scale: 0.75, 0.75
-      sprite: _Stalker_EN/Objects/Weapons/Guns/SMGs/ump45.rsi
+      scale: 0.70, 0.70
+      sprite: _Stalker_EN/Objects/Weapons/Guns/SMGs/MPL/MPL.rsi
     - type: Clothing
-      sprite: _Stalker_EN/Objects/Weapons/Guns/SMGs/ump45.rsi
+      sprite: _Stalker_EN/Objects/Weapons/Guns/SMGs/MPL/MPL.rsi
     - type: Gun
       projectileSpeed: 50
-      minAngle: 37
-      maxAngle: 57
-      angleIncrease: 1.9
+      minAngle: 45
+      maxAngle: 65
+      angleIncrease: 2.1
       selectedMode: FullAuto
       availableModes:
-      - Burst
       - SemiAuto
       - FullAuto
-      angleDecay: 14
+      angleDecay: 9
       fireRate: 6
       soundGunshot:
-        path: /Audio/_Stalker_EN/Effects/Guns/UMP_shoot.ogg
+        path: /Audio/_Stalker/Effects/Guns/919.ogg
     - type: ItemSlots
       slots:
         gun_magazine:
-          name: Magazine
-          startingItem: UMPMag25
+          name: 9x19 MPL Magazine (32)
+          startingItem: MPLMag32
           insertSound: /Audio/_Stalker/Weapons/Guns/RifleGen/MagIn/rifle_magin.ogg
           ejectSound: /Audio/_Stalker/Weapons/Guns/RifleGen/MagOut/rifle_magout.ogg
           priority: 2
           whitelist:
             tags:
-            - MagazineUMP
+            - MagazineMPL
         gun_module_muzzle:
           name: Muzzle
           priority: 3
@@ -55,11 +54,12 @@
           priority: 1
           whitelist:
             tags:
-            - Cartridge45ACP
+            - STCartridge919
 
 - type: entity
-  parent: STBaseWeaponSMGUMP
-  id: STWeaponSMGUMP
-  name: HK UMP
+  parent: STBaseWeaponSMGMPL
+  id: STWeaponSMGMPL
+  name: Walther "MPL"
+  description: A 9mm submachine gun made in west Germany. Quite durable, so not ill-fitted to the zone's conditions. This one has been modified to chamber mp40 magazines.
 
-  description: The Heckler & Koch UMP submachine gun was designed by German company Heckler & Koch in the 1990s as a lighter and cheaper analog of the MP5. This version is designed to fire a .45 ACP cartridge and has a reduced fire rate of 600 rpm.
+  

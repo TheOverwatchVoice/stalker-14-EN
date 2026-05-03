@@ -2910,5 +2910,12 @@
   id: 319
   time: '2026-05-03T06:42:41.503814+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/906
+- author: crocodilecarousel
+  changes:
+  - message: Adds more knives
+    type: Add
+  id: 320
+  time: '2026-05-03T18:57:15.175659+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/907
 Name: Stalker
 Order: -1

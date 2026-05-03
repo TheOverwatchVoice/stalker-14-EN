@@ -2894,5 +2894,14 @@
   id: 317
   time: '2026-05-02T04:09:01.275402+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/905
+- author: Daunter131
+  changes:
+  - message: The Walther MPL and it's "pahanka" skin.
+    type: Add
+  - message: The Uzi.
+    type: Add
+  id: 318
+  time: '2026-05-03T06:40:55.012280+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/904
 Name: Stalker
 Order: -1

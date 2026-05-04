@@ -139,6 +139,8 @@
   - type: Bands
     band: Stalker
     bandIcon: stalker
+  - type: CharacterPortrait
+    portraitTexturePath: "/Textures/_Stalker_EN/Portraits/admems/admem_1.png"
   # stalker-changes end
 
 - type: entity

@@ -813,7 +813,7 @@
     - id: ClothingBeltBandolierStalker
     - id: ClothingBackpackTacticBeigeStalker
     - id: ClothingCloakStalker
-    - id: WeaponPistolStalkerAPSBare
+    - id: WeaponPistolStalkerAPSBareMono
     - id: BaseAPSMag
     - id: BaseAPSMag
     - id: BaseAPSMag
@@ -858,7 +858,7 @@
     - id: ClothingBeltTarzanBlack
     - id: ClothingBackpackTacticBlackStalker
     - id: ClothingOuterCoatDoshdevik
-    - id: WeaponPistolStalkerAPSBare
+    - id: WeaponPistolStalkerAPSBareMono
     - id: BaseAPSMag
     - id: BaseAPSMag
     - id: BaseAPSMag

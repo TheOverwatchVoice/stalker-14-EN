@@ -3,6 +3,7 @@ using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.CartridgeLoader;
+using Content.Server.CartridgeLoader.Events;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
@@ -66,6 +67,14 @@ public sealed partial class STNewsSystem : EntitySystem
     /// <summary>Cached summary list, invalidated on publish/delete/comment. Avoids re-running regex strip on every UI open.</summary>
     private List<STNewsArticleSummary>? _cachedSummaries;
 
+    /// <summary>
+    /// Set by publish/delete/comment paths to request a UI broadcast on the next <see cref="Update"/> tick.
+    /// Coalesces bursts of mutation events into a single fan-out (vs. the prior pattern of one
+    /// full BroadcastUiUpdate per event). Distinct from <see cref="_reactionBroadcastPending"/>,
+    /// which has its own 1.5s debounce window for reaction-toggle traffic.
+    /// </summary>
+    private bool _broadcastPending;
+
     private WebhookIdentifier? _webhookId;
     private bool _cacheReady;
 
@@ -78,6 +87,7 @@ public sealed partial class STNewsSystem : EntitySystem
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeActivatedEvent>(OnCartridgeActivated);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeDeactivatedEvent>(OnCartridgeDeactivated);
+        SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeGetStateEvent>(OnGetState);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeMessageEvent>(OnMessage);
         SubscribeLocalEvent<STNewsCartridgeComponent, CartridgeAddedEvent>(OnCartridgeAdded);
         SubscribeLocalEvent<STNewsCartridgeComponent, STOpenNewsArticleEvent>(OnOpenArticle);
@@ -100,13 +110,17 @@ public sealed partial class STNewsSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_reactionBroadcastPending)
+        var reactionsReady = _reactionBroadcastPending && _timing.CurTime >= _nextReactionBroadcast;
+
+        if (!_broadcastPending && !reactionsReady)
             return;
 
-        if (_timing.CurTime < _nextReactionBroadcast)
-            return;
+        // Single fan-out covers both pending paths; clearing both flags prevents a redundant
+        // second broadcast in the same tick.
+        _broadcastPending = false;
+        if (reactionsReady)
+            _reactionBroadcastPending = false;
 
-        _reactionBroadcastPending = false;
         BroadcastUiUpdate();
     }
 
@@ -250,6 +264,26 @@ public sealed partial class STNewsSystem : EntitySystem
         _cartridgeLoader.UpdateCartridgeUiState(args.Loader, state);
     }
 
+    private void OnGetState(EntityUid uid, STNewsCartridgeComponent? comp, CartridgeGetStateEvent args)
+    {
+        if (!_cacheReady)
+            return;
+
+        if (!Resolve(uid, ref comp))
+            return;
+
+        var newIds = GetNewArticleIds(comp);
+        var canWrite = HasJournalistAccessForLoader(args.LoaderUid);
+        var deletableIds = GetDeletableArticleIdsForLoader(args.LoaderUid);
+        var newCommentIds = GetNewCommentArticleIds(comp);
+        var viewerUserId = ResolveViewerUserId(args.LoaderUid);
+        var articleReactions = BuildAllArticleReactions(viewerUserId);
+        var state = new STNewsUiState(
+            GetCachedSummaries(), canWrite, null, null, newIds,
+            false, null, deletableIds, newCommentIds, articleReactions);
+        args.State = state;
+    }
+
     private void OnCartridgeAdded(EntityUid uid, STNewsCartridgeComponent comp, CartridgeAddedEvent args)
     {
         _allLoaders.Add(args.Loader);
@@ -291,6 +325,7 @@ public sealed partial class STNewsSystem : EntitySystem
         _allLoaders.Clear();
         _cachedSummaries = null;
         _reactionBroadcastPending = false;
+        _broadcastPending = false;
     }
 
     #endregion
@@ -456,7 +491,7 @@ public sealed partial class STNewsSystem : EntitySystem
         DeleteArticleAsync(delete.ArticleId);
         DeleteReactionsForArticleAsync(delete.ArticleId);
 
-        BroadcastUiUpdate();
+        _broadcastPending = true;
     }
 
     private void OnPostComment(STNewsPostCommentEvent comment, CartridgeMessageEvent args)
@@ -656,7 +691,7 @@ public sealed partial class STNewsSystem : EntitySystem
             _cachedSummaries = null;
 
             SendDiscordArticle(article);
-            BroadcastUiUpdate();
+            _broadcastPending = true;
             SendNotifications(article);
         }
         catch (Exception e)
@@ -712,8 +747,9 @@ public sealed partial class STNewsSystem : EntitySystem
             list.Add(comment);
             _cachedSummaries = null; // Comment count changed
 
-            // Broadcast updates all active viewers, including those viewing this article
-            BroadcastUiUpdate();
+            // Broadcast updates all active viewers, including those viewing this article.
+            // Coalesced via _broadcastPending so a burst of comments collapses to one fan-out per tick.
+            _broadcastPending = true;
         }
         catch (Exception e)
         {
@@ -952,8 +988,8 @@ public sealed partial class STNewsSystem : EntitySystem
         if (!TryComp<BandsComponent>(uid, out var bands))
             return null;
 
-        // Only Clear Sky is disguised as Loners on PDA
-        if (bands.BandProto == ClearSkyBandId)
+        // Clear Sky shows as Loners only while their patch is hidden (disguised)
+        if (bands.IsDisguised && bands.BandProto == ClearSkyBandId)
             return _factionResolution.GetBandFactionName(bands.BandName);
 
         if (bands.BandProto is not { } bandProtoId)

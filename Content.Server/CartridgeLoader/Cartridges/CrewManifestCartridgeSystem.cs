@@ -3,6 +3,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.CCVar;
+using Content.Server.CartridgeLoader.Events;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -29,6 +30,7 @@ public sealed class CrewManifestCartridgeSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<CrewManifestCartridgeComponent, CartridgeMessageEvent>(OnUiMessage);
         SubscribeLocalEvent<CrewManifestCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
+        SubscribeLocalEvent<CrewManifestCartridgeComponent, CartridgeGetStateEvent>(OnGetState);
         SubscribeLocalEvent<ProgramInstallationAttempt>(OnInstallationAttempt);
         Subs.CVar(_configManager, CCVars.CrewManifestUnsecure, OnCrewManifestUnsecureChanged, true);
     }
@@ -50,6 +52,19 @@ public sealed class CrewManifestCartridgeSystem : EntitySystem
     private void OnUiReady(EntityUid uid, CrewManifestCartridgeComponent component, CartridgeUiReadyEvent args)
     {
         UpdateUiState(uid, args.Loader, component);
+    }
+
+    private void OnGetState(EntityUid uid, CrewManifestCartridgeComponent? component, CartridgeGetStateEvent args)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var owningStation = _stationSystem.GetOwningStation(uid);
+        if (owningStation is null)
+            return;
+
+        var (stationName, entries) = _crewManifest.GetCrewManifest(owningStation.Value);
+        args.State = new CrewManifestUiState(stationName, entries);
     }
 
     private void UpdateUiState(EntityUid uid, EntityUid loaderUid, CrewManifestCartridgeComponent? component)

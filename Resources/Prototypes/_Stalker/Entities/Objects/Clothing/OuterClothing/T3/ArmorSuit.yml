@@ -564,6 +564,8 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHatMonolith
     slot: head
+  - type: Contraband # EN
+    severity: Monolith
   - type: PersonalDamage
     damage:
       types:

@@ -160,7 +160,7 @@
     items:
       # Helmets #
       ClothingHeadHelmetSH68: 200 # T1 - PVP
-      ClothingHeadHelmetInfantry: 600 # T2 - PVP
+      ClothingHeadHelmetInfantryMilitary: 600 # T2 - PVP
       ClothingHeadAssaultHelmetMilitary: 1200 # T3 - PVP
       ClothingHeadHelmetBerill5MMilitary: 950 # T2 - PVP
       ClothingHeadHelmetVityaz1C: 2000 # T3 - PVP
@@ -674,6 +674,7 @@
       # Containers
       MedkitCMSStalker: 450 # T1
       MedkitGrizzlyStalker: 850 # T2
+      StalkerGunCaseMilitary: 1400
 
   - name: shop-category-raincoats-and-gasmasks
     priority: 8
@@ -910,3 +911,4 @@
       ClothingStalkerNeckToken: 50
       # Eyes
       ClothingEyesGlassesCheapSunglasses: 30
+      ClothingEyesGogglesBerill: 150

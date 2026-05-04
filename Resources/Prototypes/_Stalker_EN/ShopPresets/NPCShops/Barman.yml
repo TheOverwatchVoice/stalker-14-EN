@@ -29,7 +29,7 @@
     ArtMedusa: 540
     ZoneArtifactFlower: 810
     ZoneArtifactNightStar: 3240
-    ZoneArtifactWhirlwind: 500
+    ZoneArtifactWhirlwind: 810
     ZoneArtifactPebble: 540
     ZoneArtifactRosin: 810
     ZoneArtifactStoneCube: 1215
@@ -184,6 +184,7 @@
         STWeaponRevolverSWModel625: 1450
         STWeaponRevolverSWPC325TR: 350
         # SMGs
+        STWeaponSMGUMP: 1900
         STWeaponSMGMP40: 1000
         STWeaponSMGPPSh41: 2500
         STWeaponSMGPPS43: 1750
@@ -204,6 +205,7 @@
     - name: shop-category-magazines
       priority: 2
       items:
+        UMPMag25: 200
         Base2070Mag: 30
         TOZ106Mag5: 100
         HiPowerMag13: 140
@@ -394,10 +396,8 @@
         ClothingBeltPocketPouch: 450
         ClothingBeltHerbalistPouch: 450
         ClothingBeltCrafterStalker: 3000
-        MedkitCMSStalker: 250 # T1
-        MedkitGrizzlyStalker: 850 # T2
-        # Other
-        ClothingBackpackForestryRig: 500
+        StalkerGunCaseStandard: 1200 # im really not sure what a fair price is for these
+        #StalkerGunCaseDouble: 2550
 
     - name: shop-category-raincoats-and-gasmasks
       priority: 9

@@ -976,6 +976,7 @@
       - AstroNavCartridge
       - STMessengerCartridge # stalker-en-changes
       - STFactionRelationsCartridge # stalker-en-changes
+      - STLeaderboardCartridge # stalker-en-changes
       - STMercBoardCartridge # stalker-en-changes
       - STTradeBoardCartridge # stalker-en-changes
       - STNewsCartridge # stalker-en-changes

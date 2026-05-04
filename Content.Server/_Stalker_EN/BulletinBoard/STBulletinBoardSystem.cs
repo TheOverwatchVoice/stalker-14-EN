@@ -18,6 +18,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Server.CartridgeLoader.Events;
 
 namespace Content.Server._Stalker_EN.BulletinBoard;
 
@@ -72,6 +73,7 @@ public sealed class STBulletinBoardSystem : EntitySystem
         SubscribeLocalEvent<CartridgeLoaderComponent, EntityTerminatingEvent>(OnLoaderTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned);
+        SubscribeLocalEvent<STBulletinBoardComponent, CartridgeGetStateEvent>(OnGetState);
     }
 
     #region Cartridge Events
@@ -94,6 +96,14 @@ public sealed class STBulletinBoardSystem : EntitySystem
             TryLazyInit(args.Loader, ent, server);
 
         UpdateUiState(ent, args.Loader, server);
+    }
+
+    private void OnGetState(Entity<STBulletinBoardComponent> ent, ref CartridgeGetStateEvent args)
+    {
+        if (!TryComp<STBulletinServerComponent>(ent, out var server))
+            return;
+
+        args.State = BuildUiState(ent, server);
     }
 
     private void OnCartridgeActivated(Entity<STBulletinBoardComponent> ent, ref CartridgeActivatedEvent args)
@@ -658,8 +668,8 @@ public sealed class STBulletinBoardSystem : EntitySystem
         if (!TryComp<BandsComponent>(uid, out var bands))
             return null;
 
-        // Only Clear Sky is disguised as Loners on PDA
-        if (bands.BandProto == ClearSkyBandId)
+        // Clear Sky shows as Loners only while their patch is hidden (disguised)
+        if (bands.IsDisguised && bands.BandProto == ClearSkyBandId)
             return _factionResolution.GetBandFactionName(bands.BandName);
 
         if (bands.BandProto is not { } bandProtoId)

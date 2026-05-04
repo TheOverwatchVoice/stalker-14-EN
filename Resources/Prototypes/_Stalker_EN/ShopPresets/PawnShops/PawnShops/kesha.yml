@@ -102,9 +102,12 @@
     #5.45x39
     STWeaponRifleSaiga545: 400
     STWeaponRifleAKS74U: 450
+    STWeaponRifleAKS74UWhite: 950
     STWeaponRifleAKS74: 1500
+    STWeaponRifleAKS74Winter: 1900
     STWeaponRifleAK74M: 2175
     STWeaponRifleStalkerAK12: 2250
+    STWeaponRifleStalkerAK12MonoClean: 2850
     STWeaponRifleOC14: 2250
 
     #5.56x39
@@ -114,12 +117,14 @@
     STWeaponRifleM4: 1600
     STWeaponRifleGalil: 2250
     STWeaponRifleG36: 2175
+    STWeaponRifleG36MonoClean: 2650
     STWeaponRifleLR300v1: 1000
     STWeaponRifleLR300v2: 1000
 
     #7.62x39
     STWeaponRifleAKM: 1500
     STWeaponRifleAK103: 2500
+    STWeaponRifleAK103MonoClean: 2950
     STWeaponRifleStalkerAK104: 2750
     STWeaponMachineGunRPD: 4500
     STWeaponSniperSKS: 350
@@ -135,6 +140,7 @@
     #7.62x54
     STWeaponSniperMosin: 400
     STWeaponSniperSVDS: 5500
+    STWeaponSniperSVDMonoClean: 7500
     STWeaponSniperSVU: 5500
     STWeaponSniperVepr: 2000
 
@@ -145,6 +151,7 @@
     WeaponPistolStalkerGlock: 100
     WeaponStalkerPistolTec9: 100
     WeaponPistolStalkerAPS: 350
+    WeaponPistolStalkerAPSBare: 600
     STWeaponSMGMP40: 350
     STWeaponSMGMP5: 850
     STWeaponSMGPP91: 375
@@ -163,6 +170,7 @@
     STWeaponSniperVSS: 6000
 
     #.45 acp
+    STWeaponSMGUMP: 650
     STWeaponPistolUSP: 800
     STWeaponPistolM1911: 500
     STWeaponPistolM1911Chrome: 600
@@ -177,6 +185,8 @@
 
     #values
     TradeBox: 3000
+    STFoodJarWholeEelFermented: 4500
+    STDrinkJarMoonshine: 650
 
   categories:
     - name: shop-category-weapons

@@ -85,6 +85,7 @@
   id: ClothingOuterArmorBerill5MMonolith
   name: бронекостюм «Берилл-5М» монолита
   description: Бронекостюм, пренадлежащий группировке фанатиков. Обеспечивает отличную защиту по всем показателям, но делает из вас живую мишень.
+  suffix: ST, T4, Universal, Radioactive # EN
   components:
   - type: Sprite
     sprite: _Stalker/Objects/Clothing/outerClothing/berill5m_monolith.rsi
@@ -94,6 +95,8 @@
     damage:
       types:
         Radiation: 18.01
+  - type: Contraband # EN
+    severity: Monolith
   - type: GrantsArtifactSlots
     slots: 5 # EN
 

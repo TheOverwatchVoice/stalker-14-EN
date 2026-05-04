@@ -141,7 +141,7 @@ public sealed partial class STMessengerSystem
             // Refresh all active messenger UIs so contacts see this player's current faction.
             // Done here (after DB loads complete) rather than in InitializeMessengerForPda
             // to avoid a wasted broadcast before contacts are populated.
-            BroadcastUiUpdate();
+            MarkBroadcastPending(null);
         }
         catch (Exception ex)
         {

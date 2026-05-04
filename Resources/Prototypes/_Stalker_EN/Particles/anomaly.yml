@@ -1,3 +1,4 @@
+# Thermals
 - type: particleEffect
   id: BurnerSpark
   sprite:
@@ -165,6 +166,109 @@
   emitAngle: 0
   startRotationVariance: 180
   rotationSpeed: 25
+  rotationSpeedVariance: 25
+  shape:
+    type: CircleFill
+    radius: 0.2
+
+# Gravity
+- type: particleEffect
+  id: MulcherLeafs
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: curl
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.6
+    - time: 1
+      value: 0
+  startColor: "#3F5636"
+  lifetime: 1
+  lifetimeVariance: 0.25
+  speed: 1
+  speedVariance: 0.25
+  particleSize: 1
+  sizeVariance: 0.25
+  stretchFactor: 0
+  emissionRate: 5
+  maxCount: 10
+  burst: false
+  duration: 0
+  gravity: 0
+  drag: 2
+  spreadAngle: 360
+  emitAngle: 0
+  noiseStrength: 2
+  noiseFrequency: 10
+  startRotationVariance: 180
+  rotationSpeedVariance: 25
+  shape:
+    type: CircleFill
+    radius: 0.4
+
+- type: particleEffect
+  id: MulcherLeafsBig
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: curl
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.6
+    - time: 1
+      value: 0
+  startColor: "#3F5636"
+  lifetime: 1
+  lifetimeVariance: 0.25
+  speed: 1
+  speedVariance: 0.25
+  particleSize: 1
+  sizeVariance: 0.25
+  stretchFactor: 0
+  emissionRate: 10
+  maxCount: 15
+  burst: false
+  duration: 0
+  gravity: 0
+  drag: 2
+  spreadAngle: 360
+  emitAngle: 0
+  noiseStrength: 5
+  noiseFrequency: 10
+  startRotationVariance: 180
+  rotationSpeedVariance: 25
+  shape:
+    type: CircleFill
+    radius: 1.5
+
+- type: particleEffect
+  id: MulcherLeafsSpringboard
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: curl
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.6
+    - time: 1
+      value: 0
+  startColor: "#3F5636"
+  lifetime: 1
+  lifetimeVariance: 0.25
+  speed: 6
+  speedVariance: 3
+  particleSize: 1
+  sizeVariance: 0.25
+  stretchFactor: 0
+  emissionRate: 5
+  maxCount: 10
+  burst: false
+  duration: 0
+  gravity: 0
+  drag: 4
+  spreadAngle: 360
+  emitAngle: 0
+  noiseStrength: 1
+  noiseFrequency: 4
+  startRotationVariance: 180
   rotationSpeedVariance: 25
   shape:
     type: CircleFill

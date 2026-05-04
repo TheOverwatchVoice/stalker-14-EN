@@ -173,6 +173,8 @@ entities:
         moles:
           Oxygen: 21.82478
           Nitrogen: 82.10312
+    - type: RadiationGridResistance
+    - type: NavMap
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg

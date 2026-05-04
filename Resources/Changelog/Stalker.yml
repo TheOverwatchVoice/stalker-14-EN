@@ -2933,5 +2933,12 @@
   id: 322
   time: '2026-05-04T19:38:32.521826+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/908
+- author: dallaszzz
+  changes:
+  - message: New particle effects for fire and grav anoms
+    type: Add
+  id: 323
+  time: '2026-05-04T22:50:48.627351+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/913
 Name: Stalker
 Order: -1

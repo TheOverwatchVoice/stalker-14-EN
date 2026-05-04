@@ -2924,5 +2924,14 @@
   id: 321
   time: '2026-05-04T10:11:36.904139+00:00'
   url: https://github.com/stalker-14-EN/stalker-14-EN/pull/911
+- author: BELNAKBU
+  changes:
+  - message: Checkbox for people who dont wanna be in leaderboard.
+    type: Tweak
+  - message: Now every entries in leaderboard are cashed so no metagaming
+    type: Fix
+  id: 322
+  time: '2026-05-04T19:38:32.521826+00:00'
+  url: https://github.com/stalker-14-EN/stalker-14-EN/pull/908
 Name: Stalker
 Order: -1
